@@ -3,14 +3,13 @@
 
 import { createClientComponentClient, createServerComponentClient } from '@supabase/auth-helpers-nextjs'
 import { cookies } from 'next/headers'
-import { Database } from '@/types/supabase' // generate with: npx supabase gen types typescript
 
 // ── CLIENT-SIDE AUTH ─────────────────────────────────────────────────────────
-export const createClient = () => createClientComponentClient<Database>()
+export const createClient = () => createClientComponentClient()
 
 // ── SERVER-SIDE AUTH ─────────────────────────────────────────────────────────
 export const createServerClient = () =>
-  createServerComponentClient<Database>({ cookies })
+  createServerComponentClient({ cookies })
 
 // ── GET CURRENT USER (server component) ─────────────────────────────────────
 export async function getCurrentUser() {
