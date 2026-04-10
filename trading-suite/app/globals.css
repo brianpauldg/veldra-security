@@ -1,0 +1,114 @@
+:root {
+  --bg: #09090b;
+  --bg-raised: #111113;
+  --bg-surface: #18181b;
+  --text: #fafafa;
+  --text-secondary: #a1a1aa;
+  --text-muted: #71717a;
+  --border: #27272a;
+  --border-subtle: #1e1e21;
+  --primary: #a78bfa;
+  --primary-dim: #7c3aed;
+  --green: #4ade80;
+  --green-dim: #166534;
+  --red: #f87171;
+  --red-dim: #991b1b;
+  --yellow: #facc15;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: 'SF Mono', 'Fira Code', 'JetBrains Mono', ui-monospace, monospace;
+  background: var(--bg);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+}
+
+.ts-wrap {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 20px 16px;
+}
+
+.section {
+  background: var(--bg-raised);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 16px;
+}
+
+.section h1, .section h2, .section h3 {
+  margin: 0 0 8px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+
+.ts-home {
+  min-height: 80vh;
+  display: grid;
+  place-items: center;
+  padding: 40px 14px;
+  text-align: center;
+}
+
+.ts-home h1 {
+  margin: 0 0 6px;
+  font-size: 1.5rem;
+  font-weight: 500;
+  letter-spacing: -0.03em;
+  color: var(--text);
+}
+
+.ts-home p {
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.ts-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin-top: 12px;
+  padding: 8px 16px;
+  background: var(--bg-surface);
+  color: var(--text);
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  font-family: inherit;
+  font-size: 0.8rem;
+  font-weight: 500;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s;
+}
+
+.ts-button:hover {
+  background: var(--border);
+  border-color: #3f3f46;
+}
+
+select, input[type="text"], input[type="number"] {
+  background: var(--bg) !important;
+  color: var(--text) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: 6px;
+  font-family: inherit;
+  font-size: 0.82rem;
+  outline: none;
+}
+
+select:focus, input:focus {
+  border-color: var(--primary) !important;
+}
+
+@media (max-width: 760px) {
+  .section { padding: 12px; }
+  .ts-wrap { padding: 12px; }
+}

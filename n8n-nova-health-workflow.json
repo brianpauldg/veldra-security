@@ -1,0 +1,377 @@
+{
+  "name": "Nova Health — Agent Orchestration",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "nova-intake",
+        "options": {
+          "responseMode": "responseNode"
+        }
+      },
+      "id": "trigger-web-form",
+      "name": "Web Form Intake",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [0, 0],
+      "webhookId": "nova-intake",
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "nova-instantly-reply",
+        "options": {
+          "responseMode": "responseNode"
+        }
+      },
+      "id": "trigger-instantly",
+      "name": "Instantly Reply Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [0, 400],
+      "webhookId": "nova-instantly-reply",
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "mergeByFields": {},
+        "options": {}
+      },
+      "id": "merge-triggers",
+      "name": "Merge Triggers",
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2,
+      "position": [300, 200]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "set-name",
+              "name": "contactName",
+              "value": "={{ $json.body.name || $json.body.firstName + ' ' + ($json.body.lastName || '') }}",
+              "type": "string"
+            },
+            {
+              "id": "set-email",
+              "name": "contactEmail",
+              "value": "={{ $json.body.email }}",
+              "type": "string"
+            },
+            {
+              "id": "set-phone",
+              "name": "contactPhone",
+              "value": "={{ $json.body.phone || '' }}",
+              "type": "string"
+            },
+            {
+              "id": "set-message",
+              "name": "message",
+              "value": "={{ $json.body.message || $json.body.symptoms || $json.body.text || 'New lead submitted form' }}",
+              "type": "string"
+            },
+            {
+              "id": "set-source",
+              "name": "source",
+              "value": "={{ $json.body.source || 'web-form' }}",
+              "type": "string"
+            },
+            {
+              "id": "set-interest",
+              "name": "interest",
+              "value": "={{ $json.body.interest || $json.body.treatment || 'unknown' }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "normalize-data",
+      "name": "Normalize Lead Data",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [540, 200]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "={{ $env.NOVA_APP_URL }}/api/agent/qualifier",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ message: $json.message, contact: { name: $json.contactName, email: $json.contactEmail, phone: $json.contactPhone, source: $json.source, interest: $json.interest } }) }}",
+        "options": {
+          "timeout": 60000
+        }
+      },
+      "id": "call-qualifier",
+      "name": "1. Qualifier Agent",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4,
+      "position": [800, 200],
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "nova-agent-auth",
+          "name": "Nova Agent API Key"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "is-hot",
+              "leftValue": "={{ $json.structured.segment }}",
+              "rightValue": "HOT",
+              "operator": {
+                "type": "string",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "route-segment",
+      "name": "Hot Lead?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "onError": "continueErrorOutput",
+      "position": [1060, 200]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "={{ $env.NOVA_APP_URL }}/api/agent/clinical-intake",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ message: 'Begin clinical intake for this qualified lead. Ask about symptoms, medical history, and medications.', contact: $('1. Qualifier Agent').item.json.structured }) }}",
+        "options": {
+          "timeout": 60000
+        }
+      },
+      "id": "call-clinical",
+      "name": "2. Clinical Intake Agent",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4,
+      "position": [1340, 80],
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "nova-agent-auth",
+          "name": "Nova Agent API Key"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "={{ $env.NOVA_APP_URL }}/api/agent/content",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ message: 'Generate a nurture email sequence for a WARM/COLD lead interested in ' + $('1. Qualifier Agent').item.json.structured.primary_interest + '. Lead name: ' + $('1. Qualifier Agent').item.json.structured.name, contact: $('1. Qualifier Agent').item.json.structured }) }}",
+        "options": {
+          "timeout": 60000
+        }
+      },
+      "id": "call-content-nurture",
+      "name": "2b. Content Agent (Nurture)",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4,
+      "position": [1340, 360],
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "nova-agent-auth",
+          "name": "Nova Agent API Key"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "={{ $env.NOVA_APP_URL }}/api/agent/content",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ message: 'Generate a welcome email and intake reminder SMS for this HOT qualified lead. Name: ' + $('1. Qualifier Agent').item.json.structured.name + ', Interest: ' + $('1. Qualifier Agent').item.json.structured.primary_interest, contact: $('1. Qualifier Agent').item.json.structured }) }}",
+        "options": {
+          "timeout": 60000
+        }
+      },
+      "id": "call-content-welcome",
+      "name": "3. Content Agent (Welcome)",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4,
+      "position": [1620, 80],
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "nova-agent-auth",
+          "name": "Nova Agent API Key"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://services.leadconnectorhq.com/contacts/",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ firstName: ($('1. Qualifier Agent').item.json.structured.name || '').split(' ')[0], lastName: ($('1. Qualifier Agent').item.json.structured.name || '').split(' ').slice(1).join(' '), email: $('1. Qualifier Agent').item.json.structured.email, phone: $('1. Qualifier Agent').item.json.structured.phone, source: 'Nova Health AI Pipeline', tags: $('1. Qualifier Agent').item.json.ghl.tags, customFields: [{ key: 'qualifier_score', value: String($('1. Qualifier Agent').item.json.structured.score) }, { key: 'segment', value: $('1. Qualifier Agent').item.json.structured.segment }, { key: 'primary_interest', value: $('1. Qualifier Agent').item.json.structured.primary_interest }] }) }}",
+        "options": {
+          "timeout": 10000
+        }
+      },
+      "id": "ghl-create-contact",
+      "name": "GHL: Create/Update Contact",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4,
+      "position": [1060, -120],
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "ghl-api-key",
+          "name": "GHL API Key"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "={{ 'https://services.leadconnectorhq.com/opportunities/' }}",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ pipelineId: $('1. Qualifier Agent').item.json.ghl.pipelineId, pipelineStageId: $('1. Qualifier Agent').item.json.ghl.stageId, contactId: $('GHL: Create/Update Contact').item.json.contact?.id || $('GHL: Create/Update Contact').item.json.id, name: $('1. Qualifier Agent').item.json.structured.name + ' - ' + $('1. Qualifier Agent').item.json.structured.primary_interest, status: 'open', source: 'AI Qualifier Agent' }) }}",
+        "options": {}
+      },
+      "id": "ghl-create-opportunity",
+      "name": "GHL: Create Opportunity",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4,
+      "position": [1340, -120],
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "ghl-api-key",
+          "name": "GHL API Key"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ JSON.stringify({ success: true, agent: '1. Qualifier Agent', segment: $('1. Qualifier Agent').item.json.structured?.segment, score: $('1. Qualifier Agent').item.json.structured?.score }) }}",
+        "options": {}
+      },
+      "id": "respond-webhook",
+      "name": "Respond OK",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.5,
+      "position": [1900, 200]
+    }
+  ],
+  "connections": {
+    "Web Form Intake": {
+      "main": [
+        [
+          { "node": "Merge Triggers", "type": "main", "index": 0 }
+        ]
+      ]
+    },
+    "Instantly Reply Webhook": {
+      "main": [
+        [
+          { "node": "Merge Triggers", "type": "main", "index": 1 }
+        ]
+      ]
+    },
+    "Merge Triggers": {
+      "main": [
+        [
+          { "node": "Normalize Lead Data", "type": "main", "index": 0 }
+        ]
+      ]
+    },
+    "Normalize Lead Data": {
+      "main": [
+        [
+          { "node": "1. Qualifier Agent", "type": "main", "index": 0 },
+          { "node": "GHL: Create/Update Contact", "type": "main", "index": 0 }
+        ]
+      ]
+    },
+    "1. Qualifier Agent": {
+      "main": [
+        [
+          { "node": "Hot Lead?", "type": "main", "index": 0 }
+        ]
+      ]
+    },
+    "Hot Lead?": {
+      "main": [
+        [
+          { "node": "2. Clinical Intake Agent", "type": "main", "index": 0 }
+        ],
+        [
+          { "node": "2b. Content Agent (Nurture)", "type": "main", "index": 0 }
+        ]
+      ]
+    },
+    "2. Clinical Intake Agent": {
+      "main": [
+        [
+          { "node": "3. Content Agent (Welcome)", "type": "main", "index": 0 }
+        ]
+      ]
+    },
+    "3. Content Agent (Welcome)": {
+      "main": [
+        [
+          { "node": "Respond OK", "type": "main", "index": 0 }
+        ]
+      ]
+    },
+    "2b. Content Agent (Nurture)": {
+      "main": [
+        [
+          { "node": "Respond OK", "type": "main", "index": 0 }
+        ]
+      ]
+    },
+    "GHL: Create/Update Contact": {
+      "main": [
+        [
+          { "node": "GHL: Create Opportunity", "type": "main", "index": 0 }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "saveManualExecutions": true,
+    "callerPolicy": "workflowsFromSameOwner",
+    "errorWorkflow": ""
+  },
+  "staticData": null,
+  "tags": [
+    { "name": "nova-health" },
+    { "name": "ai-agents" },
+    { "name": "production" }
+  ]
+}

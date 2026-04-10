@@ -1,32 +1,131 @@
-:root{
-  --bg: #f7f7f7;
-  --silver: #C0C0C0;
-  --charcoal: #2b3338;
-  --muted: #6b7280;
-  --container: #ffffff;
-  --radius: 12px;
+@import "tailwindcss";
+
+@theme {
+  --color-nova-50: #f0f9f6;
+  --color-nova-100: #d9f0e8;
+  --color-nova-200: #b3e1d1;
+  --color-nova-300: #80ccb3;
+  --color-nova-400: #4db393;
+  --color-nova-500: #1a9a73;
+  --color-nova-600: #147a5c;
+  --color-nova-700: #0f5b45;
+  --color-nova-800: #0a3d2e;
+  --color-nova-900: #051e17;
+
+  --color-graphite-50: #f8f8f9;
+  --color-graphite-100: #f0f0f2;
+  --color-graphite-200: #e2e2e6;
+  --color-graphite-300: #c8c8cf;
+  --color-graphite-400: #a0a0ab;
+  --color-graphite-500: #71717a;
+  --color-graphite-600: #52525b;
+  --color-graphite-700: #3f3f46;
+  --color-graphite-800: #27272a;
+  --color-graphite-900: #18181b;
+  --color-graphite-950: #09090b;
+
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-display: 'Inter', system-ui, -apple-system, sans-serif;
 }
-*{box-sizing:border-box}
-html,body,#root{height:100%}
-body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;background:var(--bg);color:var(--charcoal)}
-.vd-wrap{max-width:1100px;margin:48px auto;padding:36px;background:linear-gradient(180deg, rgba(255,255,255,0.9), rgba(255,255,255,0.98));border-radius:var(--radius);box-shadow:0 6px 30px rgba(16,24,40,0.06)}
-.vd-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px}
-.vd-logo{display:flex;gap:12px;align-items:center}
-.vd-mark{width:44px;height:44px;border-radius:10px;background:linear-gradient(135deg,var(--silver),#d9d9d9);display:flex;align-items:center;justify-content:center;color:var(--charcoal);font-weight:700}
-.vd-name{font-weight:600}
-.vd-sub{font-size:12px;color:var(--muted);margin-top:2px}
-.vd-nav{display:flex;gap:12px}
-.vd-btn{padding:10px 16px;border-radius:10px;border:1px solid var(--charcoal);background:transparent;color:var(--charcoal);font-weight:600;text-decoration:none}
-.vd-primary{background:var(--charcoal);color:#fff;border-color:var(--charcoal)}
-.vd-hero{display:flex;gap:40px;align-items:center}
-.vd-hero-left{flex:1}
-.vd-lead{margin:12px 0 24px;color:var(--muted);max-width:720px}
-.vd-hero-ctas{display:flex;gap:12px;margin-top:18px}
-.vd-hero-right{width:360px;max-width:40%}
-.vd-preview{height:220px;border-radius:12px;background:linear-gradient(180deg,#fff,#f6f7f8);border:1px solid var(--silver);display:flex;align-items:center;justify-content:center;color:var(--muted)}
-.vd-features{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:36px}
-.vd-card{background:var(--container);padding:18px;border-radius:10px;border:1px solid rgba(43,51,56,0.06)}
-.vd-card h3{margin:0 0 8px;color:var(--charcoal);font-size:16px}
-.vd-muted{margin:0;color:var(--muted);font-size:14px}
-.vd-footer{margin-top:36px;color:var(--muted);font-size:14px;display:flex;justify-content:space-between;align-items:center}
-@media (max-width:800px){.vd-hero{flex-direction:column}.vd-features{grid-template-columns:1fr}}
+
+/* ─── Base ─────────────────────────────────────────────── */
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-sans);
+  color: var(--color-graphite-900);
+  background: #ffffff;
+}
+
+::selection {
+  background: var(--color-nova-200);
+  color: var(--color-graphite-950);
+}
+
+/* ─── Premium Typography ───────────────────────────────── */
+.text-display-xl {
+  font-size: 4.5rem;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  font-weight: 700;
+}
+
+.text-display-lg {
+  font-size: 3.5rem;
+  line-height: 1.08;
+  letter-spacing: -0.025em;
+  font-weight: 700;
+}
+
+.text-display {
+  font-size: 2.75rem;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  font-weight: 700;
+}
+
+.text-display-sm {
+  font-size: 2rem;
+  line-height: 1.15;
+  letter-spacing: -0.015em;
+  font-weight: 600;
+}
+
+/* ─── Premium Gradients ────────────────────────────────── */
+.gradient-dark {
+  background: linear-gradient(180deg, #09090b 0%, #18181b 100%);
+}
+
+.gradient-hero {
+  background: linear-gradient(135deg, #09090b 0%, #0f1a14 50%, #09090b 100%);
+}
+
+.gradient-card {
+  background: linear-gradient(135deg, rgba(26, 154, 115, 0.05) 0%, rgba(26, 154, 115, 0.02) 100%);
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, #1a9a73 0%, #4db393 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ─── Smooth Scroll Sections ───────────────────────────── */
+.section-fade {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.section-fade.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ─── Premium Glass Effect ─────────────────────────────── */
+.glass {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glass-light {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* ─── Responsive Typography ────────────────────────────── */
+@media (max-width: 768px) {
+  .text-display-xl { font-size: 2.5rem; }
+  .text-display-lg { font-size: 2rem; }
+  .text-display { font-size: 1.75rem; }
+  .text-display-sm { font-size: 1.5rem; }
+}
