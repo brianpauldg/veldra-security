@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server'
 import { createNotification } from '@/lib/clinic/mcp-adapter'
 import { logAudit } from '@/lib/clinic/audit'
 import { createTask, createAlert, createInsight } from '@/lib/clinic/data-service'
+import { pushNotify } from '@/lib/clinic/push-notify'
 import { z } from 'zod'
 
 /**
@@ -78,7 +79,7 @@ export async function POST(req: NextRequest) {
           actionUrl: '/clinic',
         })
 
-        // If HOT lead, create a task
+        // If HOT lead, create a task + push email
         if (segment === 'HOT') {
           createTask({
             type: 'patient_outreach',
@@ -90,6 +91,15 @@ export async function POST(req: NextRequest) {
             assigneeName: 'Sarah Chen',
             dueDate: new Date(Date.now() + 24 * 60 * 60 * 1000).toISOString().split('T')[0],
             createdBy: agentId || 'n8n-qualifier',
+          })
+
+          // Push email for HOT leads
+          await pushNotify({
+            title: `New HOT Lead: ${name}`,
+            message: `Score: ${score}/100. Interest: ${interest}. Source: ${source}.\n\nThis lead is ready for clinical intake and consultation booking. Task assigned to Sarah Chen.`,
+            severity: 'high',
+            actionUrl: '/clinic',
+            source: 'n8n-qualifier',
           })
         }
         break
@@ -122,16 +132,15 @@ export async function POST(req: NextRequest) {
           createdBy: agentId || 'n8n-clinical',
         })
 
-        // If red flags, create an alert
+        // If red flags, create an alert + push SMS + email (critical)
         const redFlags = data.red_flags as string[]
         if (redFlags?.length) {
-          createNotification({
-            recipientId: 'usr_admin_001',
-            type: 'alert',
+          await pushNotify({
             title: `Red Flags: ${patientName}`,
-            message: `Clinical intake flagged: ${redFlags.join(', ')}`,
+            message: `Clinical intake flagged critical concerns:\n${redFlags.join('\n')}\n\nTreatment track: ${track}. Urgency: ${urgency}. Immediate provider review required.`,
             severity: 'critical',
             actionUrl: '/clinic/alerts',
+            source: 'n8n-clinical-intake',
           })
         }
         break
@@ -172,13 +181,13 @@ export async function POST(req: NextRequest) {
       }
 
       case 'workflow_error': {
-        createNotification({
-          recipientId: 'usr_admin_001',
-          type: 'system',
+        // Workflow errors are critical — push SMS + email + dashboard
+        await pushNotify({
           title: `Workflow Error: ${data.workflow || 'unknown'}`,
-          message: `Error in n8n workflow: ${data.error || 'Unknown error'}. Node: ${data.node || 'unknown'}.`,
+          message: `Error in n8n workflow: ${data.error || 'Unknown error'}.\nNode: ${data.node || 'unknown'}.\n\nThis may affect patient intake or lead processing.`,
           severity: 'critical',
           actionUrl: '/clinic/settings',
+          source: 'n8n',
         })
         break
       }
@@ -234,6 +243,17 @@ export async function POST(req: NextRequest) {
             assigneeName: 'Dr. Martinez',
             dueDate: new Date(Date.now() + 2 * 24 * 60 * 60 * 1000).toISOString().split('T')[0],
             createdBy: 'n8n-lab-integration',
+          })
+
+          // Push email for abnormal labs
+          await pushNotify({
+            title: `Abnormal Labs: ${patientName}`,
+            message: `${abnormals.length} abnormal result(s): ${abnormals.join(', ')}.\n\nLab review task created and assigned to Dr. Martinez.`,
+            severity: 'high',
+            patientId: data.patientId as string,
+            patientName,
+            actionUrl: data.patientId ? `/clinic/patients/${data.patientId}` : '/clinic/patients',
+            source: 'n8n-lab-integration',
           })
         }
         break

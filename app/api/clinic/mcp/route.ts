@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { mcpTools, logAgentAction, createNotification } from '@/lib/clinic/mcp-adapter'
 import { logAudit, sanitizeForLog } from '@/lib/clinic/audit'
+import { pushNotify } from '@/lib/clinic/push-notify'
 import {
   getPatientSummary, getPatientLabs, getPatientVitals,
   getPatientsRequiringAttention, createAlert, createTask,
@@ -122,6 +123,19 @@ export async function POST(req: NextRequest) {
             rationale: input.rationale,
           })
           output = { alertId: alert.id, created: true }
+
+          // Push email/SMS for critical+high risk flags
+          if (input.severity === 'critical' || input.severity === 'high') {
+            await pushNotify({
+              title: input.title,
+              message: `${input.description}\n\nRationale: ${input.rationale}`,
+              severity: input.severity,
+              patientId: patient.id,
+              patientName: `${patient.firstName} ${patient.lastName}`,
+              actionUrl: `/clinic/patients/${patient.id}`,
+              source: `agent:${agentId}`,
+            })
+          }
         }
         break
       }
