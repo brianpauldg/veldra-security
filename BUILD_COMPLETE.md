@@ -1,4 +1,4 @@
-# 🎉 VelDra Launch Summary
+# 🎉 Nova Health Launch Summary
 
 ## What You Have
 
@@ -20,7 +20,7 @@ Professional services firms with 10-200 employees:
 - Need industry-specific automation
 
 ### Your Solution
-**VelDra** - An AI-powered operations assistant that:
+**Nova Health** - An AI-powered operations assistant that:
 - Automates **70-80% of manual operations work**
 - Costs **$499-$999/month** (3 tiers)
 - Shows **breakeven in 11-30 days**
@@ -184,7 +184,7 @@ npm run dev
 |--------|-------|
 | Operations Staff | 5 people |
 | Annual Cost | $325,000 |
-| VelDra Monthly | $749 |
+| Nova Health Monthly | $749 |
 | Annual Savings (75%) | $183,000 |
 | Net Savings/Year | $174,000 |
 | Breakeven | 19 days |
@@ -195,7 +195,7 @@ npm run dev
 |--------|-------|
 | Operations Staff | 10 people |
 | Annual Cost | $550,000 |
-| VelDra Monthly | $749 |
+| Nova Health Monthly | $749 |
 | Annual Savings | $309,000 |
 | Net Savings/Year | $300,000 |
 | Breakeven | 11 days |
@@ -261,7 +261,7 @@ AI: "I've found 3 automations. Combined time savings: 6 hours/week"
 #### Tab 4: ROI Dashboard
 ```
 Current Cost: $325,000/year for 5 operations staff
-With VelDra: $174,000 net savings/year
+With Nova Health: $174,000 net savings/year
 Breakeven: 19 days
 Your payback period: 27 days
 Annual ROI: 2,322%

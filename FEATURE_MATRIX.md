@@ -1,4 +1,4 @@
-# VelDra - Feature Matrix & Status
+# Nova Health - Feature Matrix & Status
 
 ## ✅ Fully Implemented (Ready to Use)
 

@@ -1,5 +1,5 @@
 {
-  "name": "Nova Health — Agent Orchestration",
+  "name": "Nova Health — Agent Orchestration + Clinical Dashboard",
   "nodes": [
     {
       "parameters": {
@@ -153,6 +153,31 @@
     {
       "parameters": {
         "method": "POST",
+        "url": "={{ $env.NOVA_APP_URL }}/api/clinic/n8n-webhook",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ event: 'lead_qualified', source: 'n8n-qualifier', agentId: 'qualifier-agent', data: { name: $('1. Qualifier Agent').item.json.structured.name, email: $('1. Qualifier Agent').item.json.structured.email, phone: $('1. Qualifier Agent').item.json.structured.phone, score: $('1. Qualifier Agent').item.json.structured.score, segment: $('1. Qualifier Agent').item.json.structured.segment, primary_interest: $('1. Qualifier Agent').item.json.structured.primary_interest, next_action: $('1. Qualifier Agent').item.json.structured.next_action } }) }}",
+        "options": {
+          "timeout": 10000
+        }
+      },
+      "id": "notify-dashboard-qualified",
+      "name": "Dashboard: Lead Qualified",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4,
+      "position": [1060, -60],
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "nova-agent-auth",
+          "name": "Nova Agent API Key"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
         "url": "={{ $env.NOVA_APP_URL }}/api/agent/clinical-intake",
         "authentication": "genericCredentialType",
         "genericAuthType": "httpHeaderAuth",
@@ -168,6 +193,31 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.4,
       "position": [1340, 80],
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "nova-agent-auth",
+          "name": "Nova Agent API Key"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "={{ $env.NOVA_APP_URL }}/api/clinic/n8n-webhook",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ event: 'clinical_intake_completed', source: 'n8n-clinical', agentId: 'clinical-intake-agent', data: { name: $('1. Qualifier Agent').item.json.structured.name, intake_complete: $json.structured?.intake_complete, symptom_severity: $json.structured?.symptom_severity, primary_complaints: $json.structured?.primary_complaints, red_flags: $json.structured?.red_flags || [], labs_required: $json.structured?.labs_required || [], treatment_track: $json.structured?.treatment_track, urgency: $json.structured?.urgency || 'routine', provider_notes: $json.structured?.provider_notes } }) }}",
+        "options": {
+          "timeout": 10000
+        }
+      },
+      "id": "notify-dashboard-intake",
+      "name": "Dashboard: Intake Complete",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4,
+      "position": [1620, -40],
       "credentials": {
         "httpHeaderAuth": {
           "id": "nova-agent-auth",
@@ -228,6 +278,31 @@
     {
       "parameters": {
         "method": "POST",
+        "url": "={{ $env.NOVA_APP_URL }}/api/clinic/n8n-webhook",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ event: 'content_generated', source: 'n8n-content', agentId: 'content-agent', data: { message_type: $json.structured?.message_type || 'welcome', channel: $json.structured?.channel || 'email', recipient: $('1. Qualifier Agent').item.json.structured.name, subject: $json.structured?.subject } }) }}",
+        "options": {
+          "timeout": 10000
+        }
+      },
+      "id": "notify-dashboard-content",
+      "name": "Dashboard: Content Sent",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4,
+      "position": [1900, -40],
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "nova-agent-auth",
+          "name": "Nova Agent API Key"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
         "url": "https://services.leadconnectorhq.com/contacts/",
         "authentication": "genericCredentialType",
         "genericAuthType": "httpHeaderAuth",
@@ -242,7 +317,7 @@
       "name": "GHL: Create/Update Contact",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.4,
-      "position": [1060, -120],
+      "position": [1060, -200],
       "credentials": {
         "httpHeaderAuth": {
           "id": "ghl-api-key",
@@ -265,7 +340,7 @@
       "name": "GHL: Create Opportunity",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.4,
-      "position": [1340, -120],
+      "position": [1340, -200],
       "credentials": {
         "httpHeaderAuth": {
           "id": "ghl-api-key",
@@ -275,15 +350,65 @@
     },
     {
       "parameters": {
+        "method": "POST",
+        "url": "={{ $env.NOVA_APP_URL }}/api/clinic/n8n-webhook",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ event: 'ghl_opportunity_created', source: 'n8n-ghl', data: { name: $('1. Qualifier Agent').item.json.structured.name, stage: 'qualified', contactId: $('GHL: Create/Update Contact').item.json.contact?.id } }) }}",
+        "options": {
+          "timeout": 10000
+        }
+      },
+      "id": "notify-dashboard-ghl",
+      "name": "Dashboard: GHL Synced",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4,
+      "position": [1620, -200],
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "nova-agent-auth",
+          "name": "Nova Agent API Key"
+        }
+      }
+    },
+    {
+      "parameters": {
         "respondWith": "json",
-        "responseBody": "={{ JSON.stringify({ success: true, agent: '1. Qualifier Agent', segment: $('1. Qualifier Agent').item.json.structured?.segment, score: $('1. Qualifier Agent').item.json.structured?.score }) }}",
+        "responseBody": "={{ JSON.stringify({ success: true, agent: '1. Qualifier Agent', segment: $('1. Qualifier Agent').item.json.structured?.segment, score: $('1. Qualifier Agent').item.json.structured?.score, dashboardNotified: true }) }}",
         "options": {}
       },
       "id": "respond-webhook",
       "name": "Respond OK",
       "type": "n8n-nodes-base.respondToWebhook",
       "typeVersion": 1.5,
-      "position": [1900, 200]
+      "position": [2100, 200]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "={{ $env.NOVA_APP_URL }}/api/clinic/n8n-webhook",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ event: 'workflow_completed', source: 'n8n', data: { workflow: 'Agent Orchestration', summary: 'Lead processed: ' + ($('1. Qualifier Agent').item.json.structured?.name || 'unknown') + ' [' + ($('1. Qualifier Agent').item.json.structured?.segment || 'unknown') + ']' } }) }}",
+        "options": {
+          "timeout": 10000
+        }
+      },
+      "id": "notify-dashboard-complete",
+      "name": "Dashboard: Workflow Done",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4,
+      "position": [2100, -60],
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "nova-agent-auth",
+          "name": "Nova Agent API Key"
+        }
+      }
     }
   ],
   "connections": {
@@ -319,7 +444,8 @@
     "1. Qualifier Agent": {
       "main": [
         [
-          { "node": "Hot Lead?", "type": "main", "index": 0 }
+          { "node": "Hot Lead?", "type": "main", "index": 0 },
+          { "node": "Dashboard: Lead Qualified", "type": "main", "index": 0 }
         ]
       ]
     },
@@ -336,14 +462,16 @@
     "2. Clinical Intake Agent": {
       "main": [
         [
-          { "node": "3. Content Agent (Welcome)", "type": "main", "index": 0 }
+          { "node": "3. Content Agent (Welcome)", "type": "main", "index": 0 },
+          { "node": "Dashboard: Intake Complete", "type": "main", "index": 0 }
         ]
       ]
     },
     "3. Content Agent (Welcome)": {
       "main": [
         [
-          { "node": "Respond OK", "type": "main", "index": 0 }
+          { "node": "Respond OK", "type": "main", "index": 0 },
+          { "node": "Dashboard: Content Sent", "type": "main", "index": 0 }
         ]
       ]
     },
@@ -360,6 +488,32 @@
           { "node": "GHL: Create Opportunity", "type": "main", "index": 0 }
         ]
       ]
+    },
+    "GHL: Create Opportunity": {
+      "main": [
+        [
+          { "node": "Dashboard: GHL Synced", "type": "main", "index": 0 }
+        ]
+      ]
+    },
+    "Dashboard: GHL Synced": {
+      "main": [
+        [
+          { "node": "Dashboard: Workflow Done", "type": "main", "index": 0 }
+        ]
+      ]
+    },
+    "Dashboard: Lead Qualified": {
+      "main": []
+    },
+    "Dashboard: Intake Complete": {
+      "main": []
+    },
+    "Dashboard: Content Sent": {
+      "main": []
+    },
+    "Dashboard: Workflow Done": {
+      "main": []
     }
   },
   "settings": {
@@ -372,6 +526,7 @@
   "tags": [
     { "name": "nova-health" },
     { "name": "ai-agents" },
+    { "name": "clinical-dashboard" },
     { "name": "production" }
   ]
 }

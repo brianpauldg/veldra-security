@@ -32,7 +32,7 @@ export async function GET(request: NextRequest) {
       
       // Validate redirect destination (prevent open redirect attacks)
       const allowedOrigins = [
-        process.env.NEXT_PUBLIC_APP_URL || 'https://app.veldra.io',
+        process.env.NEXT_PUBLIC_APP_URL || 'https://app.novahealth.io',
         'http://localhost:3000',
       ]
       

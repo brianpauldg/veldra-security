@@ -1,4 +1,4 @@
-# VelDra Implementation Checklist
+# Nova Health Implementation Checklist
 
 ## Phase 1: Core Setup ✅ COMPLETE
 

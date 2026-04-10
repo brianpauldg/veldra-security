@@ -1,5 +1,5 @@
 /**
- * Database initialization script for VelDra AI Operations Assistant
+ * Database initialization script for Nova Health
  * Creates tables and functions for multi-vertical SaaS
  */
 

@@ -1,12 +1,12 @@
-# VELDRA — Complete Deployment Guide
-# Security-hardened + Integrated with veldra.io
+# Nova Health — Complete Deployment Guide
+# Security-hardened + Integrated with novahealth.io
 
 ## ════════════════════════════════════════
 ## STEP 1 — SUPABASE SETUP (30 minutes)
 ## ════════════════════════════════════════
 
 1. Go to supabase.com → Create new project
-   - Name: veldra-production
+   - Name: novahealth-production
    - Database password: generate strong password (save it)
    - Region: West US (closest to Irvine, CA)
 
@@ -19,8 +19,8 @@
    - Enable Azure (for Microsoft sign-in)
 
 4. Go to Authentication → URL Configuration:
-   - Site URL: https://app.veldra.io
-   - Redirect URLs: https://app.veldra.io/auth/callback
+   - Site URL: https://app.novahealth.io
+   - Redirect URLs: https://app.novahealth.io/auth/callback
 
 5. Go to Storage → Create bucket:
    - Name: documents
@@ -137,7 +137,7 @@ export default async function DashboardPage() {
 1. Push your code to GitHub (make sure .env.local is in .gitignore)
 
 2. Go to vercel.com → Add New Project → Import from GitHub
-   - Select your VELDRA repo
+   - Select your Nova Health repo
    - Framework: Next.js (auto-detected)
    - Root directory: . (default)
 
@@ -147,32 +147,32 @@ export default async function DashboardPage() {
 
 4. Set Custom Domain:
    - Go to Settings → Domains
-   - Add: app.veldra.io
+   - Add: app.novahealth.io
    - Vercel gives you DNS records → add to Cloudflare
 
 5. Deploy → Vercel builds and deploys automatically
 
 ## ════════════════════════════════════════
-## STEP 9 — CONNECT VELDRA.IO TO THE APP
+## STEP 9 — CONNECT Nova Health.IO TO THE APP
 ## ════════════════════════════════════════
 
-Update veldra.io (veldra_FINAL_SITE.html):
-- All "Start Free Trial" buttons → https://app.veldra.io/signup
+Update novahealth.io (veldra_FINAL_SITE.html):
+- All "Start Free Trial" buttons → https://app.novahealth.io/signup
 - All "Book Demo" buttons → keep as cal.com/brian-deguzman
 
 The Stripe payment links currently on the site can stay for 
-direct checkout OR redirect to app.veldra.io/signup after payment
+direct checkout OR redirect to app.novahealth.io/signup after payment
 via a Stripe webhook → Supabase profile update.
 
 ## ════════════════════════════════════════
-## STEP 10 — CLOUDFLARE DNS FOR app.veldra.io
+## STEP 10 — CLOUDFLARE DNS FOR app.novahealth.io
 ## ════════════════════════════════════════
 
-In Cloudflare for veldra.io → DNS → Add records:
+In Cloudflare for novahealth.io → DNS → Add records:
 
 Type: CNAME | Name: app | Target: cname.vercel-dns.com | Proxy: OFF (grey)
 
-That's it. app.veldra.io → your Vercel deployment.
+That's it. app.novahealth.io → your Vercel deployment.
 
 ## ════════════════════════════════════════
 ## SECURITY CHECKLIST — VERIFY BEFORE LAUNCH
@@ -190,7 +190,7 @@ That's it. app.veldra.io → your Vercel deployment.
 [ ] Rate limiting active on /login
 [ ] Audit logs recording all sensitive actions
 [ ] CORS set correctly in Supabase dashboard
-[ ] Google/Microsoft OAuth redirect URIs set to app.veldra.io only
+[ ] Google/Microsoft OAuth redirect URIs set to app.novahealth.io only
 
 ## ════════════════════════════════════════
 ## PACKAGES USED — WHAT EACH DOES
@@ -210,4 +210,4 @@ crypto (built-in Node.js)      — AES-256-GCM encryption (no install needed)
 3. Review audit_logs table for unusual patterns
 4. Rotate ENCRYPTION_KEY annually (requires re-encrypting all data)
 5. Review Vercel deployment logs for errors
-6. Check securityheaders.com → app.veldra.io for header score
+6. Check securityheaders.com → app.novahealth.io for header score

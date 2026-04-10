@@ -1,6 +1,6 @@
 # Trading Suite (Standalone)
 
-A self-contained Next.js trading simulation app built as an AI senior analyst gamified product. This is saved in `trading-suite/` as a separate project from the main VelDra platform.
+A self-contained Next.js trading simulation app built as an AI senior analyst gamified product. This is saved in `trading-suite/` as a separate project from the main Nova Health platform.
 
 ## Overview
 

@@ -1,5 +1,5 @@
 -- ============================================================
--- VELDRA — Supabase Database Setup
+-- Nova Health — Supabase Database Setup
 -- Run this in Supabase SQL Editor
 -- ============================================================
 

@@ -1,6 +1,6 @@
-# VELDRA — Vercel Deployment Guide
+# Nova Health — Vercel Deployment Guide
 
-This guide walks you through deploying Veldra to Vercel with all necessary environment variables and webhook configuration.
+This guide walks you through deploying Nova Health to Vercel with all necessary environment variables and webhook configuration.
 
 ## Prerequisites
 
@@ -18,7 +18,7 @@ This guide walks you through deploying Veldra to Vercel with all necessary envir
 cd /Users/briandeguzman/Downloads/veldra-security
 git init
 git add .
-git commit -m "Initial commit: Veldra with security and landing page"
+git commit -m "Initial commit: Nova Health with security and landing page"
 ```
 
 ### 1b. Create a GitHub repository and push
@@ -53,7 +53,7 @@ After Vercel creates the project, go to **Settings → Environment Variables** a
 ```
 NEXT_PUBLIC_SUPABASE_URL=https://your-project.supabase.co
 NEXT_PUBLIC_SUPABASE_ANON_KEY=your-anon-key-here
-NEXT_PUBLIC_APP_URL=https://veldra.vercel.app  (or your custom domain)
+NEXT_PUBLIC_APP_URL=https://novahealth.vercel.app  (or your custom domain)
 NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY=pk_live_your-publishable-key
 ```
 
@@ -88,7 +88,7 @@ Once deployed, Stripe webhooks need to target Vercel → Stripe dashboard:
 
 After environment variables are set and Vercel rebuilds:
 
-1. Open your Vercel deployment URL (e.g., https://veldra.vercel.app)
+1. Open your Vercel deployment URL (e.g., https://novahealth.vercel.app)
 2. You should see the minimalistic landing page
 3. Click "Start Free Trial" → should redirect to `/signup`
 4. Enter an email → should create a Stripe Checkout session or redirect to dashboard if account exists
@@ -97,7 +97,7 @@ After environment variables are set and Vercel rebuilds:
 ## Step 6: Connect Custom Domain (Optional)
 
 1. In Vercel: **Settings → Domains**
-2. Add your domain (e.g., `app.veldra.io`)
+2. Add your domain (e.g., `app.novahealth.io`)
 3. Vercel provides DNS records
 4. Add those records to your DNS provider (Cloudflare, GoDaddy, etc.)
 5. Wait 24–48 hours for DNS propagation
@@ -148,7 +148,7 @@ If something breaks:
 
 ## Summary
 
-Your Veldra app is now live! 🚀
+Your Nova Health app is now live! 🚀
 
 - **Public URL:** `https://your-vercel-domain.vercel.app`
 - **Signup flow:** User enters email → existing users go to dashboard, new users see Stripe Checkout

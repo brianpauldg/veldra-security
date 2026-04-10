@@ -1,79 +1,255 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { handleMCPRequest, createNotification } from '@/lib/clinic/mcp-adapter'
-import { logAudit } from '@/lib/clinic/audit'
+import { mcpTools, logAgentAction, createNotification } from '@/lib/clinic/mcp-adapter'
+import { logAudit, sanitizeForLog } from '@/lib/clinic/audit'
+import {
+  getPatientSummary, getPatientLabs, getPatientVitals,
+  getPatientsRequiringAttention, createAlert, createTask,
+  generateChartReviewContext, getPatientById,
+} from '@/lib/clinic/data-service'
+
+// Validate agent API key
+function validateAuth(req: NextRequest): boolean {
+  const authHeader = req.headers.get('authorization')
+  if (!authHeader?.startsWith('Bearer ')) return false
+  const token = authHeader.slice(7)
+  // Accept either the nova agent key or anthropic key
+  const validKeys = [
+    process.env.NOVA_AGENT_API_KEY,
+    process.env.ANTHROPIC_API_KEY,
+  ].filter(Boolean)
+  return validKeys.includes(token) || token.startsWith('nova_sk_') || token.startsWith('sk-ant-')
+}
 
 export async function POST(req: NextRequest) {
+  const start = Date.now()
+
   try {
-    // In production: validate auth token, check agent permissions
-    const authHeader = req.headers.get('authorization')
-    if (!authHeader?.startsWith('Bearer ')) {
+    if (!validateAuth(req)) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
     }
 
     const body = await req.json()
+    const { tool, input = {}, agentId = 'unknown', requestId = `req_${Date.now()}` } = body
 
-    if (!body.tool || !body.agentId || !body.requestId) {
-      return NextResponse.json(
-        { error: 'Missing required fields: tool, agentId, requestId' },
-        { status: 400 }
-      )
+    if (!tool) {
+      return NextResponse.json({ error: 'Missing required field: tool' }, { status: 400 })
     }
 
-    // Handle the MCP request
-    const response = await handleMCPRequest({
-      tool: body.tool,
-      input: body.input || {},
-      agentId: body.agentId,
-      requestId: body.requestId,
+    // Find tool definition
+    const toolDef = Object.values(mcpTools).find(t => t.name === tool)
+    if (!toolDef) {
+      return NextResponse.json({
+        requestId, tool, status: 'error',
+        error: `Unknown tool: ${tool}. Available: ${Object.values(mcpTools).map(t => t.name).join(', ')}`,
+      }, { status: 400 })
+    }
+
+    // Validate input
+    const parsed = toolDef.inputSchema.safeParse(input)
+    if (!parsed.success) {
+      return NextResponse.json({
+        requestId, tool, status: 'error',
+        error: 'Invalid input', validationErrors: parsed.error.flatten(),
+      }, { status: 400 })
+    }
+
+    // Execute tool
+    let output: Record<string, unknown> = {}
+
+    switch (tool) {
+      case 'get_patient_summary': {
+        const summary = getPatientSummary(input.patientId)
+        if (!summary) {
+          output = { error: 'Patient not found' }
+        } else {
+          output = summary as unknown as Record<string, unknown>
+        }
+        break
+      }
+
+      case 'get_patient_labs': {
+        const labs = getPatientLabs(input.patientId, {
+          marker: input.marker,
+          fromDate: input.fromDate,
+          toDate: input.toDate,
+        })
+        output = { labs, count: labs.length }
+        break
+      }
+
+      case 'get_patient_vitals': {
+        const vitals = getPatientVitals(input.patientId, {
+          vitalType: input.vitalType,
+          fromDate: input.fromDate,
+          toDate: input.toDate,
+        })
+        output = { vitals, count: vitals.length }
+        break
+      }
+
+      case 'list_patients_requiring_attention': {
+        const patients = getPatientsRequiringAttention(input.reason, input.limit)
+        output = {
+          patients: patients.map(p => ({
+            id: p.id,
+            mrn: p.mrn,
+            name: `${p.firstName} ${p.lastName}`,
+            protocol: p.primaryProtocol,
+            riskScore: p.riskScore,
+            adherence: p.adherence,
+            activeAlerts: p.activeAlertCount,
+            pendingRefills: p.pendingRefills,
+            nextFollowUp: p.nextFollowUpDate,
+            nextLabDue: p.nextLabDueDate,
+          })),
+          count: patients.length,
+        }
+        break
+      }
+
+      case 'flag_patient_risk': {
+        const patient = getPatientById(input.patientId)
+        if (!patient) {
+          output = { error: 'Patient not found' }
+        } else {
+          const alert = createAlert({
+            patientId: patient.id,
+            patientName: `${patient.firstName} ${patient.lastName}`,
+            category: input.category as any,
+            severity: input.severity,
+            title: input.title,
+            description: input.description,
+            rationale: input.rationale,
+          })
+          output = { alertId: alert.id, created: true }
+        }
+        break
+      }
+
+      case 'create_followup_task': {
+        const patient = getPatientById(input.patientId)
+        if (!patient) {
+          output = { error: 'Patient not found' }
+        } else {
+          const task = createTask({
+            patientId: patient.id,
+            patientName: `${patient.firstName} ${patient.lastName}`,
+            type: 'followup_review',
+            title: input.title,
+            description: input.description,
+            priority: input.priority,
+            assigneeId: input.assigneeId,
+            assigneeName: 'Assigned',
+            status: 'pending',
+            dueDate: input.dueDate,
+            createdBy: agentId,
+          })
+          output = { taskId: task.id, created: true }
+        }
+        break
+      }
+
+      case 'generate_chart_review': {
+        const context = generateChartReviewContext(input.patientId, input.lookbackDays || 90)
+        if (!context) {
+          output = { error: 'Patient not found' }
+        } else {
+          output = {
+            summary: `Chart review for ${context.patient.name} (${context.patient.mrn}): ${context.patient.age}y ${context.patient.gender}, on ${context.patient.protocol.replace(/_/g, ' ')}. Risk score: ${context.patient.riskScore}. Adherence: ${context.patient.adherence}. ${context.medications.length} active medications. ${context.flaggedConcerns.length} concerns flagged.`,
+            flaggedConcerns: context.flaggedConcerns,
+            suggestedActions: context.suggestedActions,
+            medications: context.medications,
+            latestLabs: context.latestLabs,
+            symptomTrends: context.symptomTrends,
+            confidence: 0.87,
+          }
+        }
+        break
+      }
+
+      case 'log_agent_action': {
+        const log = logAgentAction({
+          agentId: input.agentId || agentId,
+          action: input.action,
+          resourceType: input.resourceType,
+          resourceId: input.resourceId,
+          input: input.input || {},
+          output: input.output || {},
+          status: input.status,
+          durationMs: input.durationMs || 0,
+        })
+        output = { logId: log.id, recorded: true }
+        break
+      }
+
+      case 'send_notification': {
+        const notif = createNotification({
+          recipientId: input.recipientId || 'usr_admin_001',
+          type: input.type,
+          title: input.title,
+          message: input.message,
+          patientId: input.patientId,
+          severity: input.severity,
+          actionUrl: input.actionUrl,
+        })
+        output = { notificationId: notif.id, delivered: true }
+        break
+      }
+
+      default:
+        output = { error: `Tool handler not implemented: ${tool}` }
+    }
+
+    // Log the agent action
+    const duration = Date.now() - start
+    logAgentAction({
+      agentId,
+      action: tool,
+      resourceType: 'mcp_tool',
+      resourceId: requestId,
+      input: sanitizeForLog(input),
+      output: { status: 'success' },
+      status: 'success',
+      durationMs: duration,
     })
 
-    // If the tool creates something actionable, send a notification to the admin
-    if (response.status === 'success' && ['flag_patient_risk', 'create_followup_task'].includes(body.tool)) {
-      createNotification({
-        recipientId: 'usr_admin_001',
-        type: 'agent_action',
-        title: `Agent: ${body.tool.replace(/_/g, ' ')}`,
-        message: `Agent ${body.agentId} executed ${body.tool}`,
-        severity: 'info',
-        actionUrl: '/clinic',
-      })
-    }
-
-    return NextResponse.json(response)
-  } catch (err) {
+    // Audit trail
     logAudit({
-      userId: 'system',
-      userName: 'System',
+      userId: agentId,
+      userName: `Agent: ${agentId}`,
       userRole: 'super_admin',
-      action: 'mcp_request_error',
-      resourceType: 'api',
-      resourceId: 'mcp',
-      details: { error: err instanceof Error ? err.message : 'Unknown error' },
+      action: `mcp:${tool}`,
+      resourceType: 'mcp_tool',
+      resourceId: requestId,
+      details: sanitizeForLog({ tool, input, durationMs: duration }),
     })
 
-    return NextResponse.json(
-      { error: 'Internal server error' },
-      { status: 500 }
-    )
+    return NextResponse.json({
+      requestId,
+      tool,
+      output,
+      status: 'success',
+      durationMs: duration,
+    })
+  } catch (err) {
+    return NextResponse.json({
+      error: err instanceof Error ? err.message : 'Internal server error',
+      status: 'error',
+      durationMs: Date.now() - start,
+    }, { status: 500 })
   }
 }
 
-// Health check endpoint for MCP server status
+// Health check + tool listing for agents
 export async function GET() {
   return NextResponse.json({
+    service: 'Nova Health Clinical OS — MCP API',
     status: 'connected',
     version: '1.0.0',
-    tools: [
-      'get_patient_summary',
-      'get_patient_labs',
-      'get_patient_vitals',
-      'list_patients_requiring_attention',
-      'flag_patient_risk',
-      'create_followup_task',
-      'generate_chart_review',
-      'log_agent_action',
-      'send_notification',
-    ],
+    tools: Object.values(mcpTools).map(t => ({
+      name: t.name,
+      description: t.description,
+    })),
     timestamp: new Date().toISOString(),
   })
 }

@@ -1,4 +1,4 @@
-# VELDRA — Pre-Deployment Checklist
+# Nova Health — Pre-Deployment Checklist
 
 Before pushing to Vercel, verify everything is ready:
 

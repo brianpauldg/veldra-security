@@ -1,5 +1,5 @@
 # ============================================================
-# VELDRA — Environment Variables
+# Nova Health — Environment Variables
 # Copy this to .env.local for development
 # Set these in Vercel dashboard for production
 # NEVER commit .env.local to git
@@ -20,7 +20,7 @@ SUPABASE_SERVICE_ROLE_KEY=your-service-role-key-here
 ENCRYPTION_KEY=generate-a-64-char-hex-string-here
 
 # ── APP URLs ─────────────────────────────────────────────────
-NEXT_PUBLIC_APP_URL=https://app.veldra.io
+NEXT_PUBLIC_APP_URL=https://app.novahealth.io
 
 # For development:
 # NEXT_PUBLIC_APP_URL=http://localhost:3000
@@ -44,7 +44,7 @@ REGOLOGY_API_KEY=your-regology-key-here
 
 # ── SENDGRID (for emails) ────────────────────────────────────
 SENDGRID_API_KEY=SG.your-key-here
-SENDGRID_FROM_EMAIL=notifications@veldra.io
+SENDGRID_FROM_EMAIL=notifications@novahealth.io
 
 # ── SECURITY ─────────────────────────────────────────────────
 # Secret for CSRF tokens — generate with crypto.randomBytes(32).toString('hex')
