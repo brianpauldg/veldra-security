@@ -1,16 +1,16 @@
 'use client'
 
 import Link from 'next/link'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X, ArrowRight } from 'lucide-react'
 import { cn } from '@/lib/utils'
-import { primaryCtaLabel } from '@/lib/pricing'
+import Meridian from './Meridian'
 
 const navigation = [
-  { name: 'Treatments', href: '/trt' },
-  { name: 'Pricing', href: '/pricing' },
-  { name: 'How It Works', href: '/how-it-works' },
+  { name: 'Practice', href: '/services' },
+  { name: 'Protocols', href: '/trt' },
+  { name: 'Process', href: '/how-it-works' },
   { name: 'FAQ', href: '/faq' },
 ]
 
@@ -23,22 +23,36 @@ const treatmentDropdown = [
 export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false)
   const [treatmentsOpen, setTreatmentsOpen] = useState(false)
-  const ctaLabel = primaryCtaLabel()
+  const [scrolled, setScrolled] = useState(false)
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 20)
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-xl border-b border-graphite-200">
+    <header className={cn(
+      'fixed top-0 left-0 right-0 z-50 transition-all duration-300',
+      scrolled
+        ? 'bg-[#020202]/90 backdrop-blur-xl border-b border-[#1a1814]'
+        : 'bg-transparent'
+    )}>
       <nav className="max-w-7xl mx-auto px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16 lg:h-20">
+        <div className={cn(
+          'flex items-center justify-between transition-all duration-300',
+          scrolled ? 'h-16' : 'h-20'
+        )}>
           {/* Logo */}
           <Link href="/" className="flex items-center gap-3 group">
-            <div className="w-9 h-9 rounded-xl bg-graphite-950 flex items-center justify-center relative overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-br from-graphite-800 to-graphite-950" />
-              <span className="relative text-white font-bold text-[13px] tracking-tight" style={{ fontFamily: 'Inter Tight, sans-serif' }}>B</span>
-              <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-white/30 to-transparent" />
-            </div>
+            <Meridian size="sm" />
             <div>
-              <div className="text-[15px] font-semibold tracking-tight text-graphite-950">Bloom Metabolics</div>
-              <div className="text-[10px] font-medium text-graphite-500 tracking-widest uppercase">Telehealth · Rx</div>
+              <div className="text-[14px] font-normal tracking-tight text-[#d8cfbe]" style={{ fontFamily: 'Fraunces, serif' }}>
+                Bloom Metabolics
+              </div>
+              <div className="font-mono text-[9px] text-[#8a8268] tracking-[0.25em] uppercase">
+                Est · MMXXVI
+              </div>
             </div>
           </Link>
 
@@ -50,10 +64,8 @@ export default function Header() {
               onMouseEnter={() => setTreatmentsOpen(true)}
               onMouseLeave={() => setTreatmentsOpen(false)}
             >
-              <button
-                className="px-3.5 py-2 text-[13px] font-medium text-graphite-600 hover:text-graphite-950 transition-colors rounded-lg hover:bg-graphite-50"
-              >
-                Treatments
+              <button className="px-4 py-2 text-[13px] font-light text-[#8a8268] hover:text-[#d8cfbe] transition-colors tracking-wide">
+                Protocols
               </button>
               <AnimatePresence>
                 {treatmentsOpen && (
@@ -64,12 +76,12 @@ export default function Header() {
                     transition={{ duration: 0.15 }}
                     className="absolute top-full left-0 pt-2 min-w-[220px]"
                   >
-                    <div className="bg-white border border-graphite-200 rounded-xl shadow-lg py-2">
+                    <div className="bg-[#0d0c0a] border border-[#1a1814] rounded-lg py-2">
                       {treatmentDropdown.map((item) => (
                         <Link
                           key={item.name}
                           href={item.href}
-                          className="block px-4 py-2.5 text-[13px] font-medium text-graphite-700 hover:text-graphite-950 hover:bg-graphite-50 transition-colors"
+                          className="block px-4 py-2.5 text-[13px] font-light text-[#8a8268] hover:text-[#d8cfbe] hover:bg-[#1a1814]/50 transition-colors"
                         >
                           {item.name}
                         </Link>
@@ -84,7 +96,7 @@ export default function Header() {
               <Link
                 key={item.name}
                 href={item.href}
-                className="px-3.5 py-2 text-[13px] font-medium text-graphite-600 hover:text-graphite-950 transition-colors rounded-lg hover:bg-graphite-50"
+                className="px-4 py-2 text-[13px] font-light text-[#8a8268] hover:text-[#d8cfbe] transition-colors tracking-wide"
               >
                 {item.name}
               </Link>
@@ -92,17 +104,9 @@ export default function Header() {
           </div>
 
           {/* Desktop CTA */}
-          <div className="hidden lg:flex items-center gap-3">
-            <Link
-              href="/book"
-              className={cn(
-                'inline-flex items-center gap-1.5 px-5 py-2.5 rounded-full',
-                'bg-graphite-950 text-white text-[13px] font-semibold',
-                'hover:bg-graphite-800 transition-all duration-200',
-                'shadow-sm hover:shadow-md'
-              )}
-            >
-              {ctaLabel}
+          <div className="hidden lg:flex items-center">
+            <Link href="/book" className="bloom-btn">
+              Consultation
               <ArrowRight className="w-3.5 h-3.5" />
             </Link>
           </div>
@@ -110,7 +114,7 @@ export default function Header() {
           {/* Mobile menu button */}
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
-            className="lg:hidden p-2 -mr-2 text-graphite-700"
+            className="lg:hidden p-2 -mr-2 text-[#8a8268]"
             aria-label="Toggle menu"
           >
             {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -125,29 +129,29 @@ export default function Header() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="lg:hidden bg-white border-b border-graphite-200 overflow-hidden"
+            className="lg:hidden bg-[#0d0c0a] border-b border-[#1a1814] overflow-hidden"
           >
             <div className="px-6 py-4 space-y-1">
-              <div className="px-3 py-2 text-[11px] font-semibold uppercase tracking-widest text-graphite-400">
-                Treatments
+              <div className="eyebrow px-3 py-2">
+                Protocols
               </div>
               {treatmentDropdown.map((item) => (
                 <Link
                   key={item.name}
                   href={item.href}
                   onClick={() => setMobileOpen(false)}
-                  className="block px-3 py-2.5 text-[15px] font-medium text-graphite-700 hover:text-graphite-950 hover:bg-graphite-50 rounded-lg"
+                  className="block px-3 py-2.5 text-[15px] font-light text-[#8a8268] hover:text-[#d8cfbe] transition-colors"
                 >
                   {item.name}
                 </Link>
               ))}
-              <div className="pt-3 border-t border-graphite-100 mt-3" />
+              <hr className="bloom-divider my-3" />
               {navigation.slice(1).map((item) => (
                 <Link
                   key={item.name}
                   href={item.href}
                   onClick={() => setMobileOpen(false)}
-                  className="block px-3 py-2.5 text-[15px] font-medium text-graphite-700 hover:text-graphite-950 hover:bg-graphite-50 rounded-lg"
+                  className="block px-3 py-2.5 text-[15px] font-light text-[#8a8268] hover:text-[#d8cfbe] transition-colors"
                 >
                   {item.name}
                 </Link>
@@ -156,12 +160,9 @@ export default function Header() {
                 <Link
                   href="/book"
                   onClick={() => setMobileOpen(false)}
-                  className={cn(
-                    'block text-center px-5 py-3 rounded-full',
-                    'bg-graphite-950 text-white text-[15px] font-semibold'
-                  )}
+                  className="bloom-btn w-full justify-center"
                 >
-                  {ctaLabel}
+                  Consultation
                 </Link>
               </div>
             </div>

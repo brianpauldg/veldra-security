@@ -15,13 +15,13 @@ export default function Section({ children, className, dark = false, id }: Secti
   return (
     <motion.section
       id={id}
-      initial={{ opacity: 0.15, y: 18 }}
+      initial={{ opacity: 0.15, y: 24 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.05 }}
-      transition={{ duration: 0.5, ease: [0.25, 0.1, 0, 1] }}
+      transition={{ duration: 0.8, ease: [0.25, 0.1, 0, 1] }}
       className={cn(
-        'py-20 lg:py-28',
-        dark ? 'bg-graphite-950 text-white' : 'bg-white text-graphite-950',
+        'py-[80px] lg:py-[140px]',
+        'bg-[#020202]',
         className
       )}
     >
@@ -32,33 +32,26 @@ export default function Section({ children, className, dark = false, id }: Secti
   )
 }
 
-export function SectionLabel({ children, dark }: { children: ReactNode; dark?: boolean }) {
+export function SectionLabel({ children }: { children: ReactNode; dark?: boolean }) {
   return (
-    <div className={cn(
-      'text-[11px] font-semibold uppercase tracking-[0.15em] mb-4',
-      dark ? 'text-graphite-400' : 'text-graphite-500'
-    )}>
+    <div className="eyebrow mb-4">
       {children}
     </div>
   )
 }
 
-export function SectionTitle({ children, dark }: { children: ReactNode; dark?: boolean }) {
+export function SectionTitle({ children }: { children: ReactNode; dark?: boolean }) {
   return (
-    <h2 className={cn(
-      'text-display mb-5',
-      dark ? 'text-white' : 'text-graphite-950'
-    )}>
+    <h2 className="text-display text-chrome mb-5" style={{ fontFamily: 'Fraunces, serif', fontWeight: 300 }}>
       {children}
     </h2>
   )
 }
 
-export function SectionDescription({ children, dark, className }: { children: ReactNode; dark?: boolean; className?: string }) {
+export function SectionDescription({ children, className }: { children: ReactNode; dark?: boolean; className?: string }) {
   return (
     <p className={cn(
-      'text-subheadline max-w-2xl',
-      dark ? 'text-graphite-400' : 'text-graphite-500',
+      'text-[15px] text-[#8a8268] leading-relaxed max-w-2xl font-light',
       className
     )}>
       {children}

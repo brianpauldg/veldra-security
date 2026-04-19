@@ -6,104 +6,108 @@ import {
   ArrowRight, Check, ChevronRight,
   Syringe, TrendingUp, FlaskConical,
   Stethoscope, Microscope, Package, MessageCircle,
-  Shield, Lock, Truck, UserCheck,
 } from 'lucide-react'
 import Section, { SectionLabel, SectionTitle, SectionDescription } from '@/components/ui/Section'
 import PricingTable from '@/components/PricingTable'
 import MedicalDirectorBio from '@/components/MedicalDirectorBio'
 import EmailCapture from '@/components/EmailCapture'
-import { primaryCtaLabel, primaryCtaSublabel, CONSULTATION } from '@/lib/pricing'
+import Meridian from '@/components/Meridian'
+import { CONSULTATION } from '@/lib/pricing'
 
 const fadeUp = {
   initial: { opacity: 0, y: 24 },
   animate: { opacity: 1, y: 0 },
-  transition: { duration: 0.7, ease: [0.25, 0.1, 0, 1] as [number, number, number, number] },
+  transition: { duration: 0.8, ease: [0.25, 0.1, 0, 1] as [number, number, number, number] },
 }
 
 const stagger = {
-  animate: { transition: { staggerChildren: 0.08 } },
+  animate: { transition: { staggerChildren: 0.1 } },
 }
 
 export default function Home() {
-  const ctaLabel = primaryCtaLabel()
-
   return (
     <>
       {/* ═══════════════════════════════════════════════════════
           1. HERO
       ═══════════════════════════════════════════════════════ */}
-      <section className="relative bg-graphite-950 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-graphite-950 via-graphite-900 to-graphite-950" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_rgba(255,255,255,0.06),_transparent_60%)]" />
-
-        <div className="relative max-w-7xl mx-auto px-6 lg:px-8 py-24 lg:py-36">
-          <motion.div
-            initial="initial"
-            animate="animate"
-            variants={stagger}
-            className="max-w-4xl"
-          >
-            <motion.div variants={fadeUp} className="mb-6">
-              <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/5 border border-white/10 text-[11px] font-medium text-graphite-300 tracking-[0.12em] uppercase">
-                <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
-                Metabolic Health · Telehealth · Licensed Physicians
-              </span>
-            </motion.div>
-
-            <motion.h1 variants={fadeUp} className="text-display-xl text-chrome mb-6">
-              Your Metabolism,<br />
-              Optimized.
-            </motion.h1>
-
-            <motion.p
-              variants={fadeUp}
-              className="text-xl text-graphite-400 leading-relaxed max-w-2xl mb-10"
+      <section className="relative bg-[#020202] overflow-hidden min-h-screen flex items-center">
+        <div className="relative max-w-7xl mx-auto px-6 lg:px-8 py-32 lg:py-0 w-full">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <motion.div
+              initial="initial"
+              animate="animate"
+              variants={stagger}
             >
-              Premium telehealth for testosterone therapy, GLP-1 weight loss, and peptide protocols — backed by comprehensive labs and real physician oversight.
-            </motion.p>
+              <motion.div variants={fadeUp} className="eyebrow mb-8">
+                Precision Endocrinology · Telehealth · <span className="num">MMXXVI</span>
+              </motion.div>
 
-            <motion.div variants={fadeUp} className="flex flex-wrap gap-4 items-center">
-              <Link
-                href="/book"
-                className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-white text-graphite-950 text-[15px] font-semibold hover:bg-graphite-100 transition-all shadow-lg hover:shadow-xl"
+              <motion.h1
+                variants={fadeUp}
+                className="text-display-xl text-chrome mb-8"
+                style={{ fontFamily: 'Fraunces, serif', fontWeight: 300 }}
               >
-                {ctaLabel}
-                <ArrowRight className="w-4 h-4" />
-              </Link>
-              <Link
-                href="/pricing"
-                className="inline-flex items-center gap-2 px-6 py-4 rounded-full border border-white/15 text-white text-[15px] font-medium hover:bg-white/5 transition-all"
+                Engineered for the{' '}
+                <em className="italic">second half</em>{' '}
+                of a life.
+              </motion.h1>
+
+              <motion.p
+                variants={fadeUp}
+                className="text-[17px] text-[#a89878] leading-relaxed max-w-lg mb-12 font-light"
               >
-                See Pricing
-              </Link>
+                Physician-led testosterone therapy, GLP-1 protocols, and peptide compounds — informed by comprehensive labs, titrated to your biology.
+              </motion.p>
+
+              <motion.div variants={fadeUp} className="flex flex-wrap gap-4 items-center">
+                <Link href="/book" className="bloom-btn">
+                  Begin Consultation
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </Link>
+                <Link
+                  href="/how-it-works"
+                  className="bloom-btn-ghost bloom-btn"
+                >
+                  Our Process
+                </Link>
+              </motion.div>
             </motion.div>
 
-            <motion.p variants={fadeUp} className="text-[12px] text-graphite-500 mt-6">
-              {primaryCtaSublabel()} · HIPAA-compliant · Stripe-secured
-            </motion.p>
-          </motion.div>
+            {/* Meridian Logo */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 1.5, delay: 0.3 }}
+              className="hidden lg:flex items-center justify-center"
+            >
+              <Meridian size="lg" />
+            </motion.div>
+          </div>
         </div>
       </section>
 
       {/* ═══════════════════════════════════════════════════════
-          TRUST STRIP
+          DIVIDER + MARQUEE
       ═══════════════════════════════════════════════════════ */}
-      <div className="border-b border-graphite-200 bg-white">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8 py-5">
-          <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-3">
-            {[
-              { icon: <UserCheck className="w-4 h-4" />, text: 'Board-Certified Physicians' },
-              { icon: <Microscope className="w-4 h-4" />, text: 'Real Bloodwork, Real Rx' },
-              { icon: <Lock className="w-4 h-4" />, text: 'HIPAA-Compliant' },
-              { icon: <Truck className="w-4 h-4" />, text: 'Shipped from Licensed Pharmacy' },
-              { icon: <Shield className="w-4 h-4" />, text: 'Stripe-Secured Checkout' },
-            ].map((item) => (
-              <div key={item.text} className="flex items-center gap-2 text-[12px] font-medium text-graphite-600">
-                <span className="text-graphite-500">{item.icon}</span>
-                {item.text}
-              </div>
-            ))}
-          </div>
+      <div className="border-y border-[#1a1814] bg-[#020202] overflow-hidden py-4">
+        <div className="marquee-track flex items-center gap-8 whitespace-nowrap" style={{ width: 'max-content' }}>
+          {[...Array(2)].map((_, i) => (
+            <div key={i} className="flex items-center gap-8">
+              {[
+                'Board-Certified Physicians',
+                'Comprehensive Lab Panels',
+                'Compounded Prescriptions',
+                'Licensed Pharmacy',
+                'Proactive Monitoring',
+                'HIPAA Compliant',
+              ].map((item) => (
+                <span key={`${i}-${item}`} className="flex items-center gap-2 font-mono text-[10px] text-[#8a8268] tracking-[0.2em] uppercase">
+                  <span className="w-1 h-1 rounded-full bg-[#8a8268]" />
+                  {item}
+                </span>
+              ))}
+            </div>
+          ))}
         </div>
       </div>
 
@@ -111,49 +115,60 @@ export default function Home() {
           2. SERVICES
       ═══════════════════════════════════════════════════════ */}
       <Section>
-        <SectionLabel>Programs</SectionLabel>
-        <SectionTitle>Three core therapies</SectionTitle>
-        <SectionDescription>
-          Each program is physician-prescribed, labs-informed, and shipped from a licensed pharmacy.
-        </SectionDescription>
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 lg:gap-6 mb-16">
+          <div className="lg:col-span-1">
+            <SectionLabel>Practice · <span className="num">03</span></SectionLabel>
+            <SectionTitle>Three pillars of <em className="italic">precision</em> care.</SectionTitle>
+          </div>
+          <div className="lg:col-span-2 flex items-end">
+            <SectionDescription className="lg:ml-auto lg:text-right max-w-md">
+              Each protocol is physician-prescribed, informed by comprehensive labs, and compounded from a licensed pharmacy.
+            </SectionDescription>
+          </div>
+        </div>
 
-        <div className="mt-14 grid grid-cols-1 md:grid-cols-3 gap-5">
+        <hr className="bloom-divider mb-0" />
+
+        <div className="divide-y divide-[#1a1814]">
           {[
             {
-              icon: <Syringe className="w-5 h-5" />,
+              num: '01',
+              icon: <Syringe className="w-4 h-4" />,
               title: 'Testosterone Therapy',
-              desc: 'Physician-prescribed TRT protocols. Labs every 90 days. Individually dosed.',
+              emphasis: 'Recalibrate',
+              desc: 'Physician-prescribed TRT protocols. Labs every 90 days. Individually dosed and titrated.',
               href: '/trt',
               tag: 'TRT',
             },
             {
-              icon: <TrendingUp className="w-5 h-5" />,
+              num: '02',
+              icon: <TrendingUp className="w-4 h-4" />,
               title: 'GLP-1 Weight Loss',
-              desc: 'Semaglutide or Tirzepatide, supervised by a physician with monthly check-ins.',
+              emphasis: 'Compound',
+              desc: 'Semaglutide or tirzepatide, supervised by a physician with monthly check-ins and metabolic tracking.',
               href: '/glp1',
               tag: 'GLP-1',
             },
             {
-              icon: <FlaskConical className="w-5 h-5" />,
+              num: '03',
+              icon: <FlaskConical className="w-4 h-4" />,
               title: 'Peptide Therapy',
-              desc: 'Recovery, performance, and longevity protocols — provider-managed.',
+              emphasis: 'Restore',
+              desc: 'BPC-157/TB-500, MOTS-c, GHK-Cu — provider-managed protocols for recovery, metabolism, and longevity.',
               href: '/peptides',
               tag: 'Peptides',
             },
           ].map((s) => (
-            <Link key={s.title} href={s.href} className="group">
-              <div className="h-full rounded-2xl border border-graphite-200 bg-white p-6 transition-all group-hover:border-graphite-950 group-hover:shadow-lg">
-                <div className="flex items-center gap-3 mb-5">
-                  <div className="w-10 h-10 rounded-xl bg-graphite-100 text-graphite-950 flex items-center justify-center group-hover:bg-graphite-950 group-hover:text-white transition-colors">
-                    {s.icon}
-                  </div>
-                  <span className="text-[10px] font-semibold uppercase tracking-widest text-graphite-400">{s.tag}</span>
+            <Link key={s.tag} href={s.href} className="group block">
+              <div className="grid grid-cols-[40px_1fr_auto] gap-4 items-center py-8">
+                <span className="font-mono text-[11px] text-[#d8cfbe] tracking-[0.2em]">{s.num}</span>
+                <div>
+                  <h3 className="text-headline text-[#d8cfbe] mb-1 group-hover:text-[#f5ecd9] transition-colors" style={{ fontFamily: 'Fraunces, serif', fontWeight: 400 }}>
+                    {s.title} — <em className="italic font-light">{s.emphasis}</em>
+                  </h3>
+                  <p className="text-[14px] text-[#8a8268] font-light">{s.desc}</p>
                 </div>
-                <h3 className="text-[18px] font-semibold text-graphite-950 mb-2">{s.title}</h3>
-                <p className="text-[13px] text-graphite-600 leading-relaxed mb-5">{s.desc}</p>
-                <span className="inline-flex items-center gap-1 text-[13px] font-semibold text-graphite-950 group-hover:gap-2 transition-all">
-                  Learn more <ChevronRight className="w-3.5 h-3.5" />
-                </span>
+                <ChevronRight className="w-4 h-4 text-[#2a2620] group-hover:text-[#8a8268] transition-colors" />
               </div>
             </Link>
           ))}
@@ -161,187 +176,209 @@ export default function Home() {
       </Section>
 
       {/* ═══════════════════════════════════════════════════════
-          3. HOW IT WORKS — 3 STEPS
+          3. HOW IT WORKS
       ═══════════════════════════════════════════════════════ */}
-      <Section className="bg-graphite-50">
-        <div className="text-center mb-14">
-          <SectionLabel>How it works</SectionLabel>
-          <SectionTitle>Three steps. Physician-prescribed.</SectionTitle>
+      <Section>
+        <hr className="bloom-divider mb-[80px] lg:mb-[140px]" />
+
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 mb-16">
+          <div className="lg:col-span-1">
+            <SectionLabel>Process · <span className="num">03</span> Steps</SectionLabel>
+            <SectionTitle>From consultation to <em className="italic">compound.</em></SectionTitle>
+          </div>
+          <div className="lg:col-span-2 flex items-end">
+            <SectionDescription className="lg:ml-auto lg:text-right max-w-md">
+              Physician-prescribed. Labs-informed. Delivered.
+            </SectionDescription>
+          </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-[#1a1814] rounded-lg overflow-hidden">
           {[
             {
               step: '01',
-              icon: <Stethoscope className="w-5 h-5" />,
-              title: 'Book a consultation',
-              desc: 'Meet with a licensed physician via secure video. Refundable if you don\'t qualify.',
+              icon: <Stethoscope className="w-4 h-4" />,
+              title: 'Consultation',
+              desc: 'Meet with a licensed physician via secure video. Refundable if you do not qualify.',
             },
             {
               step: '02',
-              icon: <Microscope className="w-5 h-5" />,
-              title: 'Labs & intake',
-              desc: 'At-home kit or local draw. Results reviewed by your physician in 3–5 days.',
+              icon: <Microscope className="w-4 h-4" />,
+              title: 'Labs & Protocol',
+              desc: 'Comprehensive panel at Quest or Labcorp. Results reviewed. Protocol designed around your biology.',
             },
             {
               step: '03',
-              icon: <Package className="w-5 h-5" />,
-              title: 'Treatment delivered',
-              desc: 'Medication shipped from a licensed pharmacy. Ongoing provider access by message.',
+              icon: <Package className="w-4 h-4" />,
+              title: 'Treatment',
+              desc: 'Medication shipped from a licensed pharmacy. Ongoing monitoring and protocol adjustments included.',
             },
           ].map((s) => (
-            <div key={s.step} className="bg-white rounded-2xl border border-graphite-200 p-7">
-              <div className="flex items-baseline justify-between mb-5">
-                <span className="text-[44px] font-bold text-graphite-200 leading-none tracking-tight">{s.step}</span>
-                <div className="w-9 h-9 rounded-xl bg-graphite-950 text-white flex items-center justify-center">
-                  {s.icon}
-                </div>
+            <div key={s.step} className="bg-[#050404] p-8 lg:p-10">
+              <div className="flex items-baseline justify-between mb-6">
+                <span className="font-mono text-[11px] text-[#d8cfbe] tracking-[0.2em]">Step · {s.step}</span>
+                <span className="text-[#2a2620]">{s.icon}</span>
               </div>
-              <h3 className="text-[17px] font-semibold text-graphite-950 mb-2">{s.title}</h3>
-              <p className="text-[13px] text-graphite-600 leading-relaxed">{s.desc}</p>
+              <h3 className="text-[18px] text-[#d8cfbe] mb-3" style={{ fontFamily: 'Fraunces, serif', fontWeight: 400 }}>
+                {s.title}
+              </h3>
+              <p className="text-[14px] text-[#8a8268] leading-relaxed font-light">{s.desc}</p>
             </div>
           ))}
         </div>
       </Section>
 
       {/* ═══════════════════════════════════════════════════════
-          4. PRICING (transparent, on the homepage)
+          4. PRICING
       ═══════════════════════════════════════════════════════ */}
       <Section>
-        <div className="text-center mb-12">
-          <SectionLabel>Pricing</SectionLabel>
-          <SectionTitle>Transparent pricing. No surprises.</SectionTitle>
-          <SectionDescription className="mx-auto">
-            Pay only after a physician confirms you&apos;re a candidate. Consultation is refundable if you&apos;re not.
-          </SectionDescription>
+        <hr className="bloom-divider mb-[80px] lg:mb-[140px]" />
+
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 mb-16">
+          <div className="lg:col-span-1">
+            <SectionLabel>Investment · <span className="num">04</span> Tiers</SectionLabel>
+            <SectionTitle>Four tiers of <em className="italic">care.</em></SectionTitle>
+          </div>
+          <div className="lg:col-span-2 flex items-end">
+            <SectionDescription className="lg:ml-auto lg:text-right max-w-md">
+              Pricing confirmed at consultation. Pay only after a physician confirms you are a candidate.
+            </SectionDescription>
+          </div>
         </div>
 
         <PricingTable />
 
-        <div className="text-center mt-10">
-          <Link
-            href="/book"
-            className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-graphite-950 text-white text-[14px] font-semibold hover:bg-graphite-800 transition-all"
-          >
-            {ctaLabel}
-            <ArrowRight className="w-4 h-4" />
+        <div className="text-center mt-14">
+          <Link href="/book" className="bloom-btn">
+            Begin Consultation
+            <ArrowRight className="w-3.5 h-3.5" />
           </Link>
-          <p className="text-[12px] text-graphite-500 mt-3">{primaryCtaSublabel()}</p>
         </div>
       </Section>
 
       {/* ═══════════════════════════════════════════════════════
-          5. SOCIAL PROOF — MD + PLATFORM (NO FAKE TESTIMONIALS)
+          5. SOCIAL PROOF
       ═══════════════════════════════════════════════════════ */}
-      <Section className="bg-graphite-50">
-        <div className="text-center mb-12">
-          <SectionLabel>Real providers</SectionLabel>
-          <SectionTitle>Medicine, not marketing.</SectionTitle>
-          <SectionDescription className="mx-auto">
-            Every treatment is signed by a U.S.-licensed physician. Every medication comes from a licensed pharmacy.
-          </SectionDescription>
+      <Section>
+        <hr className="bloom-divider mb-[80px] lg:mb-[140px]" />
+
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 mb-16">
+          <div className="lg:col-span-1">
+            <SectionLabel>Clinical Oversight</SectionLabel>
+            <SectionTitle>Medicine, not <em className="italic">marketing.</em></SectionTitle>
+          </div>
+          <div className="lg:col-span-2 flex items-end">
+            <SectionDescription className="lg:ml-auto lg:text-right max-w-md">
+              Every treatment is signed by a U.S.-licensed physician. Every medication comes from a licensed pharmacy.
+            </SectionDescription>
+          </div>
         </div>
 
-        <div className="max-w-3xl mx-auto">
+        <div className="max-w-3xl mx-auto mb-12">
           <MedicalDirectorBio />
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 max-w-4xl mx-auto mt-10">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-[#1a1814] rounded-lg overflow-hidden">
           {[
             {
-              icon: <Stethoscope className="w-5 h-5" />,
+              icon: <Stethoscope className="w-4 h-4" />,
               title: 'Physician-led',
-              desc: 'Every prescription signed by a licensed U.S. physician. No chatbots writing scripts.',
+              desc: 'Every prescription signed by a licensed U.S. physician. No algorithms writing scripts.',
             },
             {
-              icon: <Microscope className="w-5 h-5" />,
+              icon: <Microscope className="w-4 h-4" />,
               title: 'Labs-informed',
-              desc: 'Treatment decisions based on your bloodwork — not a 5-question quiz.',
+              desc: 'Treatment decisions based on your bloodwork — not a five-question intake form.',
             },
             {
-              icon: <MessageCircle className="w-5 h-5" />,
+              icon: <MessageCircle className="w-4 h-4" />,
               title: 'Ongoing access',
               desc: 'Message your care team directly. No premium tier required to reach your physician.',
             },
           ].map((item) => (
-            <div key={item.title} className="bg-white rounded-2xl border border-graphite-200 p-6">
-              <div className="w-9 h-9 rounded-xl bg-graphite-100 text-graphite-950 flex items-center justify-center mb-4">
-                {item.icon}
-              </div>
-              <h3 className="text-[15px] font-semibold text-graphite-950 mb-1.5">{item.title}</h3>
-              <p className="text-[13px] text-graphite-600 leading-relaxed">{item.desc}</p>
+            <div key={item.title} className="bg-[#050404] p-8">
+              <span className="text-[#2a2620] mb-4 block">{item.icon}</span>
+              <h3 className="text-[15px] text-[#d8cfbe] mb-2" style={{ fontFamily: 'Fraunces, serif', fontWeight: 400 }}>{item.title}</h3>
+              <p className="text-[13px] text-[#8a8268] leading-relaxed font-light">{item.desc}</p>
             </div>
           ))}
         </div>
 
-        <p className="text-center text-[11px] text-graphite-400 mt-8">
+        <p className="text-center font-mono text-[10px] text-[#2a2620] tracking-[0.2em] uppercase mt-8">
           All treatments require evaluation and approval by a licensed medical provider. Individual results vary.
         </p>
       </Section>
 
       {/* ═══════════════════════════════════════════════════════
-          6. FAQ PREVIEW + EMAIL CAPTURE
+          6. FAQ
       ═══════════════════════════════════════════════════════ */}
       <Section>
+        <hr className="bloom-divider mb-[80px] lg:mb-[140px]" />
+
         <div className="max-w-3xl mx-auto">
-          <div className="text-center mb-10">
-            <SectionLabel>Frequently asked</SectionLabel>
-            <SectionTitle>Answers before you book</SectionTitle>
+          <div className="mb-12">
+            <SectionLabel>Frequently Asked</SectionLabel>
+            <SectionTitle>Answers before you <em className="italic">commit.</em></SectionTitle>
           </div>
 
-          <div className="divide-y divide-graphite-100 border-y border-graphite-100">
+          <div className="divide-y divide-[#1a1814] border-y border-[#1a1814]">
             {[
-              { q: 'How much does Bloom Metabolics cost?', a: `${CONSULTATION.display} for the consultation. Program pricing is set by your physician based on the medication and dose prescribed — and confirmed before you pay. Nothing hidden.` },
+              { q: 'What does a consultation cost?', a: `${CONSULTATION.display} for the consultation. Program pricing is set by your physician based on the medication and dose prescribed — and confirmed before you pay.` },
               { q: 'Who are the prescribing physicians?', a: 'Every prescription is evaluated and signed by a U.S.-licensed physician. Your physician will be introduced to you at the consultation.' },
-              { q: 'Do I need bloodwork?', a: 'Yes, for TRT. Results from the past 6 months are usually sufficient; otherwise your physician will order an at-home kit or local draw.' },
-              { q: 'What if I don\'t qualify for treatment?', a: 'You receive a full refund of the consultation fee. You still walk away with a physician-reviewed eligibility report.' },
+              { q: 'Do I need bloodwork?', a: 'Yes, for TRT. Results from the past six months are usually sufficient; otherwise your physician will order an at-home kit or local draw.' },
+              { q: 'What if I do not qualify for treatment?', a: 'You receive a full refund of the consultation fee. You still receive a physician-reviewed eligibility report.' },
               { q: 'Is this covered by insurance?', a: 'Bloom Metabolics operates on a cash-pay model. Payments are processed by Stripe. We do not bill insurance.' },
             ].map((faq) => (
-              <div key={faq.q} className="py-5">
-                <h3 className="text-[15px] font-semibold text-graphite-950 mb-1.5">{faq.q}</h3>
-                <p className="text-[13px] text-graphite-600 leading-relaxed">{faq.a}</p>
+              <div key={faq.q} className="py-6">
+                <h3 className="text-[15px] text-[#d8cfbe] mb-2" style={{ fontFamily: 'Fraunces, serif', fontWeight: 400 }}>
+                  {faq.q}
+                </h3>
+                <p className="text-[14px] text-[#8a8268] leading-relaxed font-light">{faq.a}</p>
               </div>
             ))}
           </div>
 
           <div className="text-center mt-8">
-            <Link href="/faq" className="inline-flex items-center gap-1 text-[13px] font-semibold text-graphite-950 hover:gap-2 transition-all">
-              See all FAQ <ArrowRight className="w-3.5 h-3.5" />
+            <Link href="/faq" className="bloom-btn-ghost bloom-btn text-[12px]">
+              All Questions <ArrowRight className="w-3.5 h-3.5" />
             </Link>
           </div>
         </div>
       </Section>
 
       {/* ═══════════════════════════════════════════════════════
-          7. FINAL CTA + EMAIL CAPTURE
+          7. FINAL CTA
       ═══════════════════════════════════════════════════════ */}
-      <Section dark className="gradient-hero">
-        <div className="max-w-3xl mx-auto text-center">
-          <h2 className="text-display-lg text-chrome mb-6">
-            Stop guessing. Start measuring.
+      <Section>
+        <hr className="bloom-divider mb-[80px] lg:mb-[140px]" />
+
+        <div className="max-w-2xl mx-auto text-center">
+          <Meridian size="md" className="mx-auto mb-12" />
+
+          <h2 className="text-display-lg text-chrome mb-6" style={{ fontFamily: 'Fraunces, serif', fontWeight: 300 }}>
+            Stop guessing.{' '}
+            <em className="italic">Start measuring.</em>
           </h2>
-          <p className="text-lg text-graphite-400 leading-relaxed mb-10 max-w-xl mx-auto">
-            Licensed-physician consultation. Real labs. Real prescriptions. Delivered.
+          <p className="text-[16px] text-[#8a8268] leading-relaxed mb-10 max-w-md mx-auto font-light">
+            Licensed-physician consultation. Comprehensive labs. Compounded prescriptions. Delivered.
           </p>
-          <div className="flex flex-wrap justify-center gap-4 mb-10">
-            <Link
-              href="/book"
-              className="inline-flex items-center gap-2 px-10 py-4 rounded-full bg-white text-graphite-950 text-[15px] font-semibold hover:bg-graphite-100 transition-all shadow-lg"
-            >
-              {ctaLabel}
-              <ArrowRight className="w-4 h-4" />
+          <div className="flex flex-wrap justify-center gap-4 mb-12">
+            <Link href="/book" className="bloom-btn">
+              Begin Consultation
+              <ArrowRight className="w-3.5 h-3.5" />
             </Link>
           </div>
-          <p className="text-[12px] text-graphite-500 mb-14">{primaryCtaSublabel()}</p>
 
-          <div className="pt-10 border-t border-white/10 max-w-md mx-auto">
-            <p className="text-[13px] text-graphite-400 mb-4">
-              Not ready to book? Get the free TRT eligibility checklist.
+          <hr className="bloom-divider max-w-xs mx-auto mb-10" />
+
+          <div className="max-w-sm mx-auto">
+            <p className="text-[13px] text-[#8a8268] mb-4 font-light">
+              Not ready to book? Receive the eligibility checklist.
             </p>
             <EmailCapture />
           </div>
 
-          <p className="text-[11px] text-graphite-600 mt-10 max-w-xl mx-auto">
+          <p className="font-mono text-[10px] text-[#2a2620] tracking-[0.15em] uppercase mt-12 max-w-xl mx-auto">
             All treatments require evaluation and approval by a licensed medical provider. Individual results vary. Medication availability subject to state and federal regulations.
           </p>
         </div>
