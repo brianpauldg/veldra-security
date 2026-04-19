@@ -1,23 +1,24 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Link from 'next/link'
-import { usePathname } from 'next/navigation'
+import { usePathname, useRouter } from 'next/navigation'
 import { cn } from '@/lib/utils'
 import {
   LayoutDashboard, Users, AlertTriangle, CheckSquare, Settings,
   Bell, Shield, ChevronLeft, ChevronRight, Activity, LogOut,
-  Bot, Menu, X,
+  Bot, Menu, X, Loader2,
 } from 'lucide-react'
 import { SEED_NOTIFICATIONS } from '@/lib/clinic/seed-data'
+import { createClientComponentClient } from '@supabase/auth-helpers-nextjs'
 
-// Auth gate — only super_admin + physician can access
-const ALLOWED_ROLES = ['super_admin', 'physician']
-const CURRENT_USER = {
-  id: 'usr_admin_001',
-  name: 'Brian DeGuzman',
-  role: 'super_admin' as const,
-  email: 'brian@bloommetabolics.com',
+const ALLOWED_ROLES = ['super_admin', 'physician', 'clinician', 'rn_ma', 'admin_ops']
+
+type UserInfo = {
+  id: string
+  name: string
+  role: string
+  email: string
 }
 
 const NAV_ITEMS = [
@@ -30,27 +31,80 @@ const NAV_ITEMS = [
 
 export default function ClinicLayout({ children }: { children: React.ReactNode }) {
   const pathname = usePathname()
+  const router = useRouter()
   const [collapsed, setCollapsed] = useState(false)
   const [showNotifications, setShowNotifications] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
+  const [currentUser, setCurrentUser] = useState<UserInfo | null>(null)
+  const [authLoading, setAuthLoading] = useState(true)
+
+  const supabase = createClientComponentClient()
 
   const unreadCount = SEED_NOTIFICATIONS.filter(n => !n.isRead).length
 
-  // Auth check
-  if (!ALLOWED_ROLES.includes(CURRENT_USER.role)) {
+  // Skip auth check on the login page itself
+  const isLoginPage = pathname === '/clinic/login'
+
+  useEffect(() => {
+    if (isLoginPage) {
+      setAuthLoading(false)
+      return
+    }
+
+    async function checkAuth() {
+      const { data: { session } } = await supabase.auth.getSession()
+
+      if (!session) {
+        router.push('/clinic/login')
+        return
+      }
+
+      // Get user metadata or fall back to email
+      const email = session.user.email || ''
+      const meta = session.user.user_metadata || {}
+      const name = meta.full_name || meta.name || email.split('@')[0]
+      const role = meta.role || 'super_admin'
+
+      setCurrentUser({
+        id: session.user.id,
+        name,
+        role,
+        email,
+      })
+      setAuthLoading(false)
+    }
+
+    checkAuth()
+
+    const { data: { subscription } } = supabase.auth.onAuthStateChange((event) => {
+      if (event === 'SIGNED_OUT') {
+        router.push('/clinic/login')
+      }
+    })
+
+    return () => subscription.unsubscribe()
+  }, [supabase, router, isLoginPage])
+
+  // Render login page without the dashboard shell
+  if (isLoginPage) {
+    return <>{children}</>
+  }
+
+  // Loading state
+  if (authLoading) {
     return (
       <div className="min-h-screen bg-graphite-950 flex items-center justify-center">
-        <div className="text-center">
-          <Shield className="w-16 h-16 text-red-400 mx-auto mb-4" />
-          <h1 className="text-2xl font-bold text-white mb-2">Access Denied</h1>
-          <p className="text-graphite-400">You do not have permission to access the clinical dashboard.</p>
-          <Link href="/" className="mt-6 inline-block text-nova-400 hover:text-nova-300 transition-colors">
-            Return to home
-          </Link>
-        </div>
+        <Loader2 className="w-8 h-8 text-graphite-500 animate-spin" />
       </div>
     )
   }
+
+  // Not authenticated
+  if (!currentUser) {
+    return null
+  }
+
+  const CURRENT_USER = currentUser
 
   const SidebarContent = () => (
     <>
@@ -114,8 +168,8 @@ export default function ClinicLayout({ children }: { children: React.ReactNode }
       {/* User */}
       <div className="border-t border-graphite-800 p-4">
         <div className="flex items-center gap-3">
-          <div className="w-8 h-8 rounded-full bg-nova-600 flex items-center justify-center text-white text-xs font-bold">
-            BD
+          <div className="w-8 h-8 rounded-full bg-graphite-700 flex items-center justify-center text-white text-xs font-bold">
+            {CURRENT_USER.name.split(' ').map(n => n[0]).join('').slice(0, 2).toUpperCase()}
           </div>
           {!collapsed && (
             <div className="flex-1 min-w-0">
@@ -215,14 +269,17 @@ export default function ClinicLayout({ children }: { children: React.ReactNode }
               )}
             </div>
 
-            {/* Back to site */}
-            <Link
-              href="/"
+            {/* Sign out */}
+            <button
+              onClick={async () => {
+                await supabase.auth.signOut()
+                router.push('/clinic/login')
+              }}
               className="hidden sm:flex items-center gap-1.5 px-3 py-1.5 text-xs text-graphite-400 hover:text-white border border-graphite-700 rounded-lg hover:bg-graphite-800 transition-all"
             >
               <LogOut className="w-3 h-3" />
-              <span>Site</span>
-            </Link>
+              <span>Sign Out</span>
+            </button>
           </div>
         </header>
 
