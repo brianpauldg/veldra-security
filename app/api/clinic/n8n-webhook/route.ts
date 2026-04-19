@@ -6,7 +6,7 @@ import { pushNotify } from '@/lib/clinic/push-notify'
 import { z } from 'zod'
 
 /**
- * Nova Health — n8n Webhook Integration
+ * Bloom Metabolics — n8n Webhook Integration
  *
  * Receives events from n8n workflows and routes them into the clinical dashboard.
  * Events include: new leads qualified, clinical intakes completed, agent actions,
@@ -300,7 +300,7 @@ export async function POST(req: NextRequest) {
 // Health check
 export async function GET() {
   return NextResponse.json({
-    service: 'Nova Health — n8n Webhook Integration',
+    service: 'Bloom Metabolics — n8n Webhook Integration',
     status: 'active',
     supportedEvents: [
       'lead_qualified', 'clinical_intake_completed', 'content_generated',

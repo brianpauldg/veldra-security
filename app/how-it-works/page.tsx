@@ -46,7 +46,7 @@ export default function HowItWorksPage() {
           <SectionTitle>AI supports operations. Clinicians make decisions.</SectionTitle>
           <SectionDescription className="mx-auto">
             We believe AI should enhance — never replace — the clinician-patient relationship.
-            Here&apos;s exactly what AI does and doesn&apos;t do at Nova Health.
+            Here&apos;s exactly what AI does and doesn&apos;t do at Bloom Metabolics.
           </SectionDescription>
         </div>
 

@@ -257,7 +257,7 @@ export async function POST(req: NextRequest) {
 // Health check + tool listing for agents
 export async function GET() {
   return NextResponse.json({
-    service: 'Nova Health Clinical OS — MCP API',
+    service: 'Bloom Metabolics Clinical OS — MCP API',
     status: 'connected',
     version: '1.0.0',
     tools: Object.values(mcpTools).map(t => ({

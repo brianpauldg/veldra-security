@@ -1,5 +1,5 @@
 /**
- * Nova Health — Clinical Data Service
+ * Bloom Metabolics — Clinical Data Service
  * Serves real data from seed store (swap for Supabase in production).
  * Powers MCP tools, agent API routes, and dashboard queries.
  */

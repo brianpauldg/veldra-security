@@ -1,5 +1,5 @@
 {
-  "name": "Nova Health — Agent Orchestration + Clinical Dashboard",
+  "name": "Bloom Metabolics — Agent Orchestration + Clinical Dashboard",
   "nodes": [
     {
       "parameters": {
@@ -308,7 +308,7 @@
         "genericAuthType": "httpHeaderAuth",
         "sendBody": true,
         "specifyBody": "json",
-        "jsonBody": "={{ JSON.stringify({ firstName: ($('1. Qualifier Agent').item.json.structured.name || '').split(' ')[0], lastName: ($('1. Qualifier Agent').item.json.structured.name || '').split(' ').slice(1).join(' '), email: $('1. Qualifier Agent').item.json.structured.email, phone: $('1. Qualifier Agent').item.json.structured.phone, source: 'Nova Health AI Pipeline', tags: $('1. Qualifier Agent').item.json.ghl.tags, customFields: [{ key: 'qualifier_score', value: String($('1. Qualifier Agent').item.json.structured.score) }, { key: 'segment', value: $('1. Qualifier Agent').item.json.structured.segment }, { key: 'primary_interest', value: $('1. Qualifier Agent').item.json.structured.primary_interest }] }) }}",
+        "jsonBody": "={{ JSON.stringify({ firstName: ($('1. Qualifier Agent').item.json.structured.name || '').split(' ')[0], lastName: ($('1. Qualifier Agent').item.json.structured.name || '').split(' ').slice(1).join(' '), email: $('1. Qualifier Agent').item.json.structured.email, phone: $('1. Qualifier Agent').item.json.structured.phone, source: 'Bloom Metabolics AI Pipeline', tags: $('1. Qualifier Agent').item.json.ghl.tags, customFields: [{ key: 'qualifier_score', value: String($('1. Qualifier Agent').item.json.structured.score) }, { key: 'segment', value: $('1. Qualifier Agent').item.json.structured.segment }, { key: 'primary_interest', value: $('1. Qualifier Agent').item.json.structured.primary_interest }] }) }}",
         "options": {
           "timeout": 10000
         }
@@ -524,7 +524,7 @@
   },
   "staticData": null,
   "tags": [
-    { "name": "nova-health" },
+    { "name": "bloom-metabolics" },
     { "name": "ai-agents" },
     { "name": "clinical-dashboard" },
     { "name": "production" }

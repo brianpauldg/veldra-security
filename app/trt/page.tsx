@@ -46,7 +46,7 @@ export default function TRTPage() {
         { question: 'Is TRT safe?', answer: 'When prescribed and monitored by a licensed provider with regular lab work, TRT is generally well-tolerated. Your provider will discuss potential risks, side effects, and monitoring protocols during your consultation.' },
         { question: 'How long until I see results?', answer: 'Many patients report initial improvements in energy and mood within 2-4 weeks. Full benefits, including body composition changes, typically develop over 3-6 months of consistent treatment.' },
         { question: 'Do I need TRT forever?', answer: 'Treatment duration varies. Your provider will discuss your options, including the potential for long-term therapy and what happens if you choose to discontinue.' },
-        { question: 'Will insurance cover this?', answer: 'Nova Health operates as a cash-pay telehealth clinic. We provide transparent pricing without insurance billing complexity. Many patients find this more convenient and cost-effective.' },
+        { question: 'Will insurance cover this?', answer: 'Bloom Metabolics operates as a cash-pay telehealth clinic. We provide transparent pricing without insurance billing complexity. Many patients find this more convenient and cost-effective.' },
       ]}
       disclaimer="All TRT treatments require evaluation and prescription by a licensed medical provider. Individual results vary. Not everyone qualifies for testosterone replacement therapy."
     />

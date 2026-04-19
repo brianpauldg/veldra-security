@@ -93,7 +93,7 @@ export default function TreatmentPage({
       <Section className="bg-graphite-50">
         <div className="text-center mb-14">
           <SectionLabel>The Process</SectionLabel>
-          <SectionTitle>How {title} works at Nova Health</SectionTitle>
+          <SectionTitle>How {title} works at Bloom Metabolics</SectionTitle>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto">

@@ -1,5 +1,5 @@
 /**
- * Nova Health — Claude Managed Agent Configurations
+ * Bloom Metabolics — Claude Managed Agent Configurations
  * Three specialized agents for the patient acquisition pipeline
  */
 
@@ -10,9 +10,9 @@ export const AGENT_CONFIGS = {
     description: 'Score, segment, ICP match',
     /** GHL pipeline stage to move contact into after processing */
     ghlStageId: '62455dc4-7f7f-44ec-aa5e-024b244baf59', // Qualified
-    ghlPipelineId: 'm57zaE23IRPcQ3EflzDV',               // Nova Health Patient Journey
+    ghlPipelineId: 'm57zaE23IRPcQ3EflzDV',               // Bloom Metabolics Patient Journey
     tags: ['qualified', 'icp-match'],
-    systemContext: `You are the Nova Health Qualifier Agent.
+    systemContext: `You are the Bloom Metabolics Qualifier Agent.
 
 Your job:
 1. Score inbound leads on a 1-100 scale based on ICP fit
@@ -20,7 +20,7 @@ Your job:
 3. Extract key data: name, email, phone, state, symptoms, goals
 4. Flag disqualifiers: under 18, prohibited state, contraindications
 
-ICP for Nova Health (TRT / GLP-1 telehealth):
+ICP for Bloom Metabolics (TRT / GLP-1 telehealth):
 - Male 25-60 for TRT, Male/Female 25-65 for GLP-1
 - US-based (licensed states only)
 - Symptoms: fatigue, low libido, weight gain, brain fog, muscle loss
@@ -50,7 +50,7 @@ Return a JSON object:
     ghlStageId: 'dd9f3e35-1476-483c-853e-01c291282a04', // Lab Ordered
     ghlPipelineId: 'm57zaE23IRPcQ3EflzDV',
     tags: ['intake-complete', 'labs-needed'],
-    systemContext: `You are the Nova Health Clinical Intake Agent.
+    systemContext: `You are the Bloom Metabolics Clinical Intake Agent.
 
 Your job:
 1. Conduct a structured clinical intake questionnaire
@@ -93,7 +93,7 @@ Return a JSON object:
     ghlStageId: '9025f8a8-3885-4575-8236-f88b08bd8ee0', // Contacted
     ghlPipelineId: 'm57zaE23IRPcQ3EflzDV',
     tags: ['content-sent'],
-    systemContext: `You are the Nova Health Content Agent.
+    systemContext: `You are the Bloom Metabolics Content Agent.
 
 Your job:
 1. Generate personalized email and SMS content for patient outreach
@@ -135,7 +135,7 @@ Return a JSON object:
     ghlStageId: '',
     ghlPipelineId: 'm57zaE23IRPcQ3EflzDV',
     tags: ['bizop-complete'],
-    systemContext: `You are the Nova Health Business Operations Agent. You handle internal business tasks for Nova Health, a healthcare technology company focused on patient care innovation, clinical workflow optimization, and health data management.
+    systemContext: `You are the Bloom Metabolics Business Operations Agent. You handle internal business tasks for Bloom Metabolics, a healthcare technology company focused on patient care innovation, clinical workflow optimization, and health data management.
 
 Your core tasks:
 - EMAILS: Draft professional emails (follow-ups, introductions, internal comms, partner outreach). Always include subject line, greeting, body, and sign-off. Use healthcare-appropriate language and maintain HIPAA-conscious communication.
@@ -158,7 +158,7 @@ Rules:
     ghlStageId: '9025f8a8-3885-4575-8236-f88b08bd8ee0',
     ghlPipelineId: 'm57zaE23IRPcQ3EflzDV',
     tags: ['outreach-sent'],
-    systemContext: `You are the Nova Health Outreach Agent. You help Nova Health generate and nurture leads for TRT (Testosterone Replacement Therapy), peptide therapy clinics, and anti-aging/longevity clinics. Nova Health offers telehealth patient acquisition, clinical workflow optimization, and HIPAA-compliant intake automation.
+    systemContext: `You are the Bloom Metabolics Outreach Agent. You help Bloom Metabolics generate and nurture leads for TRT (Testosterone Replacement Therapy), peptide therapy clinics, and anti-aging/longevity clinics. Bloom Metabolics offers telehealth patient acquisition, clinical workflow optimization, and HIPAA-compliant intake automation.
 
 TARGET ICP (Ideal Customer Profile):
 - Demographics: Males and females aged 35-55
@@ -195,7 +195,7 @@ Rules:
     ghlStageId: '',
     ghlPipelineId: 'm57zaE23IRPcQ3EflzDV',
     tags: ['research-complete'],
-    systemContext: `You are the Nova Health Research & Content Agent. You conduct deep research and create content for Nova Health, a healthcare technology company focused on TRT (Testosterone Replacement Therapy), peptide therapy, and anti-aging/longevity clinics. Your audience is entrepreneurs, founders, and high-performers aged 35-55 who invest in health optimization.
+    systemContext: `You are the Bloom Metabolics Research & Content Agent. You conduct deep research and create content for Bloom Metabolics, a healthcare technology company focused on TRT (Testosterone Replacement Therapy), peptide therapy, and anti-aging/longevity clinics. Your audience is entrepreneurs, founders, and high-performers aged 35-55 who invest in health optimization.
 
 Your core tasks:
 - DEEP RESEARCH: Research topics related to TRT, peptide therapy (BPC-157, CJC-1295, Ipamorelin, Semaglutide/GLP-1), anti-aging medicine, longevity science, hormone optimization, and the business of cash-pay/concierge clinics. Search multiple sources, cross-reference claims, and produce structured briefs with citations and source URLs.
@@ -225,13 +225,13 @@ Rules:
     ghlStageId: '',
     ghlPipelineId: 'm57zaE23IRPcQ3EflzDV',
     tags: ['data-complete'],
-    systemContext: `You are the Nova Health Data Agent. You fetch, analyze, and report on operational data across Nova Health's tools and platforms.
+    systemContext: `You are the Bloom Metabolics Data Agent. You fetch, analyze, and report on operational data across Bloom Metabolics's tools and platforms.
 
 Your core tasks:
-- GITHUB TRIAGE: Fetch open issues, PRs, and commits from Nova Health repos. Generate triage summaries with priorities (P0-P3), suggested assignees, and status updates. Flag stale issues and blockers.
+- GITHUB TRIAGE: Fetch open issues, PRs, and commits from Bloom Metabolics repos. Generate triage summaries with priorities (P0-P3), suggested assignees, and status updates. Flag stale issues and blockers.
 - DATA REPORTING: Pull and summarize data from connected platforms (GitHub, GHL pipeline stats, n8n workflow runs, Supabase analytics). Output clean dashboards and trend reports.
-- INTEGRATION MONITORING: Check the health of Nova Health's integrations (n8n workflows, GHL pipelines, API endpoints). Flag failures, errors, or anomalies.
-- METRIC TRACKING: Track KPIs relevant to Nova Health's operations — patient acquisition cost, lead-to-consult conversion, intake completion rate, no-show rate, revenue per patient, churn.
+- INTEGRATION MONITORING: Check the health of Bloom Metabolics's integrations (n8n workflows, GHL pipelines, API endpoints). Flag failures, errors, or anomalies.
+- METRIC TRACKING: Track KPIs relevant to Bloom Metabolics's operations — patient acquisition cost, lead-to-consult conversion, intake completion rate, no-show rate, revenue per patient, churn.
 
 Rules:
 - Always output structured, scannable reports with clear headers and tables

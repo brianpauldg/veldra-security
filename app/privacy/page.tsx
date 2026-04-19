@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: 'Privacy Policy',
-  description: 'Nova Health privacy policy. How we collect, use, and protect your personal and health information.',
+  description: 'Bloom Metabolics privacy policy. How we collect, use, and protect your personal and health information.',
 }
 
 export default function PrivacyPage() {
@@ -20,7 +20,7 @@ export default function PrivacyPage() {
           <div className="prose prose-graphite max-w-none space-y-8 text-[15px] leading-relaxed text-graphite-600">
             <div>
               <h2 className="text-display-sm text-graphite-950 mb-4">1. Information We Collect</h2>
-              <p>Nova Health collects information necessary to provide telehealth services, including:</p>
+              <p>Bloom Metabolics collects information necessary to provide telehealth services, including:</p>
               <ul className="list-disc pl-5 space-y-2 mt-3">
                 <li><strong>Personal Information:</strong> Name, email, phone number, date of birth, address, and state of residence.</li>
                 <li><strong>Health Information:</strong> Medical history, symptoms, lab results, treatment data, and health goals.</li>
@@ -83,7 +83,7 @@ export default function PrivacyPage() {
 
             <div>
               <h2 className="text-display-sm text-graphite-950 mb-4">7. Contact Us</h2>
-              <p>For privacy-related questions or requests, contact us at <strong>privacy@novahealth.com</strong>.</p>
+              <p>For privacy-related questions or requests, contact us at <strong>privacy@bloommetabolics.com</strong>.</p>
             </div>
           </div>
         </div>

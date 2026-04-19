@@ -1,5 +1,5 @@
 /**
- * Nova Health — Push Notification Dispatcher
+ * Bloom Metabolics — Push Notification Dispatcher
  *
  * Routes critical notifications to external channels:
  * - Email via GHL
@@ -17,7 +17,7 @@ import { logAudit } from './audit'
 const BRIAN_GHL_CONTACT_ID = process.env.GHL_ADMIN_CONTACT_ID || 'VS9MpDTN1ySXSYLUkEsN'
 const GHL_API_KEY = process.env.GHL_API_KEY || ''
 const GHL_BASE_URL = process.env.GHL_BASE_URL || 'https://services.leadconnectorhq.com'
-const APP_URL = process.env.NEXT_PUBLIC_APP_URL || 'https://novahealth-one.vercel.app'
+const APP_URL = process.env.NEXT_PUBLIC_APP_URL || 'https://bloommetabolics-one.vercel.app'
 
 export type PushChannel = 'email' | 'sms' | 'dashboard'
 
@@ -83,9 +83,9 @@ export async function pushNotify(notif: PushNotification): Promise<PushResult> {
         body: JSON.stringify({
           type: 'Email',
           contactId: BRIAN_GHL_CONTACT_ID,
-          subject: `[Nova Health ${notif.severity.toUpperCase()}] ${notif.title}`,
+          subject: `[Bloom Metabolics ${notif.severity.toUpperCase()}] ${notif.title}`,
           html: emailHtml,
-          emailTo: 'brian@novahealth.com',
+          emailTo: 'brian@bloommetabolics.com',
         }),
       })
       if (res.ok) {
@@ -172,7 +172,7 @@ function buildEmailHtml(notif: PushNotification): string {
       <!-- Header -->
       <div style="background:#09090b;padding:20px 24px;display:flex;align-items:center;">
         <div style="width:32px;height:32px;background:#1a9a73;border-radius:8px;display:inline-block;vertical-align:middle;text-align:center;line-height:32px;color:white;font-weight:bold;font-size:14px;margin-right:12px;">N</div>
-        <span style="color:#ffffff;font-size:15px;font-weight:600;vertical-align:middle;">Nova Health Clinical OS</span>
+        <span style="color:#ffffff;font-size:15px;font-weight:600;vertical-align:middle;">Bloom Metabolics Clinical OS</span>
       </div>
 
       <!-- Severity Banner -->
@@ -194,7 +194,7 @@ function buildEmailHtml(notif: PushNotification): string {
       <!-- Footer -->
       <div style="padding:16px 24px;background:#f8f8f9;border-top:1px solid #e2e2e6;">
         <p style="margin:0;font-size:11px;color:#a0a0ab;">
-          Nova Health Clinical OS · ${new Date().toLocaleString('en-US', { timeZone: 'America/Chicago' })} CT
+          Bloom Metabolics Clinical OS · ${new Date().toLocaleString('en-US', { timeZone: 'America/Chicago' })} CT
           ${notif.source ? ` · Source: ${notif.source}` : ''}
         </p>
         <p style="margin:4px 0 0;font-size:11px;color:#a0a0ab;">

@@ -135,7 +135,7 @@ export default function ContactPage() {
                   <h3 className="text-[15px] font-semibold text-graphite-950">Email</h3>
                 </div>
                 <p className="text-[14px] text-graphite-500">
-                  support@novahealth.com
+                  support@bloommetabolics.com
                 </p>
               </div>
 

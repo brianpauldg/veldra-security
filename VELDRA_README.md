@@ -1,11 +1,11 @@
-# Nova Health - AI Operations Assistant for Professional Services
+# Bloom Metabolics - AI Operations Assistant for Professional Services
 **The platform that automates 70-80% of operations work for accounting, law, and HR firms.**
 
 ---
 
 ## 📋 Overview
 
-Nova Health is a vertical SaaS platform designed to solve a critical market gap: professional services firms with 10–200 employees are too big for consumer tools, too small for enterprise suites, and too compliance-heavy to improvise.
+Bloom Metabolics is a vertical SaaS platform designed to solve a critical market gap: professional services firms with 10–200 employees are too big for consumer tools, too small for enterprise suites, and too compliance-heavy to improvise.
 
 **The Opportunity:**
 - **$50K–$150K/year** per operations/compliance hire
@@ -119,7 +119,7 @@ AI: "I've identified 3 automations that will save 6 hours/week..."
 
 User: "Show me the ROI"
 AI: "You're spending $135K/year on compliance work.
-   Nova Health can automate 75% of that ($101K) for $749/month.
+   Bloom Metabolics can automate 75% of that ($101K) for $749/month.
    Breakeven: 27 days. Annual savings: $91K."
 ```
 
@@ -151,14 +151,14 @@ AI: "You're spending $135K/year on compliance work.
 - **Embed code:**
 ```html
 <script>
-  window.novahealthConfig = { companyId: "abc123", position: "bottom-right" };
+  window.bloommetabolicsConfig = { companyId: "abc123", position: "bottom-right" };
 </script>
-<script src="https://novahealth.io/widget.js" async></script>
-<div id="novahealth-widget"></div>
+<script src="https://bloommetabolics.io/widget.js" async></script>
+<div id="bloommetabolics-widget"></div>
 ```
 
 ### 6. ROI Dashboard
-- **Cost Analysis** - Current vs. with Nova Health
+- **Cost Analysis** - Current vs. with Bloom Metabolics
 - **Payback Period** - How fast you break even
 - **Savings Projection** - By role, by area
 - **30-Second Close** - One-minute pitch with numbers
@@ -349,7 +349,7 @@ MIT
 
 - **Docs**: See `DEPLOY_GUIDE.md` and `SECURITY_AUDIT.md`
 - **Issues**: GitHub Issues
-- **Email**: support@novahealth.io
+- **Email**: support@bloommetabolics.io
 
 ---
 

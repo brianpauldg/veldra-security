@@ -1,22 +1,24 @@
 @import "tailwindcss";
 
 @theme {
-  --color-nova-50: #f0f9f6;
-  --color-nova-100: #d9f0e8;
-  --color-nova-200: #b3e1d1;
-  --color-nova-300: #80ccb3;
-  --color-nova-400: #4db393;
-  --color-nova-500: #1a9a73;
-  --color-nova-600: #147a5c;
-  --color-nova-700: #0f5b45;
-  --color-nova-800: #0a3d2e;
-  --color-nova-900: #051e17;
+  /* ─── Nova = silver/chrome accent ──────────────────────── */
+  --color-nova-50: #fafafa;
+  --color-nova-100: #f4f4f5;
+  --color-nova-200: #e5e5e7;
+  --color-nova-300: #d4d4d8;
+  --color-nova-400: #b8b8bd;
+  --color-nova-500: #8a8a8f;
+  --color-nova-600: #6b6b70;
+  --color-nova-700: #4a4a4e;
+  --color-nova-800: #2d2d30;
+  --color-nova-900: #1a1a1d;
 
-  --color-graphite-50: #f8f8f9;
-  --color-graphite-100: #f0f0f2;
-  --color-graphite-200: #e2e2e6;
-  --color-graphite-300: #c8c8cf;
-  --color-graphite-400: #a0a0ab;
+  /* ─── Graphite = grayscale workhorse ───────────────────── */
+  --color-graphite-50: #fafafa;
+  --color-graphite-100: #f4f4f5;
+  --color-graphite-200: #e4e4e7;
+  --color-graphite-300: #d4d4d8;
+  --color-graphite-400: #a1a1aa;
   --color-graphite-500: #71717a;
   --color-graphite-600: #52525b;
   --color-graphite-700: #3f3f46;
@@ -24,8 +26,14 @@
   --color-graphite-900: #18181b;
   --color-graphite-950: #09090b;
 
-  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
-  --font-display: 'Inter', system-ui, -apple-system, sans-serif;
+  /* ─── Ice = rare accent for CTAs / key data ────────────── */
+  --color-ice-400: #93c5fd;
+  --color-ice-500: #60a5fa;
+  --color-ice-600: #3b82f6;
+
+  --font-sans: 'InterVariable', 'Inter', system-ui, -apple-system, sans-serif;
+  --font-display: 'Inter Tight', 'InterVariable', 'Inter', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, monospace;
 }
 
 /* ─── Base ─────────────────────────────────────────────── */
@@ -42,60 +50,78 @@ body {
 }
 
 ::selection {
-  background: var(--color-nova-200);
-  color: var(--color-graphite-950);
+  background: var(--color-graphite-900);
+  color: #ffffff;
 }
 
-/* ─── Premium Typography ───────────────────────────────── */
+/* ─── Display typography (Inter Tight) ─────────────────── */
+.text-display-xl,
+.text-display-lg,
+.text-display,
+.text-display-sm,
+.text-headline {
+  font-family: var(--font-display);
+  font-feature-settings: 'ss01', 'cv11';
+}
+
 .text-display-xl {
   font-size: 4.5rem;
-  line-height: 1.05;
-  letter-spacing: -0.03em;
+  line-height: 1.02;
+  letter-spacing: -0.04em;
   font-weight: 700;
 }
 
 .text-display-lg {
   font-size: 3.5rem;
-  line-height: 1.08;
-  letter-spacing: -0.025em;
+  line-height: 1.05;
+  letter-spacing: -0.035em;
   font-weight: 700;
 }
 
 .text-display {
   font-size: 2.75rem;
-  line-height: 1.1;
-  letter-spacing: -0.02em;
+  line-height: 1.08;
+  letter-spacing: -0.03em;
   font-weight: 700;
 }
 
 .text-display-sm {
   font-size: 2rem;
-  line-height: 1.15;
-  letter-spacing: -0.015em;
+  line-height: 1.12;
+  letter-spacing: -0.025em;
   font-weight: 600;
 }
 
-/* ─── Premium Gradients ────────────────────────────────── */
+/* ─── Premium gradients (silver / ink) ─────────────────── */
 .gradient-dark {
   background: linear-gradient(180deg, #09090b 0%, #18181b 100%);
 }
 
 .gradient-hero {
-  background: linear-gradient(135deg, #09090b 0%, #0f1a14 50%, #09090b 100%);
+  background:
+    radial-gradient(ellipse 80% 60% at 70% 10%, rgba(255, 255, 255, 0.06), transparent 60%),
+    linear-gradient(180deg, #09090b 0%, #18181b 100%);
 }
 
-.gradient-card {
-  background: linear-gradient(135deg, rgba(26, 154, 115, 0.05) 0%, rgba(26, 154, 115, 0.02) 100%);
+.gradient-silver {
+  background: linear-gradient(135deg, #b8b8bd 0%, #ffffff 50%, #8a8a8f 100%);
 }
 
 .gradient-text {
-  background: linear-gradient(135deg, #1a9a73 0%, #4db393 100%);
+  background: linear-gradient(135deg, #ffffff 0%, #d4d4d8 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
-/* ─── Smooth Scroll Sections ───────────────────────────── */
+.text-chrome {
+  background: linear-gradient(135deg, #e5e5e7 0%, #ffffff 40%, #a1a1aa 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ─── Section fade ─────────────────────────────────────── */
 .section-fade {
   opacity: 0;
   transform: translateY(20px);
@@ -107,9 +133,9 @@ body {
   transform: translateY(0);
 }
 
-/* ─── Premium Glass Effect ─────────────────────────────── */
+/* ─── Glass surfaces ───────────────────────────────────── */
 .glass {
-  background: rgba(255, 255, 255, 0.03);
+  background: rgba(255, 255, 255, 0.04);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border: 1px solid rgba(255, 255, 255, 0.08);
@@ -122,7 +148,27 @@ body {
   border: 1px solid rgba(0, 0, 0, 0.05);
 }
 
-/* ─── Responsive Typography ────────────────────────────── */
+/* ─── Silver card border (premium accent) ──────────────── */
+.silver-border {
+  position: relative;
+  background: #ffffff;
+  border-radius: 1.25rem;
+}
+
+.silver-border::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(135deg, #e4e4e7, #ffffff, #a1a1aa, #e4e4e7);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+  pointer-events: none;
+}
+
+/* ─── Responsive typography ────────────────────────────── */
 @media (max-width: 768px) {
   .text-display-xl { font-size: 2.5rem; }
   .text-display-lg { font-size: 2rem; }

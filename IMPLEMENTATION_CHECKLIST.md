@@ -1,4 +1,4 @@
-# Nova Health Implementation Checklist
+# Bloom Metabolics Implementation Checklist
 
 ## Phase 1: Core Setup ✅ COMPLETE
 

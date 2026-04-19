@@ -3,14 +3,16 @@
 import Link from 'next/link'
 import { motion } from 'framer-motion'
 import {
-  Shield, Activity, Zap, Lock, Clock, UserCheck,
-  ArrowRight, Check, ChevronRight, Star, Microscope,
-  Brain, Syringe, FlaskConical, HeartPulse, TrendingUp,
-  Bot, Stethoscope
+  ArrowRight, Check, ChevronRight,
+  Syringe, TrendingUp, FlaskConical,
+  Stethoscope, Microscope, Package, MessageCircle,
+  Shield, Lock, Truck, UserCheck,
 } from 'lucide-react'
 import Section, { SectionLabel, SectionTitle, SectionDescription } from '@/components/ui/Section'
-import Card, { CardIcon } from '@/components/ui/Card'
+import PricingTable from '@/components/PricingTable'
+import MedicalDirectorBio from '@/components/MedicalDirectorBio'
 import EmailCapture from '@/components/EmailCapture'
+import { primaryCtaLabel, primaryCtaSublabel, CONSULTATION } from '@/lib/pricing'
 
 const fadeUp = {
   initial: { opacity: 0, y: 24 },
@@ -19,21 +21,22 @@ const fadeUp = {
 }
 
 const stagger = {
-  animate: { transition: { staggerChildren: 0.1 } },
+  animate: { transition: { staggerChildren: 0.08 } },
 }
 
 export default function Home() {
+  const ctaLabel = primaryCtaLabel()
+
   return (
     <>
       {/* ═══════════════════════════════════════════════════════
-          HERO
+          1. HERO
       ═══════════════════════════════════════════════════════ */}
       <section className="relative bg-graphite-950 overflow-hidden">
-        {/* Subtle gradient overlay */}
         <div className="absolute inset-0 bg-gradient-to-br from-graphite-950 via-graphite-900 to-graphite-950" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_rgba(26,154,115,0.08),_transparent_60%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_rgba(255,255,255,0.06),_transparent_60%)]" />
 
-        <div className="relative max-w-7xl mx-auto px-6 lg:px-8 py-28 lg:py-40">
+        <div className="relative max-w-7xl mx-auto px-6 lg:px-8 py-24 lg:py-36">
           <motion.div
             initial="initial"
             animate="animate"
@@ -41,64 +44,62 @@ export default function Home() {
             className="max-w-4xl"
           >
             <motion.div variants={fadeUp} className="mb-6">
-              <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-[12px] font-medium text-graphite-300 tracking-wide">
-                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                Now accepting new patients
+              <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/5 border border-white/10 text-[11px] font-medium text-graphite-300 tracking-[0.12em] uppercase">
+                <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
+                Metabolic Health · Telehealth · Licensed Physicians
               </span>
             </motion.div>
 
-            <motion.h1
-              variants={fadeUp}
-              className="text-display-xl text-white mb-6"
-            >
-              The Modern Standard{'\n'}
-              <br />
-              in Medical Optimization
+            <motion.h1 variants={fadeUp} className="text-display-xl text-chrome mb-6">
+              Your Metabolism,<br />
+              Optimized.
             </motion.h1>
 
             <motion.p
               variants={fadeUp}
               className="text-xl text-graphite-400 leading-relaxed max-w-2xl mb-10"
             >
-              Premium telehealth for TRT, GLP-1 weight loss, and peptide therapy.
-              Licensed providers, personalized protocols, and AI-enhanced care
-              operations — designed for people who demand more from their health.
+              Premium telehealth for testosterone therapy, GLP-1 weight loss, and peptide protocols — backed by comprehensive labs and real physician oversight.
             </motion.p>
 
-            <motion.div variants={fadeUp} className="flex flex-wrap gap-4">
+            <motion.div variants={fadeUp} className="flex flex-wrap gap-4 items-center">
               <Link
-                href="/pricing"
+                href="/book"
                 className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-white text-graphite-950 text-[15px] font-semibold hover:bg-graphite-100 transition-all shadow-lg hover:shadow-xl"
               >
-                Book Consultation
+                {ctaLabel}
                 <ArrowRight className="w-4 h-4" />
               </Link>
               <Link
-                href="/trt"
-                className="inline-flex items-center gap-2 px-8 py-4 rounded-full border border-white/15 text-white text-[15px] font-medium hover:bg-white/5 transition-all"
+                href="/pricing"
+                className="inline-flex items-center gap-2 px-6 py-4 rounded-full border border-white/15 text-white text-[15px] font-medium hover:bg-white/5 transition-all"
               >
-                Explore Treatments
+                See Pricing
               </Link>
             </motion.div>
+
+            <motion.p variants={fadeUp} className="text-[12px] text-graphite-500 mt-6">
+              {primaryCtaSublabel()} · HIPAA-compliant · Stripe-secured
+            </motion.p>
           </motion.div>
         </div>
       </section>
 
       {/* ═══════════════════════════════════════════════════════
-          TRUST BAR
+          TRUST STRIP
       ═══════════════════════════════════════════════════════ */}
-      <div className="border-b border-graphite-100 bg-graphite-50/50">
+      <div className="border-b border-graphite-200 bg-white">
         <div className="max-w-7xl mx-auto px-6 lg:px-8 py-5">
-          <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-3">
+          <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-3">
             {[
-              { icon: <UserCheck className="w-4 h-4" />, text: 'Licensed Medical Providers' },
-              { icon: <Lock className="w-4 h-4" />, text: 'HIPAA-Compliant Platform' },
-              { icon: <Activity className="w-4 h-4" />, text: 'Personalized Care Pathways' },
-              { icon: <Shield className="w-4 h-4" />, text: 'Stripe-Secured Payments' },
-              { icon: <Bot className="w-4 h-4" />, text: 'AI-Enhanced Operations' },
+              { icon: <UserCheck className="w-4 h-4" />, text: 'Board-Certified Physicians' },
+              { icon: <Microscope className="w-4 h-4" />, text: 'Real Bloodwork, Real Rx' },
+              { icon: <Lock className="w-4 h-4" />, text: 'HIPAA-Compliant' },
+              { icon: <Truck className="w-4 h-4" />, text: 'Shipped from Licensed Pharmacy' },
+              { icon: <Shield className="w-4 h-4" />, text: 'Stripe-Secured Checkout' },
             ].map((item) => (
-              <div key={item.text} className="flex items-center gap-2 text-[12px] font-medium text-graphite-500">
-                {item.icon}
+              <div key={item.text} className="flex items-center gap-2 text-[12px] font-medium text-graphite-600">
+                <span className="text-graphite-500">{item.icon}</span>
                 {item.text}
               </div>
             ))}
@@ -107,451 +108,241 @@ export default function Home() {
       </div>
 
       {/* ═══════════════════════════════════════════════════════
-          SERVICE PILLARS
+          2. SERVICES
       ═══════════════════════════════════════════════════════ */}
       <Section>
-        <SectionLabel>Treatment Programs</SectionLabel>
-        <SectionTitle>Three pillars of optimization</SectionTitle>
+        <SectionLabel>Programs</SectionLabel>
+        <SectionTitle>Three core therapies</SectionTitle>
         <SectionDescription>
-          Each program is physician-guided, individually tailored, and designed for
-          measurable, sustainable outcomes.
+          Each program is physician-prescribed, labs-informed, and shipped from a licensed pharmacy.
         </SectionDescription>
 
-        <div className="mt-14 grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="mt-14 grid grid-cols-1 md:grid-cols-3 gap-5">
           {[
             {
-              icon: <Syringe className="w-6 h-6" />,
-              title: 'Testosterone Replacement',
-              description: 'Clinician-guided TRT protocols to restore energy, drive, body composition, and overall vitality. Lab-informed. Individually dosed.',
+              icon: <Syringe className="w-5 h-5" />,
+              title: 'Testosterone Therapy',
+              desc: 'Physician-prescribed TRT protocols. Labs every 90 days. Individually dosed.',
               href: '/trt',
               tag: 'TRT',
             },
             {
-              icon: <TrendingUp className="w-6 h-6" />,
+              icon: <TrendingUp className="w-5 h-5" />,
               title: 'GLP-1 Weight Loss',
-              description: 'Medical weight management with GLP-1 receptor agonists. Physician-supervised protocols for sustainable body composition change.',
+              desc: 'Semaglutide or Tirzepatide, supervised by a physician with monthly check-ins.',
               href: '/glp1',
               tag: 'GLP-1',
             },
             {
-              icon: <FlaskConical className="w-6 h-6" />,
+              icon: <FlaskConical className="w-5 h-5" />,
               title: 'Peptide Therapy',
-              description: 'Targeted peptide protocols for recovery, performance, sleep, and cellular optimization. Research-informed. Provider-managed.',
+              desc: 'Recovery, performance, and longevity protocols — provider-managed.',
               href: '/peptides',
               tag: 'Peptides',
             },
-          ].map((service) => (
-            <Link key={service.title} href={service.href} className="group">
-              <Card className="h-full group-hover:border-graphite-300">
+          ].map((s) => (
+            <Link key={s.title} href={s.href} className="group">
+              <div className="h-full rounded-2xl border border-graphite-200 bg-white p-6 transition-all group-hover:border-graphite-950 group-hover:shadow-lg">
                 <div className="flex items-center gap-3 mb-5">
-                  <CardIcon className="group-hover:bg-graphite-950 group-hover:text-white transition-colors">
-                    {service.icon}
-                  </CardIcon>
-                  <span className="text-[11px] font-semibold uppercase tracking-widest text-graphite-400">{service.tag}</span>
+                  <div className="w-10 h-10 rounded-xl bg-graphite-100 text-graphite-950 flex items-center justify-center group-hover:bg-graphite-950 group-hover:text-white transition-colors">
+                    {s.icon}
+                  </div>
+                  <span className="text-[10px] font-semibold uppercase tracking-widest text-graphite-400">{s.tag}</span>
                 </div>
-                <h3 className="text-headline text-graphite-950 mb-3">{service.title}</h3>
-                <p className="text-[14px] text-graphite-500 leading-relaxed mb-5">{service.description}</p>
-                <span className="inline-flex items-center gap-1.5 text-[13px] font-medium text-graphite-950 group-hover:gap-3 transition-all">
+                <h3 className="text-[18px] font-semibold text-graphite-950 mb-2">{s.title}</h3>
+                <p className="text-[13px] text-graphite-600 leading-relaxed mb-5">{s.desc}</p>
+                <span className="inline-flex items-center gap-1 text-[13px] font-semibold text-graphite-950 group-hover:gap-2 transition-all">
                   Learn more <ChevronRight className="w-3.5 h-3.5" />
                 </span>
-              </Card>
-            </Link>
-          ))}
-        </div>
-      </Section>
-
-      {/* ═══════════════════════════════════════════════════════
-          POSITIONING — BUILT FOR MODERN OPTIMIZATION
-      ═══════════════════════════════════════════════════════ */}
-      <Section dark className="gradient-hero">
-        <div className="max-w-3xl mx-auto text-center">
-          <SectionLabel dark>Why Nova Health</SectionLabel>
-          <h2 className="text-display-lg text-white mb-6">
-            Built for people who refuse to settle for average health
-          </h2>
-          <p className="text-lg text-graphite-400 leading-relaxed mb-12">
-            Most telehealth clinics are transactional. We built a system — premium medical
-            oversight, AI-enhanced operations, and a care experience that feels like it
-            was designed by people who actually care about outcomes.
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {[
-            { icon: <Stethoscope className="w-5 h-5" />, title: 'Licensed Clinicians', desc: 'Every protocol designed and supervised by board-eligible providers' },
-            { icon: <Microscope className="w-5 h-5" />, title: 'Lab-Informed Protocols', desc: 'Treatment decisions grounded in your bloodwork and biomarkers' },
-            { icon: <Brain className="w-5 h-5" />, title: 'AI-Enhanced Ops', desc: 'Intelligent workflows that keep your care on track, automatically' },
-            { icon: <HeartPulse className="w-5 h-5" />, title: 'Ongoing Optimization', desc: 'Not one-and-done. Continuous monitoring, adjustment, and support' },
-          ].map((item) => (
-            <div key={item.title} className="glass rounded-2xl p-6">
-              <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center text-graphite-300 mb-4">
-                {item.icon}
               </div>
-              <h3 className="text-[15px] font-semibold text-white mb-2">{item.title}</h3>
-              <p className="text-[13px] text-graphite-400 leading-relaxed">{item.desc}</p>
-            </div>
-          ))}
-        </div>
-      </Section>
-
-      {/* ═══════════════════════════════════════════════════════
-          AI INFRASTRUCTURE PREVIEW
-      ═══════════════════════════════════════════════════════ */}
-      <Section>
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          <div>
-            <SectionLabel>Intelligent Infrastructure</SectionLabel>
-            <SectionTitle>AI that supports your care — not replaces your clinician</SectionTitle>
-            <SectionDescription>
-              Our AI systems handle scheduling, reminders, intake guidance, and operational
-              workflows. Your clinician handles medical decisions. That&apos;s the way it should be.
-            </SectionDescription>
-
-            <ul className="mt-8 space-y-4">
-              {[
-                'Automated intake and onboarding workflows',
-                'Intelligent appointment reminders and follow-ups',
-                'Educational content personalized to your program',
-                'Operational analytics for care continuity',
-                'Support triage and routing to the right team',
-              ].map((item) => (
-                <li key={item} className="flex items-start gap-3">
-                  <Check className="w-4 h-4 text-emerald-500 mt-0.5 flex-shrink-0" />
-                  <span className="text-[14px] text-graphite-600">{item}</span>
-                </li>
-              ))}
-            </ul>
-
-            <Link
-              href="/how-it-works"
-              className="inline-flex items-center gap-2 mt-8 text-[14px] font-medium text-graphite-950 hover:gap-3 transition-all"
-            >
-              See how our AI systems work <ArrowRight className="w-4 h-4" />
             </Link>
-          </div>
-
-          {/* AI Visual */}
-          <div className="bg-graphite-950 rounded-3xl p-8 lg:p-10">
-            <div className="space-y-4">
-              {[
-                { label: 'Intake Guidance', status: 'AI-Assisted', color: 'bg-emerald-400' },
-                { label: 'Lab Review Routing', status: 'AI-Assisted', color: 'bg-emerald-400' },
-                { label: 'Clinical Decision', status: 'Provider Only', color: 'bg-amber-400' },
-                { label: 'Prescription Authority', status: 'Provider Only', color: 'bg-amber-400' },
-                { label: 'Follow-Up Scheduling', status: 'AI-Assisted', color: 'bg-emerald-400' },
-                { label: 'Patient Education', status: 'AI-Assisted', color: 'bg-emerald-400' },
-                { label: 'Dosage Adjustment', status: 'Provider Only', color: 'bg-amber-400' },
-              ].map((item) => (
-                <div key={item.label} className="flex items-center justify-between py-3 border-b border-graphite-800 last:border-0">
-                  <span className="text-[13px] text-graphite-300">{item.label}</span>
-                  <span className="flex items-center gap-2 text-[12px] font-medium text-graphite-400">
-                    <span className={`w-1.5 h-1.5 rounded-full ${item.color}`} />
-                    {item.status}
-                  </span>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </Section>
-
-      {/* ═══════════════════════════════════════════════════════
-          HOW IT WORKS
-      ═══════════════════════════════════════════════════════ */}
-      <Section className="bg-graphite-50">
-        <div className="text-center mb-16">
-          <SectionLabel>Your Journey</SectionLabel>
-          <SectionTitle>Six steps to optimized health</SectionTitle>
-          <SectionDescription className="mx-auto">
-            A streamlined, modern care experience from first click to ongoing optimization.
-          </SectionDescription>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {[
-            { step: '01', title: 'Book Consultation', desc: 'Schedule a paid consultation with a licensed provider. Quick, secure, no obligation beyond the visit.' },
-            { step: '02', title: 'Complete Intake', desc: 'Fill out your health history, symptoms, and goals through our secure digital intake system.' },
-            { step: '03', title: 'Medical Review', desc: 'A licensed clinician reviews your intake, orders appropriate labs, and evaluates your eligibility.' },
-            { step: '04', title: 'Lab & Diagnostics', desc: 'Complete bloodwork at a convenient lab location. Results are reviewed by your care team.' },
-            { step: '05', title: 'Personalized Protocol', desc: 'Receive a tailored treatment plan designed around your biomarkers, goals, and medical history.' },
-            { step: '06', title: 'Ongoing Optimization', desc: 'Regular check-ins, lab monitoring, and protocol adjustments to keep you progressing.' },
-          ].map((item) => (
-            <div key={item.step} className="relative">
-              <span className="text-[64px] font-bold text-graphite-100 leading-none">{item.step}</span>
-              <h3 className="text-headline mt-2 mb-2">{item.title}</h3>
-              <p className="text-[14px] text-graphite-500 leading-relaxed">{item.desc}</p>
-            </div>
           ))}
         </div>
       </Section>
 
       {/* ═══════════════════════════════════════════════════════
-          OUTCOMES / BENEFITS
-      ═══════════════════════════════════════════════════════ */}
-      <Section>
-        <div className="text-center mb-16">
-          <SectionLabel>What Patients Experience</SectionLabel>
-          <SectionTitle>Real outcomes. Responsible medicine.</SectionTitle>
-          <SectionDescription className="mx-auto">
-            Results vary by individual. All outcomes are subject to clinician evaluation
-            and ongoing medical supervision.
-          </SectionDescription>
-        </div>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {[
-            { icon: <Zap className="w-5 h-5" />, title: 'Restored Energy', desc: 'Patients commonly report improved energy levels and reduced fatigue within weeks of treatment initiation.' },
-            { icon: <TrendingUp className="w-5 h-5" />, title: 'Body Composition', desc: 'Medically supervised protocols designed to support lean mass, metabolic health, and sustainable weight management.' },
-            { icon: <Brain className="w-5 h-5" />, title: 'Mental Clarity', desc: 'Hormone optimization may support cognitive performance, focus, and mood stability.' },
-            { icon: <HeartPulse className="w-5 h-5" />, title: 'Improved Recovery', desc: 'Peptide and hormone protocols that support faster recovery, better sleep, and reduced inflammation.' },
-            { icon: <Activity className="w-5 h-5" />, title: 'Libido & Vitality', desc: 'TRT patients frequently report improvements in libido, sexual health, and overall vitality.' },
-            { icon: <Clock className="w-5 h-5" />, title: 'Convenience', desc: 'No waiting rooms. No scheduling battles. Premium telehealth from your home, on your time.' },
-          ].map((item) => (
-            <Card key={item.title}>
-              <CardIcon>{item.icon}</CardIcon>
-              <h3 className="text-[16px] font-semibold text-graphite-950 mb-2">{item.title}</h3>
-              <p className="text-[13px] text-graphite-500 leading-relaxed">{item.desc}</p>
-            </Card>
-          ))}
-        </div>
-
-        <p className="text-center text-[12px] text-graphite-400 mt-8">
-          Individual results vary. All treatments are subject to medical evaluation by a licensed provider.
-        </p>
-      </Section>
-
-      {/* ═══════════════════════════════════════════════════════
-          COMPARISON — TRADITIONAL VS NOVA
-      ═══════════════════════════════════════════════════════ */}
-      <Section dark>
-        <div className="text-center mb-16">
-          <SectionLabel dark>The Difference</SectionLabel>
-          <SectionTitle dark>Not your average telehealth clinic</SectionTitle>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-          {/* Traditional */}
-          <div className="rounded-2xl border border-graphite-800 p-8">
-            <h3 className="text-[14px] font-semibold text-graphite-400 uppercase tracking-widest mb-6">Traditional Clinic</h3>
-            <ul className="space-y-4">
-              {[
-                'Long wait times and scheduling friction',
-                'Generic protocols, one-size-fits-all',
-                'Reactive care — see you in 6 months',
-                'Paper forms and outdated systems',
-                'No transparency on process or pricing',
-                'Minimal follow-up or accountability',
-              ].map((item) => (
-                <li key={item} className="flex items-start gap-3">
-                  <span className="text-graphite-600 mt-0.5">&#x2717;</span>
-                  <span className="text-[14px] text-graphite-500">{item}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Nova */}
-          <div className="rounded-2xl border border-emerald-800/30 bg-emerald-900/10 p-8">
-            <h3 className="text-[14px] font-semibold text-emerald-400 uppercase tracking-widest mb-6">Nova Health</h3>
-            <ul className="space-y-4">
-              {[
-                'Book online in under 2 minutes',
-                'Personalized, lab-informed protocols',
-                'Proactive monitoring and regular check-ins',
-                'Fully digital intake and care management',
-                'Transparent pricing, no hidden fees',
-                'AI-enhanced follow-up and care continuity',
-              ].map((item) => (
-                <li key={item} className="flex items-start gap-3">
-                  <Check className="w-4 h-4 text-emerald-400 mt-0.5 flex-shrink-0" />
-                  <span className="text-[14px] text-graphite-300">{item}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-      </Section>
-
-      {/* ═══════════════════════════════════════════════════════
-          CONSULTATION OFFER
-      ═══════════════════════════════════════════════════════ */}
-      <Section>
-        <div className="max-w-3xl mx-auto">
-          <div className="rounded-3xl border border-graphite-200 p-10 lg:p-14 text-center">
-            <SectionLabel>Your First Step</SectionLabel>
-            <h2 className="text-display-sm text-graphite-950 mb-4">
-              Start with a consultation
-            </h2>
-            <p className="text-subheadline text-graphite-500 mb-8 max-w-xl mx-auto">
-              A focused session with a licensed provider to review your health goals,
-              discuss treatment options, and determine eligibility. No commitment beyond the visit.
-            </p>
-
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-10 text-left">
-              {[
-                { title: 'Health History Review', desc: 'Your symptoms, goals, and medical background' },
-                { title: 'Treatment Discussion', desc: 'Options, protocols, and what to expect' },
-                { title: 'Next-Step Plan', desc: 'Lab orders, intake, or referral as appropriate' },
-              ].map((item) => (
-                <div key={item.title}>
-                  <h4 className="text-[14px] font-semibold text-graphite-950 mb-1">{item.title}</h4>
-                  <p className="text-[13px] text-graphite-500">{item.desc}</p>
-                </div>
-              ))}
-            </div>
-
-            <Link
-              href="/pricing"
-              className="inline-flex items-center gap-2 px-10 py-4 rounded-full bg-graphite-950 text-white text-[15px] font-semibold hover:bg-graphite-800 transition-all shadow-lg hover:shadow-xl"
-            >
-              Book Your Consultation
-              <ArrowRight className="w-4 h-4" />
-            </Link>
-
-            <p className="text-[12px] text-graphite-400 mt-4">
-              Secure payment via Stripe. Subject to provider availability and eligibility review.
-            </p>
-          </div>
-        </div>
-      </Section>
-
-      {/* ═══════════════════════════════════════════════════════
-          TESTIMONIALS PLACEHOLDER
+          3. HOW IT WORKS — 3 STEPS
       ═══════════════════════════════════════════════════════ */}
       <Section className="bg-graphite-50">
         <div className="text-center mb-14">
-          <SectionLabel>Patient Experiences</SectionLabel>
-          <SectionTitle>What our patients are saying</SectionTitle>
+          <SectionLabel>How it works</SectionLabel>
+          <SectionTitle>Three steps. Physician-prescribed.</SectionTitle>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+          {[
+            {
+              step: '01',
+              icon: <Stethoscope className="w-5 h-5" />,
+              title: 'Book a consultation',
+              desc: 'Meet with a licensed physician via secure video. Refundable if you don\'t qualify.',
+            },
+            {
+              step: '02',
+              icon: <Microscope className="w-5 h-5" />,
+              title: 'Labs & intake',
+              desc: 'At-home kit or local draw. Results reviewed by your physician in 3–5 days.',
+            },
+            {
+              step: '03',
+              icon: <Package className="w-5 h-5" />,
+              title: 'Treatment delivered',
+              desc: 'Medication shipped from a licensed pharmacy. Ongoing provider access by message.',
+            },
+          ].map((s) => (
+            <div key={s.step} className="bg-white rounded-2xl border border-graphite-200 p-7">
+              <div className="flex items-baseline justify-between mb-5">
+                <span className="text-[44px] font-bold text-graphite-200 leading-none tracking-tight">{s.step}</span>
+                <div className="w-9 h-9 rounded-xl bg-graphite-950 text-white flex items-center justify-center">
+                  {s.icon}
+                </div>
+              </div>
+              <h3 className="text-[17px] font-semibold text-graphite-950 mb-2">{s.title}</h3>
+              <p className="text-[13px] text-graphite-600 leading-relaxed">{s.desc}</p>
+            </div>
+          ))}
+        </div>
+      </Section>
+
+      {/* ═══════════════════════════════════════════════════════
+          4. PRICING (transparent, on the homepage)
+      ═══════════════════════════════════════════════════════ */}
+      <Section>
+        <div className="text-center mb-12">
+          <SectionLabel>Pricing</SectionLabel>
+          <SectionTitle>Transparent pricing. No surprises.</SectionTitle>
           <SectionDescription className="mx-auto">
-            Real feedback from real patients. Individual results may vary.
+            Pay only after a physician confirms you&apos;re a candidate. Consultation is refundable if you&apos;re not.
           </SectionDescription>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <PricingTable />
+
+        <div className="text-center mt-10">
+          <Link
+            href="/book"
+            className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-graphite-950 text-white text-[14px] font-semibold hover:bg-graphite-800 transition-all"
+          >
+            {ctaLabel}
+            <ArrowRight className="w-4 h-4" />
+          </Link>
+          <p className="text-[12px] text-graphite-500 mt-3">{primaryCtaSublabel()}</p>
+        </div>
+      </Section>
+
+      {/* ═══════════════════════════════════════════════════════
+          5. SOCIAL PROOF — MD + PLATFORM (NO FAKE TESTIMONIALS)
+      ═══════════════════════════════════════════════════════ */}
+      <Section className="bg-graphite-50">
+        <div className="text-center mb-12">
+          <SectionLabel>Real providers</SectionLabel>
+          <SectionTitle>Medicine, not marketing.</SectionTitle>
+          <SectionDescription className="mx-auto">
+            Every treatment is signed by a U.S.-licensed physician. Every medication comes from a licensed pharmacy.
+          </SectionDescription>
+        </div>
+
+        <div className="max-w-3xl mx-auto">
+          <MedicalDirectorBio />
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 max-w-4xl mx-auto mt-10">
           {[
             {
-              quote: 'The entire process felt premium — from the consultation to the follow-up. My energy and focus have improved significantly in the first 8 weeks.',
-              initials: 'MK',
-              name: 'Michael K.',
-              detail: 'TRT Patient, Age 42',
+              icon: <Stethoscope className="w-5 h-5" />,
+              title: 'Physician-led',
+              desc: 'Every prescription signed by a licensed U.S. physician. No chatbots writing scripts.',
             },
             {
-              quote: 'I lost 28 lbs in 12 weeks on the GLP-1 program. The medical oversight gave me confidence this was done right, not like the online clinics I tried before.',
-              initials: 'JR',
-              name: 'Jason R.',
-              detail: 'GLP-1 Patient, Age 38',
+              icon: <Microscope className="w-5 h-5" />,
+              title: 'Labs-informed',
+              desc: 'Treatment decisions based on your bloodwork — not a 5-question quiz.',
             },
             {
-              quote: 'The convenience is unmatched. Digital intake, video consultations, automatic refills. It feels like healthcare should have always been this way.',
-              initials: 'DT',
-              name: 'David T.',
-              detail: 'Peptide Therapy Patient, Age 45',
+              icon: <MessageCircle className="w-5 h-5" />,
+              title: 'Ongoing access',
+              desc: 'Message your care team directly. No premium tier required to reach your physician.',
             },
-          ].map((testimonial) => (
-            <Card key={testimonial.name} className="bg-white">
-              <div className="flex gap-0.5 mb-4">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="w-4 h-4 fill-amber-400 text-amber-400" />
-                ))}
+          ].map((item) => (
+            <div key={item.title} className="bg-white rounded-2xl border border-graphite-200 p-6">
+              <div className="w-9 h-9 rounded-xl bg-graphite-100 text-graphite-950 flex items-center justify-center mb-4">
+                {item.icon}
               </div>
-              <p className="text-[14px] text-graphite-600 leading-relaxed mb-6 italic">
-                &ldquo;{testimonial.quote}&rdquo;
-              </p>
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-graphite-950 flex items-center justify-center text-white text-[12px] font-semibold">
-                  {testimonial.initials}
-                </div>
-                <div>
-                  <div className="text-[14px] font-semibold text-graphite-950">{testimonial.name}</div>
-                  <div className="text-[12px] text-graphite-400">{testimonial.detail}</div>
-                </div>
-              </div>
-            </Card>
+              <h3 className="text-[15px] font-semibold text-graphite-950 mb-1.5">{item.title}</h3>
+              <p className="text-[13px] text-graphite-600 leading-relaxed">{item.desc}</p>
+            </div>
           ))}
         </div>
 
-        <p className="text-center text-[11px] text-graphite-400 mt-6">
-          Testimonials reflect individual patient experiences. Results vary. All treatments supervised by licensed providers.
+        <p className="text-center text-[11px] text-graphite-400 mt-8">
+          All treatments require evaluation and approval by a licensed medical provider. Individual results vary.
         </p>
       </Section>
 
       {/* ═══════════════════════════════════════════════════════
-          FAQ PREVIEW
+          6. FAQ PREVIEW + EMAIL CAPTURE
       ═══════════════════════════════════════════════════════ */}
       <Section>
         <div className="max-w-3xl mx-auto">
-          <div className="text-center mb-12">
-            <SectionLabel>Common Questions</SectionLabel>
-            <SectionTitle>Frequently asked questions</SectionTitle>
+          <div className="text-center mb-10">
+            <SectionLabel>Frequently asked</SectionLabel>
+            <SectionTitle>Answers before you book</SectionTitle>
           </div>
 
-          <div className="space-y-0 divide-y divide-graphite-100">
+          <div className="divide-y divide-graphite-100 border-y border-graphite-100">
             {[
-              { q: 'Who is eligible for treatment?', a: 'Eligibility is determined by a licensed medical provider based on your health history, symptoms, lab results, and goals. Not everyone qualifies for every treatment.' },
-              { q: 'How does the consultation work?', a: 'You book a paid consultation online, complete a digital intake form, and meet with a provider via secure video. They review your health, discuss options, and determine next steps.' },
-              { q: 'Is this legitimate medical care?', a: 'Yes. All treatments are prescribed and supervised by licensed, board-eligible medical providers. We operate within all applicable telehealth regulations.' },
-              { q: 'What does AI do in your system?', a: 'AI supports operations — scheduling, reminders, intake workflows, and patient education. It does not make clinical decisions, diagnose, or prescribe. All medical decisions are made by licensed providers.' },
+              { q: 'How much does Bloom Metabolics cost?', a: `${CONSULTATION.display} for the consultation. Program pricing is set by your physician based on the medication and dose prescribed — and confirmed before you pay. Nothing hidden.` },
+              { q: 'Who are the prescribing physicians?', a: 'Every prescription is evaluated and signed by a U.S.-licensed physician. Your physician will be introduced to you at the consultation.' },
+              { q: 'Do I need bloodwork?', a: 'Yes, for TRT. Results from the past 6 months are usually sufficient; otherwise your physician will order an at-home kit or local draw.' },
+              { q: 'What if I don\'t qualify for treatment?', a: 'You receive a full refund of the consultation fee. You still walk away with a physician-reviewed eligibility report.' },
+              { q: 'Is this covered by insurance?', a: 'Bloom Metabolics operates on a cash-pay model. Payments are processed by Stripe. We do not bill insurance.' },
             ].map((faq) => (
-              <div key={faq.q} className="py-6">
-                <h3 className="text-[16px] font-semibold text-graphite-950 mb-2">{faq.q}</h3>
-                <p className="text-[14px] text-graphite-500 leading-relaxed">{faq.a}</p>
+              <div key={faq.q} className="py-5">
+                <h3 className="text-[15px] font-semibold text-graphite-950 mb-1.5">{faq.q}</h3>
+                <p className="text-[13px] text-graphite-600 leading-relaxed">{faq.a}</p>
               </div>
             ))}
           </div>
 
           <div className="text-center mt-8">
-            <Link href="/faq" className="inline-flex items-center gap-2 text-[14px] font-medium text-graphite-950 hover:gap-3 transition-all">
-              View all FAQ <ArrowRight className="w-4 h-4" />
+            <Link href="/faq" className="inline-flex items-center gap-1 text-[13px] font-semibold text-graphite-950 hover:gap-2 transition-all">
+              See all FAQ <ArrowRight className="w-3.5 h-3.5" />
             </Link>
           </div>
         </div>
       </Section>
 
       {/* ═══════════════════════════════════════════════════════
-          EMAIL CAPTURE
-      ═══════════════════════════════════════════════════════ */}
-      <Section className="bg-graphite-50">
-        <div className="max-w-2xl mx-auto text-center">
-          <SectionLabel>Stay Informed</SectionLabel>
-          <SectionTitle>Get insights on optimization</SectionTitle>
-          <SectionDescription className="mx-auto mb-8">
-            Evidence-based content on hormone health, medical weight loss, and peptide science.
-            No spam. Unsubscribe anytime.
-          </SectionDescription>
-          <EmailCapture />
-        </div>
-      </Section>
-
-      {/* ═══════════════════════════════════════════════════════
-          FINAL CTA
+          7. FINAL CTA + EMAIL CAPTURE
       ═══════════════════════════════════════════════════════ */}
       <Section dark className="gradient-hero">
         <div className="max-w-3xl mx-auto text-center">
-          <h2 className="text-display-lg text-white mb-6">
-            Your health deserves a modern approach
+          <h2 className="text-display-lg text-chrome mb-6">
+            Stop guessing. Start measuring.
           </h2>
           <p className="text-lg text-graphite-400 leading-relaxed mb-10 max-w-xl mx-auto">
-            Premium care, licensed providers, and systems built for people who take
-            their health seriously. Start with a consultation.
+            Licensed-physician consultation. Real labs. Real prescriptions. Delivered.
           </p>
-          <div className="flex flex-wrap justify-center gap-4">
+          <div className="flex flex-wrap justify-center gap-4 mb-10">
             <Link
-              href="/pricing"
+              href="/book"
               className="inline-flex items-center gap-2 px-10 py-4 rounded-full bg-white text-graphite-950 text-[15px] font-semibold hover:bg-graphite-100 transition-all shadow-lg"
             >
-              Book Your Consultation
+              {ctaLabel}
               <ArrowRight className="w-4 h-4" />
             </Link>
-            <Link
-              href="/contact"
-              className="inline-flex items-center gap-2 px-8 py-4 rounded-full border border-white/15 text-white text-[15px] font-medium hover:bg-white/5 transition-all"
-            >
-              Contact Us
-            </Link>
           </div>
-          <p className="text-[12px] text-graphite-600 mt-6">
-            All treatments require evaluation and approval by a licensed medical provider.
-            Individual results vary.
+          <p className="text-[12px] text-graphite-500 mb-14">{primaryCtaSublabel()}</p>
+
+          <div className="pt-10 border-t border-white/10 max-w-md mx-auto">
+            <p className="text-[13px] text-graphite-400 mb-4">
+              Not ready to book? Get the free TRT eligibility checklist.
+            </p>
+            <EmailCapture />
+          </div>
+
+          <p className="text-[11px] text-graphite-600 mt-10 max-w-xl mx-auto">
+            All treatments require evaluation and approval by a licensed medical provider. Individual results vary. Medication availability subject to state and federal regulations.
           </p>
         </div>
       </Section>

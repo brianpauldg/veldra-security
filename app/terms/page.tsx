@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: 'Terms of Service',
-  description: 'Nova Health terms of service. Terms and conditions for using our telehealth platform and services.',
+  description: 'Bloom Metabolics terms of service. Terms and conditions for using our telehealth platform and services.',
 }
 
 export default function TermsPage() {
@@ -20,12 +20,12 @@ export default function TermsPage() {
           <div className="space-y-8 text-[15px] leading-relaxed text-graphite-600">
             <div>
               <h2 className="text-display-sm text-graphite-950 mb-4">1. Acceptance of Terms</h2>
-              <p>By accessing or using Nova Health&apos;s platform, website, or services, you agree to be bound by these Terms of Service. If you do not agree, please do not use our services.</p>
+              <p>By accessing or using Bloom Metabolics&apos;s platform, website, or services, you agree to be bound by these Terms of Service. If you do not agree, please do not use our services.</p>
             </div>
 
             <div>
               <h2 className="text-display-sm text-graphite-950 mb-4">2. Services Description</h2>
-              <p>Nova Health provides telehealth consultation and treatment services for hormone optimization, medical weight management, and peptide therapy. All services are provided by licensed medical professionals through our telehealth platform.</p>
+              <p>Bloom Metabolics provides telehealth consultation and treatment services for hormone optimization, medical weight management, and peptide therapy. All services are provided by licensed medical professionals through our telehealth platform.</p>
             </div>
 
             <div>
@@ -67,12 +67,12 @@ export default function TermsPage() {
 
             <div>
               <h2 className="text-display-sm text-graphite-950 mb-4">7. AI-Assisted Operations</h2>
-              <p>Nova Health uses artificial intelligence to support operational workflows including scheduling, reminders, intake guidance, and patient education. AI systems do not make medical diagnoses, prescribing decisions, or clinical judgments. All medical decisions are made exclusively by licensed healthcare providers.</p>
+              <p>Bloom Metabolics uses artificial intelligence to support operational workflows including scheduling, reminders, intake guidance, and patient education. AI systems do not make medical diagnoses, prescribing decisions, or clinical judgments. All medical decisions are made exclusively by licensed healthcare providers.</p>
             </div>
 
             <div>
               <h2 className="text-display-sm text-graphite-950 mb-4">8. Limitation of Liability</h2>
-              <p>Nova Health provides a platform for connecting patients with licensed providers. While we strive for the highest quality of care, we are not liable for clinical outcomes, individual treatment responses, or medical decisions made by providers.</p>
+              <p>Bloom Metabolics provides a platform for connecting patients with licensed providers. While we strive for the highest quality of care, we are not liable for clinical outcomes, individual treatment responses, or medical decisions made by providers.</p>
             </div>
 
             <div>
@@ -82,7 +82,7 @@ export default function TermsPage() {
 
             <div>
               <h2 className="text-display-sm text-graphite-950 mb-4">10. Contact</h2>
-              <p>For questions about these terms, contact us at <strong>legal@novahealth.com</strong>.</p>
+              <p>For questions about these terms, contact us at <strong>legal@bloommetabolics.com</strong>.</p>
             </div>
           </div>
         </div>

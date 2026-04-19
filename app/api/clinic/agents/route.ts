@@ -10,7 +10,7 @@ import { getAuditLogs } from '@/lib/clinic/audit'
 import { logAudit } from '@/lib/clinic/audit'
 
 /**
- * Nova Health — Agent Read API
+ * Bloom Metabolics — Agent Read API
  *
  * REST surface for Claude managed agents to read all clinical data.
  * Agents use GET with query params to fetch data.
@@ -73,7 +73,7 @@ export async function GET(req: NextRequest) {
       const notifications = getNotifications('usr_admin_001', true)
 
       return NextResponse.json({
-        practice: 'Nova Health',
+        practice: 'Bloom Metabolics',
         snapshot: {
           totalActivePatients: activePatients.length,
           activeAlerts: alerts.length,

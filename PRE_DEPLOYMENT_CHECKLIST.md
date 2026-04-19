@@ -1,4 +1,4 @@
-# Nova Health — Pre-Deployment Checklist
+# Bloom Metabolics — Pre-Deployment Checklist
 
 Before pushing to Vercel, verify everything is ready:
 

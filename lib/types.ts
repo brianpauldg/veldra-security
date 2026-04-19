@@ -82,6 +82,10 @@ export type CRMEventType =
   | 'form_submitted'
   | 'page_viewed'
   | 'stage_updated'
+  | 'quiz_completed'
+  | 'popup_shown'
+  | 'popup_dismissed'
+  | 'popup_cta_clicked'
 
 export interface CRMEvent {
   type: CRMEventType

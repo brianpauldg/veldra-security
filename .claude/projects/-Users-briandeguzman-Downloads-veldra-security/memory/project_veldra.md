@@ -1,10 +1,10 @@
 ---
-name: Nova Health Platform
-description: Nova Health TRT telehealth practice with patient-facing site + internal clinical dashboard (Clinical OS). Stack, goals, and key architecture decisions.
+name: Bloom Metabolics Platform
+description: Bloom Metabolics TRT telehealth practice with patient-facing site + internal clinical dashboard (Clinical OS). Stack, goals, and key architecture decisions.
 type: project
 ---
 
-Nova Health (repo: veldra-security) is a premium telehealth platform for TRT, GLP-1, and peptide therapy.
+Bloom Metabolics (repo: veldra-security) is a premium telehealth platform for TRT, GLP-1, and peptide therapy.
 
 **Two surfaces:**
 1. Patient-facing marketing site (public pages: /, /trt, /glp1, /peptides, /pricing, /booking, etc.)

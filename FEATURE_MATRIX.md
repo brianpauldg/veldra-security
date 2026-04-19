@@ -1,4 +1,4 @@
-# Nova Health - Feature Matrix & Status
+# Bloom Metabolics - Feature Matrix & Status
 
 ## ✅ Fully Implemented (Ready to Use)
 

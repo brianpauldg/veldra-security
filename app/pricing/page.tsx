@@ -2,227 +2,143 @@
 
 import Link from 'next/link'
 import { motion } from 'framer-motion'
-import { ArrowRight, Check, Shield, Clock, Stethoscope } from 'lucide-react'
+import { ArrowRight, Check, Shield, Package, Microscope } from 'lucide-react'
 import Section, { SectionLabel, SectionTitle, SectionDescription } from '@/components/ui/Section'
+import PricingTable from '@/components/PricingTable'
+import { primaryCtaLabel, primaryCtaSublabel } from '@/lib/pricing'
 
 export default function PricingPage() {
+  const ctaLabel = primaryCtaLabel()
+
   return (
     <>
       {/* Hero */}
       <section className="relative bg-graphite-950 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-graphite-950 via-graphite-900 to-graphite-950" />
-        <div className="relative max-w-7xl mx-auto px-6 lg:px-8 py-24 lg:py-32">
+        <div className="relative max-w-7xl mx-auto px-6 lg:px-8 py-20 lg:py-28">
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7 }}
+            transition={{ duration: 0.6 }}
             className="text-center max-w-3xl mx-auto"
           >
-            <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-[12px] font-medium text-graphite-300 tracking-wide uppercase mb-5">
+            <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/5 border border-white/10 text-[11px] font-medium text-graphite-300 uppercase tracking-[0.12em] mb-5">
               Pricing
             </span>
-            <h1 className="text-display-lg text-white mb-5">
-              Transparent pricing. No hidden fees.
+            <h1 className="text-display-lg text-chrome mb-5">
+              Transparent pricing.<br />
+              No hidden fees.
             </h1>
             <p className="text-lg text-graphite-400 leading-relaxed">
-              Start with a consultation. Your provider will recommend the right program
-              based on your goals and medical evaluation.
+              Consultation up front. Program pricing confirmed by your physician before you pay.
+              Refundable if you don&apos;t qualify.
             </p>
           </motion.div>
         </div>
       </section>
 
-      {/* Consultation Card */}
+      {/* Pricing table */}
       <Section>
-        <div className="max-w-3xl mx-auto">
-          <div className="rounded-3xl border-2 border-graphite-200 p-10 lg:p-14">
-            <div className="text-center">
-              <SectionLabel>Start Here</SectionLabel>
-              <h2 className="text-display-sm text-graphite-950 mb-2">Initial Consultation</h2>
-              <p className="text-subheadline text-graphite-500 mb-8 max-w-lg mx-auto">
-                A focused session with a licensed provider to evaluate your health,
-                discuss treatment options, and determine eligibility.
-              </p>
-            </div>
+        <PricingTable />
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-10">
-              {[
-                { icon: <Stethoscope className="w-5 h-5" />, title: 'Provider Evaluation', items: ['Health history review', 'Symptom assessment', 'Goal discussion'] },
-                { icon: <Shield className="w-5 h-5" />, title: 'Treatment Planning', items: ['Eligibility determination', 'Protocol options', 'Lab order preparation'] },
-                { icon: <Clock className="w-5 h-5" />, title: 'Next Steps', items: ['Personalized care plan', 'Lab work coordination', 'Follow-up scheduling'] },
-              ].map((col) => (
-                <div key={col.title}>
-                  <div className="w-10 h-10 rounded-xl bg-graphite-100 flex items-center justify-center text-graphite-600 mb-3">
-                    {col.icon}
-                  </div>
-                  <h3 className="text-[15px] font-semibold text-graphite-950 mb-2">{col.title}</h3>
-                  <ul className="space-y-1.5">
-                    {col.items.map((item) => (
-                      <li key={item} className="flex items-center gap-2 text-[13px] text-graphite-500">
-                        <Check className="w-3.5 h-3.5 text-emerald-500 flex-shrink-0" />
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              ))}
-            </div>
-
-            <div className="text-center">
-              <Link
-                href="/checkout"
-                className="inline-flex items-center gap-2 px-10 py-4 rounded-full bg-graphite-950 text-white text-[15px] font-semibold hover:bg-graphite-800 transition-all shadow-lg hover:shadow-xl"
-              >
-                Book Consultation <ArrowRight className="w-4 h-4" />
-              </Link>
-              <p className="text-[12px] text-graphite-400 mt-4">
-                Secure payment via Stripe. Subject to provider availability.
-              </p>
-            </div>
-          </div>
+        <div className="text-center mt-12">
+          <Link
+            href="/book"
+            className="inline-flex items-center gap-2 px-10 py-4 rounded-full bg-graphite-950 text-white text-[15px] font-semibold hover:bg-graphite-800 transition-all shadow-lg"
+          >
+            {ctaLabel} <ArrowRight className="w-4 h-4" />
+          </Link>
+          <p className="text-[12px] text-graphite-500 mt-3">{primaryCtaSublabel()}</p>
         </div>
       </Section>
 
-      {/* Treatment Programs */}
+      {/* What you actually get */}
       <Section className="bg-graphite-50">
-        <div className="text-center mb-14">
-          <SectionLabel>Treatment Programs</SectionLabel>
-          <SectionTitle>Ongoing care programs</SectionTitle>
-          <SectionDescription className="mx-auto">
-            After your consultation, your provider will recommend the appropriate program.
-            All programs include ongoing medical oversight and support.
-          </SectionDescription>
+        <div className="text-center mb-12">
+          <SectionLabel>What you get</SectionLabel>
+          <SectionTitle>Every program includes</SectionTitle>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 max-w-4xl mx-auto">
           {[
-            {
-              name: 'TRT Program',
-              desc: 'Testosterone Replacement',
-              includes: [
-                'Initial labs and biomarker panel',
-                'Personalized TRT protocol',
-                'Prescription management',
-                'Regular follow-up consultations',
-                'Quarterly lab monitoring',
-                'AI-enhanced care coordination',
-                'Direct provider messaging',
-              ],
-            },
-            {
-              name: 'GLP-1 Program',
-              desc: 'Medical Weight Loss',
-              featured: true,
-              includes: [
-                'Medical evaluation and labs',
-                'GLP-1 medication prescription',
-                'Titration schedule management',
-                'Monthly provider check-ins',
-                'Progress tracking and monitoring',
-                'Nutrition and lifestyle guidance',
-                'AI-enhanced follow-up system',
-              ],
-            },
-            {
-              name: 'Peptide Program',
-              desc: 'Recovery & Performance',
-              includes: [
-                'Health assessment and goal review',
-                'Custom peptide protocol design',
-                'Prescription and sourcing',
-                'Regular progress evaluations',
-                'Protocol adjustments',
-                'Educational resources',
-                'Ongoing provider access',
-              ],
-            },
-          ].map((program) => (
-            <div
-              key={program.name}
-              className={`rounded-2xl p-8 ${
-                program.featured
-                  ? 'bg-graphite-950 text-white border-2 border-graphite-700 relative'
-                  : 'bg-white border border-graphite-200'
-              }`}
-            >
-              {program.featured && (
-                <span className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 bg-white text-graphite-950 text-[11px] font-semibold uppercase tracking-widest rounded-full">
-                  Most Popular
-                </span>
-              )}
-              <h3 className="text-headline mb-1">{program.name}</h3>
-              <p className={`text-[13px] mb-6 ${program.featured ? 'text-graphite-400' : 'text-graphite-500'}`}>
-                {program.desc}
-              </p>
-              <ul className="space-y-3 mb-8">
-                {program.includes.map((item) => (
-                  <li key={item} className="flex items-start gap-2.5">
-                    <Check className={`w-4 h-4 mt-0.5 flex-shrink-0 ${program.featured ? 'text-emerald-400' : 'text-emerald-500'}`} />
-                    <span className={`text-[13px] ${program.featured ? 'text-graphite-300' : 'text-graphite-600'}`}>{item}</span>
-                  </li>
-                ))}
-              </ul>
-              <Link
-                href="/checkout"
-                className={`block text-center py-3 rounded-full text-[14px] font-medium transition-all ${
-                  program.featured
-                    ? 'bg-white text-graphite-950 hover:bg-graphite-100'
-                    : 'bg-graphite-950 text-white hover:bg-graphite-800'
-                }`}
-              >
-                Start with Consultation
-              </Link>
+            { icon: <Microscope className="w-5 h-5" />, title: 'Real bloodwork', desc: 'At-home kit or local draw. Results reviewed by your physician.' },
+            { icon: <Package className="w-5 h-5" />, title: 'Licensed pharmacy', desc: 'Medication shipped from a U.S.-licensed pharmacy. Free shipping.' },
+            { icon: <Shield className="w-5 h-5" />, title: 'Ongoing access', desc: 'Message your care team directly. No premium tier required.' },
+          ].map((item) => (
+            <div key={item.title} className="bg-white rounded-2xl border border-graphite-200 p-6">
+              <div className="w-9 h-9 rounded-xl bg-graphite-950 text-white flex items-center justify-center mb-4">
+                {item.icon}
+              </div>
+              <h3 className="text-[15px] font-semibold text-graphite-950 mb-2">{item.title}</h3>
+              <p className="text-[13px] text-graphite-600 leading-relaxed">{item.desc}</p>
             </div>
           ))}
         </div>
-
-        <p className="text-center text-[12px] text-graphite-400 mt-8 max-w-xl mx-auto">
-          Program pricing is discussed during your consultation. All programs require medical
-          evaluation and provider approval. Treatment costs vary based on individual protocols.
-        </p>
       </Section>
 
-      {/* Membership / Continuity */}
+      {/* Pricing FAQs */}
       <Section>
-        <div className="max-w-3xl mx-auto text-center">
-          <SectionLabel>Continuity Care</SectionLabel>
-          <SectionTitle>Ongoing optimization memberships</SectionTitle>
-          <SectionDescription className="mx-auto mb-10">
-            For patients on active treatment, our continuity programs include regular
-            lab monitoring, protocol adjustments, and premium provider access.
-          </SectionDescription>
+        <div className="max-w-3xl mx-auto">
+          <div className="text-center mb-10">
+            <SectionLabel>Pricing FAQ</SectionLabel>
+            <SectionTitle>Clear answers on cost</SectionTitle>
+            <SectionDescription className="mx-auto">
+              Pricing should never be a guessing game. Here&apos;s how it works.
+            </SectionDescription>
+          </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 text-left">
+          <div className="divide-y divide-graphite-100 border-y border-graphite-100">
             {[
-              { title: 'Follow-Up Care', desc: 'Regular check-ins with your provider to monitor progress and adjust protocols.' },
-              { title: 'Lab Review Support', desc: 'Quarterly bloodwork with comprehensive review and treatment optimization.' },
-              { title: 'Premium Monitoring', desc: 'Priority provider access, expanded lab panels, and proactive health insights.' },
-            ].map((item) => (
-              <div key={item.title} className="rounded-2xl border border-graphite-100 p-6">
-                <h3 className="text-[15px] font-semibold text-graphite-950 mb-2">{item.title}</h3>
-                <p className="text-[13px] text-graphite-500 leading-relaxed">{item.desc}</p>
+              {
+                q: 'How much is the consultation?',
+                a: 'The consultation is a fixed fee charged up front. If your physician determines you\'re not a candidate for treatment, we refund it in full — you still keep the eligibility report.',
+              },
+              {
+                q: 'Why is program pricing shown as "From"?',
+                a: 'Medication price varies by dose and duration. Your physician will confirm your exact monthly cost during the consultation, before any treatment is prescribed.',
+              },
+              {
+                q: 'Is bloodwork included?',
+                a: 'Some state-required lab work may be billed separately. Your physician will tell you which labs are included and which are not before ordering.',
+              },
+              {
+                q: 'Are there any hidden fees?',
+                a: 'No. The consultation fee and program pricing are the only charges. Shipping from our licensed pharmacy is free on all programs.',
+              },
+              {
+                q: 'Do you accept insurance?',
+                a: 'Bloom Metabolics is cash-pay. Payments run on Stripe. Many patients find cash-pay simpler and more affordable than navigating insurance restrictions.',
+              },
+              {
+                q: 'Can I cancel anytime?',
+                a: 'Yes. Monthly programs can be cancelled anytime. You keep whatever medication you\'ve already received.',
+              },
+            ].map((faq) => (
+              <div key={faq.q} className="py-5">
+                <h3 className="text-[15px] font-semibold text-graphite-950 mb-1.5">{faq.q}</h3>
+                <p className="text-[13px] text-graphite-600 leading-relaxed">{faq.a}</p>
               </div>
             ))}
           </div>
         </div>
       </Section>
 
-      {/* CTA */}
+      {/* Final CTA */}
       <Section dark className="gradient-hero">
         <div className="max-w-3xl mx-auto text-center">
-          <h2 className="text-display text-white mb-5">
-            Start with a conversation
+          <h2 className="text-display text-chrome mb-5">
+            Start with a consultation.
           </h2>
           <p className="text-lg text-graphite-400 leading-relaxed mb-8">
-            Book a consultation to discuss your health goals with a licensed provider.
-            No commitment beyond the visit.
+            Talk to a licensed physician. Get clear on cost and eligibility before you commit.
           </p>
           <Link
-            href="/checkout"
+            href="/book"
             className="inline-flex items-center gap-2 px-10 py-4 rounded-full bg-white text-graphite-950 text-[15px] font-semibold hover:bg-graphite-100 transition-all shadow-lg"
           >
-            Book Your Consultation <ArrowRight className="w-4 h-4" />
+            {ctaLabel} <ArrowRight className="w-4 h-4" />
           </Link>
+          <p className="text-[12px] text-graphite-500 mt-4">{primaryCtaSublabel()}</p>
         </div>
       </Section>
     </>

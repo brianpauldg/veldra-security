@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: 'Medical Disclaimer',
-  description: 'Nova Health medical disclaimer. Important information about our telehealth services and treatment programs.',
+  description: 'Bloom Metabolics medical disclaimer. Important information about our telehealth services and treatment programs.',
 }
 
 export default function DisclaimerPage() {
@@ -38,12 +38,12 @@ export default function DisclaimerPage() {
 
             <div>
               <h2 className="text-display-sm text-graphite-950 mb-4">Licensed Provider Oversight</h2>
-              <p>All treatments offered through Nova Health require evaluation, prescription, and supervision by a licensed medical provider. Eligibility for any treatment is determined solely by your provider based on your medical history, symptoms, lab results, and clinical judgment. Not all patients qualify for all treatments.</p>
+              <p>All treatments offered through Bloom Metabolics require evaluation, prescription, and supervision by a licensed medical provider. Eligibility for any treatment is determined solely by your provider based on your medical history, symptoms, lab results, and clinical judgment. Not all patients qualify for all treatments.</p>
             </div>
 
             <div>
               <h2 className="text-display-sm text-graphite-950 mb-4">AI Systems Disclaimer</h2>
-              <p>Nova Health uses artificial intelligence systems to support operational workflows, including but not limited to scheduling, reminders, intake guidance, patient education, and care coordination. These AI systems:</p>
+              <p>Bloom Metabolics uses artificial intelligence systems to support operational workflows, including but not limited to scheduling, reminders, intake guidance, patient education, and care coordination. These AI systems:</p>
               <ul className="list-disc pl-5 space-y-2 mt-3">
                 <li>Do NOT provide medical diagnoses</li>
                 <li>Do NOT prescribe medications or treatments</li>
@@ -60,12 +60,12 @@ export default function DisclaimerPage() {
 
             <div>
               <h2 className="text-display-sm text-graphite-950 mb-4">Emergency Situations</h2>
-              <p>Nova Health&apos;s telehealth platform is not designed for medical emergencies. If you are experiencing a medical emergency, call 911 or go to your nearest emergency room immediately.</p>
+              <p>Bloom Metabolics&apos;s telehealth platform is not designed for medical emergencies. If you are experiencing a medical emergency, call 911 or go to your nearest emergency room immediately.</p>
             </div>
 
             <div>
               <h2 className="text-display-sm text-graphite-950 mb-4">Third-Party Content</h2>
-              <p>This website may contain links to third-party websites or references to third-party products and services. Nova Health does not endorse or assume responsibility for the content, accuracy, or practices of third-party sites.</p>
+              <p>This website may contain links to third-party websites or references to third-party products and services. Bloom Metabolics does not endorse or assume responsibility for the content, accuracy, or practices of third-party sites.</p>
             </div>
           </div>
         </div>

@@ -33,7 +33,7 @@ function randomBetween(min: number, max: number, decimals = 0): number {
 export const SEED_USERS: User[] = [
   {
     id: 'usr_admin_001',
-    email: 'brian@novahealth.com',
+    email: 'brian@bloommetabolics.com',
     firstName: 'Brian',
     lastName: 'DeGuzman',
     role: 'super_admin',
@@ -43,7 +43,7 @@ export const SEED_USERS: User[] = [
   },
   {
     id: 'usr_doc_001',
-    email: 'dr.martinez@novahealth.com',
+    email: 'dr.martinez@bloommetabolics.com',
     firstName: 'Dr. Elena',
     lastName: 'Martinez',
     role: 'physician',
@@ -53,7 +53,7 @@ export const SEED_USERS: User[] = [
   },
   {
     id: 'usr_clin_001',
-    email: 'sarah.chen@novahealth.com',
+    email: 'sarah.chen@bloommetabolics.com',
     firstName: 'Sarah',
     lastName: 'Chen',
     role: 'clinician',
@@ -63,7 +63,7 @@ export const SEED_USERS: User[] = [
   },
   {
     id: 'usr_rn_001',
-    email: 'mike.johnson@novahealth.com',
+    email: 'mike.johnson@bloommetabolics.com',
     firstName: 'Mike',
     lastName: 'Johnson',
     role: 'rn_ma',
@@ -73,7 +73,7 @@ export const SEED_USERS: User[] = [
   },
   {
     id: 'usr_ops_001',
-    email: 'lisa.park@novahealth.com',
+    email: 'lisa.park@bloommetabolics.com',
     firstName: 'Lisa',
     lastName: 'Park',
     role: 'admin_ops',

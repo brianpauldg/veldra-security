@@ -1,4 +1,4 @@
-# Nova Health Security Audit Results
+# Bloom Metabolics Security Audit Results
 
 ## CRITICAL ISSUES FOUND
 
@@ -26,7 +26,7 @@ No cookies, no localStorage tokens, no sessionStorage tokens.
 Dashboard is mock data with zero authentication enforcement.
 
 ### 5. HARDCODED EMAIL (LOW)
-admin@novahealth.io found in bundle.
+admin@bloommetabolics.io found in bundle.
 
 ## FIXES APPLIED IN THIS PACKAGE
 1. Supabase auth with JWT sessions
@@ -38,4 +38,4 @@ admin@novahealth.io found in bundle.
 7. CSRF protection
 8. Input sanitization
 9. Vercel deployment config
-10. novahealth.io integration
+10. bloommetabolics.io integration

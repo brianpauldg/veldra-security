@@ -56,8 +56,8 @@ export async function POST(request: NextRequest) {
                         trial_period_days: 30,
                         metadata: { signup_email: email, plan },
               },
-              success_url: `${process.env.NEXT_PUBLIC_APP_URL || 'https://app.novahealth.io'}/signup?checkout=complete&session_id={CHECKOUT_SESSION_ID}&plan=${plan}`,
-              cancel_url:  `${process.env.NEXT_PUBLIC_APP_URL || 'https://app.novahealth.io'}/signup?checkout=cancelled`,
+              success_url: `${process.env.NEXT_PUBLIC_APP_URL || 'https://app.bloommetabolics.io'}/signup?checkout=complete&session_id={CHECKOUT_SESSION_ID}&plan=${plan}`,
+              cancel_url:  `${process.env.NEXT_PUBLIC_APP_URL || 'https://app.bloommetabolics.io'}/signup?checkout=cancelled`,
       })
 
       return NextResponse.json({ existing: false, url: session.url })

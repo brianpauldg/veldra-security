@@ -17,7 +17,7 @@ const CURRENT_USER = {
   id: 'usr_admin_001',
   name: 'Brian DeGuzman',
   role: 'super_admin' as const,
-  email: 'brian@novahealth.com',
+  email: 'brian@bloommetabolics.com',
 }
 
 const NAV_ITEMS = [
@@ -62,7 +62,7 @@ export default function ClinicLayout({ children }: { children: React.ReactNode }
           </div>
           {!collapsed && (
             <div>
-              <span className="text-sm font-semibold text-white tracking-tight">Nova Health</span>
+              <span className="text-sm font-semibold text-white tracking-tight">Bloom Metabolics</span>
               <span className="block text-[10px] text-graphite-500 uppercase tracking-widest">Clinical OS</span>
             </div>
           )}

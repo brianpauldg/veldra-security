@@ -1,4 +1,4 @@
-# Nova Health - Quick Start Guide
+# Bloom Metabolics - Quick Start Guide
 
 ## 🎯 What You Have
 
@@ -162,7 +162,7 @@ Add this to any page where you want the AI chat widget:
   };
 </script>
 <script src="https://yourdomain.com/widget.js" async defer></script>
-<div id="novahealth-widget"></div>
+<div id="bloommetabolics-widget"></div>
 ```
 
 The widget appears as a floating chat bubble. Users can ask questions and get AI assistance.

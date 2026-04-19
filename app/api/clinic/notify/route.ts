@@ -3,7 +3,7 @@ import { pushNotify, type PushNotification } from '@/lib/clinic/push-notify'
 import { z } from 'zod'
 
 /**
- * Nova Health — Push Notification API
+ * Bloom Metabolics — Push Notification API
  *
  * POST: Send a push notification (dashboard + email + SMS based on severity)
  * GET: Health check
@@ -63,7 +63,7 @@ export async function POST(req: NextRequest) {
 
 export async function GET() {
   return NextResponse.json({
-    service: 'Nova Health — Push Notification API',
+    service: 'Bloom Metabolics — Push Notification API',
     status: 'active',
     channels: {
       dashboard: 'always',
