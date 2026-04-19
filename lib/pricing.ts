@@ -166,7 +166,7 @@ export const PROGRAMS: PriceTier[] = [
 
 export const NOT_INCLUDED: string[] = [
   'State-required lab work may be billed separately',
-  'Certain controlled substances require in-person pharmacy pickup',
+  'State-specific regulations may affect medication availability',
   'Shipping fees may apply for expedited delivery',
 ]
 
