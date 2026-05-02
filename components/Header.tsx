@@ -6,10 +6,10 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X, ArrowRight } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import Meridian from './Meridian'
+import WaitlistModal from './WaitlistModal'
 
 const navigation = [
   { name: 'Practice', href: '/services' },
-  { name: 'Protocols', href: '/trt' },
   { name: 'Process', href: '/how-it-works' },
   { name: 'FAQ', href: '/faq' },
 ]
@@ -17,13 +17,13 @@ const navigation = [
 const treatmentDropdown = [
   { name: 'Testosterone Therapy', href: '/trt' },
   { name: 'GLP-1 Weight Loss', href: '/glp1' },
-  { name: 'Peptide Therapy', href: '/peptides' },
 ]
 
 export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false)
   const [treatmentsOpen, setTreatmentsOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
+  const [waitlistOpen, setWaitlistOpen] = useState(false)
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20)
@@ -103,11 +103,14 @@ export default function Header() {
             ))}
           </div>
 
-          {/* Desktop CTA */}
-          <div className="hidden lg:flex items-center">
-            <Link href="/book" className="bloom-btn">
-              Consultation
+          {/* Desktop CTAs */}
+          <div className="hidden lg:flex items-center gap-3">
+            <button onClick={() => setWaitlistOpen(true)} className="bloom-btn">
+              Join Waitlist
               <ArrowRight className="w-3.5 h-3.5" />
+            </button>
+            <Link href="/book" className="bloom-btn bloom-btn-ghost">
+              Consultation
             </Link>
           </div>
 
@@ -156,11 +159,18 @@ export default function Header() {
                   {item.name}
                 </Link>
               ))}
-              <div className="pt-4">
+              <div className="pt-4 space-y-2">
+                <button
+                  onClick={() => { setMobileOpen(false); setWaitlistOpen(true) }}
+                  className="bloom-btn w-full justify-center"
+                >
+                  Join Waitlist
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </button>
                 <Link
                   href="/book"
                   onClick={() => setMobileOpen(false)}
-                  className="bloom-btn w-full justify-center"
+                  className="bloom-btn bloom-btn-ghost w-full justify-center"
                 >
                   Consultation
                 </Link>
@@ -169,6 +179,8 @@ export default function Header() {
           </motion.div>
         )}
       </AnimatePresence>
+
+      <WaitlistModal isOpen={waitlistOpen} onClose={() => setWaitlistOpen(false)} />
     </header>
   )
 }

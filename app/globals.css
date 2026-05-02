@@ -14,11 +14,11 @@
   --color-graphite-50: #f5ecd9;
   --color-graphite-100: #d8cfbe;
   --color-graphite-200: #1a1814;
-  --color-graphite-300: #2a2620;
+  --color-graphite-300: #a89878;
   --color-graphite-400: #8a8268;
   --color-graphite-500: #8a8268;
-  --color-graphite-600: #2a2620;
-  --color-graphite-700: #1a1814;
+  --color-graphite-600: #a89878;
+  --color-graphite-700: #c4b9a5;
   --color-graphite-800: #0d0c0a;
   --color-graphite-900: #050404;
   --color-graphite-950: #020202;
@@ -26,6 +26,11 @@
   --color-nova-400: #8a8268;
   --color-nova-500: #8a8268;
   --color-nova-600: #6d6552;
+
+  /* Brand accent aliases */
+  --color-bloom-400: #8a8268;
+  --color-bloom-500: #8a8268;
+  --color-bloom-600: #6d6552;
 
   --font-sans: 'Inter Tight', 'Inter', system-ui, -apple-system, sans-serif;
   --font-display: 'Fraunces', 'Georgia', serif;
@@ -294,6 +299,41 @@ body::before {
   background: var(--color-obsidian);
   border-radius: 8px;
   border: 1px solid var(--color-graphite);
+}
+
+/* ─── Waitlist form inputs ────────────────────────────── */
+.waitlist-input {
+  width: 100%;
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: 1px solid var(--color-steel);
+  background: var(--color-ink);
+  color: var(--color-champagne);
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 300;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  outline: none;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+.waitlist-input::placeholder {
+  color: var(--color-steel);
+}
+
+.waitlist-input:focus {
+  border-color: var(--color-brass);
+  box-shadow: 0 0 0 2px rgba(138, 130, 104, 0.15);
+}
+
+.waitlist-input[aria-invalid="true"] {
+  border-color: #ef4444;
+}
+
+.waitlist-input option {
+  background: var(--color-ink);
+  color: var(--color-champagne);
 }
 
 /* ─── Responsive typography ────────────────────────────── */

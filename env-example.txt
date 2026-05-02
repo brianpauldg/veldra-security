@@ -1,9 +1,14 @@
 # ============================================================
-# Nova Health — Environment Variables
+# Bloom Metabolics — Environment Variables
 # Copy this to .env.local for development
 # Set these in Vercel dashboard for production
 # NEVER commit .env.local to git
 # ============================================================
+
+# ── APP URLs ─────────────────────────────────────────────────
+NEXT_PUBLIC_APP_URL=https://bloommetabolics.com
+# For development:
+# NEXT_PUBLIC_APP_URL=http://localhost:3000
 
 # ── SUPABASE ─────────────────────────────────────────────────
 # Get from: supabase.com → your project → Settings → API
@@ -11,51 +16,44 @@ NEXT_PUBLIC_SUPABASE_URL=https://your-project.supabase.co
 NEXT_PUBLIC_SUPABASE_ANON_KEY=your-anon-key-here
 
 # Service role key — SERVER ONLY, never expose to client
-# Get from: Settings → API → service_role (secret)
 SUPABASE_SERVICE_ROLE_KEY=your-service-role-key-here
-
-# ── ENCRYPTION ───────────────────────────────────────────────
-# Generate with: node -e "console.log(require('crypto').randomBytes(32).toString('hex'))"
-# Must be exactly 64 hex characters (32 bytes = 256 bits)
-ENCRYPTION_KEY=generate-a-64-char-hex-string-here
-
-# ── APP URLs ─────────────────────────────────────────────────
-NEXT_PUBLIC_APP_URL=https://app.novahealth.io
-
-# For development:
-# NEXT_PUBLIC_APP_URL=http://localhost:3000
 
 # ── STRIPE ───────────────────────────────────────────────────
 # Get from: dashboard.stripe.com → Developers → API Keys
 STRIPE_SECRET_KEY=sk_live_your-stripe-secret-key
 STRIPE_WEBHOOK_SECRET=whsec_your-webhook-secret
 NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY=pk_live_your-publishable-key
-# Price ID for your subscription product (server only)
-STRIPE_PRICE_ID=price_XXXXXXXXXXXXXX
-# Optional: trial days for new signups (number)
-STRIPE_TRIAL_DAYS=14
 
-# ── ANTHROPIC (for AI checklists) ────────────────────────────
-# Get from: console.anthropic.com → API Keys
-ANTHROPIC_API_KEY=sk-ant-your-key-here
+# Stripe Price IDs — create these in Stripe Dashboard → Products
+# Consultation: one-time $49 payment
+STRIPE_CONSULTATION_PRICE_ID=price_XXXXXXXXXXXXXX
+STRIPE_PRICE_CONSULTATION=price_XXXXXXXXXXXXXX
 
-# ── REGOLOGY (for regulatory data) ───────────────────────────
-REGOLOGY_API_KEY=your-regology-key-here
+# TRT Program: $149/mo recurring subscription
+STRIPE_PRICE_TRT=price_XXXXXXXXXXXXXX
 
-# ── SENDGRID (for emails) ────────────────────────────────────
-SENDGRID_API_KEY=SG.your-key-here
-SENDGRID_FROM_EMAIL=notifications@novahealth.io
+# GLP-1 Program: $249/mo recurring subscription
+STRIPE_PRICE_GLP1=price_XXXXXXXXXXXXXX
 
-# ── SECURITY ─────────────────────────────────────────────────
-# Secret for CSRF tokens — generate with crypto.randomBytes(32).toString('hex')
-CSRF_SECRET=generate-another-random-64-char-hex-string
+# ── CALENDLY (for booking after payment) ─────────────────────
+NEXT_PUBLIC_CALENDLY_URL=https://calendly.com/your-booking-link
 
-# ── REDIS (for rate limiting in production) ───────────────────
-# Optional but recommended — use Upstash for serverless
-UPSTASH_REDIS_REST_URL=https://your-redis.upstash.io
-UPSTASH_REDIS_REST_TOKEN=your-upstash-token
+# ── WAITLIST ─────────────────────────────────────────────────
+# Business email that receives waitlist lead notifications
+BUSINESS_LEAD_EMAIL=brian@bloommetabolics.com
 
-# ── VERCEL ───────────────────────────────────────────────────
-# Set automatically by Vercel — do not set manually
-# VERCEL_URL=
-# VERCEL_ENV=
+# GoHighLevel inbound webhook URL (Automations → Inbound Webhook trigger)
+GHL_WEBHOOK_URL=
+
+# ── CLOUDFLARE TURNSTILE (free bot protection) ──────────────
+NEXT_PUBLIC_TURNSTILE_SITE_KEY=
+TURNSTILE_SECRET_KEY=
+
+# ── UPSTASH REDIS (rate limiting — free tier sufficient) ────
+UPSTASH_REDIS_REST_URL=
+UPSTASH_REDIS_REST_TOKEN=
+
+# ── ANALYTICS (optional) ─────────────────────────────────────
+NEXT_PUBLIC_META_PIXEL_ID=
+NEXT_PUBLIC_GA4_ID=
+NEXT_PUBLIC_GOOGLE_ADS_ID=

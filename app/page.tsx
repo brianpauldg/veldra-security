@@ -1,17 +1,20 @@
 'use client'
 
+import { useState } from 'react'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
 import {
-  ArrowRight, Check, ChevronRight,
-  Syringe, TrendingUp, FlaskConical,
+  ArrowRight, ChevronRight,
+  Syringe, TrendingUp,
   Stethoscope, Microscope, Package, MessageCircle,
 } from 'lucide-react'
 import Section, { SectionLabel, SectionTitle, SectionDescription } from '@/components/ui/Section'
 import PricingTable from '@/components/PricingTable'
+import GLP1ComplianceDisclosure from '@/components/GLP1ComplianceDisclosure'
 import MedicalDirectorBio from '@/components/MedicalDirectorBio'
 import EmailCapture from '@/components/EmailCapture'
 import Meridian from '@/components/Meridian'
+import WaitlistModal from '@/components/WaitlistModal'
 import { CONSULTATION } from '@/lib/pricing'
 
 const fadeUp = {
@@ -25,6 +28,8 @@ const stagger = {
 }
 
 export default function Home() {
+  const [waitlistOpen, setWaitlistOpen] = useState(false)
+
   return (
     <>
       {/* ═══════════════════════════════════════════════════════
@@ -56,14 +61,14 @@ export default function Home() {
                 variants={fadeUp}
                 className="text-[17px] text-[#a89878] leading-relaxed max-w-lg mb-12 font-light"
               >
-                Physician-led testosterone therapy, GLP-1 protocols, and peptide compounds — informed by comprehensive labs, titrated to your biology.
+                Physician-led testosterone therapy and GLP-1 protocols — informed by comprehensive labs, titrated to your biology.
               </motion.p>
 
               <motion.div variants={fadeUp} className="flex flex-wrap gap-4 items-center">
-                <Link href="/book" className="bloom-btn">
-                  Begin Consultation
+                <button onClick={() => setWaitlistOpen(true)} className="bloom-btn">
+                  Join the Bloom Metabolics Waitlist
                   <ArrowRight className="w-3.5 h-3.5" />
-                </Link>
+                </button>
                 <Link
                   href="/how-it-works"
                   className="bloom-btn-ghost bloom-btn"
@@ -117,12 +122,12 @@ export default function Home() {
       <Section>
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 lg:gap-6 mb-16">
           <div className="lg:col-span-1">
-            <SectionLabel>Practice · <span className="num">03</span></SectionLabel>
-            <SectionTitle>Three pillars of <em className="italic">precision</em> care.</SectionTitle>
+            <SectionLabel>Practice · <span className="num">02</span></SectionLabel>
+            <SectionTitle>Two pillars of <em className="italic">precision</em> care.</SectionTitle>
           </div>
           <div className="lg:col-span-2 flex items-end">
             <SectionDescription className="lg:ml-auto lg:text-right max-w-md">
-              Each protocol is physician-prescribed, informed by comprehensive labs, and compounded from a licensed pharmacy.
+              Each protocol is physician-prescribed, informed by comprehensive labs, and compounded from a licensed compounding pharmacy.
             </SectionDescription>
           </div>
         </div>
@@ -145,18 +150,10 @@ export default function Home() {
               icon: <TrendingUp className="w-4 h-4" />,
               title: 'GLP-1 Weight Loss',
               emphasis: 'Compound',
-              desc: 'Semaglutide or tirzepatide, supervised by a physician with monthly check-ins and metabolic tracking.',
+              // FDA April 1 2026 essentially-a-copy rule — compounded designation
+              desc: 'Compounded GLP-1 receptor agonist therapy, prescribed based on individual medical evaluation by a licensed physician.',
               href: '/glp1',
               tag: 'GLP-1',
-            },
-            {
-              num: '03',
-              icon: <FlaskConical className="w-4 h-4" />,
-              title: 'Peptide Therapy',
-              emphasis: 'Restore',
-              desc: 'BPC-157/TB-500, MOTS-c, GHK-Cu — provider-managed protocols for recovery, metabolism, and longevity.',
-              href: '/peptides',
-              tag: 'Peptides',
             },
           ].map((s) => (
             <Link key={s.tag} href={s.href} className="group block">
@@ -174,6 +171,11 @@ export default function Home() {
           ))}
         </div>
       </Section>
+
+      {/* GLP-1 compliance disclosure — FDA April 1 2026 */}
+      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        <GLP1ComplianceDisclosure variant="compact" />
+      </div>
 
       {/* ═══════════════════════════════════════════════════════
           3. HOW IT WORKS
@@ -211,7 +213,7 @@ export default function Home() {
               step: '03',
               icon: <Package className="w-4 h-4" />,
               title: 'Treatment',
-              desc: 'Medication shipped from a licensed pharmacy. Ongoing monitoring and protocol adjustments included.',
+              desc: 'Medication shipped from a licensed compounding pharmacy. Ongoing monitoring and protocol adjustments included.',
             },
           ].map((s) => (
             <div key={s.step} className="bg-[#050404] p-8 lg:p-10">
@@ -236,8 +238,8 @@ export default function Home() {
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 mb-16">
           <div className="lg:col-span-1">
-            <SectionLabel>Investment · <span className="num">04</span> Tiers</SectionLabel>
-            <SectionTitle>Four tiers of <em className="italic">care.</em></SectionTitle>
+            <SectionLabel>Investment · <span className="num">03</span> Tiers</SectionLabel>
+            <SectionTitle>Three tiers of <em className="italic">care.</em></SectionTitle>
           </div>
           <div className="lg:col-span-2 flex items-end">
             <SectionDescription className="lg:ml-auto lg:text-right max-w-md">
@@ -269,7 +271,7 @@ export default function Home() {
           </div>
           <div className="lg:col-span-2 flex items-end">
             <SectionDescription className="lg:ml-auto lg:text-right max-w-md">
-              Every treatment is signed by a U.S.-licensed physician. Every medication comes from a licensed pharmacy.
+              Every treatment is signed by a U.S.-licensed physician. Every medication comes from a licensed compounding pharmacy.
             </SectionDescription>
           </div>
         </div>
@@ -325,7 +327,7 @@ export default function Home() {
             {[
               { q: 'What does a consultation cost?', a: `${CONSULTATION.display} for the consultation. Program pricing is set by your physician based on the medication and dose prescribed — and confirmed before you pay.` },
               { q: 'Who are the prescribing physicians?', a: 'Every prescription is evaluated and signed by a U.S.-licensed physician. Your physician will be introduced to you at the consultation.' },
-              { q: 'Do I need bloodwork?', a: 'Yes, for TRT. Results from the past six months are usually sufficient; otherwise your physician will order an at-home kit or local draw.' },
+              { q: 'Do I need bloodwork?', a: 'Yes. Bloodwork is required before treatment for both Testosterone Therapy and GLP-1 programs. Lab results from the past six months may be accepted; otherwise your physician will order a local draw through LabCorp or Quest Diagnostics.' },
               { q: 'What if I do not qualify for treatment?', a: 'You receive a full refund of the consultation fee. You still receive a physician-reviewed eligibility report.' },
               { q: 'Is this covered by insurance?', a: 'Bloom Metabolics operates on a cash-pay model. Payments are processed by Stripe. We do not bill insurance.' },
             ].map((faq) => (
@@ -383,6 +385,33 @@ export default function Home() {
           </p>
         </div>
       </Section>
+
+      {/* ═══════════════════════════════════════════════════════
+          8. WAITLIST CTA
+      ═══════════════════════════════════════════════════════ */}
+      <Section>
+        <hr className="bloom-divider mb-[80px] lg:mb-[140px]" />
+
+        <div className="max-w-2xl mx-auto text-center py-8">
+          <div className="eyebrow mb-6">Early Access</div>
+          <h2 className="text-display text-chrome mb-6" style={{ fontFamily: 'Fraunces, serif', fontWeight: 300 }}>
+            Ready to start your metabolic{' '}
+            <em className="italic">health journey?</em>
+          </h2>
+          <p className="text-[16px] text-[#8a8268] leading-relaxed mb-10 max-w-md mx-auto font-light">
+            Join the waitlist for early access to personalized hormone optimization, GLP-1 protocols, and longevity-focused care.
+          </p>
+          <button onClick={() => setWaitlistOpen(true)} className="bloom-btn">
+            Join Waitlist
+            <ArrowRight className="w-3.5 h-3.5" />
+          </button>
+          <p className="font-mono text-[10px] text-[#2a2620] tracking-[0.15em] uppercase mt-10 max-w-xl mx-auto">
+            All treatments require evaluation and approval by a licensed medical provider. Individual results vary.
+          </p>
+        </div>
+      </Section>
+
+      <WaitlistModal isOpen={waitlistOpen} onClose={() => setWaitlistOpen(false)} />
     </>
   )
 }
