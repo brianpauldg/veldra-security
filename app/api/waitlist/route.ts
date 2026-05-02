@@ -167,9 +167,8 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ ok: true })
   }
 
-  // Turnstile verification (required in production)
-  const isProduction = process.env.NODE_ENV === 'production'
-  if (isProduction) {
+  // Turnstile verification (enforced only when Turnstile is configured)
+  if (TURNSTILE_SECRET_KEY) {
     if (!data.turnstileToken) {
       return NextResponse.json({ error: 'Bot verification required' }, { status: 400 })
     }
@@ -250,10 +249,11 @@ export async function POST(req: NextRequest) {
   }
 
   // ── Integration 4: Supabase backup ─────────────────────
+  let supabaseOk = false
   try {
     const sb = getSupabaseAdmin()
     if (sb) {
-      await sb.from('waitlist_leads').upsert(
+      const { error } = await sb.from('waitlist_leads').upsert(
         {
           first_name: data.firstName,
           last_name: data.lastName,
@@ -276,13 +276,16 @@ export async function POST(req: NextRequest) {
         },
         { onConflict: 'email', ignoreDuplicates: false }
       )
+      supabaseOk = !error
+      if (error) console.error('[WAITLIST] Supabase upsert failed:', error.message)
     }
   } catch {
     console.error('[WAITLIST] Supabase backup error')
   }
 
   // ── Response ────────────────────────────────────────────
-  if (!ghlOk && !notifyOk) {
+  // Success if ANY delivery channel captured the lead
+  if (!ghlOk && !notifyOk && !supabaseOk) {
     return NextResponse.json(
       { error: 'Submission failed. Please try again or contact us directly.' },
       { status: 500 }
