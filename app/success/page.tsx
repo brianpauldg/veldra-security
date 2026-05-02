@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 import { motion } from 'framer-motion'
-import { CheckCircle, ArrowRight, Mail, FileText, Calendar } from 'lucide-react'
+import { CheckCircle, ArrowRight, Mail, FileText, Calendar, Star } from 'lucide-react'
 
 export default function SuccessPage() {
   return (
@@ -67,7 +67,26 @@ export default function SuccessPage() {
             ))}
           </div>
 
-          <div className="mt-14 text-center">
+          {/* Review incentive */}
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            className="mt-14 p-6 lg:p-8 rounded-xl bg-[#050404] border border-[#1a1814] text-center"
+          >
+            <p className="text-headline text-[#d8cfbe] mb-2" style={{ fontFamily: 'Fraunces, serif', fontWeight: 300 }}>
+              Get 10% off your next month
+            </p>
+            <p className="text-[14px] text-[#8a8268] leading-relaxed mb-5 max-w-md mx-auto font-light">
+              After your treatment arrives, leave a quick review and we&apos;ll apply 10% off your next billing cycle. We&apos;ll send you a link once your order ships.
+            </p>
+            <span className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-[#0d0c0a] border border-[#2a2620] text-[12px] text-[#8a8268] font-mono tracking-wide uppercase">
+              <Star className="w-3.5 h-3.5" />
+              Review discount applied automatically
+            </span>
+          </motion.div>
+
+          <div className="mt-10 text-center">
             <Link
               href="/"
               className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-graphite-950 text-white text-[14px] font-medium hover:bg-graphite-800 transition-all"
