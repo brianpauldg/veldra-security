@@ -2,9 +2,11 @@
 
 import Link from 'next/link'
 import { motion } from 'framer-motion'
-import { ArrowRight, Check, X, Star, Shield, Microscope, Activity, Users } from 'lucide-react'
+import { ArrowRight, Check, X, Shield, Microscope, Activity, Users } from 'lucide-react'
 import Section, { SectionLabel, SectionTitle, SectionDescription } from '@/components/ui/Section'
 import Card from '@/components/ui/Card'
+import EditorialDisclosure from '@/components/EditorialDisclosure'
+import TestimonialDisclosure from '@/components/TestimonialDisclosure'
 
 const fadeUp = {
   initial: { opacity: 0, y: 24 },
@@ -18,7 +20,7 @@ const comparisonRows = [
   { feature: 'Lab Work', nova: 'Comprehensive panels + quarterly monitoring', hims: 'Basic labs, less frequent monitoring' },
   { feature: 'Treatment Customization', nova: 'Individualized dosing based on biomarkers', hims: 'Standardized dosing tiers' },
   { feature: 'Follow-up Cadence', nova: 'Regular check-ins, proactive adjustments', hims: 'Periodic check-ins, patient-initiated' },
-  { feature: 'Services', nova: 'TRT, GLP-1, Peptides', hims: 'TRT, ED, hair loss, skincare, GLP-1' },
+  { feature: 'Services', nova: 'TRT, GLP-1', hims: 'TRT, ED, hair loss, skincare, GLP-1' },
   { feature: 'Pricing', nova: 'Premium, consultation + program fee', hims: 'Subscription, lower price point' },
   { feature: 'Pharmacy', nova: 'Partner pharmacy network', hims: 'Third-party pharmacy' },
 ]
@@ -29,34 +31,39 @@ const detailedSections = [
     icon: Shield,
     nova: 'Every patient is matched with a licensed clinician who manages their protocol end-to-end. Providers review comprehensive lab panels, adjust dosing based on individual biomarkers, and conduct regular check-ins. The care team is proactive — they reach out to you.',
     hims: 'Providers are licensed and legitimate, but the high-volume model means less time per patient. Consultations tend to be shorter and more standardized. Hims is optimized for throughput — which keeps prices low but limits personalization.',
-    bottomLine: 'If you want a provider who knows your full lab picture and adjusts your protocol proactively, Bloom Metabolics offers a more hands-on experience.',
+    // FTC Health Products Compliance Guidance — factual, not comparative
+    bottomLine: 'Bloom Metabolics prioritizes individualized provider engagement throughout treatment. Hims emphasizes accessibility and scale.',
   },
   {
     title: 'Lab Work & Monitoring',
     icon: Microscope,
     nova: 'Comprehensive lab panels at intake, with quarterly bloodwork throughout treatment. Labs include total and free testosterone, estradiol, SHBG, CBC, metabolic panel, lipids, PSA, thyroid markers, and more. Every lab is reviewed with you by your provider.',
     hims: 'Basic lab work required at intake. Monitoring cadence is less frequent, and panels tend to cover fewer markers. Some patients report having to request additional labs.',
-    bottomLine: 'If you want thorough, ongoing lab monitoring — not just a checkbox at intake — Bloom Metabolics\u2019s approach is more comprehensive.',
+    // FTC — factual description
+    bottomLine: 'Bloom Metabolics offers quarterly monitoring as part of its standard approach. Hims performs lab work at intake with periodic follow-up.',
   },
   {
     title: 'Treatment Personalization',
     icon: Activity,
     nova: 'Protocols are built around your individual biomarkers, symptoms, and goals. Dosing is adjusted based on follow-up labs — not just how you feel (though that matters too). No one-size-fits-all.',
     hims: 'Tends to offer standardized protocol tiers. This works for many men, but may not account for individual variability in how patients metabolize testosterone or respond to specific dosing.',
-    bottomLine: 'If your body doesn\u2019t respond to standard dosing — or you want optimization beyond \u201Cnormal\u201D — Bloom Metabolics\u2019s individualized approach matters.',
+    // FTC — factual description
+    bottomLine: 'Bloom Metabolics structures protocols around individual biomarker results. Hims uses standardized protocol tiers.',
   },
   {
     title: 'Services Beyond TRT',
     icon: Users,
-    nova: 'TRT, GLP-1 medical weight loss, and peptide therapy. Focused on hormone and metabolic optimization.',
+    nova: 'TRT and GLP-1 medical weight loss. Focused on hormone and metabolic optimization.',
     hims: 'Broader catalog — TRT, ED medications, hair loss treatments, skincare, mental health. A one-stop men\u2019s health brand.',
-    bottomLine: 'If you want hormones and peptides from a specialized provider, Bloom Metabolics. If you want a general men\u2019s health subscription covering multiple categories, Hims.',
+    // FTC — factual description
+    bottomLine: 'Bloom Metabolics specializes in hormone and metabolic therapy. Hims offers a broader men\u2019s health catalog.',
   },
 ]
 
 const testimonials = [
   {
-    quote: 'I was on Hims for 8 months. The price was great but I never felt like my protocol was dialed in. Bloom Metabolics actually looked at my full labs and adjusted my dosing \u2014 within a month I felt significantly better.',
+    // FTC — removed outcome-specific timeframe
+    quote: 'I was on Hims for 8 months. Bloom Metabolics reviewed my full labs and adjusted my dosing based on individual biomarkers.',
     name: 'Michael K.',
     age: 42,
   },
@@ -89,6 +96,11 @@ export default function VsHimsPage() {
           </motion.div>
         </div>
       </section>
+
+      {/* FTC — Editorial disclosure at top */}
+      <div className="max-w-7xl mx-auto px-6 lg:px-8 pt-8">
+        <EditorialDisclosure variant="prominent" lastReviewed="April 29, 2026" />
+      </div>
 
       {/* TL;DR */}
       <Section>
@@ -157,19 +169,18 @@ export default function VsHimsPage() {
         </div>
       </Section>
 
-      {/* Who It's Best For */}
+      {/* FTC — educational framing */}
       <Section dark>
-        <SectionLabel dark>Who It&apos;s Best For</SectionLabel>
+        <SectionLabel dark>Who Each May Suit</SectionLabel>
         <SectionTitle dark>Choose Based on What You Value</SectionTitle>
         <div className="mt-10 grid md:grid-cols-2 gap-6">
           <Card dark>
-            <div className="text-[13px] font-semibold text-emerald-400 uppercase tracking-wider mb-4">Bloom Metabolics Is Best For</div>
+            <div className="text-[13px] font-semibold text-emerald-400 uppercase tracking-wider mb-4">Bloom Metabolics May Suit</div>
             <ul className="space-y-3">
               {[
                 'Men who want individualized, lab-informed protocols',
                 'Patients who value proactive medical oversight',
                 'Those who want comprehensive labs with thorough review',
-                'Men interested in peptide therapy',
                 'Patients who\u2019ve tried high-volume telehealth and felt like a number',
               ].map((item, i) => (
                 <li key={i} className="flex items-start gap-3">
@@ -180,7 +191,7 @@ export default function VsHimsPage() {
             </ul>
           </Card>
           <Card dark>
-            <div className="text-[13px] font-semibold text-graphite-400 uppercase tracking-wider mb-4">Hims Is Best For</div>
+            <div className="text-[13px] font-semibold text-graphite-400 uppercase tracking-wider mb-4">Hims May Suit</div>
             <ul className="space-y-3">
               {[
                 'Men who prioritize affordability above all',
@@ -205,23 +216,18 @@ export default function VsHimsPage() {
         <div className="mt-10 grid md:grid-cols-2 gap-6">
           {testimonials.map((t, i) => (
             <Card key={i} className="relative">
-              <div className="flex gap-1 mb-4">
-                {[...Array(5)].map((_, j) => (
-                  <Star key={j} className="w-4 h-4 text-amber-400 fill-amber-400" />
-                ))}
-              </div>
+              {/* FTC — star ratings removed */}
               <p className="text-[15px] text-graphite-600 leading-relaxed mb-4 italic">
                 &ldquo;{t.quote}&rdquo;
               </p>
               <p className="text-[13px] font-semibold text-graphite-950">
                 {t.name}, Age {t.age}
               </p>
+              <TestimonialDisclosure variant="hormone" />
             </Card>
           ))}
         </div>
-        <p className="text-[12px] text-graphite-400 mt-6">
-          Testimonials reflect individual patient experiences. Results vary. All treatments supervised by licensed providers.
-        </p>
+        {/* FTC — per-testimonial disclosure replaces generic footer */}
       </Section>
 
       {/* Switching Steps */}

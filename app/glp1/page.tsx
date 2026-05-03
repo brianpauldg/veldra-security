@@ -4,7 +4,8 @@ import TreatmentPage from '@/components/TreatmentPage'
 
 export const metadata: Metadata = {
   title: 'GLP-1 — Medical Weight Loss',
-  description: 'Physician-supervised GLP-1 weight loss programs via premium telehealth. Semaglutide and tirzepatide protocols for sustainable body composition change.',
+  // FDA April 1 2026 essentially-a-copy rule — compounded designation in metadata
+  description: 'Physician-supervised compounded GLP-1 therapy via telehealth. Compounded semaglutide and tirzepatide protocols. Not FDA-approved. Individual medical evaluation required.',
   keywords: 'GLP-1 weight loss, semaglutide, tirzepatide, medical weight loss, telehealth weight loss, online weight loss clinic',
 }
 
@@ -14,7 +15,8 @@ export default function GLP1Page() {
       tag="GLP-1 Medical Weight Loss"
       title="GLP-1 Therapy"
       headline="Medical weight loss that actually works"
-      description="Physician-supervised GLP-1 receptor agonist protocols for sustainable weight management. Lab-informed dosing, regular monitoring, and a care team that stays with you."
+      // FDA April 1 2026 essentially-a-copy rule
+      description="Physician-prescribed compounded GLP-1 receptor agonist therapy for medically indicated weight management. Compounded medications are not FDA-approved. Lab-informed dosing, regular monitoring, and a care team that stays with you."
       icon={<TrendingUp className="w-6 h-6" />}
       benefits={[
         { title: 'Sustainable Weight Loss', description: 'GLP-1 medications have demonstrated significant weight reduction in clinical studies when combined with lifestyle modifications.', icon: <TrendingUp className="w-5 h-5" /> },
@@ -41,13 +43,16 @@ export default function GLP1Page() {
         'Commitment to combining medication with lifestyle changes',
       ]}
       faqs={[
-        { question: 'What GLP-1 medications do you prescribe?', answer: 'Our providers evaluate each patient individually and may prescribe semaglutide, tirzepatide, or other GLP-1 receptor agonists based on your medical history, goals, and eligibility. Specific medications are determined during your consultation.' },
-        { question: 'How much weight can I expect to lose?', answer: 'Results vary significantly by individual. Clinical studies have shown average weight loss of 15-20% of body weight over 12-18 months, but individual results depend on adherence, lifestyle factors, and medical profile.' },
+        // FDA April 1 2026 — compounded designation
+        { question: 'What GLP-1 medications do you prescribe?', answer: 'Our physicians evaluate each patient individually and may prescribe compounded semaglutide or tirzepatide based on clinician-determined patient-specific medical necessity. Compounded medications are not FDA-approved and are prepared by a licensed compounding pharmacy. Specific medications are determined during your consultation.' },
+        // FDA April 1 2026 — removed specific percentage claims for compounded meds
+        { question: 'How much weight can I expect to lose?', answer: 'Individual results vary significantly. Weight loss outcomes depend on medical evaluation, adherence, lifestyle factors, and your individual medical profile. Not all patients respond to GLP-1 therapy. Your physician will discuss realistic expectations during your consultation.' },
         { question: 'What are the side effects?', answer: 'Common side effects include nausea, which typically subsides as your body adjusts. Your provider will discuss all potential side effects and manage your dosing schedule to minimize discomfort.' },
         { question: 'How long do I need to take GLP-1 medication?', answer: 'Treatment duration is individualized. Your provider will work with you to develop a long-term plan that may include gradual tapering and transition to maintenance strategies.' },
         { question: 'Do I need to diet and exercise too?', answer: 'GLP-1 medications work best in combination with healthy nutrition and regular physical activity. Your care team provides guidance on sustainable lifestyle modifications.' },
       ]}
-      disclaimer="GLP-1 medications require prescription by a licensed provider. Not all patients qualify. Results vary. Treatment includes regular medical monitoring."
+      // FDA April 1 2026 — compounded disclosure in disclaimer
+      disclaimer="GLP-1 medications provided by Bloom Metabolics are compounded by a licensed compounding pharmacy and are not FDA-approved. Prescribed based on individual medical evaluation and patient-specific medical necessity. Not all patients qualify. Results vary significantly. Treatment includes regular medical monitoring."
     />
   )
 }

@@ -4,7 +4,7 @@ import { useState, useMemo } from 'react'
 import Link from 'next/link'
 import { cn } from '@/lib/utils'
 import { ArrowRight, CheckCircle } from 'lucide-react'
-import { SEED_ALERTS } from '@/lib/clinic/seed-data'
+// Alerts loaded from empty state — no seed data
 import { severityColor, severityOrder } from '@/lib/clinic/alerts'
 import type { AlertSeverity, AlertStatus } from '@/lib/clinic/types'
 
@@ -13,17 +13,14 @@ export default function AlertsPage() {
   const [statusFilter, setStatusFilter] = useState<AlertStatus | 'all'>('active')
 
   const alerts = useMemo(() => {
-    let result = [...SEED_ALERTS]
+    let result: any[] = []
     if (severityFilter !== 'all') result = result.filter(a => a.severity === severityFilter)
     if (statusFilter !== 'all') result = result.filter(a => a.status === statusFilter)
     return result.sort((a, b) => severityOrder(a.severity) - severityOrder(b.severity))
   }, [severityFilter, statusFilter])
 
   const counts: Record<string, number> = {
-    critical: SEED_ALERTS.filter(a => a.severity === 'critical' && a.status === 'active').length,
-    high: SEED_ALERTS.filter(a => a.severity === 'high' && a.status === 'active').length,
-    medium: SEED_ALERTS.filter(a => a.severity === 'medium' && a.status === 'active').length,
-    low: SEED_ALERTS.filter(a => a.severity === 'low' && a.status === 'active').length,
+    critical: 0, high: 0, medium: 0, low: 0,
   }
 
   return (

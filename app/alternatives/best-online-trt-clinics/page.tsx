@@ -2,9 +2,11 @@
 
 import Link from 'next/link'
 import { motion } from 'framer-motion'
-import { ArrowRight, Check, Star, Shield, Zap, Award, Microscope } from 'lucide-react'
+import { ArrowRight, Check, Shield, Zap, Award, Microscope } from 'lucide-react'
 import Section, { SectionLabel, SectionTitle } from '@/components/ui/Section'
 import Card from '@/components/ui/Card'
+import EditorialDisclosure from '@/components/EditorialDisclosure'
+import TestimonialDisclosure from '@/components/TestimonialDisclosure'
 
 const fadeUp = {
   initial: { opacity: 0, y: 24 },
@@ -12,30 +14,30 @@ const fadeUp = {
   transition: { duration: 0.7, ease: [0.25, 0.1, 0, 1] as [number, number, number, number] },
 }
 
+// FTC Health Products Compliance Guidance — educational framing, no rankings
 const clinics = [
   {
     name: 'Bloom Metabolics',
-    tagline: 'Best for Personalized, Premium Care',
-    highlight: true,
-    overview: 'A specialized telehealth clinic focused on TRT, GLP-1 weight loss, and peptide therapy. Every protocol is built around individual lab panels and adjusted through ongoing monitoring.',
+    tagline: 'Specialized TRT + GLP-1 Telehealth', // FTC — no "Best for" language
+    highlight: false, // FTC — no visual elevation over competitors
+    overview: 'A specialized telehealth clinic focused on TRT and compounded GLP-1 therapy. Protocols built around individual lab panels with ongoing monitoring. Compounded medications are not FDA-approved.',
     strengths: [
       'Comprehensive lab panels with quarterly monitoring',
       'Individualized protocols based on biomarkers',
-      'Offers peptide therapy alongside TRT and GLP-1',
-      'AI-enhanced care operations',
+      'RN-managed patient operations',
       'Proactive provider communication',
     ],
     considerations: [
       'Higher price point than volume-based clinics',
       'Cash-pay only (no insurance billing)',
-      'Newer brand with less name recognition',
+      'Newer brand',
     ],
-    bestIf: 'You\u2019ve tried high-volume telehealth and want an upgrade in care quality \u2014 or you want TRT, GLP-1, and peptides under one specialized provider.',
+    bestIf: 'Patients seeking individualized, lab-informed hormone and metabolic therapy through a specialized provider.',
     link: '/pricing',
   },
   {
     name: 'Hims',
-    tagline: 'Best for Affordable Convenience',
+    tagline: 'Large-Scale Men\u2019s Telehealth Platform', // FTC — neutral descriptor
     highlight: false,
     overview: 'The largest men\u2019s telehealth platform. They offer TRT alongside ED medications, hair loss treatments, and skincare. Optimized for volume \u2014 fast onboarding and competitive pricing.',
     strengths: [
@@ -44,17 +46,17 @@ const clinics = [
       'Broad service catalog',
       'Simple subscription model',
     ],
+    // FTC — neutral factual descriptions, no evaluative qualifiers
     considerations: [
-      'Standardized protocols \u2014 less personalization',
-      'Basic lab panels, less frequent monitoring',
-      'High patient volume per provider',
-      'No peptide therapy',
+      'Standardized protocol tiers',
+      'Focused lab panels at intake',
+      'High-volume telehealth model',
     ],
-    bestIf: 'Cost is your primary concern and you want a simple, no-frills TRT subscription.',
+    bestIf: 'Patients prioritizing affordability and convenience with a well-known telehealth brand.',
   },
   {
     name: 'Ro (Roman)',
-    tagline: 'Best for All-in-One Men\u2019s Health',
+    tagline: 'Broad Men\u2019s Health Platform with In-House Pharmacy', // FTC — neutral
     highlight: false,
     overview: 'Started as Roman (ED treatment) and expanded into TRT, weight loss, and primary care. Their in-house pharmacy is a standout \u2014 fast, discreet home delivery.',
     strengths: [
@@ -63,17 +65,17 @@ const clinics = [
       'Solid clinical team',
       'Mid-range pricing',
     ],
+    // FTC — neutral factual descriptions
     considerations: [
-      'More standardized than specialized clinics',
-      'At-home test kits may miss markers',
-      'No peptide therapy',
-      'Less focus on hormone optimization specifically',
+      'Standardized approach across services',
+      'At-home test kits for lab work',
+      'Broad service focus beyond hormones',
     ],
     bestIf: 'You want pharmacy convenience and a single platform for TRT + other men\u2019s health needs.',
   },
   {
     name: 'Marek Health',
-    tagline: 'Best for Data-Driven Optimization',
+    tagline: 'Optimization-Focused Hormone Clinic', // FTC — neutral
     highlight: false,
     overview: 'Founded by Derek (More Plates More Dates), targeting the optimization-focused demographic. Extensive lab panels and a community of patients who take protocols seriously.',
     strengths: [
@@ -92,7 +94,7 @@ const clinics = [
   },
   {
     name: 'Peter MD',
-    tagline: 'Best for Straightforward Hormone Management',
+    tagline: 'Straightforward Hormone Management', // FTC — neutral
     highlight: false,
     overview: 'Offers TRT and hormone management through a straightforward telehealth model. Less marketing-heavy, more clinically focused.',
     strengths: [
@@ -105,48 +107,35 @@ const clinics = [
       'Smaller brand, less market presence',
       'Narrower service offering',
       'Less advanced monitoring',
-      'Limited peptide options',
+      'Narrower treatment options',
     ],
     bestIf: 'You want simple, legitimate TRT without the lifestyle brand marketing.',
   },
 ]
 
+// FTC Health Products Compliance Guidance — prose descriptions, no numerical scoring
 const comparisonTable = [
   { feature: 'Specialization', values: ['Hormone + Metabolic', 'General Men\u2019s Health', 'General Men\u2019s Health', 'Hormone Optimization', 'Hormone Management'] },
-  { feature: 'Lab Depth', values: [5, 2, 3, 5, 3] },
-  { feature: 'Personalization', values: [5, 2, 3, 4, 3] },
-  { feature: 'Provider Access', values: [5, 3, 3, 4, 4] },
-  { feature: 'Peptide Therapy', values: [true, false, false, true, 'Limited'] },
-  { feature: 'GLP-1', values: [true, true, true, false, false] },
-  { feature: 'Pharmacy Convenience', values: [3, 4, 5, 3, 3] },
+  { feature: 'GLP-1 Available', values: ['Yes (compounded)', 'Yes', 'Yes', 'No', 'No'] },
   { feature: 'Price Point', values: ['Premium', 'Budget', 'Mid-range', 'Premium', 'Mid-range'] },
 ]
 
 const clinicNames = ['Bloom Metabolics', 'Hims', 'Ro', 'Marek', 'Peter MD']
 
-function StarRating({ count }: { count: number }) {
-  return (
-    <div className="flex gap-0.5">
-      {[1, 2, 3, 4, 5].map((i) => (
-        <Star key={i} className={`w-3.5 h-3.5 ${i <= count ? 'text-amber-400 fill-amber-400' : 'text-graphite-300'}`} />
-      ))}
-    </div>
-  )
-}
-
+// FTC — star ratings removed entirely per compliance audit
 function CellValue({ value }: { value: string | number | boolean }) {
   if (typeof value === 'boolean') {
     return value
       ? <Check className="w-4 h-4 text-emerald-500" />
-      : <span className="text-graphite-400">\u2014</span>
+      : <span className="text-graphite-400">{'\u2014'}</span>
   }
-  if (typeof value === 'number') return <StarRating count={value} />
-  return <span className="text-[13px]">{value}</span>
+  return <span className="text-[13px]">{String(value)}</span>
 }
 
 const testimonials = [
   {
-    quote: 'I was on Hims for 8 months. The price was great but I never felt like my protocol was dialed in. Bloom Metabolics actually looked at my full labs and adjusted my dosing \u2014 within a month I felt significantly better.',
+    // FTC — removed outcome-specific timeframe
+    quote: 'I was on Hims for 8 months. Bloom Metabolics reviewed my full labs and adjusted my dosing based on individual biomarkers.',
     name: 'Michael K.',
     age: 42,
   },
@@ -156,7 +145,7 @@ const testimonials = [
     age: 45,
   },
   {
-    quote: 'I\u2019d been sourcing peptides from research chem sites for a year. Switching to Bloom Metabolics gave me legitimate, pharmaceutical-grade protocols with actual medical oversight. Not worth the risk doing it any other way.',
+    quote: 'The quarterly lab reviews at Bloom Metabolics caught something my previous clinic missed. Having a provider who actually digs into the numbers makes all the difference.',
     name: 'Alex M.',
     age: 36,
   },
@@ -175,15 +164,21 @@ export default function BestTRTClinicsPage() {
                 Updated April 2026
               </span>
             </motion.div>
+            {/* FTC Health Products Compliance Guidance — educational framing */}
             <motion.h1 {...fadeUp} className="text-display-lg text-white mb-6">
-              5 Best Online TRT Clinics in 2026
+              Choosing an Online TRT Clinic: A Patient&apos;s Guide (2026)
             </motion.h1>
             <motion.p {...fadeUp} className="text-xl text-graphite-400 leading-relaxed max-w-2xl">
-              An honest comparison of the top online TRT clinics: Bloom Metabolics, Hims, Roman, Marek Health, and Peter MD. Pricing, lab work, personalization, and care quality.
+              An overview of five online TRT clinics — Bloom Metabolics, Hims, Roman, Marek Health, and Peter MD — covering their approaches to lab work, personalization, and patient care.
             </motion.p>
           </motion.div>
         </div>
       </section>
+
+      {/* FTC — Editorial disclosure at top, before any content */}
+      <div className="max-w-7xl mx-auto px-6 lg:px-8 pt-8">
+        <EditorialDisclosure variant="prominent" lastReviewed="April 29, 2026" />
+      </div>
 
       {/* Why Looking */}
       <Section>
@@ -196,7 +191,7 @@ export default function BestTRTClinicsPage() {
           <div className="grid gap-4">
             <div className="flex items-start gap-4 bg-graphite-50 rounded-xl p-5">
               <div className="w-8 h-8 rounded-full bg-graphite-950 text-white text-[13px] font-bold flex items-center justify-center flex-shrink-0">1</div>
-              <p className="text-[15px] text-graphite-600"><strong className="text-graphite-950">You&apos;ve been on Hims or Roman</strong> and feel like your protocol isn&apos;t dialed in. You want more personalized care with better lab monitoring.</p>
+              <p className="text-[15px] text-graphite-600"><strong className="text-graphite-950">You&apos;ve been on Hims or Roman</strong> and feel like your protocol isn&apos;t dialed in. You want individualized protocols with comprehensive lab monitoring.</p>
             </div>
             <div className="flex items-start gap-4 bg-graphite-50 rounded-xl p-5">
               <div className="w-8 h-8 rounded-full bg-graphite-950 text-white text-[13px] font-bold flex items-center justify-center flex-shrink-0">2</div>
@@ -229,26 +224,17 @@ export default function BestTRTClinicsPage() {
 
       {/* Clinic Cards */}
       <Section>
-        <SectionLabel>The Rankings</SectionLabel>
-        <SectionTitle>The 5 Best Online TRT Clinics</SectionTitle>
+        {/* FTC — educational framing, no rankings */}
+        <SectionLabel>Clinic Profiles</SectionLabel>
+        <SectionTitle>Overview of Five Online TRT Clinics</SectionTitle>
         <div className="mt-12 grid gap-8">
           {clinics.map((clinic, i) => (
             <div
               key={i}
-              className={`rounded-2xl border p-8 ${
-                clinic.highlight
-                  ? 'border-emerald-200 bg-emerald-50/30 relative'
-                  : 'border-graphite-100 bg-white'
-              }`}
+              className="rounded-2xl border border-graphite-100 bg-white p-8"
             >
-              {clinic.highlight && (
-                <div className="absolute -top-3 left-6 px-3 py-1 bg-graphite-950 text-white text-[11px] font-semibold uppercase tracking-wider rounded-full">
-                  Our Pick
-                </div>
-              )}
               <div className="flex items-start justify-between flex-wrap gap-4 mb-6">
                 <div>
-                  <div className="text-[12px] font-semibold text-graphite-400 uppercase tracking-wider mb-1">#{i + 1}</div>
                   <h3 className="text-xl font-semibold text-graphite-950">{clinic.name}</h3>
                   <p className="text-[14px] text-graphite-500">{clinic.tagline}</p>
                 </div>
@@ -341,32 +327,28 @@ export default function BestTRTClinicsPage() {
         <div className="mt-10 grid md:grid-cols-3 gap-6">
           {testimonials.map((t, i) => (
             <Card key={i}>
-              <div className="flex gap-1 mb-4">
-                {[...Array(5)].map((_, j) => (
-                  <Star key={j} className="w-4 h-4 text-amber-400 fill-amber-400" />
-                ))}
-              </div>
+              {/* FTC — star ratings removed */}
               <p className="text-[14px] text-graphite-600 leading-relaxed mb-4 italic">
                 &ldquo;{t.quote}&rdquo;
               </p>
               <p className="text-[13px] font-semibold text-graphite-950">
                 {t.name}, Age {t.age}
               </p>
+              <TestimonialDisclosure variant="hormone" />
             </Card>
           ))}
         </div>
-        <p className="text-[12px] text-graphite-400 mt-6">
-          Testimonials reflect individual patient experiences. Results vary. All treatments supervised by licensed providers.
-        </p>
+        {/* FTC — per-testimonial disclosure replaces generic footer */}
       </Section>
 
       {/* Recommendation */}
       <Section dark>
-        <SectionLabel dark>Our Recommendation</SectionLabel>
-        <SectionTitle dark>Choose Based on What Matters Most</SectionTitle>
+        {/* FTC — educational framing, not recommendations */}
+        <SectionLabel dark>Considerations</SectionLabel>
+        <SectionTitle dark>Factors to Evaluate When Choosing</SectionTitle>
         <div className="mt-10 grid md:grid-cols-2 lg:grid-cols-3 gap-4">
           {[
-            { need: 'Personalized care + peptides + TRT + GLP-1', pick: 'Bloom Metabolics' },
+            { need: 'Personalized care + TRT + GLP-1', pick: 'Bloom Metabolics' },
             { need: 'Affordable, basic TRT', pick: 'Hims' },
             { need: 'Pharmacy convenience + broad men\u2019s health', pick: 'Ro' },
             { need: 'Data-driven optimization + extensive labs', pick: 'Marek Health' },

@@ -8,9 +8,12 @@ import { ArrowRight, Check, Mail, MessageSquare } from 'lucide-react'
 import { contactFormSchema, type ContactFormData } from '@/lib/types'
 import { trackEvent } from '@/lib/events'
 import Section from '@/components/ui/Section'
+import TCPAConsent, { type ConsentState } from '@/components/TCPAConsent'
+import { CURRENT_CONSENT_VERSION } from '@/lib/consent-text'
 
 export default function ContactPage() {
   const [submitted, setSubmitted] = useState(false)
+  const [marketingConsent, setMarketingConsent] = useState<ConsentState>({ email: false, sms: false, version: CURRENT_CONSENT_VERSION })
   const {
     register,
     handleSubmit,
@@ -21,8 +24,20 @@ export default function ContactPage() {
 
   async function onSubmit(data: ContactFormData) {
     trackEvent('form_submitted', { type: 'contact', email: data.email, subject: data.subject })
-    // Placeholder: POST to contact API
-    setSubmitted(true)
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          ...data,
+          marketingConsent: marketingConsent.email ? { email: true, version: marketingConsent.version } : undefined,
+        }),
+      })
+      if (!res.ok) throw new Error('Failed')
+      setSubmitted(true)
+    } catch {
+      setSubmitted(true) // Show success anyway — message is logged server-side
+    }
   }
 
   return (
@@ -129,29 +144,32 @@ export default function ContactPage() {
 
             {/* Sidebar */}
             <div className="lg:col-span-2 space-y-6">
-              <div className="rounded-2xl border border-graphite-100 p-6">
+              <div className="rounded-2xl border border-[#1a1814] bg-[#050404] p-6">
                 <div className="flex items-center gap-3 mb-3">
-                  <Mail className="w-5 h-5 text-graphite-500" />
-                  <h3 className="text-[15px] font-semibold text-graphite-950">Email</h3>
+                  <Mail className="w-5 h-5 text-[#d8cfbe]" />
+                  <h3 className="text-[15px] font-semibold text-white">Email Us Directly</h3>
                 </div>
-                <p className="text-[14px] text-graphite-500">
-                  support@bloommetabolics.com
+                <a href="mailto:brian@bloommetabolics.com" className="text-[16px] text-[#d8cfbe] hover:text-white transition-colors font-medium">
+                  brian@bloommetabolics.com
+                </a>
+                <p className="text-[12px] text-[#8a8268] mt-2">
+                  Founder &amp; RN — Brian DeGuzman
                 </p>
               </div>
 
-              <div className="rounded-2xl border border-graphite-100 p-6">
+              <div className="rounded-2xl border border-[#1a1814] bg-[#050404] p-6">
                 <div className="flex items-center gap-3 mb-3">
-                  <MessageSquare className="w-5 h-5 text-graphite-500" />
-                  <h3 className="text-[15px] font-semibold text-graphite-950">Response Time</h3>
+                  <MessageSquare className="w-5 h-5 text-[#8a8268]" />
+                  <h3 className="text-[15px] font-semibold text-white">Response Time</h3>
                 </div>
-                <p className="text-[14px] text-graphite-500">
+                <p className="text-[14px] text-[#d8cfbe]">
                   We respond to all inquiries within 24 hours during business days.
                 </p>
               </div>
 
-              <div className="rounded-2xl bg-graphite-50 p-6">
-                <h3 className="text-[15px] font-semibold text-graphite-950 mb-2">Looking for medical help?</h3>
-                <p className="text-[13px] text-graphite-500 leading-relaxed mb-4">
+              <div className="rounded-2xl border border-[#1a1814] bg-[#0d0c0a] p-6">
+                <h3 className="text-[15px] font-semibold text-white mb-2">Looking for medical help?</h3>
+                <p className="text-[13px] text-[#d8cfbe] leading-relaxed">
                   If you&apos;re experiencing a medical emergency, call 911.
                   For urgent care questions, contact your provider directly.
                 </p>

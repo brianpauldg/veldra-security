@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { z } from 'zod'
 import { enrichServerLead, type EnrichedLead } from '@/lib/attribution'
+import { getConsentTextByVersion } from '@/lib/consent-text'
 import {
   sendTelegram,
   sendLeadEmail,
@@ -10,8 +11,26 @@ import {
   isHighIntent,
   logLeadFailure,
 } from '@/lib/notify'
+import { trackEvent, recordTouchpoint } from '@/lib/acquisition/tracking'
+import { sendTemplatedEmail } from '@/lib/email/send'
 
 type NotifyResult = { ok: boolean; skipped?: boolean; error?: string; status?: number }
+
+function encryptPhone(phone: string | undefined): string | undefined {
+  if (!phone) return undefined
+  const key = process.env.ENCRYPTION_KEY
+  if (!key || key.length !== 64) return phone // Dev fallback — plaintext
+  try {
+    const crypto = require('crypto')
+    const iv = crypto.randomBytes(16)
+    const cipher = crypto.createCipheriv('aes-256-gcm', Buffer.from(key, 'hex'), iv)
+    const encrypted = Buffer.concat([cipher.update(phone, 'utf8'), cipher.final()])
+    const tag = cipher.getAuthTag()
+    return `${iv.toString('hex')}:${tag.toString('hex')}:${encrypted.toString('hex')}`
+  } catch {
+    return phone
+  }
+}
 
 const GHL_API_KEY = process.env.GHL_API_KEY || ''
 const GHL_BASE_URL = process.env.GHL_BASE_URL || 'https://services.leadconnectorhq.com'
@@ -24,7 +43,7 @@ const leadSchema = z.object({
   phone: z.string().optional(),
   source: z.string().optional(),
   variant: z.enum(['quiz', 'guide']).optional(),
-  serviceInterest: z.enum(['trt', 'glp1', 'peptides', 'general']).optional(),
+  serviceInterest: z.enum(['trt', 'glp1', 'general']).optional(),
   // Client-captured attribution (optional — server still enriches with geo/device/session)
   attribution: z
     .object({
@@ -41,6 +60,11 @@ const leadSchema = z.object({
     })
     .optional(),
   session_id: z.string().optional(),
+  consent: z.object({
+    email: z.boolean().optional(),
+    sms: z.boolean().optional(),
+    version: z.string().optional(),
+  }).optional(),
 })
 
 export async function POST(req: NextRequest) {
@@ -60,6 +84,116 @@ export async function POST(req: NextRequest) {
   }
 
   const lead = enrichServerLead(parsed.data as Record<string, unknown>, req.headers)
+  const consentData = parsed.data.consent
+
+  // Persist consent records to Supabase if consent provided
+  if (consentData && (consentData.email || consentData.sms)) {
+    try {
+      const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL?.trim().replace(/\\n/g, '')
+      const supabaseKey = process.env.SUPABASE_SERVICE_ROLE_KEY?.trim().replace(/\\n/g, '')
+      if (supabaseUrl && supabaseKey) {
+        const { createClient } = await import('@supabase/supabase-js')
+        const sb = createClient(supabaseUrl, supabaseKey)
+        const ip = req.headers.get('x-forwarded-for')?.split(',')[0]?.trim() || ''
+        const ua = req.headers.get('user-agent') || ''
+        const version = consentData.version || '2.0.0'
+        const consentText = getConsentTextByVersion(version)
+        const crypto = require('crypto')
+        function hashText(text: string): string {
+          return crypto.createHash('sha256').update(text).digest('hex')
+        }
+        const records = []
+        if (consentData.email) {
+          const langText = consentText?.email_text || ''
+          records.push({
+            user_email: parsed.data.email,
+            consent_type: 'email',
+            consent_version: version,
+            granted: true,
+            form_id: parsed.data.source || 'lead_form',
+            ip_address: ip,
+            user_agent: ua,
+            consent_language_text: langText,
+            consent_text_hash: langText ? hashText(langText) : null,
+            page_url: req.headers.get('referer') || null,
+          })
+        }
+        if (consentData.sms && parsed.data.phone) {
+          const langText = consentText?.sms_text || ''
+          records.push({
+            user_email: parsed.data.email,
+            user_phone: encryptPhone(parsed.data.phone),
+            consent_type: 'sms',
+            consent_version: version,
+            granted: true,
+            form_id: parsed.data.source || 'lead_form',
+            ip_address: ip,
+            user_agent: ua,
+            consent_language_text: langText,
+            consent_text_hash: langText ? hashText(langText) : null,
+            page_url: req.headers.get('referer') || null,
+          })
+        }
+        if (records.length > 0) {
+          await sb.from('consent_records').insert(records)
+        }
+      }
+    } catch (err) {
+      // Non-blocking — consent persistence failure should not block lead capture
+      console.error('[LEADS] Consent record persistence error')
+    }
+  }
+
+  // Track lead_created event + record attribution touchpoint
+  const attribution = parsed.data.attribution
+  await trackEvent({
+    event_type: 'lead_created',
+    lead_id: lead.lead_id,
+    session_id: parsed.data.session_id,
+    source: attribution?.source || parsed.data.source,
+    medium: attribution?.medium,
+    campaign: attribution?.campaign,
+    content: attribution?.content,
+    term: attribution?.term,
+    referrer: attribution?.referrer,
+    landing_page: attribution?.landing_page,
+    event_data: { variant: parsed.data.variant, serviceInterest: parsed.data.serviceInterest },
+  })
+
+  if (parsed.data.session_id) {
+    await recordTouchpoint(parsed.data.session_id, {
+      source: attribution?.source || parsed.data.source,
+      medium: attribution?.medium,
+      campaign: attribution?.campaign,
+      content: attribution?.content,
+      term: attribution?.term,
+      landing_page: attribution?.landing_page,
+      at: new Date().toISOString(),
+    })
+  }
+
+  // Send welcome email (non-blocking — fires after tracking, before GHL/notifications)
+  if (consentData?.email) {
+    const serviceLabel = parsed.data.serviceInterest === 'trt' ? 'TRT' : parsed.data.serviceInterest === 'glp1' ? 'GLP-1' : 'hormone optimization'
+    sendTemplatedEmail({
+      template_id: 'welcome-after-lead',
+      to: parsed.data.email,
+      subject: 'Welcome to Bloom Metabolics',
+      html: `<div style="font-family:system-ui,sans-serif;max-width:560px;margin:0 auto;color:#1a1a1a;">
+        <h1 style="font-size:24px;color:#1a1a1a;">Welcome to Bloom Metabolics</h1>
+        <p>Thank you for your interest in ${serviceLabel} therapy. Our clinical team is ready to help you take the next step.</p>
+        <p><strong>What happens next:</strong></p>
+        <ol>
+          <li>Book a consultation ($49, credited toward your first month)</li>
+          <li>Complete a brief medical intake form</li>
+          <li>Meet with a licensed provider via telehealth</li>
+        </ol>
+        <p><a href="https://bloommetabolics.com/book" style="display:inline-block;background:#1a1a1a;color:#c9b88c;padding:12px 24px;border-radius:6px;text-decoration:none;font-weight:600;">Book Your Consultation</a></p>
+        <p style="font-size:13px;color:#666;margin-top:24px;">Individual results vary. All treatments require evaluation by a licensed provider.</p>
+      </div>`,
+      lead_id: lead.lead_id,
+    }).catch(() => { /* non-blocking */ })
+  }
 
   // Fire all side effects in parallel. None blocks another.
   const [ghlRes, n8nRes, tgRes, emailRes] = await Promise.allSettled([
@@ -132,7 +266,7 @@ async function upsertGhl(lead: EnrichedLead): Promise<{ ok: boolean; skipped?: b
         firstName: lead.firstName,
         lastName: lead.lastName,
         phone: lead.phone,
-        source: lead.source || 'nova_health_website',
+        source: lead.source || 'bloom_metabolics_website',
         tags,
         customFields: buildGhlCustomFields(lead),
       }),

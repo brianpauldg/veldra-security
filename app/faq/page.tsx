@@ -21,7 +21,7 @@ const faqCategories = [
       },
       {
         q: 'Are there hidden fees?',
-        a: 'No. The consultation fee and program pricing are the only charges. Shipping from our licensed pharmacy is free on all programs. Some state-required lab work may be billed separately — your physician will tell you upfront.',
+        a: 'No. The consultation fee and program pricing are the only charges. Shipping from our licensed compounding pharmacy is free on all programs. Some state-required lab work may be billed separately — your physician will tell you upfront.',
       },
       {
         q: 'Do you accept insurance?',
@@ -46,7 +46,7 @@ const faqCategories = [
       },
       {
         q: 'What pharmacy fills the medication?',
-        a: 'Medication is dispensed by a U.S.-licensed pharmacy partner. Your physician will discuss the specific pharmacy during the consultation.',
+        a: 'Medication is dispensed by a U.S.-licensed compounding pharmacy partner. Your physician will discuss the specific pharmacy during the consultation.',
       },
       {
         q: 'What states do you serve?',
@@ -66,8 +66,8 @@ const faqCategories = [
         a: 'Typically 15 minutes. You\'ll have the physician\'s full attention and can ask anything — there is no "upsell" script.',
       },
       {
-        q: 'Do I need bloodwork first?',
-        a: 'For TRT, yes. Recent labs (within 6 months) usually work. Otherwise your physician orders an at-home kit or local draw at the consultation.',
+        q: 'Do I need bloodwork?',
+        a: 'Yes. Bloodwork is required before treatment for both Testosterone Therapy and GLP-1 programs. For TRT, a comprehensive hormone panel including total testosterone, free testosterone, estradiol, PSA, CBC, and metabolic panel is required. For GLP-1 therapy, a metabolic panel including A1C, fasting glucose, lipid panel, and liver function tests is required. Lab results from the past six months may be accepted; otherwise your physician will order a local draw through LabCorp or Quest Diagnostics. Lab costs may be billed separately.',
       },
       {
         q: 'How quickly will I hear back after booking?',
@@ -84,19 +84,16 @@ const faqCategories = [
       },
       {
         q: 'What GLP-1 medications do you offer?',
-        a: 'Your physician evaluates each patient individually. Options may include semaglutide or tirzepatide based on your medical profile and current availability.',
-      },
-      {
-        q: 'Are peptides safe?',
-        a: 'Peptide therapy, when prescribed and monitored by a licensed physician, is generally well-tolerated. Your physician will discuss specific risks, benefits, and monitoring for your protocol.',
+        // FDA April 1 2026 — compounded designation + medical necessity
+        a: 'Your physician evaluates each patient individually. Based on clinician-determined medical necessity, the physician may prescribe compounded semaglutide or tirzepatide. Compounded medications are not FDA-approved and are prepared by a licensed compounding pharmacy.',
       },
       {
         q: 'Can I combine treatments?',
-        a: 'Yes, many patients benefit from combined protocols (e.g., TRT + peptides). Your physician designs a coordinated plan.',
+        a: 'Yes, some patients benefit from combined protocols. Your physician designs a coordinated plan tailored to your goals.',
       },
       {
         q: 'How long until I see results?',
-        a: 'Timelines vary. TRT patients often notice initial changes within 2–4 weeks. GLP-1 weight changes typically appear within the first month. Peptide timelines vary by protocol. Your physician will set realistic expectations.',
+        a: 'Timelines vary. TRT patients often notice initial changes within 2–4 weeks. GLP-1 weight changes typically appear within the first month. Your physician will set realistic expectations.',
       },
     ],
   },
@@ -118,13 +115,13 @@ const faqCategories = [
 function FAQItem({ q, a }: { q: string; a: string }) {
   const [open, setOpen] = useState(false)
   return (
-    <div className="border-b border-graphite-100 last:border-0">
+    <div className="border-b border-[#1a1814] last:border-0">
       <button
         onClick={() => setOpen(!open)}
         className="w-full flex items-center justify-between py-5 text-left group"
       >
-        <span className="text-[15px] font-semibold text-graphite-950 pr-4 group-hover:text-graphite-700 transition-colors">{q}</span>
-        <ChevronDown className={`w-4 h-4 text-graphite-400 flex-shrink-0 transition-transform ${open ? 'rotate-180' : ''}`} />
+        <span className="text-[15px] font-semibold text-white pr-4 group-hover:text-[#d8cfbe] transition-colors">{q}</span>
+        <ChevronDown className={`w-4 h-4 text-[#8a8268] flex-shrink-0 transition-transform ${open ? 'rotate-180' : ''}`} />
       </button>
       <AnimatePresence>
         {open && (
@@ -135,7 +132,7 @@ function FAQItem({ q, a }: { q: string; a: string }) {
             transition={{ duration: 0.25 }}
             className="overflow-hidden"
           >
-            <p className="text-[14px] text-graphite-600 leading-relaxed pb-5">{a}</p>
+            <p className="text-[14px] text-[#d8cfbe] leading-relaxed pb-5">{a}</p>
           </motion.div>
         )}
       </AnimatePresence>
@@ -166,7 +163,7 @@ export default function FAQPage() {
         <div className="max-w-3xl mx-auto">
           {faqCategories.map((cat) => (
             <div key={cat.category} className="mb-12 last:mb-0">
-              <h2 className="text-[11px] font-semibold uppercase tracking-[0.15em] text-graphite-500 mb-4">{cat.category}</h2>
+              <h2 className="text-[11px] font-semibold uppercase tracking-[0.15em] text-[#8a8268] mb-4">{cat.category}</h2>
               <div>
                 {cat.items.map((faq) => (
                   <FAQItem key={faq.q} q={faq.q} a={faq.a} />
@@ -177,22 +174,23 @@ export default function FAQPage() {
         </div>
       </Section>
 
-      <Section className="bg-graphite-50">
+      <Section>
+        <hr className="bloom-divider mb-[80px] lg:mb-[140px]" />
         <div className="max-w-2xl mx-auto text-center">
-          <h2 className="text-display-sm text-graphite-950 mb-4">Still have questions?</h2>
-          <p className="text-subheadline text-graphite-500 mb-8">
+          <h2 className="text-display-sm text-white mb-4" style={{ fontFamily: 'Fraunces, serif', fontWeight: 300 }}>Still have questions?</h2>
+          <p className="text-[15px] text-[#8a8268] mb-8 font-light">
             The fastest answer is the consultation itself. {primaryCtaSublabel()}.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <Link
               href="/book"
-              className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-graphite-950 text-white text-[14px] font-semibold hover:bg-graphite-800 transition-all"
+              className="bloom-btn"
             >
-              {primaryCtaLabel()} <ArrowRight className="w-4 h-4" />
+              {primaryCtaLabel()} <ArrowRight className="w-3.5 h-3.5" />
             </Link>
             <Link
               href="/contact"
-              className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full border border-graphite-200 text-graphite-700 text-[14px] font-medium hover:bg-white transition-all"
+              className="bloom-btn bloom-btn-ghost"
             >
               Contact Us
             </Link>

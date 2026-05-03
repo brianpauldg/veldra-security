@@ -10,21 +10,26 @@ const GOOGLE_ADS_ID = process.env.NEXT_PUBLIC_GOOGLE_ADS_ID || ''
 
 export const metadata: Metadata = {
   title: {
-    default: 'Bloom Metabolics — Testosterone, GLP-1, and Peptide Therapy from Licensed Physicians',
+    default: 'Bloom Metabolics — Testosterone and GLP-1 Therapy from Licensed Physicians',
     template: '%s | Bloom Metabolics',
   },
-  description: 'Premium physician-managed telehealth for TRT, GLP-1 weight loss, and peptide therapy. Comprehensive labs. Transparent pricing. Proactive care.',
-  keywords: 'TRT telehealth, testosterone replacement, online TRT clinic, GLP-1 weight loss, semaglutide, tirzepatide, peptide therapy, telehealth, hormone optimization',
+  description: 'Premium physician-managed telehealth for TRT and GLP-1 weight loss. Comprehensive labs. Transparent pricing. Proactive care.',
+  keywords: 'TRT telehealth, testosterone replacement, online TRT clinic, GLP-1 weight loss, semaglutide, tirzepatide, telehealth, hormone optimization',
   openGraph: {
     title: 'Bloom Metabolics — Your Metabolism, Optimized',
-    description: 'TRT, GLP-1, and peptide therapy. Licensed physicians. Comprehensive labs. Transparent pricing.',
+    description: 'TRT and GLP-1 therapy. Licensed physicians. Comprehensive labs. Transparent pricing.',
     type: 'website',
     siteName: 'Bloom Metabolics',
+    images: [{ url: '/og-image.png', width: 1200, height: 630 }],
+  },
+  icons: {
+    icon: '/favicon.png',
+    apple: '/apple-icon.png',
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Bloom Metabolics — Premium Metabolic Health Telehealth',
-    description: 'TRT, GLP-1, and peptide therapy. Licensed providers. Comprehensive labs. Book a consultation today.',
+    description: 'TRT and GLP-1 therapy. Licensed providers. Comprehensive labs. Book a consultation today.',
   },
   robots: {
     index: true,

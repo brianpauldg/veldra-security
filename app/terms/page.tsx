@@ -8,28 +8,31 @@ export const metadata: Metadata = {
 export default function TermsPage() {
   return (
     <>
-      <section className="bg-graphite-950 py-20">
+      <section className="bg-[#020202] py-20">
         <div className="max-w-7xl mx-auto px-6 lg:px-8 text-center">
           <h1 className="text-display text-white mb-3">Terms of Service</h1>
-          <p className="text-[14px] text-graphite-400">Last updated: April 2026</p>
+          <div className="rounded-xl border border-amber-500/30 bg-amber-500/5 px-6 py-3 mb-6 inline-block">
+            <p className="text-[12px] text-amber-300 font-medium uppercase tracking-wider">Draft for Attorney Review — Not Yet Legally Operative</p>
+          </div>
+          <p className="text-[14px] text-[#8a8268]">Last updated: May 3, 2026</p>
         </div>
       </section>
 
-      <section className="py-16 lg:py-20">
+      <section className="bg-[#020202] py-16 lg:py-20">
         <div className="max-w-3xl mx-auto px-6 lg:px-8">
-          <div className="space-y-8 text-[15px] leading-relaxed text-graphite-600">
+          <div className="space-y-8 text-[15px] leading-relaxed text-[#d8cfbe]">
             <div>
-              <h2 className="text-display-sm text-graphite-950 mb-4">1. Acceptance of Terms</h2>
+              <h2 className="text-[1.5rem] font-light text-white mb-4" style={{ fontFamily: 'Fraunces, serif' }}>1. Acceptance of Terms</h2>
               <p>By accessing or using Bloom Metabolics&apos;s platform, website, or services, you agree to be bound by these Terms of Service. If you do not agree, please do not use our services.</p>
             </div>
 
             <div>
-              <h2 className="text-display-sm text-graphite-950 mb-4">2. Services Description</h2>
-              <p>Bloom Metabolics provides telehealth consultation and treatment services for hormone optimization, medical weight management, and peptide therapy. All services are provided by licensed medical professionals through our telehealth platform.</p>
+              <h2 className="text-[1.5rem] font-light text-white mb-4" style={{ fontFamily: 'Fraunces, serif' }}>2. Services Description</h2>
+              <p>Bloom Metabolics provides telehealth consultation and treatment services for hormone optimization and medical weight management. All services are provided by licensed medical professionals through our telehealth platform.</p>
             </div>
 
             <div>
-              <h2 className="text-display-sm text-graphite-950 mb-4">3. Eligibility</h2>
+              <h2 className="text-[1.5rem] font-light text-white mb-4" style={{ fontFamily: 'Fraunces, serif' }}>3. Eligibility</h2>
               <ul className="list-disc pl-5 space-y-2">
                 <li>You must be at least 18 years of age to use our services.</li>
                 <li>You must reside in a state where our providers are licensed to practice.</li>
@@ -39,23 +42,22 @@ export default function TermsPage() {
             </div>
 
             <div>
-              <h2 className="text-display-sm text-graphite-950 mb-4">4. Medical Disclaimers</h2>
+              <h2 className="text-[1.5rem] font-light text-white mb-4" style={{ fontFamily: 'Fraunces, serif' }}>3a. Geographic Availability</h2>
+              <p>Bloom Metabolics currently provides services to patients residing in California. Services will expand to additional states as physician licensure allows. The current list of available states is maintained on our website and updated as coverage expands. Patients in unavailable states will be notified and may join a waitlist for future availability.</p>
+            </div>
+
+            <div>
+              <h2 className="text-[1.5rem] font-light text-white mb-4" style={{ fontFamily: 'Fraunces, serif' }}>4. Medical Disclaimers</h2>
               <p>Our platform facilitates access to licensed medical providers but does not itself provide medical advice, diagnosis, or treatment. All clinical decisions are made by licensed healthcare professionals. Results vary by individual.</p>
             </div>
 
             <div>
-              <h2 className="text-display-sm text-graphite-950 mb-4">5. Payments & Refunds</h2>
-              <ul className="list-disc pl-5 space-y-2">
-                <li>Consultation fees are charged at the time of booking.</li>
-                <li>Treatment program fees are billed as agreed upon with your provider.</li>
-                <li>Payments are processed securely through Stripe.</li>
-                <li>Consultation fees cover the provider&apos;s evaluation time and are generally non-refundable.</li>
-                <li>Refund requests are evaluated on a case-by-case basis.</li>
-              </ul>
+              <h2 className="text-[1.5rem] font-light text-white mb-4" style={{ fontFamily: 'Fraunces, serif' }}>5. Payments &amp; Refunds</h2>
+              <p>The $49 consultation fee is charged at the time of booking and is refundable in full if the treating physician determines you do not qualify for any available treatment. If you qualify, the $49 consultation fee is applied as a credit toward your first month of treatment, provided you begin treatment within 7 days of approved eligibility. After 7 days, a new consultation and $49 fee are required for re-evaluation. Treatment program fees are billed monthly as a recurring charge, confirmed verbally with the patient by our care team before the first payment is processed. Payments are processed securely through Stripe. We do not store payment card information on our servers.</p>
             </div>
 
             <div>
-              <h2 className="text-display-sm text-graphite-950 mb-4">6. User Responsibilities</h2>
+              <h2 className="text-[1.5rem] font-light text-white mb-4" style={{ fontFamily: 'Fraunces, serif' }}>6. User Responsibilities</h2>
               <ul className="list-disc pl-5 space-y-2">
                 <li>Provide accurate and complete health information.</li>
                 <li>Follow treatment instructions from your provider.</li>
@@ -66,23 +68,64 @@ export default function TermsPage() {
             </div>
 
             <div>
-              <h2 className="text-display-sm text-graphite-950 mb-4">7. AI-Assisted Operations</h2>
-              <p>Bloom Metabolics uses artificial intelligence to support operational workflows including scheduling, reminders, intake guidance, and patient education. AI systems do not make medical diagnoses, prescribing decisions, or clinical judgments. All medical decisions are made exclusively by licensed healthcare providers.</p>
+              <h2 className="text-[1.5rem] font-light text-white mb-4" style={{ fontFamily: 'Fraunces, serif' }}>7. Technology &amp; Operations</h2>
+              <p>Bloom Metabolics uses technology tools to support operational workflows including scheduling, appointment reminders, intake guidance, and patient education communications. All medical decisions, treatment recommendations, and prescriptions are made exclusively by licensed healthcare providers.</p>
             </div>
 
             <div>
-              <h2 className="text-display-sm text-graphite-950 mb-4">8. Limitation of Liability</h2>
+              <h2 className="text-[1.5rem] font-light text-white mb-4" style={{ fontFamily: 'Fraunces, serif' }}>8. SMS Communications</h2>
+              <p>By opting in to receive SMS/text messages from Bloom Metabolics, you agree to the following:</p>
+              <ul className="list-disc pl-5 space-y-2 mt-3">
+                <li>You will receive recurring automated SMS and text messages related to appointment reminders, care updates, intake follow-ups, lab coordination, and post-consultation check-ins.</li>
+                <li>Message frequency varies based on your interactions with our services.</li>
+                <li>Standard message and data rates from your wireless carrier may apply.</li>
+                <li>Consent to marketing messages is not required to receive care or purchase services.</li>
+                <li>You may opt out at any time by replying <strong className="text-white">STOP</strong> to any message. After opting out, you will receive one final confirmation message and no further SMS communications.</li>
+                <li>You may reply <strong className="text-white">HELP</strong> to any message for assistance, or contact us at {/* TODO: Fill before production deploy */} [SUPPORT EMAIL] or [SUPPORT PHONE].</li>
+                <li>Bloom Metabolics and mobile carriers are not liable for delayed or undelivered messages.</li>
+              </ul>
+              <p className="mt-3">Our SMS communications do not contain Protected Health Information (PHI). For full details on how we handle your phone number and SMS data, see our <a href="/privacy" className="underline hover:text-white">Privacy Policy</a>, Section 7 (SMS/Text Messaging Communications).</p>
+            </div>
+
+            <div>
+              <h2 className="text-[1.5rem] font-light text-white mb-4" style={{ fontFamily: 'Fraunces, serif' }}>9. Limitation of Liability</h2>
               <p>Bloom Metabolics provides a platform for connecting patients with licensed providers. While we strive for the highest quality of care, we are not liable for clinical outcomes, individual treatment responses, or medical decisions made by providers.</p>
             </div>
 
+            {/* ── Stub sections — require legal review before deployment ── */}
             <div>
-              <h2 className="text-display-sm text-graphite-950 mb-4">9. Changes to Terms</h2>
+              <h2 className="text-[1.5rem] font-light text-white mb-4" style={{ fontFamily: 'Fraunces, serif' }}>10. Intellectual Property</h2>
+              <p className="italic text-[#8a8268]">TO BE DRAFTED &mdash; Legal review required before deployment. Contact healthcare-experienced attorney to draft this section.</p>
+            </div>
+
+            <div>
+              <h2 className="text-[1.5rem] font-light text-white mb-4" style={{ fontFamily: 'Fraunces, serif' }}>11. Prohibited Conduct</h2>
+              <p className="italic text-[#8a8268]">TO BE DRAFTED &mdash; Legal review required before deployment. Contact healthcare-experienced attorney to draft this section.</p>
+            </div>
+
+            <div>
+              <h2 className="text-[1.5rem] font-light text-white mb-4" style={{ fontFamily: 'Fraunces, serif' }}>12. Indemnification</h2>
+              <p className="italic text-[#8a8268]">TO BE DRAFTED &mdash; Legal review required before deployment. Contact healthcare-experienced attorney to draft this section.</p>
+            </div>
+
+            <div>
+              <h2 className="text-[1.5rem] font-light text-white mb-4" style={{ fontFamily: 'Fraunces, serif' }}>13. Dispute Resolution and Arbitration</h2>
+              <p className="italic text-[#8a8268]">TO BE DRAFTED &mdash; Legal review required before deployment. Contact healthcare-experienced attorney to draft this section.</p>
+            </div>
+
+            <div>
+              <h2 className="text-[1.5rem] font-light text-white mb-4" style={{ fontFamily: 'Fraunces, serif' }}>14. Class Action Waiver</h2>
+              <p className="italic text-[#8a8268]">TO BE DRAFTED &mdash; Legal review required before deployment. Contact healthcare-experienced attorney to draft this section.</p>
+            </div>
+
+            <div>
+              <h2 className="text-[1.5rem] font-light text-white mb-4" style={{ fontFamily: 'Fraunces, serif' }}>15. Changes to Terms</h2>
               <p>We may update these terms from time to time. Continued use of our services after changes constitutes acceptance of the updated terms.</p>
             </div>
 
             <div>
-              <h2 className="text-display-sm text-graphite-950 mb-4">10. Contact</h2>
-              <p>For questions about these terms, contact us at <strong>legal@bloommetabolics.com</strong>.</p>
+              <h2 className="text-[1.5rem] font-light text-white mb-4" style={{ fontFamily: 'Fraunces, serif' }}>16. Contact</h2>
+              <p>For questions about these terms, contact us at <strong className="text-white">legal@bloommetabolics.com</strong>.</p>
             </div>
           </div>
         </div>

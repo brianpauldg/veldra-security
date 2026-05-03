@@ -3,11 +3,14 @@
 import { Stethoscope } from 'lucide-react'
 
 // ─────────────────────────────────────────────────────────────
-// When the Medical Director name and credentials are confirmed,
-// set MEDICAL_DIRECTOR_LIVE = true and fill out the object below.
-// Until then, this component renders a placeholder block that
-// still conveys "real medical oversight" without claiming a
-// specific (unverified) name.
+// MEDICAL_DIRECTOR_LIVE flag must NOT be flipped to true until ALL of:
+// 1. Signed agreement with physician partner (executed by attorney)
+// 2. Verified credentials: California medical license number, NPI, DEA, board certifications
+// 3. Physician has reviewed and approved the bio content displayed below
+// 4. Verified malpractice coverage extends to Bloom telehealth work
+// 5. Brian has documented all of the above at /compliance/medical-director-launch-checklist.md
+// Flipping this flag without all above is a legal exposure (false advertising,
+// potential medical board complaint, fraudulent representation).
 // ─────────────────────────────────────────────────────────────
 
 export const MEDICAL_DIRECTOR_LIVE = false

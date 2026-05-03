@@ -5,8 +5,13 @@ import {
   Settings, Shield, Bell, Bot, Users, Database,
   Key, Activity, ExternalLink,
 } from 'lucide-react'
-import { SEED_USERS } from '@/lib/clinic/seed-data'
 import { ROLE_LABELS } from '@/lib/clinic/roles'
+
+const TEAM = [
+  { id: 'usr_admin_001', firstName: 'Brian', lastName: 'DeGuzman', email: 'brian@bloommetabolics.com', role: 'super_admin' as const, title: 'Founder & RN', isActive: true },
+  { id: 'usr_doc_001', firstName: 'Albert', lastName: 'Aparisio', email: '', role: 'physician' as const, title: 'Medical Director', isActive: true },
+  { id: 'usr_coord_001', firstName: 'Mahshad', lastName: 'Nejad', email: '', role: 'admin_ops' as const, title: 'Patient Coordinator / Operations', isActive: true },
+]
 import { mcpTools } from '@/lib/clinic/mcp-adapter'
 
 export default function SettingsPage() {
@@ -20,14 +25,14 @@ export default function SettingsPage() {
       {/* Team */}
       <SettingsCard title="Team & Roles" icon={Users}>
         <div className="space-y-2">
-          {SEED_USERS.map(user => (
+          {TEAM.map(user => (
             <div key={user.id} className="flex items-center gap-3 p-3 rounded-lg bg-graphite-800/30">
               <div className="w-8 h-8 rounded-full bg-graphite-800 border border-graphite-700 flex items-center justify-center text-xs font-bold text-white">
                 {user.firstName[0]}{user.lastName[0]}
               </div>
               <div className="flex-1">
                 <p className="text-xs font-medium text-white">{user.firstName} {user.lastName}</p>
-                <p className="text-[10px] text-graphite-500">{user.email}</p>
+                <p className="text-[10px] text-graphite-500">{user.title}{user.email ? ` · ${user.email}` : ''}</p>
               </div>
               <span className="text-[10px] px-2 py-0.5 rounded-full bg-graphite-800 text-graphite-400 capitalize">
                 {ROLE_LABELS[user.role]}

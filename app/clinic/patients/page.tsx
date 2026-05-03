@@ -1,30 +1,47 @@
 'use client'
 
-import { useState, useMemo } from 'react'
+import { useState, useMemo, useEffect } from 'react'
 import Link from 'next/link'
 import { cn } from '@/lib/utils'
 import {
   Search, SlidersHorizontal, ArrowUpDown, ArrowRight,
   AlertTriangle, Pill, FlaskConical, CalendarClock, X,
+  Syringe, TrendingUp, Beaker,
 } from 'lucide-react'
-import { SEED_PATIENTS } from '@/lib/clinic/seed-data'
 import type { Patient, PatientStatus, AdherenceLevel } from '@/lib/clinic/types'
 
 type SortField = 'name' | 'risk' | 'lastVisit' | 'nextFollowUp' | 'adherence'
 type SortDir = 'asc' | 'desc'
+type TreatmentFilter = 'all' | 'trt' | 'glp1' | 'peptide'
 
 export default function PatientList() {
   const [search, setSearch] = useState('')
   const [statusFilter, setStatusFilter] = useState<PatientStatus | 'all'>('all')
   const [adherenceFilter, setAdherenceFilter] = useState<AdherenceLevel | 'all'>('all')
+  const [treatmentFilter, setTreatmentFilter] = useState<TreatmentFilter>('all')
   const [showAlerts, setShowAlerts] = useState(false)
   const [showOverdue, setShowOverdue] = useState(false)
   const [sortField, setSortField] = useState<SortField>('risk')
   const [sortDir, setSortDir] = useState<SortDir>('desc')
   const [showFilters, setShowFilters] = useState(false)
+  const [livePatients, setLivePatients] = useState<Patient[]>([])
+  const [counts, setCounts] = useState({ total: 0, trt: 0, glp1: 0, peptide: 0, onboarding: 0, active: 0 })
+
+  // Fetch live patients from API
+  useEffect(() => {
+    fetch('/api/clinic/patients')
+      .then(r => r.json())
+      .then(data => {
+        if (data.patients?.length) setLivePatients(data.patients)
+        if (data.counts) setCounts(data.counts)
+      })
+      .catch(() => {})
+  }, [])
+
+  const allPatients = livePatients
 
   const patients = useMemo(() => {
-    let result = [...SEED_PATIENTS]
+    let result = [...allPatients]
 
     if (search) {
       const q = search.toLowerCase()
@@ -33,6 +50,13 @@ export default function PatientList() {
         p.mrn.toLowerCase().includes(q) ||
         p.email.toLowerCase().includes(q)
       )
+    }
+    if (treatmentFilter !== 'all') {
+      result = result.filter(p => {
+        const tt = (p as any).treatmentType
+        if (tt) return tt === treatmentFilter
+        return p.primaryProtocol?.startsWith(treatmentFilter)
+      })
     }
     if (statusFilter !== 'all') result = result.filter(p => p.status === statusFilter)
     if (adherenceFilter !== 'all') result = result.filter(p => p.adherence === adherenceFilter)
@@ -59,7 +83,7 @@ export default function PatientList() {
     })
 
     return result
-  }, [search, statusFilter, adherenceFilter, showAlerts, showOverdue, sortField, sortDir])
+  }, [allPatients, search, treatmentFilter, statusFilter, adherenceFilter, showAlerts, showOverdue, sortField, sortDir])
 
   const toggleSort = (field: SortField) => {
     if (sortField === field) setSortDir(d => d === 'asc' ? 'desc' : 'asc')
@@ -77,7 +101,34 @@ export default function PatientList() {
     <div className="space-y-4">
       <div>
         <h1 className="text-2xl font-bold text-white tracking-tight">Patients</h1>
-        <p className="text-sm text-graphite-500 mt-1">{patients.length} of {SEED_PATIENTS.length} patients</p>
+        <p className="text-sm text-graphite-500 mt-1">{patients.length} patients</p>
+      </div>
+
+      {/* Treatment Type Tabs */}
+      <div className="flex gap-2">
+        {([
+          { key: 'all' as const, label: 'All Patients', count: counts.total || allPatients.length, icon: null },
+          { key: 'trt' as const, label: 'TRT', count: counts.trt, icon: Syringe },
+          { key: 'glp1' as const, label: 'GLP-1 / GIP', count: counts.glp1, icon: TrendingUp },
+          { key: 'peptide' as const, label: 'Peptide', count: counts.peptide, icon: Beaker },
+        ]).map(tab => (
+          <button
+            key={tab.key}
+            onClick={() => setTreatmentFilter(tab.key)}
+            className={cn(
+              'flex items-center gap-2 px-4 py-2 rounded-lg text-xs font-medium transition-colors border',
+              treatmentFilter === tab.key
+                ? 'bg-nova-500/10 border-nova-500/30 text-nova-400'
+                : 'bg-graphite-900 border-graphite-800 text-graphite-400 hover:text-white'
+            )}
+          >
+            {tab.icon && <tab.icon className="w-3.5 h-3.5" />}
+            {tab.label}
+            {tab.count > 0 && (
+              <span className="text-[10px] bg-graphite-800 px-1.5 py-0.5 rounded-full">{tab.count}</span>
+            )}
+          </button>
+        ))}
       </div>
 
       {/* Search + Filter bar */}

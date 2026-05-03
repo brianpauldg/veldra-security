@@ -9,7 +9,7 @@ import {
   Bell, Shield, ChevronLeft, ChevronRight, Activity, LogOut,
   Bot, Menu, X, Loader2,
 } from 'lucide-react'
-import { SEED_NOTIFICATIONS } from '@/lib/clinic/seed-data'
+// Notifications loaded from live data
 import { createClientComponentClient } from '@supabase/auth-helpers-nextjs'
 
 const ALLOWED_ROLES = ['super_admin', 'physician', 'clinician', 'rn_ma', 'admin_ops']
@@ -40,7 +40,7 @@ export default function ClinicLayout({ children }: { children: React.ReactNode }
 
   const supabase = createClientComponentClient()
 
-  const unreadCount = SEED_NOTIFICATIONS.filter(n => !n.isRead).length
+  const unreadCount = 0
 
   // Skip auth check on the login page itself
   const isLoginPage = pathname === '/clinic/login'
@@ -141,9 +141,9 @@ export default function ClinicLayout({ children }: { children: React.ReactNode }
             >
               <item.icon className="w-[18px] h-[18px] shrink-0" />
               {!collapsed && <span>{item.label}</span>}
-              {item.href === '/clinic/alerts' && !collapsed && (
+              {false && (
                 <span className="ml-auto text-[10px] font-bold bg-red-500/20 text-red-400 px-1.5 py-0.5 rounded-full">
-                  {SEED_NOTIFICATIONS.filter(n => n.type === 'alert' && !n.isRead).length}
+                  0
                 </span>
               )}
             </Link>
@@ -245,25 +245,9 @@ export default function ClinicLayout({ children }: { children: React.ReactNode }
                     <span className="text-[10px] text-graphite-500">{unreadCount} unread</span>
                   </div>
                   <div className="max-h-80 overflow-y-auto">
-                    {SEED_NOTIFICATIONS.slice(0, 8).map(n => (
-                      <Link
-                        key={n.id}
-                        href={n.actionUrl || '/clinic'}
-                        onClick={() => setShowNotifications(false)}
-                        className={cn(
-                          'block px-4 py-3 border-b border-graphite-800/50 hover:bg-graphite-800/50 transition-colors',
-                          !n.isRead && 'bg-graphite-800/20'
-                        )}
-                      >
-                        <div className="flex items-start gap-2">
-                          {!n.isRead && <div className="w-1.5 h-1.5 rounded-full bg-nova-400 mt-1.5 shrink-0" />}
-                          <div>
-                            <p className="text-xs font-medium text-white">{n.title}</p>
-                            <p className="text-[11px] text-graphite-400 mt-0.5 line-clamp-2">{n.message}</p>
-                          </div>
-                        </div>
-                      </Link>
-                    ))}
+                    <div className="px-4 py-8 text-center">
+                      <p className="text-xs text-graphite-500">No notifications</p>
+                    </div>
                   </div>
                 </div>
               )}

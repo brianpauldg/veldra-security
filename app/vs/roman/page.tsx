@@ -2,9 +2,11 @@
 
 import Link from 'next/link'
 import { motion } from 'framer-motion'
-import { ArrowRight, Check, Star, Shield, Microscope, Package, FlaskConical } from 'lucide-react'
+import { ArrowRight, Check, Shield, Microscope, Package } from 'lucide-react'
 import Section, { SectionLabel, SectionTitle, SectionDescription } from '@/components/ui/Section'
 import Card from '@/components/ui/Card'
+import EditorialDisclosure from '@/components/EditorialDisclosure'
+import TestimonialDisclosure from '@/components/TestimonialDisclosure'
 
 const fadeUp = {
   initial: { opacity: 0, y: 24 },
@@ -18,7 +20,7 @@ const comparisonRows = [
   { feature: 'Lab Work', nova: 'Comprehensive panels + quarterly monitoring', ro: 'At-home test kits, basic panels' },
   { feature: 'Treatment Customization', nova: 'Individualized by biomarkers', ro: 'Protocol-based with some flexibility' },
   { feature: 'Follow-up', nova: 'Proactive provider outreach', ro: 'Mostly patient-initiated' },
-  { feature: 'Services', nova: 'TRT, GLP-1, Peptides', ro: 'TRT, ED, hair loss, weight loss, primary care' },
+  { feature: 'Services', nova: 'TRT, GLP-1', ro: 'TRT, ED, hair loss, weight loss, primary care' },
   { feature: 'Pricing', nova: 'Premium, consultation-based', ro: 'Mid-range subscription' },
   { feature: 'Pharmacy', nova: 'Partner pharmacy network', ro: 'In-house Ro Pharmacy (home delivery)' },
 ]
@@ -29,28 +31,24 @@ const detailedSections = [
     icon: Shield,
     nova: 'Specialized in hormone and metabolic optimization. Every protocol starts with a comprehensive lab panel and clinical evaluation. Treatment is individualized \u2014 your dosing, frequency, and ancillary medications are calibrated to your specific biomarkers and symptoms.',
     ro: 'Offers TRT as part of a broader digital health platform. The clinical approach is solid but more standardized. Ro\u2019s in-house pharmacy model prioritizes speed and convenience of medication delivery.',
-    bottomLine: 'Bloom Metabolics goes deeper on hormone optimization. Ro goes wider on overall men\u2019s health.',
+    // FTC — factual description
+    bottomLine: 'Bloom Metabolics specializes in hormone optimization. Ro offers a broader range of men\u2019s health services.',
   },
   {
     title: 'Lab Work',
     icon: Microscope,
     nova: 'In-person lab draw at a partner lab. Comprehensive panel including total/free testosterone, estradiol, SHBG, CBC, CMP, lipids, PSA, thyroid, and more. Quarterly monitoring with full provider review.',
     ro: 'Offers at-home test kits for convenience. Panels are more basic. Some patients find they need to supplement with additional labs from their PCP for a complete picture.',
-    bottomLine: 'If you want thorough labs without having to ask for them, Bloom Metabolics\u2019s approach is more comprehensive out of the box.',
+    // FTC — factual description
+    bottomLine: 'Bloom Metabolics includes comprehensive lab panels as part of its standard intake. Ro offers at-home test kits for convenience.',
   },
   {
     title: 'Medication & Delivery',
     icon: Package,
     nova: 'Prescriptions filled through partner pharmacies. Focus is on getting the right protocol \u2014 not on delivery speed as a primary differentiator.',
     ro: 'In-house Ro Pharmacy with discreet home delivery. Fast, convenient, well-branded packaging. This is a genuine advantage for patients who value frictionless fulfillment.',
-    bottomLine: 'Ro wins on pharmacy convenience. Bloom Metabolics wins on protocol precision.',
-  },
-  {
-    title: 'Peptide Therapy',
-    icon: FlaskConical,
-    nova: 'Offers peptide therapy (BPC-157, CJC/Ipamorelin, Thymosin Beta-4, and others) as a core service alongside TRT and GLP-1. Protocols designed for recovery, sleep, performance, and anti-aging.',
-    ro: 'Does not currently offer peptide therapy.',
-    bottomLine: 'If peptides are part of your optimization plan, Bloom Metabolics is the clear choice.',
+    // FTC — factual description
+    bottomLine: 'Ro emphasizes pharmacy delivery speed. Bloom Metabolics emphasizes protocol customization based on biomarker analysis.',
   },
 ]
 
@@ -61,7 +59,8 @@ const testimonials = [
     age: 45,
   },
   {
-    quote: 'Switching was easy. Bloom Metabolics ordered more comprehensive labs than I\u2019d ever had, found my estradiol was off, and adjusted my protocol. Within 6 weeks I felt noticeably better.',
+    // FTC — removed outcome-specific timeframe and comparative
+    quote: 'Bloom Metabolics ordered comprehensive labs including estradiol, found a marker that needed attention, and adjusted my protocol accordingly.',
     name: 'Mark S.',
     age: 41,
   },
@@ -90,12 +89,17 @@ export default function VsRomanPage() {
         </div>
       </section>
 
+      {/* FTC — Editorial disclosure at top */}
+      <div className="max-w-7xl mx-auto px-6 lg:px-8 pt-8">
+        <EditorialDisclosure variant="prominent" lastReviewed="April 29, 2026" />
+      </div>
+
       {/* TL;DR */}
       <Section>
         <SectionLabel>TL;DR</SectionLabel>
         <div className="max-w-3xl">
           <p className="text-lg text-graphite-600 leading-relaxed">
-            Ro (formerly Roman) is a well-known digital health platform offering TRT alongside ED, hair loss, and weight loss treatments. Bloom Metabolics is a specialized clinic focused on hormone optimization, GLP-1, and peptide therapy with personalized protocols and ongoing monitoring. <strong className="text-graphite-950">Ro offers broad convenience at scale; Bloom Metabolics offers depth and personalization in a narrower lane.</strong>
+            Ro (formerly Roman) is a well-known digital health platform offering TRT alongside ED, hair loss, and weight loss treatments. Bloom Metabolics is a specialized clinic focused on hormone optimization and GLP-1 therapy with personalized protocols and ongoing monitoring. <strong className="text-graphite-950">Ro offers broad convenience at scale; Bloom Metabolics offers depth and personalization in a narrower lane.</strong>
           </p>
         </div>
       </Section>
@@ -157,19 +161,18 @@ export default function VsRomanPage() {
         </div>
       </Section>
 
-      {/* Who It's Best For */}
+      {/* FTC — educational framing */}
       <Section dark>
-        <SectionLabel dark>Who It&apos;s Best For</SectionLabel>
+        <SectionLabel dark>Who Each May Suit</SectionLabel>
         <SectionTitle dark>Choose Based on What You Value</SectionTitle>
         <div className="mt-10 grid md:grid-cols-2 gap-6">
           <Card dark>
-            <div className="text-[13px] font-semibold text-emerald-400 uppercase tracking-wider mb-4">Bloom Metabolics Is Best For</div>
+            <div className="text-[13px] font-semibold text-emerald-400 uppercase tracking-wider mb-4">Bloom Metabolics May Suit</div>
             <ul className="space-y-3">
               {[
-                'Men who want specialized hormone and peptide optimization',
+                'Men who want specialized hormone and metabolic optimization',
                 'Patients who value comprehensive labs and proactive monitoring',
                 'Those looking for individualized protocols',
-                'Men interested in stacking TRT + peptides under one provider',
                 'Patients who want a provider-patient relationship, not a platform',
               ].map((item, i) => (
                 <li key={i} className="flex items-start gap-3">
@@ -180,7 +183,7 @@ export default function VsRomanPage() {
             </ul>
           </Card>
           <Card dark>
-            <div className="text-[13px] font-semibold text-graphite-400 uppercase tracking-wider mb-4">Ro Is Best For</div>
+            <div className="text-[13px] font-semibold text-graphite-400 uppercase tracking-wider mb-4">Ro May Suit</div>
             <ul className="space-y-3">
               {[
                 'Men who want broad health services under one roof',
@@ -205,23 +208,18 @@ export default function VsRomanPage() {
         <div className="mt-10 grid md:grid-cols-2 gap-6">
           {testimonials.map((t, i) => (
             <Card key={i}>
-              <div className="flex gap-1 mb-4">
-                {[...Array(5)].map((_, j) => (
-                  <Star key={j} className="w-4 h-4 text-amber-400 fill-amber-400" />
-                ))}
-              </div>
+              {/* FTC — star ratings removed */}
               <p className="text-[15px] text-graphite-600 leading-relaxed mb-4 italic">
                 &ldquo;{t.quote}&rdquo;
               </p>
               <p className="text-[13px] font-semibold text-graphite-950">
                 {t.name}, Age {t.age}
               </p>
+              <TestimonialDisclosure variant="hormone" />
             </Card>
           ))}
         </div>
-        <p className="text-[12px] text-graphite-400 mt-6">
-          Testimonials reflect individual patient experiences. Results vary. All treatments supervised by licensed providers.
-        </p>
+        {/* FTC — per-testimonial disclosure replaces generic footer */}
       </Section>
 
       {/* Switching Steps */}

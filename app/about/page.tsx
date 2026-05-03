@@ -3,8 +3,8 @@
 import Link from 'next/link'
 import { motion } from 'framer-motion'
 import {
-  ArrowRight, Check, Shield, Microscope, Brain,
-  HeartPulse, Stethoscope, UserCheck, Lock, Activity
+  ArrowRight, Check, Shield, Microscope, Users,
+  HeartPulse, Stethoscope, UserCheck, Lock
 } from 'lucide-react'
 import Section, { SectionLabel, SectionTitle, SectionDescription } from '@/components/ui/Section'
 import Card, { CardIcon } from '@/components/ui/Card'
@@ -52,12 +52,12 @@ export default function About() {
             </SectionDescription>
 
             <div className="mt-8 space-y-6">
-              <p className="text-[14px] text-graphite-600 leading-relaxed">
+              <p className="text-[14px] text-[#a89878] leading-relaxed">
                 Every treatment protocol at Bloom Metabolics is designed by board-certified
                 medical providers and informed by your bloodwork and biomarkers — not
                 generic guidelines or one-size-fits-all dosing.
               </p>
-              <p className="text-[14px] text-graphite-600 leading-relaxed">
+              <p className="text-[14px] text-[#a89878] leading-relaxed">
                 Our platform combines the convenience of telehealth with the rigor of
                 specialized medicine. Digital intake, video consultations, lab coordination,
                 treatment delivery, and ongoing monitoring — all managed through a single,
@@ -111,9 +111,9 @@ export default function About() {
               desc: 'Treatment decisions grounded in your bloodwork, not symptoms alone.',
             },
             {
-              icon: <Brain className="w-5 h-5" />,
-              title: 'AI-Enhanced Operations',
-              desc: 'Intelligent workflows handle scheduling, reminders, and care coordination — not clinical decisions.',
+              icon: <Users className="w-5 h-5" />,
+              title: 'RN-Managed Operations',
+              desc: 'Scheduling, intake coordination, patient education, and follow-ups — handled by our registered nurse-led operations team.',
             },
             {
               icon: <HeartPulse className="w-5 h-5" />,
@@ -188,62 +188,6 @@ export default function About() {
         </div>
       </Section>
 
-      {/* AI Commitment */}
-      <Section className="bg-graphite-50">
-        <div className="max-w-3xl mx-auto text-center">
-          <SectionLabel>Our Approach to AI</SectionLabel>
-          <SectionTitle>AI supports operations — not clinical decisions</SectionTitle>
-          <SectionDescription className="mx-auto mb-10">
-            Our AI systems handle scheduling, reminders, intake guidance, and patient
-            education. Clinical decisions, prescriptions, and treatment adjustments are
-            always made by licensed providers.
-          </SectionDescription>
-
-          <div className="bg-white rounded-2xl border border-graphite-100 p-8 text-left">
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-              <div>
-                <h4 className="text-[13px] font-semibold text-emerald-600 uppercase tracking-widest mb-4">
-                  AI-Assisted
-                </h4>
-                <ul className="space-y-3">
-                  {[
-                    'Intake guidance and onboarding',
-                    'Appointment scheduling',
-                    'Automated reminders',
-                    'Educational content delivery',
-                    'Operational analytics',
-                  ].map((item) => (
-                    <li key={item} className="flex items-center gap-2 text-[13px] text-graphite-600">
-                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              <div>
-                <h4 className="text-[13px] font-semibold text-amber-600 uppercase tracking-widest mb-4">
-                  Provider Only
-                </h4>
-                <ul className="space-y-3">
-                  {[
-                    'Clinical diagnosis',
-                    'Treatment decisions',
-                    'Prescription authority',
-                    'Dosage adjustments',
-                    'Medical clearance',
-                  ].map((item) => (
-                    <li key={item} className="flex items-center gap-2 text-[13px] text-graphite-600">
-                      <span className="w-1.5 h-1.5 rounded-full bg-amber-400" />
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </Section>
-
       {/* CTA */}
       <Section dark className="gradient-hero">
         <div className="max-w-3xl mx-auto text-center">
@@ -269,7 +213,7 @@ export default function About() {
               Take the Free Assessment
             </Link>
           </div>
-          <p className="text-[12px] text-graphite-600 mt-6">
+          <p className="text-[12px] text-[#8a8268] mt-6">
             All treatments require evaluation and approval by a licensed medical provider.
             Individual results vary.
           </p>

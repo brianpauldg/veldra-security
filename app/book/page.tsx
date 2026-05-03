@@ -10,6 +10,7 @@ import { ArrowRight, Lock, Shield, Check, CheckCircle, Calendar } from 'lucide-r
 import { trackEvent } from '@/lib/events'
 import { withAttribution } from '@/lib/attribution'
 import { CONSULTATION, primaryCtaSublabel } from '@/lib/pricing'
+import TCPAConsent, { type ConsentState, isConsentValid } from '@/components/TCPAConsent'
 
 // Compressed from 8 → 4 fields. The rest moves to post-payment intake.
 const bookSchema = z.object({
@@ -17,7 +18,7 @@ const bookSchema = z.object({
   lastName: z.string().min(1, 'Last name is required'),
   email: z.string().email('Valid email is required'),
   phone: z.string().min(7, 'Valid phone number is required'),
-  serviceInterest: z.enum(['trt', 'glp1', 'peptides', 'general']),
+  serviceInterest: z.enum(['trt', 'glp1', 'general']),
 })
 
 type BookFormData = z.infer<typeof bookSchema>
@@ -26,10 +27,14 @@ function BookContent() {
   const router = useRouter()
   const searchParams = useSearchParams()
   const paid = searchParams.get('session') // Stripe session id (or 'demo')
+  const serviceParam = searchParams.get('service') // Pre-select from pricing card
   const calendlyUrl = process.env.NEXT_PUBLIC_CALENDLY_URL || ''
+
+  const defaultService = serviceParam === 'trt' ? 'trt' : serviceParam === 'glp1' ? 'glp1' : 'general'
 
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
+  const [consent, setConsent] = useState<ConsentState>({ email: false, sms: false, version: '1.0.0' })
 
   const {
     register,
@@ -37,12 +42,18 @@ function BookContent() {
     formState: { errors },
   } = useForm<BookFormData>({
     resolver: zodResolver(bookSchema),
-    defaultValues: { serviceInterest: 'general' },
+    defaultValues: { serviceInterest: defaultService as 'trt' | 'glp1' | 'general' },
   })
 
   async function onSubmit(data: BookFormData) {
     setLoading(true)
     setError('')
+
+    if (!isConsentValid(consent, true, false)) {
+      setError('Please agree to receive email communications to continue.')
+      setLoading(false)
+      return
+    }
 
     trackEvent('checkout_initiated', { email: data.email, service: data.serviceInterest })
 
@@ -67,8 +78,12 @@ function BookContent() {
       const result = await res.json()
       if (result.url) {
         window.location.href = result.url
+      } else if (result.error) {
+        setError(result.error)
+        setLoading(false)
       } else {
-        router.push('/book?session=demo')
+        setError('Unable to create checkout session. Please try again.')
+        setLoading(false)
       }
     } catch {
       setError('Something went wrong. Please try again.')
@@ -199,9 +214,15 @@ function BookContent() {
                   <option value="general">Not sure yet — help me decide</option>
                   <option value="trt">Testosterone Therapy (TRT)</option>
                   <option value="glp1">GLP-1 Weight Loss</option>
-                  <option value="peptides">Peptide Therapy</option>
                 </select>
               </div>
+
+              <TCPAConsent
+                formId="book_form"
+                requiresEmail={true}
+                requiresSMS={false}
+                onChange={setConsent}
+              />
 
               {error && (
                 <div className="p-3 rounded-xl bg-red-50 border border-red-200 text-[13px] text-red-700">

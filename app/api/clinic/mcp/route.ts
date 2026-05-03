@@ -54,12 +54,54 @@ export async function POST(req: NextRequest) {
       }, { status: 400 })
     }
 
-    // Execute tool
+    // AB 3030 strict gate — write operations require confirmation token
+    const MCP_WRITE_ACTIONS = new Set([
+      'flag_patient_risk', 'create_followup_task', 'send_notification',
+      'create_alert', 'update_alert', 'resolve_alert',
+      'create_task', 'update_task', 'complete_task',
+      'create_note', 'update_note', 'update_patient', 'send_message',
+    ])
+
+    if (MCP_WRITE_ACTIONS.has(tool)) {
+      // Do NOT execute — create confirmation token instead
+      const { createConfirmationPayload } = await import('@/lib/clinic/ai-write-confirmation')
+      const confirmation = createConfirmationPayload({
+        ai_source: 'mcp',
+        write_action: tool as any,
+        write_payload: { tool, input: parsed.data },
+        patient_id: input.patientId || undefined,
+      })
+
+      // Persist to Supabase
+      const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL?.trim().replace(/\\n/g, '')
+      const supabaseKey = process.env.SUPABASE_SERVICE_ROLE_KEY?.trim().replace(/\\n/g, '')
+      if (supabaseUrl && supabaseKey) {
+        const { createClient } = await import('@supabase/supabase-js')
+        const sb = createClient(supabaseUrl, supabaseKey)
+        await sb.from('ai_write_confirmations').insert(confirmation.record)
+      }
+
+      logAudit({
+        userId: agentId, userName: `Agent: ${agentId}`, userRole: 'super_admin',
+        action: 'mcp_write_pending_confirmation', resourceType: 'ai_write_confirmations',
+        resourceId: confirmation.token, details: { tool, action_type: 'write_pending_confirmation' },
+      })
+
+      return NextResponse.json({
+        requestId, tool, status: 'confirmation_required',
+        confirmation_required: true,
+        token: confirmation.token,
+        expires_at: confirmation.expiresAt.toISOString(),
+        action_summary: `AI suggests: ${tool} with ${Object.keys(parsed.data).length} parameters. Clinician confirmation required before execution.`,
+      }, { status: 202 })
+    }
+
+    // Read operations — execute directly
     let output: Record<string, unknown> = {}
 
     switch (tool) {
       case 'get_patient_summary': {
-        const summary = getPatientSummary(input.patientId)
+        const summary = await getPatientSummary(input.patientId)
         if (!summary) {
           output = { error: 'Patient not found' }
         } else {
@@ -69,7 +111,7 @@ export async function POST(req: NextRequest) {
       }
 
       case 'get_patient_labs': {
-        const labs = getPatientLabs(input.patientId, {
+        const labs = await getPatientLabs(input.patientId, {
           marker: input.marker,
           fromDate: input.fromDate,
           toDate: input.toDate,
@@ -79,7 +121,7 @@ export async function POST(req: NextRequest) {
       }
 
       case 'get_patient_vitals': {
-        const vitals = getPatientVitals(input.patientId, {
+        const vitals = await getPatientVitals(input.patientId, {
           vitalType: input.vitalType,
           fromDate: input.fromDate,
           toDate: input.toDate,
@@ -89,7 +131,7 @@ export async function POST(req: NextRequest) {
       }
 
       case 'list_patients_requiring_attention': {
-        const patients = getPatientsRequiringAttention(input.reason, input.limit)
+        const patients = await getPatientsRequiringAttention(input.reason, input.limit)
         output = {
           patients: patients.map(p => ({
             id: p.id,
@@ -109,7 +151,7 @@ export async function POST(req: NextRequest) {
       }
 
       case 'flag_patient_risk': {
-        const patient = getPatientById(input.patientId)
+        const patient = await getPatientById(input.patientId)
         if (!patient) {
           output = { error: 'Patient not found' }
         } else {
@@ -141,7 +183,7 @@ export async function POST(req: NextRequest) {
       }
 
       case 'create_followup_task': {
-        const patient = getPatientById(input.patientId)
+        const patient = await getPatientById(input.patientId)
         if (!patient) {
           output = { error: 'Patient not found' }
         } else {
@@ -164,7 +206,7 @@ export async function POST(req: NextRequest) {
       }
 
       case 'generate_chart_review': {
-        const context = generateChartReviewContext(input.patientId, input.lookbackDays || 90)
+        const context = await generateChartReviewContext(input.patientId, input.lookbackDays || 90)
         if (!context) {
           output = { error: 'Patient not found' }
         } else {

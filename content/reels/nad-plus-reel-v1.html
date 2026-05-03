@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1080">
+<title>Bloom Metabolics — NAD+ Reel Frames</title>
+
+<!-- Fonts: Lora (serif headlines) + Libre Franklin as DejaVu Sans substitute (Google Fonts) -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Libre+Franklin:wght@400;600&display=swap" rel="stylesheet">
+
+<style>
+  /* ========================================
+     DESIGN SYSTEM TOKENS
+     ======================================== */
+  :root {
+    --bg-anchor: #020202;
+    --bg-content: #0E0E11;
+    --bg-card: #080808;
+    --text-headline: #F0E8DA;
+    --text-body: #C8BFB0;
+    --accent-bronze: #B8A688;
+    --divider: #1A1A1F;
+
+    --font-headline: 'Lora', Georgia, serif;
+    --font-body: 'Libre Franklin', 'DejaVu Sans', Arial, sans-serif;
+
+    --frame-w: 1080px;
+    --frame-h: 1920px;
+    --margin: 80px;
+  }
+
+  /* ========================================
+     RESET + BASE
+     ======================================== */
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: #111;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    padding: 40px 0;
+    font-family: var(--font-body);
+  }
+
+  /* Frame label (not part of exported frame) */
+  .frame-label {
+    font-family: var(--font-body);
+    font-size: 14px;
+    color: #888;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 8px;
+  }
+
+  /* ========================================
+     FRAME CONTAINER
+     ======================================== */
+  .frame {
+    width: var(--frame-w);
+    height: var(--frame-h);
+    position: relative;
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+
+  .frame--anchor { background: var(--bg-anchor); }
+  .frame--content { background: var(--bg-content); }
+
+  /* ========================================
+     INNER LAYOUT
+     ======================================== */
+  .frame__inner {
+    position: absolute;
+    top: var(--margin);
+    left: var(--margin);
+    right: var(--margin);
+    bottom: var(--margin);
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* ========================================
+     TYPOGRAPHY
+     ======================================== */
+  .headline {
+    font-family: var(--font-headline);
+    font-weight: 500;
+    color: var(--text-headline);
+    line-height: 1.2;
+  }
+
+  .headline--xl { font-size: 72px; letter-spacing: 0.5px; }
+  .headline--lg { font-size: 58px; letter-spacing: 0.3px; }
+  .headline--md { font-size: 48px; letter-spacing: 0.2px; }
+
+  .body-text {
+    font-family: var(--font-body);
+    font-weight: 400;
+    color: var(--text-body);
+    font-size: 34px;
+    line-height: 1.65;
+  }
+
+  .body-text--sm {
+    font-size: 28px;
+    line-height: 1.6;
+  }
+
+  .italic-accent {
+    font-family: var(--font-headline);
+    font-style: italic;
+    font-weight: 400;
+    color: var(--accent-bronze);
+    font-size: 32px;
+    line-height: 1.5;
+  }
+
+  .italic-accent--lg {
+    font-size: 52px;
+    line-height: 1.3;
+  }
+
+  .italic-accent--sm {
+    font-size: 26px;
+  }
+
+  .wordmark {
+    font-family: var(--font-body);
+    font-weight: 600;
+    color: var(--accent-bronze);
+    font-size: 18px;
+    letter-spacing: 8px;
+    text-transform: uppercase;
+  }
+
+  .wordmark--muted {
+    color: var(--text-body);
+    opacity: 0.6;
+  }
+
+  .small-label {
+    font-family: var(--font-body);
+    font-weight: 400;
+    color: var(--text-body);
+    font-size: 22px;
+    opacity: 0.5;
+  }
+
+  .cta-label {
+    font-family: var(--font-body);
+    font-weight: 600;
+    color: var(--text-body);
+    font-size: 24px;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+  }
+
+  .disclaimer {
+    font-family: var(--font-body);
+    font-weight: 400;
+    color: var(--text-headline);
+    opacity: 0.35;
+    font-size: 18px;
+    line-height: 1.5;
+    text-align: center;
+  }
+
+  .url-text {
+    font-family: var(--font-body);
+    font-weight: 400;
+    color: var(--text-body);
+    font-size: 22px;
+    opacity: 0.45;
+  }
+
+  /* ========================================
+     LOGO (inline SVG scaled)
+     ======================================== */
+  .logo-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .logo-container svg {
+    width: 100px;
+    height: 100px;
+  }
+
+  .logo-container--sm svg {
+    width: 72px;
+    height: 72px;
+  }
+
+  /* Tiny bottom-center wordmark for content frames */
+  .bottom-wordmark {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: var(--text-body);
+    opacity: 0.2;
+  }
+
+  /* ========================================
+     DIVIDER
+     ======================================== */
+  .divider {
+    width: 60px;
+    height: 1px;
+    background: var(--divider);
+    margin: 24px 0;
+  }
+
+  /* ========================================
+     IMAGE FRAME SPECIFICS
+     ======================================== */
+  .image-frame {
+    position: relative;
+  }
+
+  .image-placeholder {
+    position: absolute;
+    inset: 0;
+    background: #1A1A1F;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .image-placeholder__label {
+    font-family: var(--font-body);
+    font-size: 24px;
+    color: var(--text-body);
+    opacity: 0.4;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+  }
+
+  .image-placeholder__size {
+    font-family: var(--font-body);
+    font-size: 18px;
+    color: var(--text-body);
+    opacity: 0.25;
+  }
+
+  /* Vignette overlay */
+  .vignette {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(
+      ellipse at center,
+      transparent 30%,
+      rgba(2, 2, 2, 0.65) 100%
+    );
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  /* Bottom overlay for caption */
+  .image-caption-area {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 0 var(--margin) 60px;
+    z-index: 2;
+  }
+
+  .image-caption-divider {
+    width: 100%;
+    height: 1px;
+    background: var(--divider);
+    margin-bottom: 28px;
+  }
+
+  .image-caption {
+    font-family: var(--font-body);
+    font-weight: 400;
+    color: var(--text-headline);
+    font-size: 26px;
+    line-height: 1.5;
+  }
+
+  .image-brand {
+    position: absolute;
+    bottom: 24px;
+    right: 32px;
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 12px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--accent-bronze);
+    opacity: 0.35;
+    z-index: 2;
+  }
+
+  /* ========================================
+     SPACING UTILITIES
+     ======================================== */
+  .mt-auto { margin-top: auto; }
+  .mb-auto { margin-bottom: auto; }
+  .mt-24 { margin-top: 24px; }
+  .mt-32 { margin-top: 32px; }
+  .mt-40 { margin-top: 40px; }
+  .mt-48 { margin-top: 48px; }
+  .mt-64 { margin-top: 64px; }
+  .mt-80 { margin-top: 80px; }
+  .mb-24 { margin-bottom: 24px; }
+  .mb-32 { margin-bottom: 32px; }
+  .mb-48 { margin-bottom: 48px; }
+  .text-center { text-align: center; }
+</style>
+</head>
+<body>
+
+<!-- ================================================================
+     INLINE LOGO SVG (reused across frames)
+     The logo from public/logo.svg — B glyph with concentric rings
+     ================================================================ -->
+
+<!-- ================================================================
+     FRAME 1 — COVER / HOOK
+     Background: #020202 (anchor black)
+     ================================================================ -->
+<div class="frame-label">Frame 1 — Cover / Hook</div>
+<div class="frame frame--anchor">
+  <div class="frame__inner" style="align-items: center; justify-content: center; text-align: center;">
+
+    <!-- Logo + wordmark -->
+    <div class="logo-container" style="position: absolute; top: 160px;">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100" height="100">
+        <defs>
+          <radialGradient id="core1" cx="35%" cy="30%" r="65%">
+            <stop offset="0%" stop-color="#3a3630"/>
+            <stop offset="45%" stop-color="#1a1814"/>
+            <stop offset="100%" stop-color="#08070a"/>
+          </radialGradient>
+          <linearGradient id="glyph1" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#f5ecd9"/>
+            <stop offset="50%" stop-color="#c9bfa8"/>
+            <stop offset="100%" stop-color="#6d6552"/>
+          </linearGradient>
+          <linearGradient id="ring1a" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="rgba(216,207,190,0.5)"/>
+            <stop offset="50%" stop-color="rgba(216,207,190,0.08)"/>
+            <stop offset="100%" stop-color="rgba(216,207,190,0.5)"/>
+          </linearGradient>
+          <linearGradient id="ring1b" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="rgba(216,207,190,0.3)"/>
+            <stop offset="50%" stop-color="rgba(216,207,190,0.04)"/>
+            <stop offset="100%" stop-color="rgba(216,207,190,0.3)"/>
+          </linearGradient>
+        </defs>
+        <circle cx="256" cy="256" r="230" fill="none" stroke="url(#ring1a)" stroke-width="1.2"/>
+        <circle cx="256" cy="256" r="204" fill="none" stroke="url(#ring1b)" stroke-width="1"/>
+        <circle cx="256" cy="256" r="177" fill="none" stroke="url(#ring1b)" stroke-width="0.8"/>
+        <circle cx="256" cy="256" r="145" fill="url(#core1)"/>
+        <text x="256" y="295" text-anchor="middle" font-family="Georgia, serif" font-style="italic" font-weight="300" font-size="160" fill="url(#glyph1)" letter-spacing="-6">B</text>
+      </svg>
+      <span class="wordmark">EST MMXXVI</span>
+    </div>
+
+    <!-- Headline -->
+    <div style="margin-top: 40px;">
+      <h1 class="headline headline--xl" style="max-width: 780px;">The molecule your cells run on.</h1>
+      <div class="mt-32">
+        <span class="italic-accent italic-accent--lg">NAD+</span>
+      </div>
+    </div>
+
+    <!-- Bottom label -->
+    <div style="position: absolute; bottom: 100px;">
+      <span class="small-label">Educational series &middot; 01</span>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- ================================================================
+     FRAME 2 — DEFINITION
+     Background: #0E0E11 (lifted black)
+     ================================================================ -->
+<div class="frame-label">Frame 2 — Definition</div>
+<div class="frame frame--content">
+  <div class="frame__inner">
+
+    <h2 class="headline headline--lg mb-48">What is NAD+?</h2>
+
+    <p class="body-text">
+      Nicotinamide adenine dinucleotide. A coenzyme found in every living cell. Central to how your cells produce energy, repair DNA, and regulate metabolism.
+    </p>
+
+    <div class="mt-auto mb-48">
+      <div class="divider"></div>
+      <p class="italic-accent mt-24">Without it, cellular function stops.</p>
+    </div>
+
+  </div>
+  <div class="bottom-wordmark">BLOOM</div>
+</div>
+
+
+<!-- ================================================================
+     FRAME 3 — WHY IT MATTERS
+     Background: #0E0E11 (lifted black)
+     ================================================================ -->
+<div class="frame-label">Frame 3 — Why It Matters</div>
+<div class="frame frame--content">
+  <div class="frame__inner">
+
+    <h2 class="headline headline--lg mb-48">Why researchers are paying attention.</h2>
+
+    <p class="body-text mb-32">NAD+ levels naturally decline with age.</p>
+
+    <p class="body-text">
+      Studies suggest this decline correlates with reduced metabolic efficiency, slower cellular repair, and changes in energy regulation.
+    </p>
+
+    <div class="mt-auto mb-48">
+      <div class="divider"></div>
+      <p class="italic-accent italic-accent--sm mt-24">
+        By age 50, NAD+ levels may be roughly half of youthful baseline.
+      </p>
+    </div>
+
+  </div>
+  <div class="bottom-wordmark">BLOOM</div>
+</div>
+
+
+<!-- ================================================================
+     FRAME 4 — IMAGE FRAME (placeholder)
+     Background: full-bleed image
+
+     TO INSERT YOUR IMAGE:
+     1. Replace the .image-placeholder div with an <img> tag:
+        <img src="your-image.jpg" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;" alt="">
+     2. Or use CSS background-image on .image-frame:
+        background-image: url('your-image.jpg'); background-size: cover; background-position: center;
+     3. The vignette overlay and caption will layer on top automatically.
+     ================================================================ -->
+<div class="frame-label">Frame 4 — Image (insert your image)</div>
+<div class="frame image-frame">
+
+  <!-- REPLACE THIS PLACEHOLDER WITH YOUR IMAGE -->
+  <div class="image-placeholder">
+    <span class="image-placeholder__label">Insert Image 1</span>
+    <span class="image-placeholder__size">1080 &times; 1920 px &middot; dark imagery preferred</span>
+  </div>
+  <!-- END PLACEHOLDER -->
+
+  <!-- Vignette overlay (keep this) -->
+  <div class="vignette"></div>
+
+  <!-- Caption area (keep this) -->
+  <div class="image-caption-area">
+    <div class="image-caption-divider"></div>
+    <!-- EDIT CAPTION TEXT BELOW -->
+    <p class="image-caption">Every cell depends on this single coenzyme.</p>
+  </div>
+
+  <span class="image-brand">BLOOM</span>
+</div>
+
+
+<!-- ================================================================
+     FRAME 5 — THE FUNCTION
+     Background: #0E0E11 (lifted black)
+     ================================================================ -->
+<div class="frame-label">Frame 5 — The Function</div>
+<div class="frame frame--content">
+  <div class="frame__inner">
+
+    <h2 class="headline headline--lg mb-64">What NAD+ actually does.</h2>
+
+    <div class="body-text" style="display: flex; flex-direction: column; gap: 28px;">
+      <p>&mdash;&ensp;Powers mitochondrial energy production</p>
+      <p>&mdash;&ensp;Activates sirtuins (longevity-related proteins)</p>
+      <p>&mdash;&ensp;Supports DNA repair pathways</p>
+      <p>&mdash;&ensp;Regulates circadian rhythm signaling</p>
+    </div>
+
+    <div class="mt-auto mb-48">
+      <div class="divider"></div>
+      <p class="italic-accent mt-24">Every cell. Every minute. Continuously.</p>
+    </div>
+
+  </div>
+  <div class="bottom-wordmark">BLOOM</div>
+</div>
+
+
+<!-- ================================================================
+     FRAME 6 — IMAGE FRAME (placeholder)
+     Background: full-bleed image
+
+     TO INSERT YOUR IMAGE:
+     Same instructions as Frame 4 above.
+     ================================================================ -->
+<div class="frame-label">Frame 6 — Image (insert your image)</div>
+<div class="frame image-frame">
+
+  <!-- REPLACE THIS PLACEHOLDER WITH YOUR IMAGE -->
+  <div class="image-placeholder">
+    <span class="image-placeholder__label">Insert Image 2</span>
+    <span class="image-placeholder__size">1080 &times; 1920 px &middot; dark imagery preferred</span>
+  </div>
+  <!-- END PLACEHOLDER -->
+
+  <div class="vignette"></div>
+
+  <div class="image-caption-area">
+    <div class="image-caption-divider"></div>
+    <!-- EDIT CAPTION TEXT BELOW -->
+    <p class="image-caption">The intersection of cellular biology and longevity research.</p>
+  </div>
+
+  <span class="image-brand">BLOOM</span>
+</div>
+
+
+<!-- ================================================================
+     FRAME 7 — THE RESEARCH ANGLE
+     Background: #0E0E11 (lifted black)
+     ================================================================ -->
+<div class="frame-label">Frame 7 — Research Angle</div>
+<div class="frame frame--content">
+  <div class="frame__inner">
+
+    <h2 class="headline headline--lg mb-48">Why it's a longevity research focus.</h2>
+
+    <p class="body-text mb-48">
+      Researchers studying healthspan are exploring whether supporting NAD+ pathways could influence how cells age, repair, and metabolize.
+    </p>
+
+    <p class="body-text body-text--sm">
+      Active areas of research include precursor compounds like NMN and NR, IV protocols, and lifestyle factors that influence endogenous production.
+    </p>
+
+    <div class="mt-auto mb-48">
+      <div class="divider"></div>
+      <p class="italic-accent mt-24">The science is still developing. The interest is not.</p>
+    </div>
+
+  </div>
+  <div class="bottom-wordmark">BLOOM</div>
+</div>
+
+
+<!-- ================================================================
+     FRAME 8 — CTA
+     Background: #020202 (anchor black)
+     ================================================================ -->
+<div class="frame-label">Frame 8 — CTA</div>
+<div class="frame frame--anchor">
+  <div class="frame__inner" style="align-items: center; justify-content: center; text-align: center;">
+
+    <!-- Logo + wordmark -->
+    <div class="logo-container" style="position: absolute; top: 160px;">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100" height="100">
+        <defs>
+          <radialGradient id="core8" cx="35%" cy="30%" r="65%">
+            <stop offset="0%" stop-color="#3a3630"/>
+            <stop offset="45%" stop-color="#1a1814"/>
+            <stop offset="100%" stop-color="#08070a"/>
+          </radialGradient>
+          <linearGradient id="glyph8" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#f5ecd9"/>
+            <stop offset="50%" stop-color="#c9bfa8"/>
+            <stop offset="100%" stop-color="#6d6552"/>
+          </linearGradient>
+          <linearGradient id="ring8a" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="rgba(216,207,190,0.5)"/>
+            <stop offset="50%" stop-color="rgba(216,207,190,0.08)"/>
+            <stop offset="100%" stop-color="rgba(216,207,190,0.5)"/>
+          </linearGradient>
+          <linearGradient id="ring8b" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="rgba(216,207,190,0.3)"/>
+            <stop offset="50%" stop-color="rgba(216,207,190,0.04)"/>
+            <stop offset="100%" stop-color="rgba(216,207,190,0.3)"/>
+          </linearGradient>
+        </defs>
+        <circle cx="256" cy="256" r="230" fill="none" stroke="url(#ring8a)" stroke-width="1.2"/>
+        <circle cx="256" cy="256" r="204" fill="none" stroke="url(#ring8b)" stroke-width="1"/>
+        <circle cx="256" cy="256" r="177" fill="none" stroke="url(#ring8b)" stroke-width="0.8"/>
+        <circle cx="256" cy="256" r="145" fill="url(#core8)"/>
+        <text x="256" y="295" text-anchor="middle" font-family="Georgia, serif" font-style="italic" font-weight="300" font-size="160" fill="url(#glyph8)" letter-spacing="-6">B</text>
+      </svg>
+      <span class="wordmark">EST MMXXVI</span>
+    </div>
+
+    <!-- CTA copy -->
+    <div>
+      <h2 class="headline headline--lg" style="max-width: 700px;">Personalized longevity care.</h2>
+      <p class="italic-accent mt-24">Built around the science of how cells age.</p>
+
+      <div class="mt-80">
+        <span class="cta-label">JOIN THE WAITLIST</span>
+      </div>
+      <div class="mt-24">
+        <span class="url-text">bloommetabolics.com/waitlist</span>
+      </div>
+    </div>
+
+    <!-- Disclaimer -->
+    <div style="position: absolute; bottom: 80px; left: var(--margin); right: var(--margin);">
+      <p class="disclaimer">
+        Educational content. Not medical advice. Consult a licensed provider before any therapy.
+      </p>
+    </div>
+
+  </div>
+</div>
+
+
+</body>
+</html>

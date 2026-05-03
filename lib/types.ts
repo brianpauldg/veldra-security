@@ -19,12 +19,11 @@ export type LeadStage =
   | 'lost'
   | 'unqualified'
 
-export type ServiceInterest = 'trt' | 'glp1' | 'peptides' | 'mixed'
+export type ServiceInterest = 'trt' | 'glp1' | 'mixed'
 
 export type LeadSegment =
   | 'trt_interest'
   | 'glp1_interest'
-  | 'peptide_interest'
   | 'mixed_interest'
   | 'high_intent_buyer'
   | 'nurture_subscriber'
@@ -35,7 +34,7 @@ export const leadCaptureSchema = z.object({
   lastName: z.string().min(1, 'Last name is required'),
   email: z.string().email('Valid email is required'),
   phone: z.string().optional(),
-  serviceInterest: z.enum(['trt', 'glp1', 'peptides', 'general']),
+  serviceInterest: z.enum(['trt', 'glp1', 'general']),
   goals: z.string().optional(),
 })
 
@@ -49,7 +48,7 @@ export const contactFormSchema = z.object({
 
 export const emailCaptureSchema = z.object({
   email: z.string().email('Valid email is required'),
-  serviceInterest: z.enum(['trt', 'glp1', 'peptides', 'general']).optional(),
+  serviceInterest: z.enum(['trt', 'glp1', 'general']).optional(),
 })
 
 export const consultationSchema = z.object({
@@ -57,8 +56,8 @@ export const consultationSchema = z.object({
   lastName: z.string().min(1, 'Last name is required'),
   email: z.string().email('Valid email is required'),
   phone: z.string().min(10, 'Valid phone number is required'),
-  serviceInterest: z.enum(['trt', 'glp1', 'peptides', 'general']),
-  goals: z.string().min(1, 'Please describe your goals'),
+  serviceInterest: z.enum(['trt', 'glp1', 'general']),
+  goals: z.string().optional(),
   age: z.string().optional(),
   state: z.string().optional(),
 })

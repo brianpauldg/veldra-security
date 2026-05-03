@@ -5,7 +5,6 @@ const footerLinks = {
   practice: [
     { name: 'Testosterone Therapy', href: '/trt' },
     { name: 'GLP-1 Weight Loss', href: '/glp1' },
-    { name: 'Peptide Therapy', href: '/peptides' },
   ],
   company: [
     { name: 'Process', href: '/how-it-works' },
@@ -16,6 +15,7 @@ const footerLinks = {
     { name: 'Privacy Policy', href: '/privacy' },
     { name: 'Terms of Service', href: '/terms' },
     { name: 'Medical Disclaimer', href: '/disclaimer' },
+    { name: 'Provider Login', href: '/clinic/login' },
   ],
 }
 
@@ -36,9 +36,12 @@ export default function Footer() {
                 </div>
               </div>
             </div>
-            <p className="text-[13px] text-[#8a8268] leading-relaxed max-w-xs font-light">
-              Physician-prescribed TRT, GLP-1, and peptide therapy. Comprehensive labs. Transparent practice.
+            <p className="text-[13px] text-[#8a8268] leading-relaxed max-w-xs font-light mb-4">
+              Physician-prescribed TRT and GLP-1 therapy. Comprehensive labs. Transparent practice.
             </p>
+            <a href="mailto:brian@bloommetabolics.com" className="text-[13px] text-[#d8cfbe] hover:text-white transition-colors">
+              brian@bloommetabolics.com
+            </a>
           </div>
 
           <div>
