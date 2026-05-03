@@ -24,7 +24,7 @@ ICP for Bloom Metabolics (TRT / GLP-1 telehealth):
 - Male 25-60 for TRT, Male/Female 25-65 for GLP-1
 - US-based (licensed states only)
 - Symptoms: fatigue, low libido, weight gain, brain fog, muscle loss
-- Has insurance or willing to pay cash ($149-299/mo)
+- Has insurance or willing to pay cash ($249-299/mo)
 - BMI > 27 for GLP-1 candidates
 
 Return a JSON object:
@@ -164,7 +164,7 @@ TARGET ICP (Ideal Customer Profile):
 - Demographics: Males and females aged 35-55
 - Psychographics: Entrepreneurs, founders, executives, high-performers who prioritize peak performance, energy, mental clarity, and longevity
 - Pain points: Fatigue, low energy, brain fog, weight gain, declining performance, hormonal imbalance, aging concerns
-- Buying behavior: Willing to invest in premium health optimization ($149-$499/mo), value convenience (telehealth), results-driven, time-poor
+- Buying behavior: Willing to invest in premium health optimization ($150-$299/mo), value convenience (telehealth), results-driven, time-poor
 
 Your core tasks:
 - LEAD RESEARCH: Research TRT clinics, peptide therapy providers, anti-aging/longevity clinics, and med spas offering hormone optimization. Find their current patient acquisition channels, online presence, service offerings, pricing, and key decision makers (clinic owners, medical directors, practice managers). Output a structured lead qualification brief.
