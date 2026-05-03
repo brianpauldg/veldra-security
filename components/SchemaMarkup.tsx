@@ -24,14 +24,14 @@ export const organizationSchema = {
   '@context': 'https://schema.org',
   '@type': 'MedicalBusiness',
   name: 'Bloom Metabolics',
-  description: 'Premium physician-managed telehealth for TRT, GLP-1 weight loss, and peptide therapy. Comprehensive labs. Proactive care.',
+  description: 'Premium physician-managed telehealth for TRT and GLP-1 weight loss. Comprehensive labs. Proactive care.',
   url: 'https://bloommetabolics.com',
   logo: 'https://bloommetabolics.com/logo.png',
   email: 'support@bloommetabolics.com',
   medicalSpecialty: ['Endocrinology', 'Men\'s Health', 'Weight Management'],
   availableService: [
     { '@type': 'MedicalTherapy', name: 'Testosterone Replacement Therapy (TRT)' },
-    { '@type': 'MedicalTherapy', name: 'GLP-1 Medical Weight Loss' },
+    { '@type': 'MedicalTherapy', name: 'GLP-1 Medical Weight Management' },
     { '@type': 'MedicalTherapy', name: 'Peptide Therapy' },
   ],
 }

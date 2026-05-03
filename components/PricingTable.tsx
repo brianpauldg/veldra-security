@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 import { Check, ArrowRight } from 'lucide-react'
-import { CONSULTATION, PROGRAMS, NOT_INCLUDED, PRICING_LIVE, PEPTIDE_ADDONS } from '@/lib/pricing'
+import { CONSULTATION, PROGRAMS, NOT_INCLUDED, PRICING_LIVE } from '@/lib/pricing'
 import { cn } from '@/lib/utils'
 
 interface PricingTableProps {
@@ -25,7 +25,7 @@ export default function PricingTable({ showConsultation = true, className }: Pri
       <div
         className={cn(
           'grid gap-5',
-          showConsultation ? 'grid-cols-1 md:grid-cols-2 lg:grid-cols-4' : 'grid-cols-1 md:grid-cols-3'
+          showConsultation ? 'grid-cols-1 md:grid-cols-2 lg:grid-cols-4' : 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3'
         )}
       >
         {showConsultation && (
@@ -39,34 +39,6 @@ export default function PricingTable({ showConsultation = true, className }: Pri
           <PricingCard key={tier.id} tier={tier} accent={tier.featured ? 'featured' : 'light'} />
         ))}
       </div>
-
-      {/* Peptide Add-Ons */}
-      {PEPTIDE_ADDONS.length > 0 && (
-        <div className="mt-10">
-          <p className="text-[11px] font-semibold uppercase tracking-widest text-graphite-500 mb-4 text-center">
-            Peptide Add-Ons — $100/mo each
-          </p>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-4xl mx-auto">
-            {PEPTIDE_ADDONS.map((addon) => (
-              <div key={addon.id} className="rounded-xl border border-graphite-200 bg-white p-5">
-                <div className="flex items-baseline justify-between mb-2">
-                  <h4 className="text-[15px] font-semibold text-graphite-950">{addon.shortName}</h4>
-                  <span className="text-[13px] font-semibold text-graphite-950">${addon.price}/mo</span>
-                </div>
-                <p className="text-[12px] text-graphite-500 leading-relaxed mb-3">{addon.description}</p>
-                <ul className="space-y-1.5">
-                  {addon.benefits.slice(0, 2).map((b) => (
-                    <li key={b} className="flex items-start gap-1.5">
-                      <Check className="w-3.5 h-3.5 text-graphite-400 mt-0.5 flex-shrink-0" />
-                      <span className="text-[11px] text-graphite-500">{b}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </div>
-        </div>
-      )}
 
       {NOT_INCLUDED.length > 0 && (
         <div className="mt-10 max-w-3xl mx-auto text-center">
@@ -91,6 +63,7 @@ function PricingCard({
 }) {
   const isDark = accent === 'dark'
   const isFeatured = accent === 'featured'
+  const isComingSoon = 'status' in tier && tier.status === 'coming_soon'
 
   return (
     <div
@@ -104,6 +77,12 @@ function PricingCard({
       {isFeatured && (
         <span className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 bg-graphite-950 text-white text-[10px] font-semibold uppercase tracking-widest rounded-full">
           Most Popular
+        </span>
+      )}
+
+      {isComingSoon && (
+        <span className="absolute top-4 right-4 px-2.5 py-1 bg-[#B8A688]/15 text-[#B8A688] text-[10px] font-semibold uppercase tracking-widest rounded-full border border-[#B8A688]/30">
+          Coming Soon
         </span>
       )}
 
@@ -121,8 +100,16 @@ function PricingCard({
 
       <div className="mb-5">
         <div className={cn('text-[28px] font-bold tracking-tight', isDark ? 'text-white' : 'text-graphite-950')}>
-          {tier.display}
+          {tier.amount != null ? `$${tier.amount}` : '—'}
+          <span className={cn('text-[14px] font-normal ml-1', isDark ? 'text-graphite-500' : 'text-graphite-400')}>
+            {tier.cadence === 'monthly' ? '/mo' : ''}
+          </span>
         </div>
+        {'addOnNote' in tier && tier.addOnNote && (
+          <div className={cn('text-[11px] mt-1', isDark ? 'text-graphite-500' : 'text-graphite-400')}>
+            {tier.addOnNote}
+          </div>
+        )}
         {tier.amount == null && (
           <div className={cn('text-[11px] mt-1', isDark ? 'text-graphite-500' : 'text-graphite-400')}>
             Pricing confirmed at consultation
@@ -147,7 +134,8 @@ function PricingCard({
           'flex items-center justify-center gap-1.5 w-full px-5 py-3 rounded-full text-[13px] font-semibold transition-all',
           isDark && 'bg-white text-graphite-950 hover:bg-graphite-100',
           isFeatured && 'bg-graphite-950 text-white hover:bg-graphite-800',
-          !isDark && !isFeatured && 'bg-graphite-100 text-graphite-950 hover:bg-graphite-200'
+          isComingSoon && !isDark && !isFeatured && 'bg-[#B8A688]/10 text-[#B8A688] border border-[#B8A688]/30 hover:bg-[#B8A688]/20',
+          !isDark && !isFeatured && !isComingSoon && 'bg-graphite-100 text-graphite-950 hover:bg-graphite-200'
         )}
       >
         {tier.ctaCopy}

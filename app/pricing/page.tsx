@@ -62,7 +62,7 @@ export default function PricingPage() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5 max-w-4xl mx-auto">
           {[
             { icon: <Microscope className="w-5 h-5" />, title: 'Real bloodwork', desc: 'At-home kit or local draw. Results reviewed by your physician.' },
-            { icon: <Package className="w-5 h-5" />, title: 'Licensed pharmacy', desc: 'Medication shipped from a U.S.-licensed pharmacy. Free shipping.' },
+            { icon: <Package className="w-5 h-5" />, title: 'Licensed pharmacy', desc: 'Medication shipped from a U.S.-licensed compounding pharmacy. Free shipping.' },
             { icon: <Shield className="w-5 h-5" />, title: 'Ongoing access', desc: 'Message your care team directly. No premium tier required.' },
           ].map((item) => (
             <div key={item.title} className="bg-white rounded-2xl border border-graphite-200 p-6">
@@ -87,11 +87,11 @@ export default function PricingPage() {
             </SectionDescription>
           </div>
 
-          <div className="divide-y divide-graphite-100 border-y border-graphite-100">
+          <div className="divide-y divide-[#1a1814] border-y border-[#1a1814]">
             {[
               {
                 q: 'How much is the consultation?',
-                a: 'The consultation is a fixed fee charged up front. If your physician determines you\'re not a candidate for treatment, we refund it in full — you still keep the eligibility report.',
+                a: 'The consultation is $49, charged up front. If your physician determines you\'re not a candidate for treatment, we refund it in full. If you qualify and begin treatment within 7 days, the $49 is applied as a credit toward your first month.',
               },
               {
                 q: 'Why is program pricing shown as "From"?',
@@ -103,7 +103,7 @@ export default function PricingPage() {
               },
               {
                 q: 'Are there any hidden fees?',
-                a: 'No. The consultation fee and program pricing are the only charges. Shipping from our licensed pharmacy is free on all programs.',
+                a: 'No. The consultation fee and program pricing are the only charges. Shipping from our licensed compounding pharmacy is free on all programs.',
               },
               {
                 q: 'Do you accept insurance?',
@@ -113,10 +113,14 @@ export default function PricingPage() {
                 q: 'Can I cancel anytime?',
                 a: 'Yes. Monthly programs can be cancelled anytime. You keep whatever medication you\'ve already received.',
               },
+              {
+                q: 'When will peptide therapy be available?',
+                a: 'Peptide therapy is coming soon. Join the waitlist and we\'ll notify you as soon as enrollment opens. Pricing starts at $150/month as a standalone program or as an add-on to TRT or GLP-1.',
+              },
             ].map((faq) => (
               <div key={faq.q} className="py-5">
-                <h3 className="text-[15px] font-semibold text-graphite-950 mb-1.5">{faq.q}</h3>
-                <p className="text-[13px] text-graphite-600 leading-relaxed">{faq.a}</p>
+                <h3 className="text-[15px] font-semibold text-white mb-1.5">{faq.q}</h3>
+                <p className="text-[13px] text-[#d8cfbe] leading-relaxed">{faq.a}</p>
               </div>
             ))}
           </div>

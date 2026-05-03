@@ -11,11 +11,11 @@
 export const PRICING_LIVE = true
 
 const CONSULTATION_AMOUNT: number | null = 49
-const TRT_FROM: number | null = 149
+const TRT_FROM: number | null = 299
 const GLP1_FROM: number | null = 249
-const PEPTIDES_FROM: number | null = 100
-
+const PEPTIDE_FROM: number | null = 150
 export type Cadence = 'one-time' | 'monthly'
+export type ServiceStatus = 'active' | 'coming_soon'
 
 export interface PriceTier {
   id: 'consultation' | 'trt' | 'glp1' | 'peptides'
@@ -27,60 +27,11 @@ export interface PriceTier {
   tagline: string
   includes: string[]
   featured?: boolean
+  status?: ServiceStatus
+  addOnNote?: string
   ctaHref: string
   ctaCopy: string
 }
-
-export interface PeptideAddOn {
-  id: string
-  name: string
-  shortName: string
-  price: number
-  description: string
-  benefits: string[]
-}
-
-export const PEPTIDE_ADDONS: PeptideAddOn[] = [
-  {
-    id: 'bpc157-tb500',
-    name: 'BPC-157 / TB-500',
-    shortName: 'BPC-157/TB-500',
-    price: 100,
-    description: 'Recovery and tissue repair peptide blend. May support gut health, joint recovery, and accelerated healing.',
-    benefits: [
-      'May support tissue repair and recovery',
-      'May promote gut health and integrity',
-      'May reduce inflammation',
-      'Commonly used for joint and tendon support',
-    ],
-  },
-  {
-    id: 'mots-c',
-    name: 'MOTS-c',
-    shortName: 'MOTS-c',
-    price: 100,
-    description: 'Mitochondrial-derived peptide for metabolic optimization. May support exercise capacity, insulin sensitivity, and cellular energy.',
-    benefits: [
-      'May support metabolic function',
-      'May improve exercise capacity',
-      'May promote insulin sensitivity',
-      'Research-backed mitochondrial peptide',
-    ],
-  },
-  {
-    id: 'ghk-cu',
-    name: 'GHK-Cu',
-    shortName: 'GHK-Cu',
-    price: 100,
-    description: 'Copper peptide for skin health, tissue remodeling, and anti-aging. May support collagen production and wound healing.',
-    benefits: [
-      'May support collagen synthesis',
-      'May promote skin elasticity and repair',
-      'May support hair follicle health',
-      'Research-backed anti-aging peptide',
-    ],
-  },
-]
 
 function fmt(amount: number | null, cadence: Cadence): string {
   if (amount == null) return cadence === 'monthly' ? 'From $—/mo' : 'Pricing TBD'
@@ -114,53 +65,59 @@ export const PROGRAMS: PriceTier[] = [
     cadence: 'monthly',
     amount: TRT_FROM,
     display: fmt(TRT_FROM, 'monthly'),
-    tagline: 'Restore healthy testosterone levels.',
+    status: 'active',
+    tagline: 'Restore healthy testosterone levels. Starts with $49 consultation.',
     includes: [
-      'Physician-prescribed medication',
-      'Labs every 90 days',
+      'Testosterone + HCG + Anastrozole as needed',
+      'Comprehensive labs included every 90 days',
+      'Estrogen management included',
       'Unlimited provider messaging',
-      'Free shipping from licensed pharmacy',
+      'Free shipping from licensed compounding pharmacy', // FDA April 1 2026 essentially-a-copy rule
       'Ongoing protocol adjustment',
     ],
-    ctaHref: '/trt',
-    ctaCopy: 'See Details',
+    ctaHref: '/book?service=trt',
+    ctaCopy: 'Start TRT',
   },
   {
     id: 'glp1',
-    name: 'GLP-1 Weight Loss',
+    name: 'GLP-1 Weight Management',
     shortName: 'GLP-1',
     cadence: 'monthly',
     amount: GLP1_FROM,
     display: fmt(GLP1_FROM, 'monthly'),
     featured: true,
-    tagline: 'Semaglutide or Tirzepatide, physician-supervised.',
+    status: 'active',
+    // FDA April 1 2026 essentially-a-copy rule — compounded designation required
+    tagline: 'Compounded semaglutide or tirzepatide. Not FDA-approved. Physician-supervised. Starts with $49 consultation.',
     includes: [
-      'Medication from licensed pharmacy',
+      'Compounded medication from licensed compounding pharmacy',
       'Dose titration by physician',
       'Monthly provider check-ins',
       'Free shipping',
       'Nutrition guidance',
     ],
-    ctaHref: '/glp1',
-    ctaCopy: 'See Details',
+    ctaHref: '/book?service=glp1',
+    ctaCopy: 'Start GLP-1',
   },
   {
     id: 'peptides',
     name: 'Peptide Therapy',
     shortName: 'Peptides',
     cadence: 'monthly',
-    amount: PEPTIDES_FROM,
-    display: fmt(PEPTIDES_FROM, 'monthly'),
-    tagline: 'BPC-157/TB-500, MOTS-c, GHK-Cu — add any peptide to your protocol.',
+    amount: PEPTIDE_FROM,
+    display: fmt(PEPTIDE_FROM, 'monthly'),
+    status: 'coming_soon',
+    tagline: 'Peptide therapy options coming soon. Join the waitlist to be notified when available.',
+    addOnNote: 'Available as standalone or add-on to TRT/GLP-1',
     includes: [
-      '$100/mo per peptide add-on',
-      'BPC-157/TB-500, MOTS-c, or GHK-Cu',
-      'Provider-managed protocols',
-      'Combinable with TRT or GLP-1',
+      'Physician-selected peptide protocols',
+      'Compounded from licensed pharmacy',
+      'Monthly provider check-ins',
       'Free shipping',
+      'Protocol adjustment as needed',
     ],
-    ctaHref: '/peptides',
-    ctaCopy: 'See Details',
+    ctaHref: '/waitlist?service=peptides',
+    ctaCopy: 'Join Waitlist',
   },
 ]
 
