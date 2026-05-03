@@ -1,7 +1,7 @@
 # Bloom Metabolics — SOP Master Index
 
 **Classification:** INTERNAL — CLINICAL & OPERATIONAL USE ONLY
-**Last Updated:** 2026-05-03
+**Last Updated:** 2026-05-03 (v0.3)
 **Maintained By:** Brian, Owner / Registered Nurse
 
 ---
@@ -10,7 +10,7 @@
 
 | SOP ID | Title | Version | Status | Effective Date | Next Review | Owner | Approver | File |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| SOP-001 | Document Control & SOP Lifecycle Management | 0.2 | Draft | TBD | TBD | Brian | Covering Physician (TBD) | [SOP-001](sops/SOP-001-document-control/SOP-001-document-control.md) |
+| SOP-001 | Document Control & SOP Lifecycle Management | 0.3 | Draft | TBD | TBD | Brian | Covering Physician (TBD) | [SOP-001](sops/SOP-001-document-control/SOP-001-document-control.md) |
 
 ---
 

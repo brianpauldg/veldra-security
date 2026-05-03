@@ -1,7 +1,7 @@
 ---
 sop_id: "SOP-001"
 title: "Document Control & SOP Lifecycle Management"
-version: "0.2"
+version: "0.3"
 status: "Draft"
 effective_date: "TBD (pending approval)"
 next_review_date: "12 months from effective date"
@@ -13,7 +13,7 @@ classification: "INTERNAL — CLINICAL & OPERATIONAL USE ONLY"
 # Document Control & SOP Lifecycle Management
 
 **SOP ID:** SOP-001
-**Version:** 0.2
+**Version:** 0.3
 **Status:** Draft
 **Effective Date:** TBD (pending approval)
 **Next Scheduled Review:** 12 months from effective date
@@ -95,7 +95,12 @@ Bloom Metabolics operates under a Management Services Organization (MSO) and Pro
 A controlled document that defines a specific clinical or operational process in sufficient detail that qualified personnel can execute the process consistently, correctly, and in compliance with applicable law and professional standards.
 
 **Document Owner**
-The individual responsible for drafting, maintaining, and ensuring the operationalization of a specific SOP. The document owner initiates the lifecycle, manages revisions, and is accountable for the document's accuracy and currency. At Bloom Metabolics, the default document owner is Brian (Owner / Registered Nurse) unless explicitly delegated.
+The individual responsible for drafting, maintaining, and ensuring the operationalization of a specific SOP. The document owner initiates the lifecycle, manages revisions, and is accountable for the document's accuracy and currency.
+
+The default document owner depends on the SOP type per §2.3:
+- For **operational SOPs**, the document owner is the MSO Owner (Brian, RN).
+- For **clinical SOPs**, the document owner is the Covering Physician (PC). The Covering Physician may delegate operational and procedural responsibilities (drafting support, formatting, version control, master index maintenance, signature coordination) to the MSO Owner without delegating content authority. Such delegation is documented in the SOP's revision history.
+- For **hybrid SOPs**, the SOP is co-owned: the MSO Owner is the operational owner and the Covering Physician is the clinical owner. Hybrid SOPs are identified at the time of initiation per §2.3.
 
 **Approving Authority**
 The individual with the clinical or operational authority to approve an SOP for implementation. For all clinical SOPs, the approving authority is the covering physician (Medical Director). For purely operational SOPs that do not affect patient care, the owner may serve as approving authority; however, any SOP that could reasonably affect patient safety, clinical outcomes, or regulatory compliance requires physician approval.
@@ -134,7 +139,7 @@ An SOP that previously governed practice but has been withdrawn because the acti
 An SOP that has been replaced by a newer version or a different SOP covering the same scope. The superseding document is identified in the master index. Superseded SOPs are archived and never deleted.
 
 **Change Request**
-A formal proposal to modify an active or approved SOP. Change requests are submitted as git pull requests with a description of the proposed change and rationale.
+A formal proposal to modify an active or approved SOP. Change requests may be submitted via either the technical path (git pull request) or the non-technical path (intake form, OptiMantra task, or verbal report captured in writing) as defined in §5.13. Both paths produce equivalent audit artifacts.
 
 **Acknowledgment of Receipt**
 A signed attestation by affected personnel confirming that they have read, understood, and agree to comply with a specific SOP. Acknowledgment is a prerequisite to performing work governed by that SOP.
@@ -157,7 +162,8 @@ The process of configuring clinical and business systems (OptiMantra, GHL, n8n, 
 
 | Role | Primary Responsibilities Under This SOP |
 | --- | --- |
-| **Owner (Brian, RN)** | Initiates SOPs; drafts content; maintains the master index; maintains the document library; coordinates review and signature workflow; ensures operationalization in OptiMantra, GHL, n8n, and other systems; triages change requests; conducts quarterly audit readiness verification; schedules and tracks review cycles |
+| **Owner — MSO (Brian, RN)** | For operational SOPs and the operational delegation of clinical SOPs: initiates SOPs; drafts content; maintains the master index; maintains the document library; coordinates review and signature workflow; ensures operationalization in OptiMantra, GHL, n8n, and other systems; triages change requests; conducts quarterly audit readiness verification; schedules and tracks review cycles |
+| **Owner — PC (Covering Physician)** | For clinical SOPs: holds final authorship and content authority; reviews and approves clinical content; sets clinical decision criteria, escalation pathways, and prescribing parameters; may delegate procedural functions (drafting support, formatting, version control, master index maintenance, signature coordination) to the MSO Owner without delegating content authority; signs as both Owner and Approving Authority on clinical SOPs unless a separate Approving Authority is designated |
 | **Approving Authority (Covering Physician)** | Reviews all clinical SOPs for clinical accuracy, safety, and alignment with evidence-based guidelines; signs as approving authority on clinical SOPs; may delegate review of operational SOPs but retains final approval authority for any SOP affecting patient care; signs review memos for clinical SOPs; available for expedited review when triggered by regulatory change or adverse event |
 | **Reviewer (Subject Matter Expert)** | May be internal (owner reviewing operational SOPs) or external (compliance counsel for HIPAA SOP, legal counsel for telehealth visit SOP, pharmacist for controlled substance SOP); provides written review feedback before approval; review is advisory — approval authority remains with the designated approver |
 | **Affected Personnel** | All Bloom Metabolics employees, contractors, and agents whose work is governed by an SOP; must sign acknowledgment of receipt within 14 calendar days of notification; must complete any required training before performing work governed by that SOP; must report deviations and proposed changes through the change request workflow |
@@ -291,7 +297,7 @@ The following SOPs require external legal or compliance review before approval:
 1. **Operative status:** A Provisional SOP is fully operative — affected personnel are bound by it as if it were a fully Approved SOP.
 2. **Disclosure:** Provisional status is explicitly disclosed in:
    - The master index (status field reads `Provisional`)
-   - The document header (a Provisional Notice block immediately following the Notice section)
+   - The document header (the "Provisional" variant of the Status Notice block within the unified Notice section, per the master template)
    - Any external audit package or response to regulatory inquiry
 3. **Maximum duration:** Provisional status carries a maximum duration of **180 calendar days** from the date of provisional approval.
 4. **90-day milestone:** Within 90 days of provisional approval, the document owner must produce a written counsel retention plan committed to the SOP's directory under `attachments/counsel-retention-plan.md`. The plan identifies target counsel, engagement timeline, and budget.
@@ -715,6 +721,7 @@ The following standards and regulations provide the basis for maintaining a form
 | --- | --- | --- | --- | --- |
 | 0.1 | 2026-05-02 | Brian | Initial draft. Pending covering physician review and approval. | TBD |
 | 0.2 | 2026-05-03 | Brian | Minor revision incorporating pre-physician-review structural and content refinements. Changes: (1) added §2.3 Corporate Structure Acknowledgment for MSO/PC framing; (2) defined Provisional status in §3; (3) added Provisional status guardrails (180-day max, 90-day counsel retention plan, quarterly reporting) in §5.6; (4) tiered operationalization windows (14/30/60 days) in §5.9; (5) two-path change request workflow (technical and non-technical) in §5.13; (6) wet signature alternative in §5.7; (7) clarified numbering convention (no pre-reservation) in §5.1; (8) added vendor change as accelerated review trigger in §5.10; (9) added Critical tier for regulatory conflicts with 4-hour physician contact in §7.3; (10) added CMIA and California Information Practices Act references in §9; (11) standardized ISO 8601 date format in §5.11.1; (12) restructured Notice block in master template and SOP-001. Classified as minor revision per SOP-001 §5.11 because the document remains in Draft status with no signatures or operationalization to disrupt. Subject to legal counsel review on items 1, 3, 6, and 10. | TBD |
+| 0.3 | 2026-05-03 | Brian | Minor revision resolving four internal contradictions identified in pre-physician-review second-pass audit. Changes: (1) reconciled §3 "Document Owner" definition with §2.3 by clarifying that the default owner depends on SOP type (MSO Owner for operational, Covering Physician for clinical, co-owned for hybrid); (2) reconciled §3 "Change Request" definition with §5.13's two-path workflow; (3) split §4 Owner row into MSO Owner and PC Owner rows reflecting the corporate practice structure; (4) corrected §5.6 reference to the Provisional disclosure mechanism to align with the restructured Notice block created in v0.2 Change #12. Classified as minor revision per §5.11.1 — non-substantive clarifications to existing definitions and roles, no procedural or scope changes. Three deferred items held for future revisions: timeline summary table consolidating all timing commitments, Attachment B-2 attestation form template, and review of SOP-001's own review cycle (currently 12 months). | TBD |
 
 ---
 
