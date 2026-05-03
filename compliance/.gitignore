@@ -1,0 +1,8 @@
+# Generated build artifacts — source Markdown is the source of truth
+build/output/
+
+# Node modules for build scripts
+build/node_modules/
+
+# OS files
+.DS_Store
