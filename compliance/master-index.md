@@ -1,7 +1,7 @@
 # Bloom Metabolics — SOP Master Index
 
 **Classification:** INTERNAL — CLINICAL & OPERATIONAL USE ONLY
-**Last Updated:** 2026-05-03 (v0.3)
+**Last Updated:** 2026-05-03
 **Maintained By:** Brian, Owner / Registered Nurse
 
 ---
@@ -11,6 +11,8 @@
 | SOP ID | Title | Version | Status | Effective Date | Next Review | Owner | Approver | File |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | SOP-001 | Document Control & SOP Lifecycle Management | 0.3 | Draft | TBD | TBD | Brian | Covering Physician (TBD) | [SOP-001](sops/SOP-001-document-control/SOP-001-document-control.md) |
+| SOP-002 | Patient Intake Operations | 0.1 | Draft | TBD | TBD | Brian DeGuzman | Brian DeGuzman | [SOP-002](sops/SOP-002-patient-intake-operations/SOP-002-patient-intake-operations.md) |
+| SOP-003 | Clinical Eligibility Screening | 0.1 | Draft (Physician-Pending) | TBD | TBD | Covering Physician (TBD) | Covering Physician (TBD) | [SOP-003](sops/SOP-003-clinical-eligibility-screening/SOP-003-clinical-eligibility-screening.md) |
 
 ---
 
@@ -20,8 +22,7 @@ The following SOPs have been identified through the compliance audit and are que
 
 | Title | Priority | Status | Notes |
 | --- | --- | --- | --- |
-| Patient Intake & Eligibility Screening | High | Planned | Phase 2 priority — gating for all patient interactions |
-| Identity Verification | High | Planned | Ryan Haight Act compliance; prerequisite for prescribing SOPs |
+| Identity Verification | High | Planned | Ryan Haight Act compliance; prerequisite for prescribing SOPs (note: operational ID verification is covered in SOP-002 §5.8; this SOP would cover automated verification at scale) |
 | Synchronous Telehealth Visit | High | Planned | Phase 2 priority — core clinical workflow |
 | Adverse Event & Incident Reporting | High | Planned | Phase 2 priority — patient safety |
 | Laboratory Ordering & Result Review | High | Planned | Critical for TRT monitoring (hematocrit, PSA, lipids) |
