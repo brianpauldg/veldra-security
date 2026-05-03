@@ -4,20 +4,14 @@ import type { NextRequest } from 'next/server'
 
 // Routes that require authentication
 const PROTECTED_ROUTES = [
-  '/dashboard',
-  '/clients',
-  '/compliance',
-  '/documents',
-  '/messaging',
-  '/settings',
-  '/api/clients',
-  '/api/compliance',
-  '/api/documents',
-  '/api/messaging',
+  '/clinic',
+  '/api/clinic',
 ]
 
-// Routes that are public
-const PUBLIC_ROUTES = ['/login', '/signup', '/forgot-password', '/reset-password', '/', '/privacy', '/terms']
+// Routes exempt from auth within /clinic/*
+const CLINIC_PUBLIC_ROUTES = [
+  '/clinic/login',
+]
 
 // Rate limiting store (use Redis in production)
 const rateLimitMap = new Map<string, { count: number; resetTime: number }>()
@@ -84,50 +78,32 @@ export async function middleware(req: NextRequest) {
 
   // ── 4. AUTH CHECK FOR PROTECTED ROUTES ──────────────────────────────────
   const isProtected = PROTECTED_ROUTES.some(route => pathname.startsWith(route))
-  
-  if (isProtected) {
+  const isClinicPublic = CLINIC_PUBLIC_ROUTES.some(route => pathname === route)
+
+  if (isProtected && !isClinicPublic) {
+    // For API routes, auth is handled per-route via lib/clinic/auth-middleware.ts
+    // For page routes, auth is handled client-side in clinic/layout.tsx
+    // Middleware adds session info to headers if available
     const supabase = createMiddlewareClient({ req, res })
-    const { data: { session }, error } = await supabase.auth.getSession()
+    const { data: { session } } = await supabase.auth.getSession()
 
-    if (error || !session) {
-      // Not authenticated — redirect to login
-      const loginUrl = new URL('/login', req.url)
-      loginUrl.searchParams.set('redirectTo', pathname)
-      return NextResponse.redirect(loginUrl)
-    }
+    if (session) {
+      res.headers.set('x-user-id', session.user.id)
+      res.headers.set('x-user-email', session.user.email || '')
+      res.headers.set('x-user-role', (session.user.user_metadata?.role as string) || '')
+    } else if (pathname.startsWith('/api/clinic/')) {
+      // API routes get 401 at middleware level if no session AND no bearer token
+      const hasBearer = req.headers.get('authorization')?.startsWith('Bearer ')
+      const hasApiKey = !!req.headers.get('x-api-key')
+      const hasWebhookSecret = !!req.headers.get('x-webhook-secret')
 
-    // Session exists — verify it's not expired and user is active
-    const tokenExpiry = session.expires_at
-    if (tokenExpiry && Date.now() / 1000 > tokenExpiry) {
-      const loginUrl = new URL('/login', req.url)
-      loginUrl.searchParams.set('reason', 'session_expired')
-      return NextResponse.redirect(loginUrl)
-    }
-
-    // Add user ID to request headers for server components
-    res.headers.set('x-user-id', session.user.id)
-    res.headers.set('x-user-email', session.user.email || '')
-  }
-
-  // ── 5. REDIRECT LOGGED-IN USERS AWAY FROM AUTH PAGES ────────────────────
-  if (pathname === '/login' || pathname === '/signup') {
-    // Allow bypassing the redirect when the user intentionally wants to
-    // access signup for a payment/checkout flow. Marketing buttons can add
-    // `?checkout=true` or `?intent=subscribe` to avoid forcing logged-in
-    // users straight to the dashboard.
-    const requestUrl = new URL(req.url)
-    const skipRedirect =
-      requestUrl.searchParams.get('checkout') === 'true' ||
-      requestUrl.searchParams.get('intent') === 'subscribe' ||
-      requestUrl.searchParams.get('source') === 'stripe'
-
-    if (!skipRedirect) {
-      const supabase = createMiddlewareClient({ req, res })
-      const { data: { session } } = await supabase.auth.getSession()
-      
-      if (session) {
-        return NextResponse.redirect(new URL('/dashboard', req.url))
+      if (!hasBearer && !hasApiKey && !hasWebhookSecret) {
+        return NextResponse.json({ error: 'Authentication required' }, { status: 401 })
       }
+      // Bearer/API key auth is verified per-route in auth-middleware.ts
+    } else if (pathname.startsWith('/clinic') && !pathname.startsWith('/clinic/login')) {
+      // Page routes redirect to login
+      return NextResponse.redirect(new URL('/clinic/login', req.url))
     }
   }
 

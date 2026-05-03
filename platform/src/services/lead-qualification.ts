@@ -91,7 +91,6 @@ export async function qualifyLead(leadId: UUID, runId: UUID): Promise<Qualificat
 
   // Determine primary interest
   const primaryInterest = lead.serviceInterest === 'mixed' ? 'both' as const
-    : lead.serviceInterest === 'peptides' ? 'both' as const
     : lead.serviceInterest as 'trt' | 'glp1';
 
   // Determine next action

@@ -9,6 +9,17 @@ const IV_LENGTH = 16   // 128 bits
 const TAG_LENGTH = 16  // 128 bits
 const SALT_LENGTH = 64
 
+// Production guard: refuse to start without encryption key
+if (process.env.NODE_ENV === 'production') {
+  const k = process.env.ENCRYPTION_KEY
+  if (!k || !/^[0-9a-f]{64}$/i.test(k)) {
+    throw new Error(
+      'FATAL: ENCRYPTION_KEY must be set to a valid 64-character hex string in production. ' +
+      'Refusing to start. See /compliance/HUMAN-ACTION-REQUIRED.md.'
+    )
+  }
+}
+
 // Get encryption key from env — never hardcode this
 function getEncryptionKey(): Buffer {
   const keyHex = process.env.ENCRYPTION_KEY

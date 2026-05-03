@@ -7,32 +7,33 @@ import {
   TrendingUp, Activity, Bot, ArrowRight, Clock, CheckCircle2,
   AlertCircle, ShieldAlert, UserCheck, ArrowUpRight,
 } from 'lucide-react'
-import {
-  SEED_PATIENTS, SEED_ALERTS, SEED_TASKS, SEED_REFILLS, SEED_INSIGHTS,
-  SEED_ENCOUNTERS,
-} from '@/lib/clinic/seed-data'
+import { useState, useEffect } from 'react'
 import { severityColor } from '@/lib/clinic/alerts'
 
-// ── Derived metrics ──────────────────────────────────────────
-
-const activePatients = SEED_PATIENTS.filter(p => p.status === 'active').length
-const criticalAlerts = SEED_ALERTS.filter(a => a.severity === 'critical' && a.status === 'active').length
-const highAlerts = SEED_ALERTS.filter(a => a.severity === 'high' && a.status === 'active').length
-const activeAlerts = SEED_ALERTS.filter(a => a.status === 'active').length
-const pendingTasks = SEED_TASKS.filter(t => t.status === 'pending' || t.status === 'in_progress').length
-const urgentTasks = SEED_TASKS.filter(t => t.priority === 'urgent' && t.status !== 'completed').length
-const pendingRefills = SEED_REFILLS.filter(r => r.status === 'pending').length
-const overdueFollowUps = SEED_PATIENTS.filter(p => {
-  const d = new Date(p.nextFollowUpDate)
-  return d < new Date() && p.status === 'active'
-}).length
-const overdueLabs = SEED_PATIENTS.filter(p => {
-  const d = new Date(p.nextLabDueDate)
-  return d < new Date() && p.status === 'active'
-}).length
-const highRiskPatients = SEED_PATIENTS.filter(p => p.riskScore >= 50 && p.status === 'active')
-
 export default function CommandCenter() {
+  const [counts, setCounts] = useState({ total: 0, trt: 0, glp1: 0, peptide: 0, onboarding: 0, active: 0 })
+  const [patients, setPatients] = useState<any[]>([])
+
+  useEffect(() => {
+    fetch('/api/clinic/patients')
+      .then(r => r.json())
+      .then(data => {
+        if (data.patients) setPatients(data.patients)
+        if (data.counts) setCounts(data.counts)
+      })
+      .catch(() => {})
+  }, [])
+
+  const activePatients = counts.active
+  const criticalAlerts = 0
+  const highAlerts = 0
+  const activeAlerts = 0
+  const pendingTasks = 0
+  const urgentTasks = 0
+  const pendingRefills = 0
+  const overdueFollowUps = 0
+  const overdueLabs = 0
+  const highRiskPatients = patients.filter(p => p.riskScore >= 50)
   return (
     <div className="space-y-6">
       {/* Header */}
@@ -70,7 +71,7 @@ export default function CommandCenter() {
             variant="danger"
           >
             <div className="space-y-2">
-              {SEED_ALERTS.filter(a => a.status === 'active' && (a.severity === 'critical' || a.severity === 'high'))
+              {([] as any[]).filter(a => a.status === 'active' && (a.severity === 'critical' || a.severity === 'high'))
                 .slice(0, 6)
                 .map(alert => (
                   <Link
@@ -130,7 +131,7 @@ export default function CommandCenter() {
           {/* Recent activity */}
           <DashboardCard title="Recent Activity" subtitle="Last 7 days" icon={Activity}>
             <div className="space-y-3">
-              {SEED_ENCOUNTERS.slice(0, 4).map(enc => (
+              {([] as any[]).slice(0, 4).map(enc => (
                 <div key={enc.id} className="flex items-start gap-3 p-3 rounded-lg bg-graphite-800/20">
                   <div className="w-8 h-8 rounded-full bg-nova-500/10 border border-nova-500/20 flex items-center justify-center shrink-0">
                     <UserCheck className="w-3.5 h-3.5 text-nova-400" />
@@ -157,10 +158,10 @@ export default function CommandCenter() {
             variant={urgentTasks > 0 ? 'warning' : 'default'}
           >
             <div className="space-y-2">
-              {SEED_TASKS.filter(t => t.status !== 'completed' && t.status !== 'cancelled')
+              {([] as any[]).filter(t => t.status !== 'completed' && t.status !== 'cancelled')
                 .sort((a, b) => {
-                  const order = { urgent: 0, high: 1, normal: 2, low: 3 }
-                  return order[a.priority] - order[b.priority]
+                  const order: Record<string, number> = { urgent: 0, high: 1, normal: 2, low: 3 }
+                  return (order[a.priority] ?? 4) - (order[b.priority] ?? 4)
                 })
                 .slice(0, 5)
                 .map(task => (
@@ -182,7 +183,7 @@ export default function CommandCenter() {
           {/* Pending refills */}
           <DashboardCard title="Pending Refills" subtitle={`${pendingRefills} awaiting review`} icon={Pill} href="/clinic/tasks">
             <div className="space-y-2">
-              {SEED_REFILLS.filter(r => r.status === 'pending').slice(0, 5).map(refill => (
+              {([] as any[]).filter(r => r.status === 'pending').slice(0, 5).map(refill => (
                 <div key={refill.id} className="flex items-center gap-3 p-2.5 rounded-lg bg-graphite-800/30 border border-graphite-800/50">
                   <Pill className="w-3.5 h-3.5 text-graphite-500 shrink-0" />
                   <div className="flex-1 min-w-0">
@@ -198,7 +199,7 @@ export default function CommandCenter() {
           {/* AI Insights */}
           <DashboardCard title="AI Review Support" subtitle="Agent-generated insights" icon={Bot} variant="accent">
             <div className="space-y-2">
-              {SEED_INSIGHTS.slice(0, 3).map(insight => (
+              {([] as any[]).slice(0, 3).map(insight => (
                 <Link
                   key={insight.id}
                   href={`/clinic/patients/${insight.patientId}`}

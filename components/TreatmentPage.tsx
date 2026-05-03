@@ -5,6 +5,7 @@ import { motion } from 'framer-motion'
 import { ArrowRight, Check } from 'lucide-react'
 import Section, { SectionLabel, SectionTitle, SectionDescription } from '@/components/ui/Section'
 import Card from '@/components/ui/Card'
+import GLP1ComplianceDisclosure from '@/components/GLP1ComplianceDisclosure'
 import type { ReactNode } from 'react'
 
 interface TreatmentPageProps {
@@ -52,7 +53,7 @@ export default function TreatmentPage({
             </motion.p>
             <motion.div {...fadeUp} className="flex flex-wrap gap-4">
               <Link
-                href="/pricing"
+                href="/book"
                 className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-white text-graphite-950 text-[15px] font-semibold hover:bg-graphite-100 transition-all shadow-lg"
               >
                 Book Consultation <ArrowRight className="w-4 h-4" />
@@ -64,6 +65,13 @@ export default function TreatmentPage({
                 How It Works
               </Link>
             </motion.div>
+
+            {/* FDA April 1 2026 — compounded disclosure on GLP-1 pages */}
+            {tag.toLowerCase().includes('glp') && (
+              <motion.div {...fadeUp} className="mt-6">
+                <GLP1ComplianceDisclosure variant="full" />
+              </motion.div>
+            )}
           </motion.div>
         </div>
       </section>
@@ -160,7 +168,7 @@ export default function TreatmentPage({
             discuss your goals, and determine if {title.toLowerCase()} is right for you.
           </p>
           <Link
-            href="/pricing"
+            href="/book"
             className="inline-flex items-center gap-2 px-10 py-4 rounded-full bg-white text-graphite-950 text-[15px] font-semibold hover:bg-graphite-100 transition-all shadow-lg"
           >
             Book Your Consultation <ArrowRight className="w-4 h-4" />

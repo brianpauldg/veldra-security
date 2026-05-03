@@ -67,11 +67,10 @@ function normalizeGHL(body: Record<string, unknown>): WebhookLeadPayload {
   };
 }
 
-function mapGHLInterest(tags: string[]): 'trt' | 'glp1' | 'peptides' | 'mixed' {
+function mapGHLInterest(tags: string[]): 'trt' | 'glp1' | 'mixed' {
   const lower = tags.map((t: string) => t.toLowerCase());
   if (lower.some((t) => t.includes('trt') || t.includes('testosterone'))) return 'trt';
   if (lower.some((t) => t.includes('glp') || t.includes('weight') || t.includes('semaglutide'))) return 'glp1';
-  if (lower.some((t) => t.includes('peptide') || t.includes('bpc'))) return 'peptides';
   return 'mixed';
 }
 

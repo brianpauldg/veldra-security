@@ -7,6 +7,7 @@ import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
 import { trackEvent, triggerNurtureSequence } from '@/lib/events'
+import { CURRENT_CONSENT_VERSION } from '@/lib/consent-text'
 
 const popupSchema = z.object({
   email: z.string().email('Please enter a valid email'),
@@ -34,6 +35,8 @@ export default function LeadPopup({
   const [isOpen, setIsOpen] = useState(false)
   const [hasShown, setHasShown] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
+  const [emailConsent, setEmailConsent] = useState(false)
+  const [consentError, setConsentError] = useState('')
 
   const { register, handleSubmit, formState: { errors, isSubmitting } } = useForm<PopupFormData>({
     resolver: zodResolver(popupSchema),
@@ -42,15 +45,15 @@ export default function LeadPopup({
   const showPopup = useCallback(() => {
     if (hasShown) return
 
-    // Don't show on first visit
-    const visitCount = parseInt(sessionStorage.getItem('nova_visits') || '0', 10)
-    if (visitCount < 1) return
+    // Show after first page view
+    const visitCount = parseInt(sessionStorage.getItem('bloom_visits') || '0', 10)
+    if (visitCount < 0) return
 
     // Don't show if already a lead
-    if (localStorage.getItem('nova_lead')) return
+    if (localStorage.getItem('bloom_lead')) return
 
-    // Don't show if dismissed this session
-    if (sessionStorage.getItem('nova_popup_dismissed')) return
+    // Don't show if dismissed this session (per-variant)
+    if (sessionStorage.getItem(`bloom_popup_dismissed_${variant}`)) return
 
     setIsOpen(true)
     setHasShown(true)
@@ -59,8 +62,8 @@ export default function LeadPopup({
 
   useEffect(() => {
     // Track page visits
-    const visits = parseInt(sessionStorage.getItem('nova_visits') || '0', 10)
-    sessionStorage.setItem('nova_visits', String(visits + 1))
+    const visits = parseInt(sessionStorage.getItem('bloom_visits') || '0', 10)
+    sessionStorage.setItem('bloom_visits', String(visits + 1))
   }, [])
 
   // Scroll trigger
@@ -101,11 +104,16 @@ export default function LeadPopup({
 
   const handleClose = () => {
     setIsOpen(false)
-    sessionStorage.setItem('nova_popup_dismissed', 'true')
+    sessionStorage.setItem(`bloom_popup_dismissed_${variant}`, 'true')
     trackEvent('popup_dismissed', { trigger, variant })
   }
 
   const onSubmit = async (data: PopupFormData) => {
+    if (!emailConsent) {
+      setConsentError('Please agree to receive emails to continue.')
+      return
+    }
+    setConsentError('')
     try {
       await fetch('/api/leads', {
         method: 'POST',
@@ -115,11 +123,12 @@ export default function LeadPopup({
           source: `popup_${variant}`,
           variant,
           serviceInterest: variant === 'quiz' ? 'trt' : 'general',
+          consent: { email: true, version: CURRENT_CONSENT_VERSION },
         }),
       })
       trackEvent('lead_captured', { source: `popup_${variant}`, email: data.email })
       triggerNurtureSequence(data.email, variant === 'quiz' ? 'trt' : 'general')
-      localStorage.setItem('nova_lead', 'true')
+      localStorage.setItem('bloom_lead', 'true')
       setIsSubmitted(true)
     } catch {
       // Silently handle — form still shows success
@@ -217,6 +226,18 @@ export default function LeadPopup({
                         <p className="text-[12px] text-red-500 mt-1">{errors.email.message}</p>
                       )}
                     </div>
+                    <label className="flex items-start gap-2 cursor-pointer">
+                      <input
+                        type="checkbox"
+                        checked={emailConsent}
+                        onChange={(e) => { setEmailConsent(e.target.checked); setConsentError('') }}
+                        className="mt-0.5 w-4 h-4 rounded border-graphite-300 text-graphite-950 focus:ring-graphite-500"
+                      />
+                      <span className="text-[10px] text-graphite-400 leading-relaxed">
+                        I agree to receive emails from Bloom Metabolics. Unsubscribe anytime. <a href="/privacy" className="underline">Privacy Policy</a>.
+                      </span>
+                    </label>
+                    {consentError && <p className="text-[11px] text-red-500">{consentError}</p>}
                     <button
                       type="submit"
                       disabled={isSubmitting}

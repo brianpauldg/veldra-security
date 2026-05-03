@@ -5,6 +5,8 @@ import Link from 'next/link'
 import { motion, AnimatePresence } from 'framer-motion'
 import { ArrowRight, ArrowLeft, Check, AlertTriangle, Scale } from 'lucide-react'
 import { trackEvent } from '@/lib/events'
+import TCPAConsent, { type ConsentState, isConsentValid } from '@/components/TCPAConsent'
+import { CURRENT_CONSENT_VERSION } from '@/lib/consent-text'
 
 const questions = [
   {
@@ -109,6 +111,7 @@ export default function GLP1QuizPage() {
   const [current, setCurrent] = useState(0)
   const [answers, setAnswers] = useState<number[]>([])
   const [email, setEmail] = useState('')
+  const [quizConsent, setQuizConsent] = useState<ConsentState>({ email: false, sms: false, version: CURRENT_CONSENT_VERSION })
   const [phone, setPhone] = useState('')
   const [emailError, setEmailError] = useState('')
 
@@ -135,6 +138,10 @@ export default function GLP1QuizPage() {
       setEmailError('Please enter a valid email address')
       return
     }
+    if (!isConsentValid(quizConsent, true, false)) {
+      setEmailError('Please agree to receive email communications.')
+      return
+    }
     const totalScore = answers.reduce((a, b) => a + b, 0)
     const tier = getTier(totalScore)
     trackEvent('quiz_completed', {
@@ -144,6 +151,21 @@ export default function GLP1QuizPage() {
       tier,
       serviceInterest: 'glp1',
     })
+
+    // Save quiz result as a lead with consent
+    fetch('/api/leads', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        email,
+        phone,
+        consent: { email: quizConsent.email, sms: !!phone, version: quizConsent.version },
+        source: 'glp1_quiz',
+        serviceInterest: 'glp1',
+        variant: 'quiz',
+      }),
+    }).catch(() => {})
+
     setStep('results')
   }
 
@@ -370,7 +392,7 @@ export default function GLP1QuizPage() {
                       ? 'Book a consultation and a licensed provider will confirm your eligibility and build your personalized GLP-1 protocol.'
                       : tier === 'possible'
                       ? 'A provider consultation will determine if GLP-1 is right for you. Many patients with your profile do qualify.'
-                      : 'We offer TRT and peptide therapy alongside GLP-1. A consultation helps find the right approach for your goals.'}
+                      : 'We offer TRT alongside GLP-1. A consultation helps find the right approach for your goals.'}
                   </p>
                   <Link
                     href="/pricing"

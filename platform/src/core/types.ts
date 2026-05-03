@@ -244,7 +244,7 @@ export interface Lead {
   phone: string | null;
   state: string | null;
   age: number | null;
-  serviceInterest: 'trt' | 'glp1' | 'peptides' | 'mixed';
+  serviceInterest: 'trt' | 'glp1' | 'mixed';
   status: LeadStatus;
   score: number | null;
   segment: 'HOT' | 'WARM' | 'COLD' | null;
@@ -345,7 +345,7 @@ export const webhookLeadPayloadSchema = z.object({
   phone: z.string().optional(),
   state: z.string().optional(),
   age: z.number().int().positive().optional(),
-  serviceInterest: z.enum(['trt', 'glp1', 'peptides', 'mixed']).default('mixed'),
+  serviceInterest: z.enum(['trt', 'glp1', 'mixed']).default('mixed'),
   goals: z.string().optional(),
   symptoms: z.array(z.string()).default([]),
   consent: z.boolean().default(false),

@@ -5,6 +5,8 @@ import Link from 'next/link'
 import { motion, AnimatePresence } from 'framer-motion'
 import { ArrowRight, ArrowLeft, Check, AlertTriangle, Activity } from 'lucide-react'
 import { trackEvent } from '@/lib/events'
+import TCPAConsent, { type ConsentState, isConsentValid } from '@/components/TCPAConsent'
+import { CURRENT_CONSENT_VERSION } from '@/lib/consent-text'
 
 const questions = [
   {
@@ -163,6 +165,7 @@ export default function QuizPage() {
   const [current, setCurrent] = useState(0)
   const [answers, setAnswers] = useState<number[]>([])
   const [email, setEmail] = useState('')
+  const [quizConsent, setQuizConsent] = useState<ConsentState>({ email: false, sms: false, version: CURRENT_CONSENT_VERSION })
   const [emailError, setEmailError] = useState('')
 
   function handleAnswer(score: number) {
@@ -189,6 +192,10 @@ export default function QuizPage() {
       setEmailError('Please enter a valid email address')
       return
     }
+    if (!isConsentValid(quizConsent, true, false)) {
+      setEmailError('Please agree to receive email communications.')
+      return
+    }
     const totalScore = answers.reduce((a, b) => a + b, 0)
     const tier = getResultTier(totalScore)
     trackEvent('quiz_completed', {
@@ -197,6 +204,20 @@ export default function QuizPage() {
       tier,
       serviceInterest: 'trt',
     })
+
+    // Save quiz result as a lead with consent
+    fetch('/api/leads', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        email,
+        source: 'trt_quiz',
+        serviceInterest: 'trt',
+        variant: 'quiz',
+        consent: { email: quizConsent.email, version: quizConsent.version },
+      }),
+    }).catch(() => {})
+
     setStep('results')
   }
 

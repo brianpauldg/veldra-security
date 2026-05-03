@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { motion } from 'framer-motion'
 import {
   ArrowRight, ChevronRight, Check, Syringe, TrendingUp,
-  FlaskConical, Stethoscope, Clock, Shield
+  Stethoscope, Clock, Shield
 } from 'lucide-react'
 import Section, { SectionLabel, SectionTitle, SectionDescription } from '@/components/ui/Section'
 import Card, { CardIcon } from '@/components/ui/Card'
@@ -30,33 +30,18 @@ const services = [
     icon: <TrendingUp className="w-6 h-6" />,
     tag: 'GLP-1',
     title: 'GLP-1 Medical Weight Loss',
-    description: 'Clinician-supervised weight loss with GLP-1 receptor agonists including semaglutide and tirzepatide. Medical-grade protocols for sustainable body composition change.',
+    // FDA April 1 2026 — compounded designation
+    description: 'Physician-prescribed compounded GLP-1 receptor agonist therapy. Compounded medications are not FDA-approved. Individual medical evaluation required.',
     benefits: [
-      'Semaglutide and tirzepatide options',
+      'Compounded semaglutide or tirzepatide formulations',
       'Physician-supervised protocols',
       'Regular monitoring and adjustments',
-      'Patients commonly report 15-20% body weight reduction',
+      'Individual results vary — medical necessity required',
     ],
     ideal: 'Men with a BMI of 27+ who have struggled with traditional weight loss approaches and want medical-grade intervention.',
     href: '/glp1',
     quizHref: '/glp1-quiz',
     quizLabel: 'Take the GLP-1 Assessment',
-  },
-  {
-    icon: <FlaskConical className="w-6 h-6" />,
-    tag: 'Peptides',
-    title: 'Peptide Therapy',
-    description: 'BPC-157/TB-500, MOTS-c, and GHK-Cu — now available as add-ons. These peptides have been removed from the FDA ban list and are available through our licensed pharmacy partners.',
-    benefits: [
-      'BPC-157/TB-500 — recovery and tissue repair',
-      'MOTS-c — metabolic optimization',
-      'GHK-Cu — skin health and anti-aging',
-      '$100/mo per peptide, combinable with TRT or GLP-1',
-    ],
-    ideal: 'Adults focused on recovery, metabolic optimization, skin health, or overall wellness — as a standalone or add-on to TRT/GLP-1.',
-    href: '/peptides',
-    quizHref: null,
-    quizLabel: null,
   },
 ]
 
@@ -82,7 +67,7 @@ export default function Services() {
               Our Treatment Programs
             </h1>
             <p className="text-xl text-graphite-400 leading-relaxed max-w-2xl">
-              Three pillars of men&apos;s health optimization — each physician-guided,
+              Two pillars of men&apos;s health optimization — each physician-guided,
               individually tailored, and designed for measurable outcomes.
             </p>
           </motion.div>

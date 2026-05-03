@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <rect width="1200" height="630" fill="#020202"/>
+  <!-- Subtle radial glow -->
+  <circle cx="600" cy="315" r="300" fill="none" stroke="rgba(216,207,190,0.04)" stroke-width="1"/>
+  <circle cx="600" cy="315" r="250" fill="none" stroke="rgba(216,207,190,0.06)" stroke-width="1"/>
+  <circle cx="600" cy="315" r="200" fill="none" stroke="rgba(216,207,190,0.03)" stroke-width="1"/>
+  <!-- Brand name -->
+  <text x="600" y="280" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-weight="300" font-size="72" fill="#d8cfbe" letter-spacing="-2">Bloom Metabolics</text>
+  <!-- Tagline -->
+  <text x="600" y="340" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-weight="300" font-size="24" fill="#8a8268" letter-spacing="6">PRECISION ENDOCRINOLOGY · TELEHEALTH</text>
+  <!-- Divider -->
+  <line x1="500" y1="380" x2="700" y2="380" stroke="#1a1814" stroke-width="1"/>
+  <!-- Services -->
+  <text x="600" y="420" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-weight="300" font-size="18" fill="#8a8268">Testosterone Therapy · GLP-1 Weight Loss</text>
+  <!-- URL -->
+  <text x="600" y="460" text-anchor="middle" font-family="monospace" font-size="14" fill="#8a8268" letter-spacing="2">bloommetabolics.com</text>
+</svg>

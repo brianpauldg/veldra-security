@@ -2,9 +2,9 @@ import { NextRequest, NextResponse } from 'next/server'
 import {
   getPatientSummary, getPatientLabs, getPatientVitals,
   getPatientsRequiringAttention, getAllAlerts, getAllTasks,
-  generateChartReviewContext, getPatientById,
+  generateChartReviewContext, getPatientById, getAllPatients,
 } from '@/lib/clinic/data-service'
-import { SEED_PATIENTS, SEED_USERS } from '@/lib/clinic/seed-data'
+// Seed data removed — using live Supabase data only
 import { getNotifications } from '@/lib/clinic/mcp-adapter'
 import { getAuditLogs } from '@/lib/clinic/audit'
 import { logAudit } from '@/lib/clinic/audit'
@@ -50,6 +50,13 @@ export async function GET(req: NextRequest) {
   const id = searchParams.get('id')
   const agentId = req.headers.get('x-agent-id') || 'claude-agent'
 
+  // AB 3030 — audit log every agent invocation
+  logAudit({
+    userId: agentId, userName: `Agent: ${agentId}`, userRole: 'super_admin',
+    action: `agent_invocation:${action}`, resourceType: 'agent_api',
+    resourceId: id || 'global', details: { action, ai_generated: true },
+  })
+
   // Audit all agent reads
   logAudit({
     userId: agentId,
@@ -64,9 +71,10 @@ export async function GET(req: NextRequest) {
   switch (action) {
     case 'overview': {
       const now = new Date()
-      const activePatients = SEED_PATIENTS.filter(p => p.status === 'active')
-      const alerts = getAllAlerts().filter(a => a.status === 'active')
-      const tasks = getAllTasks().filter(t => t.status !== 'completed' && t.status !== 'cancelled')
+      const allPatients = await getAllPatients()
+      const activePatients = allPatients.filter(p => p.status === 'active')
+      const alerts = (await getAllAlerts()).filter(a => a.status === 'active')
+      const tasks = (await getAllTasks()).filter(t => t.status !== 'completed' && t.status !== 'cancelled')
       const overdueFollowUps = activePatients.filter(p => new Date(p.nextFollowUpDate) < now)
       const overdueLabs = activePatients.filter(p => new Date(p.nextLabDueDate) < now)
       const highRisk = activePatients.filter(p => p.riskScore >= 50)
@@ -101,8 +109,9 @@ export async function GET(req: NextRequest) {
     }
 
     case 'patients': {
+      const patientList = await getAllPatients()
       return NextResponse.json({
-        patients: SEED_PATIENTS.map(p => ({
+        patients: patientList.map(p => ({
           id: p.id, mrn: p.mrn,
           name: `${p.firstName} ${p.lastName}`,
           status: p.status, protocol: p.primaryProtocol,
@@ -111,13 +120,13 @@ export async function GET(req: NextRequest) {
           lastVisit: p.lastVisitDate, nextFollowUp: p.nextFollowUpDate,
           nextLabDue: p.nextLabDueDate, tags: p.tags,
         })),
-        count: SEED_PATIENTS.length,
+        count: patientList.length,
       })
     }
 
     case 'patient': {
       if (!id) return NextResponse.json({ error: 'Missing ?id= param' }, { status: 400 })
-      const summary = getPatientSummary(id)
+      const summary = await getPatientSummary(id)
       if (!summary) return NextResponse.json({ error: 'Patient not found' }, { status: 404 })
       return NextResponse.json(summary)
     }
@@ -125,32 +134,32 @@ export async function GET(req: NextRequest) {
     case 'patient_labs': {
       if (!id) return NextResponse.json({ error: 'Missing ?id= param' }, { status: 400 })
       const marker = searchParams.get('marker') || undefined
-      const labs = getPatientLabs(id, { marker })
+      const labs = await getPatientLabs(id, { marker })
       return NextResponse.json({ labs, count: labs.length })
     }
 
     case 'patient_vitals': {
       if (!id) return NextResponse.json({ error: 'Missing ?id= param' }, { status: 400 })
       const vitalType = searchParams.get('type') || undefined
-      const vitals = getPatientVitals(id, { vitalType })
+      const vitals = await getPatientVitals(id, { vitalType })
       return NextResponse.json({ vitals, count: vitals.length })
     }
 
     case 'alerts': {
-      const alerts = getAllAlerts()
+      const alerts = await getAllAlerts()
       const statusFilter = searchParams.get('status')
       const filtered = statusFilter ? alerts.filter(a => a.status === statusFilter) : alerts
       return NextResponse.json({
         alerts: filtered.sort((a, b) => {
-          const order = { critical: 0, high: 1, medium: 2, low: 3, info: 4 }
-          return (order[a.severity] || 4) - (order[b.severity] || 4)
+          const order: Record<string, number> = { critical: 0, high: 1, medium: 2, low: 3, info: 4 }
+          return (order[a.severity] ?? 4) - (order[b.severity] ?? 4)
         }),
         count: filtered.length,
       })
     }
 
     case 'tasks': {
-      const tasks = getAllTasks()
+      const tasks = await getAllTasks()
       const statusFilter = searchParams.get('status')
       const filtered = statusFilter ? tasks.filter(t => t.status === statusFilter) : tasks
       return NextResponse.json({ tasks: filtered, count: filtered.length })
@@ -159,7 +168,7 @@ export async function GET(req: NextRequest) {
     case 'attention': {
       const reason = searchParams.get('reason') || undefined
       const limit = parseInt(searchParams.get('limit') || '20')
-      const patients = getPatientsRequiringAttention(reason, limit)
+      const patients = await getPatientsRequiringAttention(reason, limit)
       return NextResponse.json({
         patients: patients.map(p => ({
           id: p.id, name: `${p.firstName} ${p.lastName}`,
@@ -175,7 +184,7 @@ export async function GET(req: NextRequest) {
     case 'chart_review': {
       if (!id) return NextResponse.json({ error: 'Missing ?id= param' }, { status: 400 })
       const lookback = parseInt(searchParams.get('days') || '90')
-      const context = generateChartReviewContext(id, lookback)
+      const context = await generateChartReviewContext(id, lookback)
       if (!context) return NextResponse.json({ error: 'Patient not found' }, { status: 404 })
       return NextResponse.json(context)
     }
@@ -193,10 +202,11 @@ export async function GET(req: NextRequest) {
 
     case 'team': {
       return NextResponse.json({
-        team: SEED_USERS.map(u => ({
-          id: u.id, name: `${u.firstName} ${u.lastName}`,
-          role: u.role, email: u.email, isActive: u.isActive,
-        })),
+        team: [
+          { id: 'usr_admin_001', name: 'Brian DeGuzman', role: 'super_admin', title: 'Founder & RN', email: 'brian@bloommetabolics.com', isActive: true },
+          { id: 'usr_doc_001', name: 'Albert Aparisio', role: 'physician', title: 'Medical Director', email: '', isActive: true },
+          { id: 'usr_coord_001', name: 'Mahshad Nejad', role: 'admin_ops', title: 'Patient Coordinator / Operations', email: '', isActive: true },
+        ],
       })
     }
 

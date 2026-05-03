@@ -8,64 +8,55 @@ export const metadata: Metadata = {
 export default function DisclaimerPage() {
   return (
     <>
-      <section className="bg-graphite-950 py-20">
+      <section className="bg-[#020202] py-20">
         <div className="max-w-7xl mx-auto px-6 lg:px-8 text-center">
           <h1 className="text-display text-white mb-3">Medical Disclaimer</h1>
-          <p className="text-[14px] text-graphite-400">Last updated: April 2026</p>
+          <p className="text-[14px] text-[#8a8268]">Last updated: April 2026</p>
         </div>
       </section>
 
-      <section className="py-16 lg:py-20">
+      <section className="bg-[#020202] py-16 lg:py-20">
         <div className="max-w-3xl mx-auto px-6 lg:px-8">
-          <div className="space-y-8 text-[15px] leading-relaxed text-graphite-600">
-            <div className="rounded-2xl border border-amber-200 bg-amber-50 p-6">
-              <p className="text-[14px] text-amber-800 font-medium">
-                This website and its content are for informational purposes only and do not constitute
-                medical advice, diagnosis, or treatment. Always consult with a qualified healthcare
-                provider before starting any treatment program.
+          <div className="space-y-8 text-[15px] leading-relaxed text-[#d8cfbe]">
+            <div className="rounded-2xl border border-[#8a8268]/30 bg-[#1a1814] p-6">
+              <p className="text-[14px] text-[#d8cfbe] font-medium">
+                The information provided on this website is for general informational purposes only and does not constitute medical advice, diagnosis, or treatment. All clinical decisions, diagnoses, and treatment recommendations are made exclusively by licensed healthcare providers.
               </p>
             </div>
 
             <div>
-              <h2 className="text-display-sm text-graphite-950 mb-4">Not Medical Advice</h2>
-              <p>The information provided on this website, including but not limited to text, graphics, images, and other materials, is for informational purposes only. Nothing on this website is intended to be a substitute for professional medical advice, diagnosis, or treatment.</p>
+              <h2 className="text-[1.5rem] font-light text-white mb-4" style={{ fontFamily: 'Fraunces, serif' }}>Telehealth Platform</h2>
+              <p>Bloom Metabolics facilitates access to licensed physicians through a telehealth platform. We are not a medical practice, hospital, or healthcare facility. The physician-patient relationship is established between you and the licensed physician who conducts your consultation.</p>
             </div>
 
             <div>
-              <h2 className="text-display-sm text-graphite-950 mb-4">Individual Results Vary</h2>
-              <p>Results from telehealth consultations, treatments, and programs vary by individual. Testimonials and examples used on this site represent individual experiences and do not guarantee similar outcomes. Your results will depend on your individual health profile, adherence to treatment, lifestyle factors, and other variables.</p>
+              <h2 className="text-[1.5rem] font-light text-white mb-4" style={{ fontFamily: 'Fraunces, serif' }}>Individual Results</h2>
+              <p>Results of hormone therapy or weight management treatments vary significantly between individuals. No outcomes are guaranteed. Statements on this website describing potential benefits are not guarantees of individual results.</p>
             </div>
 
             <div>
-              <h2 className="text-display-sm text-graphite-950 mb-4">Licensed Provider Oversight</h2>
+              <h2 className="text-[1.5rem] font-light text-white mb-4" style={{ fontFamily: 'Fraunces, serif' }}>Regulatory Compliance</h2>
+              <p>All medications prescribed through Bloom Metabolics are dispensed by licensed compounding pharmacies in accordance with applicable state and federal regulations. Medication availability may vary based on your state of residence and applicable regulations at the time of prescribing.</p>
+            </div>
+
+            <div>
+              <h2 className="text-[1.5rem] font-light text-white mb-4" style={{ fontFamily: 'Fraunces, serif' }}>FDA Disclaimer</h2>
+              <p>These statements have not been evaluated by the Food and Drug Administration. Compounded medications are not FDA-approved drugs. Compounding pharmacies operate under the oversight of state boards of pharmacy and, where applicable, the FDA.</p>
+            </div>
+
+            <div>
+              <h2 className="text-[1.5rem] font-light text-white mb-4" style={{ fontFamily: 'Fraunces, serif' }}>Licensed Provider Oversight</h2>
               <p>All treatments offered through Bloom Metabolics require evaluation, prescription, and supervision by a licensed medical provider. Eligibility for any treatment is determined solely by your provider based on your medical history, symptoms, lab results, and clinical judgment. Not all patients qualify for all treatments.</p>
             </div>
 
             <div>
-              <h2 className="text-display-sm text-graphite-950 mb-4">AI Systems Disclaimer</h2>
-              <p>Bloom Metabolics uses artificial intelligence systems to support operational workflows, including but not limited to scheduling, reminders, intake guidance, patient education, and care coordination. These AI systems:</p>
-              <ul className="list-disc pl-5 space-y-2 mt-3">
-                <li>Do NOT provide medical diagnoses</li>
-                <li>Do NOT prescribe medications or treatments</li>
-                <li>Do NOT make clinical decisions</li>
-                <li>Do NOT replace the judgment of licensed healthcare providers</li>
-              </ul>
-              <p className="mt-3">All medical decisions are made exclusively by licensed, qualified healthcare professionals.</p>
+              <h2 className="text-[1.5rem] font-light text-white mb-4" style={{ fontFamily: 'Fraunces, serif' }}>Emergency Services</h2>
+              <p>Bloom Metabolics is not an emergency medical service. If you are experiencing a medical emergency, call 911 or go to your nearest emergency room immediately.</p>
             </div>
 
             <div>
-              <h2 className="text-display-sm text-graphite-950 mb-4">Prescription Medications</h2>
-              <p>Prescription medications, including testosterone, GLP-1 receptor agonists, and peptides, carry risks and potential side effects. Your provider will discuss these with you before initiating any treatment. Do not start, stop, or modify any medication without consulting your healthcare provider.</p>
-            </div>
-
-            <div>
-              <h2 className="text-display-sm text-graphite-950 mb-4">Emergency Situations</h2>
-              <p>Bloom Metabolics&apos;s telehealth platform is not designed for medical emergencies. If you are experiencing a medical emergency, call 911 or go to your nearest emergency room immediately.</p>
-            </div>
-
-            <div>
-              <h2 className="text-display-sm text-graphite-950 mb-4">Third-Party Content</h2>
-              <p>This website may contain links to third-party websites or references to third-party products and services. Bloom Metabolics does not endorse or assume responsibility for the content, accuracy, or practices of third-party sites.</p>
+              <h2 className="text-[1.5rem] font-light text-white mb-4" style={{ fontFamily: 'Fraunces, serif' }}>Contact</h2>
+              <p>For questions about our medical disclaimer, contact <strong className="text-white">legal@bloommetabolics.com</strong>.</p>
             </div>
           </div>
         </div>

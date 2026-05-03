@@ -46,3 +46,13 @@ tsconfig.tsbuildinfo
 *.log
 Thumbs.db
 .DS_Store
+.env*.local
+
+# Media / video assets (large binaries — do not commit)
+reel_final.mp4
+reel-clips/
+reel-assets/
+bloom_motsc_reel/
+bloom_motsc_timeline_reel/
+*.mp4
+*.mov

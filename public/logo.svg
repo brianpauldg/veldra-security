@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <!-- Core gradient -->
+    <radialGradient id="core" cx="35%" cy="30%" r="65%">
+      <stop offset="0%" stop-color="#3a3630"/>
+      <stop offset="45%" stop-color="#1a1814"/>
+      <stop offset="100%" stop-color="#08070a"/>
+    </radialGradient>
+    <!-- Glyph gradient -->
+    <linearGradient id="glyph" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#f5ecd9"/>
+      <stop offset="50%" stop-color="#c9bfa8"/>
+      <stop offset="100%" stop-color="#6d6552"/>
+    </linearGradient>
+    <!-- Ring gradient for depth -->
+    <linearGradient id="ring1" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="rgba(216,207,190,0.5)"/>
+      <stop offset="25%" stop-color="rgba(216,207,190,0.12)"/>
+      <stop offset="50%" stop-color="rgba(216,207,190,0.08)"/>
+      <stop offset="75%" stop-color="rgba(216,207,190,0.25)"/>
+      <stop offset="100%" stop-color="rgba(216,207,190,0.5)"/>
+    </linearGradient>
+    <linearGradient id="ring2" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="rgba(216,207,190,0.4)"/>
+      <stop offset="25%" stop-color="rgba(216,207,190,0.1)"/>
+      <stop offset="50%" stop-color="rgba(216,207,190,0.06)"/>
+      <stop offset="75%" stop-color="rgba(216,207,190,0.2)"/>
+      <stop offset="100%" stop-color="rgba(216,207,190,0.4)"/>
+    </linearGradient>
+    <linearGradient id="ring3" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="rgba(216,207,190,0.3)"/>
+      <stop offset="25%" stop-color="rgba(216,207,190,0.08)"/>
+      <stop offset="50%" stop-color="rgba(216,207,190,0.04)"/>
+      <stop offset="75%" stop-color="rgba(216,207,190,0.15)"/>
+      <stop offset="100%" stop-color="rgba(216,207,190,0.3)"/>
+    </linearGradient>
+    <!-- Outer glow -->
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <!-- Core shadow -->
+    <filter id="coreShadow">
+      <feDropShadow dx="0" dy="0" stdDeviation="12" flood-color="rgba(216,207,190,0.12)"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="512" height="512" fill="#020202" rx="0"/>
+
+  <!-- Outer ring -->
+  <circle cx="256" cy="256" r="230" fill="none" stroke="url(#ring1)" stroke-width="1.2"/>
+
+  <!-- Middle ring -->
+  <circle cx="256" cy="256" r="204" fill="none" stroke="url(#ring2)" stroke-width="1"/>
+
+  <!-- Inner ring -->
+  <circle cx="256" cy="256" r="177" fill="none" stroke="url(#ring3)" stroke-width="0.8"/>
+
+  <!-- Core circle -->
+  <circle cx="256" cy="256" r="145" fill="url(#core)" filter="url(#coreShadow)"/>
+  <!-- Core inner highlight -->
+  <circle cx="256" cy="240" r="130" fill="none" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+
+  <!-- B glyph -->
+  <text x="256" y="295" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-weight="300" font-size="160" fill="url(#glyph)" letter-spacing="-6">B</text>
+</svg>

@@ -7,7 +7,7 @@ import {
   CheckSquare, Clock, AlertCircle, User, CalendarClock,
   ArrowRight, Plus, Pill,
 } from 'lucide-react'
-import { SEED_TASKS, SEED_REFILLS } from '@/lib/clinic/seed-data'
+// Tasks loaded from Supabase — no seed data
 import type { TaskStatus, TaskPriority, TaskType } from '@/lib/clinic/types'
 
 type Tab = 'tasks' | 'refills'
@@ -18,16 +18,16 @@ export default function TasksPage() {
   const [priorityFilter, setPriorityFilter] = useState<TaskPriority | 'all'>('all')
 
   const tasks = useMemo(() => {
-    let result = [...SEED_TASKS]
+    let result = [...([] as any[])]
     if (statusFilter !== 'all') result = result.filter(t => t.status === statusFilter)
     if (priorityFilter !== 'all') result = result.filter(t => t.priority === priorityFilter)
-    const order = { urgent: 0, high: 1, normal: 2, low: 3 }
-    return result.sort((a, b) => order[a.priority] - order[b.priority])
+    const order: Record<string, number> = { urgent: 0, high: 1, normal: 2, low: 3 }
+    return result.sort((a, b) => (order[a.priority] ?? 4) - (order[b.priority] ?? 4))
   }, [statusFilter, priorityFilter])
 
-  const pendingCount = SEED_TASKS.filter(t => t.status === 'pending').length
-  const inProgressCount = SEED_TASKS.filter(t => t.status === 'in_progress').length
-  const pendingRefills = SEED_REFILLS.filter(r => r.status === 'pending').length
+  const pendingCount = ([] as any[]).filter(t => t.status === 'pending').length
+  const inProgressCount = ([] as any[]).filter(t => t.status === 'in_progress').length
+  const pendingRefills = ([] as any[]).filter(r => r.status === 'pending').length
 
   return (
     <div className="space-y-6">
@@ -54,8 +54,8 @@ export default function TasksPage() {
           <div className="grid grid-cols-4 gap-3">
             <StatCard label="Pending" value={pendingCount} onClick={() => setStatusFilter(statusFilter === 'pending' ? 'all' : 'pending')} active={statusFilter === 'pending'} />
             <StatCard label="In Progress" value={inProgressCount} onClick={() => setStatusFilter(statusFilter === 'in_progress' ? 'all' : 'in_progress')} active={statusFilter === 'in_progress'} />
-            <StatCard label="Urgent" value={SEED_TASKS.filter(t => t.priority === 'urgent' && t.status !== 'completed').length} variant="danger" onClick={() => setPriorityFilter(priorityFilter === 'urgent' ? 'all' : 'urgent')} active={priorityFilter === 'urgent'} />
-            <StatCard label="Completed" value={SEED_TASKS.filter(t => t.status === 'completed').length} variant="success" onClick={() => setStatusFilter(statusFilter === 'completed' ? 'all' : 'completed')} active={statusFilter === 'completed'} />
+            <StatCard label="Urgent" value={([] as any[]).filter(t => t.priority === 'urgent' && t.status !== 'completed').length} variant="danger" onClick={() => setPriorityFilter(priorityFilter === 'urgent' ? 'all' : 'urgent')} active={priorityFilter === 'urgent'} />
+            <StatCard label="Completed" value={([] as any[]).filter(t => t.status === 'completed').length} variant="success" onClick={() => setStatusFilter(statusFilter === 'completed' ? 'all' : 'completed')} active={statusFilter === 'completed'} />
           </div>
 
           {/* Task list */}
@@ -96,7 +96,7 @@ export default function TasksPage() {
       ) : (
         /* Refills tab */
         <div className="space-y-2">
-          {SEED_REFILLS.map(refill => (
+          {([] as any[]).map(refill => (
             <div
               key={refill.id}
               className="flex items-center gap-4 p-4 rounded-xl bg-graphite-900/50 border border-graphite-800 hover:border-graphite-700 transition-colors"

@@ -6,9 +6,13 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { ArrowRight, Check } from 'lucide-react'
 import { emailCaptureSchema, type EmailCaptureData } from '@/lib/types'
 import { trackEvent, triggerNurtureSequence } from '@/lib/events'
+import TCPAConsent, { type ConsentState, isConsentValid } from '@/components/TCPAConsent'
+import { CURRENT_CONSENT_VERSION } from '@/lib/consent-text'
 
 export default function EmailCapture() {
   const [submitted, setSubmitted] = useState(false)
+  const [consent, setConsent] = useState<ConsentState>({ email: false, sms: false, version: CURRENT_CONSENT_VERSION })
+  const [consentError, setConsentError] = useState('')
   const {
     register,
     handleSubmit,
@@ -18,9 +22,26 @@ export default function EmailCapture() {
   })
 
   async function onSubmit(data: EmailCaptureData) {
+    if (!isConsentValid(consent, true, false)) {
+      setConsentError('Please agree to receive email communications.')
+      return
+    }
+    setConsentError('')
+
     trackEvent('email_subscribed', { email: data.email, serviceInterest: data.serviceInterest })
     triggerNurtureSequence(data.email, data.serviceInterest || 'general')
-    // Placeholder: POST to email API
+
+    await fetch('/api/leads', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        email: data.email,
+        source: 'email_capture',
+        serviceInterest: data.serviceInterest || 'general',
+        consent: { email: consent.email, version: consent.version },
+      }),
+    }).catch(() => {})
+
     setSubmitted(true)
   }
 
@@ -56,6 +77,8 @@ export default function EmailCapture() {
           <ArrowRight className="w-3.5 h-3.5" />
         </button>
       </div>
+      <TCPAConsent formId="email_capture" requiresEmail={true} requiresSMS={false} onChange={setConsent} />
+      {consentError && <p className="text-[12px] text-red-400 mt-2 text-center">{consentError}</p>}
     </form>
   )
 }

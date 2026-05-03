@@ -1,4 +1,5 @@
 import type { AuditLog, UserRole } from './types'
+import { redactPHI } from './phi-redaction'
 
 // In-memory audit store for V1 — swap for Supabase/DB in production
 const auditStore: AuditLog[] = []
@@ -6,6 +7,8 @@ const auditStore: AuditLog[] = []
 export function logAudit(entry: Omit<AuditLog, 'id' | 'timestamp'>): AuditLog {
   const log: AuditLog = {
     ...entry,
+    // Redact PHI from audit details before storage
+    details: entry.details ? redactPHI(entry.details as Record<string, unknown>, 'permissive') : {},
     id: `audit_${Date.now()}_${Math.random().toString(36).slice(2, 8)}`,
     timestamp: new Date().toISOString(),
   }
@@ -30,16 +33,9 @@ export function getAuditLogs(filters?: {
   return results.slice(0, filters?.limit ?? 100)
 }
 
-// PHI-conscious: strip sensitive fields from log details
+/**
+ * @deprecated Use redactPHI() from lib/clinic/phi-redaction.ts instead
+ */
 export function sanitizeForLog(data: Record<string, unknown>): Record<string, unknown> {
-  const sensitive = ['ssn', 'socialSecurity', 'password', 'token', 'secret', 'creditCard']
-  const sanitized: Record<string, unknown> = {}
-  for (const [key, value] of Object.entries(data)) {
-    if (sensitive.some(s => key.toLowerCase().includes(s))) {
-      sanitized[key] = '[REDACTED]'
-    } else {
-      sanitized[key] = value
-    }
-  }
-  return sanitized
+  return redactPHI(data, 'permissive')
 }
