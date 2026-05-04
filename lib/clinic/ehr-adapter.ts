@@ -63,14 +63,14 @@ export interface EHRSyncResult {
 
 export class CharmEHRAdapter {
   private config: EHRConfig
-  private supabase
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  private supabase: any
 
   constructor(config: EHRConfig) {
     this.config = config
-    this.supabase = createClient(
-      process.env.NEXT_PUBLIC_SUPABASE_URL || '',
-      process.env.SUPABASE_SERVICE_ROLE_KEY || ''
-    )
+    const url = process.env.NEXT_PUBLIC_SUPABASE_URL?.trim()
+    const key = process.env.SUPABASE_SERVICE_ROLE_KEY?.trim()
+    this.supabase = url && key ? createClient(url, key) : null
   }
 
   // ── Authentication ──────────────────────────────────────────
@@ -252,7 +252,9 @@ export class CharmEHRAdapter {
   // ── Link Patient ────────────────────────────────────────────
 
   async linkPatient(bloomPatientId: string, ehrExternalId: string): Promise<void> {
-    await this.supabase
+    const sb = this.supabase
+    if (!sb) return
+    await sb
       .from('patients')
       .update({
         ehr_provider: 'charm',
@@ -273,33 +275,38 @@ export class CharmEHRAdapter {
     patientId?: string,
   ): Promise<EHRSyncResult> {
     const timestamp = new Date().toISOString()
+    const sb = this.supabase
     try {
       const externalId = await operation()
 
       // Log success
-      await this.supabase.from('ehr_sync_log').insert({
-        patient_id: patientId,
-        ehr_provider: 'charm',
-        action,
-        direction,
-        resource_type: resourceType,
-        sync_status: 'success',
-      })
+      if (sb) {
+        await sb.from('ehr_sync_log').insert({
+          patient_id: patientId,
+          ehr_provider: 'charm',
+          action,
+          direction,
+          resource_type: resourceType,
+          sync_status: 'success',
+        })
+      }
 
       return { success: true, action, direction, resourceType, externalId, timestamp }
     } catch (err) {
       const errorMsg = err instanceof Error ? err.message : 'Unknown error'
 
       // Log error
-      await this.supabase.from('ehr_sync_log').insert({
-        patient_id: patientId,
-        ehr_provider: 'charm',
-        action,
-        direction,
-        resource_type: resourceType,
-        sync_status: 'error',
-        error_message: errorMsg,
-      })
+      if (sb) {
+        await sb.from('ehr_sync_log').insert({
+          patient_id: patientId,
+          ehr_provider: 'charm',
+          action,
+          direction,
+          resource_type: resourceType,
+          sync_status: 'error',
+          error_message: errorMsg,
+        })
+      }
 
       return { success: false, action, direction, resourceType, error: errorMsg, timestamp }
     }
