@@ -56,3 +56,12 @@ bloom_motsc_reel/
 bloom_motsc_timeline_reel/
 *.mp4
 *.mov
+
+# Claude orchestration / RuFlow
+.claude-flow/
+.ruflo/
+.swarm/
+memory.db
+*.db
+*.sqlite
+*.sqlite3
