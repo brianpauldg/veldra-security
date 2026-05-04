@@ -12,7 +12,7 @@ const navigation = [
   { name: 'Practice', href: '/services' },
   { name: 'Process', href: '/how-it-works' },
   { name: 'FAQ', href: '/faq' },
-  { name: 'Injection Guides', href: '/inject/trt-im' },
+  { name: 'Injection Guides', href: '/inject' },
 ]
 
 const treatmentDropdown = [
