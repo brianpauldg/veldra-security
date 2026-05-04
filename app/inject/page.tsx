@@ -140,20 +140,20 @@ export default function InjectIndexPage() {
               ) : (
                 <div
                   key={protocol.slug}
-                  className="block border border-steel/20 rounded-lg p-6 bg-ink/50 opacity-60"
+                  className="block border border-brass/20 rounded-lg p-6 bg-[#1a1814]"
                 >
                   <div className="flex items-start justify-between mb-3">
                     <div>
-                      <span className="text-[10px] font-mono text-steel uppercase tracking-wider bg-steel/10 px-2 py-0.5 rounded">
+                      <span className="text-[10px] font-mono text-champagne uppercase tracking-wider bg-brass/20 px-2 py-0.5 rounded">
                         {protocol.tag} — Coming Soon
                       </span>
-                      <h3 className="text-lg text-champagne/50 font-display mt-2">
+                      <h3 className="text-lg text-champagne font-display mt-2">
                         {protocol.name}
                       </h3>
-                      <p className="text-xs text-steel font-mono">{protocol.route}</p>
+                      <p className="text-xs text-brass font-mono">{protocol.route}</p>
                     </div>
                   </div>
-                  <p className="text-sm text-brass/40">{protocol.description}</p>
+                  <p className="text-sm text-champagne/60">{protocol.description}</p>
                 </div>
               )
             )}
