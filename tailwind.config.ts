@@ -9,7 +9,28 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // ─── Nova = silver/chrome accent (black + silver brand) ───
+        // ─── Bloom Metabolics brand system (LOCKED) ───
+        graphite: {
+          50: '#fafafa',
+          100: '#f4f4f5',
+          200: '#e4e4e7',
+          300: '#d4d4d8',
+          400: '#a1a1aa',
+          500: '#71717a',
+          600: '#52525b',
+          700: '#3f3f46',
+          800: '#27272a',
+          900: '#18181b',
+          950: '#020202',
+        },
+        ink: '#0d0c0a',
+        obsidian: '#050404',
+        champagne: '#d8cfbe',
+        brass: '#8a8268',
+        bronze: '#B8A688',
+        cream: '#F0E8DA',
+        muted: '#C8BFB0',
+        // Legacy — retained for existing components during migration
         nova: {
           50: '#fafafa',
           100: '#f4f4f5',
@@ -22,20 +43,6 @@ const config: Config = {
           800: '#2d2d30',
           900: '#1a1a1d',
         },
-        graphite: {
-          50: '#fafafa',
-          100: '#f4f4f5',
-          200: '#e4e4e7',
-          300: '#d4d4d8',
-          400: '#a1a1aa',
-          500: '#71717a',
-          600: '#52525b',
-          700: '#3f3f46',
-          800: '#27272a',
-          900: '#18181b',
-          950: '#09090b',
-        },
-        // Premium accent — ice blue used sparingly (<5% surface area)
         ice: {
           400: '#93c5fd',
           500: '#60a5fa',
@@ -44,7 +51,8 @@ const config: Config = {
       },
       fontFamily: {
         sans: ['InterVariable', 'Inter', 'system-ui', '-apple-system', 'sans-serif'],
-        display: ['"Inter Tight"', 'InterVariable', 'Inter', 'system-ui', 'sans-serif'],
+        display: ['Fraunces', 'Lora', 'Georgia', '"Times New Roman"', 'serif'],
+        serif: ['Lora', 'Georgia', '"Times New Roman"', 'serif'],
         mono: ['"JetBrains Mono"', 'ui-monospace', 'SFMono-Regular', 'monospace'],
       },
       fontSize: {
