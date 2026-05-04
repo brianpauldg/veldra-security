@@ -16,6 +16,7 @@ const protocols = [
     description:
       'Weekly intramuscular injection guide for testosterone replacement therapy. Covers ventrogluteal, vastus lateralis, and deltoid sites.',
     tag: 'TRT',
+    active: true,
   },
   {
     slug: 'glp1-subq',
@@ -24,6 +25,7 @@ const protocols = [
     description:
       'Subcutaneous injection guide for GLP-1/GIP weight management therapy. Covers abdominal, thigh, and upper arm sites.',
     tag: 'GLP-1',
+    active: true,
   },
   {
     slug: 'hcg-subq',
@@ -32,6 +34,25 @@ const protocols = [
     description:
       'Subcutaneous injection guide for HCG therapy. Includes reconstitution instructions, abdominal and thigh injection sites.',
     tag: 'HCG',
+    active: true,
+  },
+  {
+    slug: 'bpc157-subq',
+    name: 'BPC-157',
+    route: 'Subcutaneous (SubQ)',
+    description:
+      'Subcutaneous injection guide for BPC-157 peptide therapy. Includes reconstitution, abdominal and thigh injection sites.',
+    tag: 'Peptide',
+    active: false,
+  },
+  {
+    slug: 'tb500-subq',
+    name: 'TB-500 (Thymosin Beta-4)',
+    route: 'Subcutaneous (SubQ)',
+    description:
+      'Subcutaneous injection guide for TB-500 peptide therapy. Includes reconstitution, abdominal and thigh injection sites.',
+    tag: 'Peptide',
+    active: false,
   },
 ];
 
@@ -88,34 +109,54 @@ export default function InjectIndexPage() {
           <h2 className="text-headline text-champagne mb-8">Injection Guides by Medication</h2>
 
           <div className="grid gap-4">
-            {protocols.map((protocol) => (
-              <Link
-                key={protocol.slug}
-                href={`/inject/${protocol.slug}`}
-                className="group block border border-steel/30 rounded-lg p-6 bg-ink hover:border-brass/40 transition-all"
-              >
-                <div className="flex items-start justify-between mb-3">
-                  <div>
-                    <span className="text-[10px] font-mono text-brass uppercase tracking-wider bg-brass/10 px-2 py-0.5 rounded">
-                      {protocol.tag}
-                    </span>
-                    <h3 className="text-lg text-champagne font-display mt-2">
-                      {protocol.name}
-                    </h3>
-                    <p className="text-xs text-brass font-mono">{protocol.route}</p>
+            {protocols.map((protocol) =>
+              protocol.active ? (
+                <Link
+                  key={protocol.slug}
+                  href={`/inject/${protocol.slug}`}
+                  className="group block border border-steel/30 rounded-lg p-6 bg-ink hover:border-brass/40 transition-all"
+                >
+                  <div className="flex items-start justify-between mb-3">
+                    <div>
+                      <span className="text-[10px] font-mono text-brass uppercase tracking-wider bg-brass/10 px-2 py-0.5 rounded">
+                        {protocol.tag}
+                      </span>
+                      <h3 className="text-lg text-champagne font-display mt-2">
+                        {protocol.name}
+                      </h3>
+                      <p className="text-xs text-brass font-mono">{protocol.route}</p>
+                    </div>
+                    <svg
+                      width="20"
+                      height="20"
+                      viewBox="0 0 20 20"
+                      className="text-brass/40 group-hover:text-brass group-hover:translate-x-1 transition-all mt-2"
+                    >
+                      <path d="M7 4l6 6-6 6" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+                    </svg>
                   </div>
-                  <svg
-                    width="20"
-                    height="20"
-                    viewBox="0 0 20 20"
-                    className="text-brass/40 group-hover:text-brass group-hover:translate-x-1 transition-all mt-2"
-                  >
-                    <path d="M7 4l6 6-6 6" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-                  </svg>
+                  <p className="text-sm text-brass/60">{protocol.description}</p>
+                </Link>
+              ) : (
+                <div
+                  key={protocol.slug}
+                  className="block border border-steel/20 rounded-lg p-6 bg-ink/50 opacity-60"
+                >
+                  <div className="flex items-start justify-between mb-3">
+                    <div>
+                      <span className="text-[10px] font-mono text-steel uppercase tracking-wider bg-steel/10 px-2 py-0.5 rounded">
+                        {protocol.tag} — Coming Soon
+                      </span>
+                      <h3 className="text-lg text-champagne/50 font-display mt-2">
+                        {protocol.name}
+                      </h3>
+                      <p className="text-xs text-steel font-mono">{protocol.route}</p>
+                    </div>
+                  </div>
+                  <p className="text-sm text-brass/40">{protocol.description}</p>
                 </div>
-                <p className="text-sm text-brass/60">{protocol.description}</p>
-              </Link>
-            ))}
+              )
+            )}
           </div>
         </div>
       </section>
