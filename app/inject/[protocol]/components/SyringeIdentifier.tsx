@@ -1,52 +1,20 @@
+import Image from 'next/image';
 import { ProtocolContent, SyringeType } from '@/lib/protocols/types';
 
 interface SyringeIdentifierProps {
   protocol: ProtocolContent;
 }
 
-function InsulinSyringeSVG() {
-  return (
-    <svg viewBox="0 0 200 60" className="w-full h-auto" role="img" aria-labelledby="insulin-title insulin-desc">
-      <title id="insulin-title">Insulin Syringe</title>
-      <desc id="insulin-desc">A small syringe with a short, thin fixed needle typically used for subcutaneous injections</desc>
-      {/* Barrel */}
-      <rect x="40" y="20" width="120" height="20" rx="3" fill="none" stroke="currentColor" strokeWidth="1.5" />
-      {/* Plunger */}
-      <rect x="155" y="24" width="40" height="12" rx="2" fill="currentColor" opacity="0.3" />
-      <line x1="195" y1="22" x2="195" y2="38" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-      {/* Needle - short and thin */}
-      <line x1="40" y1="30" x2="15" y2="30" stroke="currentColor" strokeWidth="1" />
-      {/* Graduation marks */}
-      {[50, 65, 80, 95, 110, 125, 140].map((x) => (
-        <line key={x} x1={x} y1="20" x2={x} y2="25" stroke="currentColor" strokeWidth="0.5" opacity="0.5" />
-      ))}
-      {/* Fixed needle hub */}
-      <rect x="35" y="26" width="8" height="8" rx="1" fill="currentColor" opacity="0.4" />
-    </svg>
-  );
-}
-
-function IntramuscularSyringeSVG() {
-  return (
-    <svg viewBox="0 0 200 60" className="w-full h-auto" role="img" aria-labelledby="im-title im-desc">
-      <title id="im-title">Intramuscular Syringe</title>
-      <desc id="im-desc">A larger syringe with a longer, detachable needle used for intramuscular injections</desc>
-      {/* Barrel - larger */}
-      <rect x="50" y="16" width="110" height="28" rx="4" fill="none" stroke="currentColor" strokeWidth="1.5" />
-      {/* Plunger */}
-      <rect x="155" y="22" width="35" height="16" rx="2" fill="currentColor" opacity="0.3" />
-      <line x1="190" y1="18" x2="190" y2="42" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
-      {/* Needle - longer */}
-      <line x1="50" y1="30" x2="8" y2="30" stroke="currentColor" strokeWidth="1.5" />
-      {/* Detachable hub */}
-      <polygon points="50,24 50,36 42,33 42,27" fill="currentColor" opacity="0.4" />
-      {/* Graduation marks */}
-      {[60, 75, 90, 105, 120, 135, 150].map((x) => (
-        <line key={x} x1={x} y1="16" x2={x} y2="23" stroke="currentColor" strokeWidth="0.5" opacity="0.5" />
-      ))}
-    </svg>
-  );
-}
+const SYRINGE_IMAGES: Record<SyringeType, { src: string; alt: string }> = {
+  insulin: {
+    src: '/inject/syringes/insulin-syringe.png',
+    alt: 'Insulin syringe with orange cap, short thin fixed needle, used for subcutaneous injections',
+  },
+  intramuscular: {
+    src: '/inject/syringes/intramuscular-syringe.png',
+    alt: 'Intramuscular syringe with blue hub, longer detachable needle, used for intramuscular injections',
+  },
+};
 
 function SyringeCard({
   type,
@@ -86,8 +54,14 @@ function SyringeCard({
         {label}
       </h3>
 
-      <div className={isActive ? 'text-champagne' : 'text-steel'}>
-        {type === 'insulin' ? <InsulinSyringeSVG /> : <IntramuscularSyringeSVG />}
+      <div className="relative w-full aspect-[3/1] my-2">
+        <Image
+          src={SYRINGE_IMAGES[type].src}
+          alt={SYRINGE_IMAGES[type].alt}
+          fill
+          className={`object-contain ${!isActive ? 'opacity-40' : ''}`}
+          sizes="(max-width: 768px) 100vw, 50vw"
+        />
       </div>
 
       <div className="mt-4 space-y-2 text-sm">
