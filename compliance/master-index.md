@@ -13,6 +13,7 @@
 | SOP-001 | Document Control & SOP Lifecycle Management | 0.3 | Draft | TBD | TBD | Brian | Covering Physician (TBD) | [SOP-001](sops/SOP-001-document-control/SOP-001-document-control.md) |
 | SOP-002 | Patient Intake Operations | 0.1 | Draft | TBD | TBD | Brian DeGuzman | Brian DeGuzman | [SOP-002](sops/SOP-002-patient-intake-operations/SOP-002-patient-intake-operations.md) |
 | SOP-003 | Clinical Eligibility Screening | 0.1 | Draft (Physician-Pending) | TBD | TBD | Covering Physician (TBD) | Covering Physician (TBD) | [SOP-003](sops/SOP-003-clinical-eligibility-screening/SOP-003-clinical-eligibility-screening.md) |
+| SOP-004 | Patient Self-Administration Injection Education | 0.1 | Draft (Provisional pending Covering Physician approval) | TBD | TBD | Covering Physician (TBD); operational delegation to Brian DeGuzman | Covering Physician (TBD) | [SOP-004](sops/SOP-004-injection-education/SOP-004-injection-education.md) |
 
 ---
 
