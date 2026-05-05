@@ -14,6 +14,7 @@
 | SOP-002 | Patient Intake Operations | 0.1 | Draft | TBD | TBD | Brian DeGuzman | Brian DeGuzman | [SOP-002](sops/SOP-002-patient-intake-operations/SOP-002-patient-intake-operations.md) |
 | SOP-003 | Clinical Eligibility Screening | 0.1 | Draft (Physician-Pending) | TBD | TBD | Covering Physician (TBD) | Covering Physician (TBD) | [SOP-003](sops/SOP-003-clinical-eligibility-screening/SOP-003-clinical-eligibility-screening.md) |
 | SOP-005 | Synchronous Telehealth Visit | 0.1 | Draft (Physician-Pending) | TBD | TBD | Covering Physician (TBD) | Covering Physician (TBD) | [SOP-005](sops/SOP-005-synchronous-telehealth-visit/SOP-005-synchronous-telehealth-visit.md) |
+| SOP-006 | Lab Ordering & Review | 0.1 | Draft (Hybrid — Physician-Pending) | TBD | TBD | Hybrid: Covering Physician (TBD) + Brian DeGuzman | Hybrid: Both signatures required | [SOP-006](sops/SOP-006-lab-ordering-and-review/SOP-006-lab-ordering-and-review.md) |
 
 ---
 
@@ -25,7 +26,6 @@ The following SOPs have been identified through the compliance audit and are que
 | --- | --- | --- | --- |
 | Identity Verification | High | Planned | Ryan Haight Act compliance; prerequisite for prescribing SOPs (note: operational ID verification is covered in SOP-002 §5.8; this SOP would cover automated verification at scale) |
 | Adverse Event & Incident Reporting | High | Planned | Phase 2 priority — patient safety |
-| Laboratory Ordering & Result Review | High | Planned | Critical for TRT monitoring (hematocrit, PSA, lipids) |
 | Prescribing — Testosterone Replacement Therapy | High | Planned | Controlled substance; requires DEA/CURES alignment |
 | Controlled Substance Handling | High | Planned | DEA compliance; CURES reporting; storage and destruction |
 | Emergency & Mental Health Escalation | High | Planned | Patient safety; crisis intervention pathways |
