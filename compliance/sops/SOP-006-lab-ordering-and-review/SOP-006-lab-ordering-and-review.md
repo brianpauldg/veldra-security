@@ -1,7 +1,7 @@
 ---
 sop_id: "SOP-006"
 title: "Lab Ordering & Review"
-version: "0.1"
+version: "0.2"
 status: "Draft"
 effective_date: "TBD (pending approval)"
 next_review_date: "12 months from effective date"
@@ -13,7 +13,7 @@ classification: "INTERNAL — CLINICAL AND OPERATIONAL USE"
 # Lab Ordering & Review
 
 **SOP ID:** SOP-006
-**Version:** 0.1
+**Version:** 0.2
 **Status:** Draft
 **Effective Date:** TBD (pending approval)
 **Next Scheduled Review:** 12 months from effective date
@@ -400,7 +400,10 @@ This section governs the procedure when the OptiMantra-LabCorp electronic interf
 
 **Return to electronic workflow:**
 
-- When the integration is restored, MSO Intake Staff performs a verification test (submit a test order, confirm round-trip delivery) before resuming electronic operations.
+- When the integration is restored, MSO Intake Staff verifies the restoration before resuming electronic operations using one of the following methods:
+  - **Method A (preferred):** The next live patient lab order serves as the verification. MSO Intake Staff confirms the order transmits successfully to LabCorp's provider portal within 1 business hour and that results return to OptiMantra electronically when LabCorp completes processing. If the live order succeeds, the integration is considered verified.
+  - **Method B (fallback):** If no live patient lab order is pending and verification cannot wait for the next live order, the MSO Owner contacts the OptiMantra and LabCorp support teams to request a vendor-side test transmission confirming the integration is operational. This avoids creating a fake patient record while still verifying restoration.
+- Until the integration is verified by Method A or Method B, MSO Intake Staff continues manual fallback for any pending orders to avoid duplicate or lost transmissions.
 - All orders and results processed during the fallback period are reconciled against both OptiMantra and LabCorp records to ensure no results were lost.
 
 ### 5.9 Handoff to Downstream SOPs
@@ -578,7 +581,7 @@ The training boundary between clinical and operational roles is absolute:
 | --- | --- |
 | **Clinical Laboratory Improvement Amendments (CLIA), 42 CFR Part 493** | Federal regulations governing laboratory testing quality; LabCorp maintains CLIA certification — Bloom relies on LabCorp's CLIA compliance for all testing performed under this SOP |
 | **California Clinical Laboratory Act, California Business & Professions Code sections 1200-1327** | State law governing clinical laboratories in California; LabCorp maintains California state licensure |
-| **California Business & Professions Code section 1288** | Requires clinical laboratories to report critical values to the ordering provider; aligns with LabCorp's Critical Value Protocol and the escalation procedures in section 7.1 |
+| **CLIA Regulations 42 CFR §493.1241 (Test Request)** | Federal regulations require laboratories to report results to the authorized person responsible for using the test results; supports the critical value reporting workflow in section 7.1 and aligns with LabCorp's Critical Value Protocol |
 | **HIPAA Privacy Rule, 45 CFR Part 164 Subpart E** | Governs the use and disclosure of protected health information, including lab results; all results delivery, storage, and communication under this SOP must comply with HIPAA minimum necessary and patient access requirements |
 | **HIPAA Security Rule, 45 CFR Part 164 Subpart C** | Governs the security of electronic protected health information; the OptiMantra-LabCorp electronic interface, results storage in OptiMantra, and patient portal communication must meet HIPAA security standards |
 | **California Confidentiality of Medical Information Act (CMIA), California Civil Code section 56 et seq.** | California state law providing additional privacy protections beyond HIPAA; applies to all lab result handling, storage, and communication under this SOP |
@@ -626,6 +629,7 @@ The training boundary between clinical and operational roles is absolute:
 | Version | Date | Author | Change Summary |
 | --- | --- | --- | --- |
 | 0.1 | 2026-05-05 | Brian DeGuzman, RN (MSO Owner) | Initial draft. All 12 sections structurally complete. Operational sections fully drafted. Clinical sections contain `[CLINICAL — PENDING COVERING PHYSICIAN]` markers where physician input is required. Attachments A through F listed but not yet populated. |
+| 0.2 | 2026-05-05 | Brian DeGuzman, RN (MSO Owner) | Minor revision applying second-pass audit findings before MSO Owner signature on operational components. Changes: (1) §12 Provisional Operation Notice updated to align hybrid SOP Provisional timing with SOP-001 §5.6 standard 180-day clock instead of introducing a separate 60-day mechanism that would have required SOP-001 amendment; (2) §9 California regulatory citation corrected from B&P §1288 (which addresses bioanalyst training program approval) to CLIA 42 CFR §493.1241 (test result reporting); (3) §5.8 integration restoration verification process clarified to specify two operationally-executable verification methods (next live order or vendor-side test transmission) instead of unspecified "test order" that would have required a fake patient record. Classified as minor revision per SOP-001 §5.11.1 — non-substantive clarifications and citation corrections with no procedural or scope changes. Five additional issues identified in audit (SLA realism, Provisional fallback symmetry across service lines, Lab Cost Watch threshold change pathway, service tier add-on volume trigger, and attachment naming consistency) are deferred to Covering Physician's first review pass since they are clinical-adjacent or require operational experience to calibrate. |
 
 ---
 
@@ -670,4 +674,4 @@ All personnel whose work is governed by this SOP must sign below within 14 calen
 >
 > - If the **MSO Owner has signed but the Covering Physician has not:** Operational workflows (sections 5.3, 5.6, 5.7, 5.8) may be operationalized and tested. Clinical workflows (sections 5.1, 5.2, 5.4, 5.5) operate using industry-standard clinical defaults (Endocrine Society for TRT, OMA for GLP-1) until the Covering Physician reviews, populates all `[CLINICAL — PENDING COVERING PHYSICIAN]` markers, and signs. No lab results may be communicated to patients and no clinical interpretation may occur until the Covering Physician's signature is obtained.
 > - If the **Covering Physician has signed but the MSO Owner has not:** Clinical content is approved, but operational workflows are not operative. No lab orders may be transmitted, no requisitions may be delivered, and no cost tracking may occur until the MSO Owner signs.
-> - **Provisional status is time-limited.** The second signature must be obtained within 60 calendar days of the first signature. If not obtained, the SOP reverts to Draft status and the first signature is void.
+> - **Provisional status timing follows SOP-001 §5.6.** When this SOP operates Provisionally with one of two signatures, the Provisional period follows the standard 180-day maximum from initial Provisional approval as defined in [SOP-001 §5.6](../SOP-001-document-control/SOP-001-document-control.md), with the 90-day milestone for documenting plans for completing the second signature. The MSO Owner is responsible for tracking the Provisional clock and ensuring the second signature is obtained within the standard timeline. Quarterly reporting on Provisional status is included in SOP-001 §5.6 reporting obligations. If the second signature is not obtained within the 180-day Provisional period, the SOP follows the SOP-001 §5.6 reapproval-or-retirement decision pathway.

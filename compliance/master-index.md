@@ -14,7 +14,7 @@
 | SOP-002 | Patient Intake Operations | 0.1 | Draft | TBD | TBD | Brian DeGuzman | Brian DeGuzman | [SOP-002](sops/SOP-002-patient-intake-operations/SOP-002-patient-intake-operations.md) |
 | SOP-003 | Clinical Eligibility Screening | 0.1 | Draft (Physician-Pending) | TBD | TBD | Covering Physician (TBD) | Covering Physician (TBD) | [SOP-003](sops/SOP-003-clinical-eligibility-screening/SOP-003-clinical-eligibility-screening.md) |
 | SOP-005 | Synchronous Telehealth Visit | 0.1 | Draft (Physician-Pending) | TBD | TBD | Covering Physician (TBD) | Covering Physician (TBD) | [SOP-005](sops/SOP-005-synchronous-telehealth-visit/SOP-005-synchronous-telehealth-visit.md) |
-| SOP-006 | Lab Ordering & Review | 0.1 | Draft (Hybrid — Physician-Pending) | TBD | TBD | Hybrid: Covering Physician (TBD) + Brian DeGuzman | Hybrid: Both signatures required | [SOP-006](sops/SOP-006-lab-ordering-and-review/SOP-006-lab-ordering-and-review.md) |
+| SOP-006 | Lab Ordering & Review | 0.2 | Draft (Hybrid — Physician-Pending) | TBD | TBD | Hybrid: Covering Physician (TBD) + Brian DeGuzman | Hybrid: Both signatures required | [SOP-006](sops/SOP-006-lab-ordering-and-review/SOP-006-lab-ordering-and-review.md) |
 
 ---
 
