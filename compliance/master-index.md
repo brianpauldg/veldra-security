@@ -15,7 +15,7 @@
 | SOP-003 | Clinical Eligibility Screening | 0.1 | Draft (Physician-Pending) | TBD | TBD | Covering Physician (TBD) | Covering Physician (TBD) | [SOP-003](sops/SOP-003-clinical-eligibility-screening/SOP-003-clinical-eligibility-screening.md) |
 | SOP-005 | Synchronous Telehealth Visit | 0.1 | Draft (Physician-Pending) | TBD | TBD | Covering Physician (TBD) | Covering Physician (TBD) | [SOP-005](sops/SOP-005-synchronous-telehealth-visit/SOP-005-synchronous-telehealth-visit.md) |
 | SOP-006 | Lab Ordering & Review | 0.2 | Draft (Hybrid — Physician-Pending) | TBD | TBD | Hybrid: Covering Physician (TBD) + Brian DeGuzman | Hybrid: Both signatures required | [SOP-006](sops/SOP-006-lab-ordering-and-review/SOP-006-lab-ordering-and-review.md) |
-| SOP-007 | Prescribing Protocols | 0.1 | Draft (Physician-Pending) | TBD | TBD | Covering Physician (TBD) | Covering Physician (TBD) | [SOP-007](sops/SOP-007-prescribing-protocols/SOP-007-prescribing-protocols.md) |
+| SOP-007 | Prescribing Protocols | 0.2 | Draft (Physician-Pending) | TBD | TBD | Covering Physician (TBD) | Covering Physician (TBD) | [SOP-007](sops/SOP-007-prescribing-protocols/SOP-007-prescribing-protocols.md) |
 
 ---
 

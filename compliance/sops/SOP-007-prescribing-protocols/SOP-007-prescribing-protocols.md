@@ -1,7 +1,7 @@
 ---
 sop_id: "SOP-007"
 title: "Prescribing Protocols"
-version: "0.1"
+version: "0.2"
 status: "Draft"
 effective_date: "TBD (pending approval)"
 next_review_date: "12 months from effective date"
@@ -13,7 +13,7 @@ classification: "INTERNAL — CLINICAL USE ONLY"
 # Prescribing Protocols
 
 **SOP ID:** SOP-007
-**Version:** 0.1
+**Version:** 0.2
 **Status:** Draft
 **Effective Date:** TBD (pending approval)
 **Next Scheduled Review:** 12 months from effective date
@@ -136,7 +136,7 @@ A facility registered with the FDA under section 503B of the Federal Food, Drug,
 A substance classified under Schedule III of the Controlled Substances Act (21 U.S.C. section 812). Schedule III substances have a moderate to low potential for physical and psychological dependence. Testosterone cypionate is a Schedule III anabolic steroid. Schedule III prescriptions may be transmitted electronically, by fax, or orally. Under federal law, Schedule III prescriptions may be refilled up to five times within six months of the date of issue, after which a new prescription is required.
 
 **CURES (Controlled Substance Utilization Review and Evaluation System)**
-California's Prescription Drug Monitoring Program (PDMP), maintained by the California Department of Justice under Health and Safety Code section 11165. CURES contains a record of all Schedule II through V controlled substance prescriptions dispensed in California. California prescribers are required to consult CURES before prescribing a Schedule II through IV controlled substance for the first time to a patient and at least once every four months thereafter if the substance remains part of the patient's treatment. Under this SOP, the Covering Physician checks CURES at every controlled substance refill event, exceeding the statutory minimum.
+California's Prescription Drug Monitoring Program (PDMP), maintained by the California Department of Justice under Health and Safety Code section 11165. CURES contains a record of all Schedule II through V controlled substance prescriptions dispensed in California. Under Cal. Health & Safety Code § 11165.4, California prescribers are required to consult CURES at the time of the first prescription of a Schedule II through IV controlled substance to a patient, and at least once every six months thereafter if the substance remains part of the patient's treatment. Under this SOP, the Covering Physician checks CURES at every controlled substance prescribing event, including initial prescription, every refill, and every dose adjustment — substantially exceeding the statutory minimum.
 
 **Async Refill**
 A refill authorization pathway for non-controlled medications in which the Covering Physician reviews the patient's chart, current labs, and refill request without a synchronous encounter and authorizes the refill if all stable maintenance criteria are met. The async refill pathway is available only for patients in the Maintenance phase on non-controlled medications.
@@ -160,7 +160,7 @@ The current state of a prescription at the pharmacy: transmitted, received, in p
 The patient-specific clinical justification, documented by the Covering Physician, for prescribing a compounded semaglutide or tirzepatide formulation instead of the FDA-approved branded product. Medical necessity for compounded GLP-1 must be based on one or more of the following: the FDA-approved product is on the FDA Drug Shortage List; the patient has a documented adverse reaction, allergy, or intolerance to an inactive ingredient in the FDA-approved formulation; the patient requires a dose or formulation not commercially available in the FDA-approved product; or another patient-specific clinical reason documented by the Covering Physician.
 
 **EPCS (Electronic Prescribing of Controlled Substances)**
-The electronic transmission of controlled substance prescriptions in compliance with DEA regulations (21 CFR Part 1311). California mandates electronic prescribing for controlled substances effective January 1, 2022 (Cal. H&S Code section 11159.2). All Schedule III prescriptions under this SOP are transmitted via EPCS through OptiMantra.
+The electronic transmission of controlled substance prescriptions in compliance with DEA regulations (21 CFR Part 1311). California mandates electronic prescribing for controlled substances effective January 1, 2022 (Cal. Bus. & Prof. Code § 688). All Schedule III prescriptions under this SOP are transmitted via EPCS through OptiMantra.
 
 ---
 
@@ -231,7 +231,7 @@ This section defines the operational workflow for generating prescriptions and r
 **Prescription generation in OptiMantra:**
 
 1. The Covering Physician enters the prescription in OptiMantra's e-prescribing module, including: medication name, strength, formulation, quantity, directions for use, number of refills (where applicable), and the designated pharmacy
-2. For controlled substances (testosterone cypionate): the prescription is transmitted via EPCS in compliance with DEA 21 CFR Part 1311 and California Health & Safety Code section 11159.2
+2. For controlled substances (testosterone cypionate): the prescription is transmitted via EPCS in compliance with DEA 21 CFR Part 1311 and California Bus. & Prof. Code § 688
 3. For non-controlled medications: the prescription is transmitted electronically via standard e-prescribing (Surescripts or direct pharmacy integration)
 4. The Covering Physician confirms successful transmission in OptiMantra before closing the prescribing workflow
 
@@ -277,7 +277,7 @@ This section defines the specific requirements for prescribing Schedule III cont
 **CURES check requirement:**
 
 1. The Covering Physician checks CURES before every controlled substance prescribing event — including the initial prescription, every refill authorization, and every dose adjustment
-2. This exceeds the statutory minimum of California Health & Safety Code section 11165.4, which requires a CURES check before the first prescription and at least every four months thereafter. The more frequent check under this SOP is a risk-management measure appropriate for a telehealth-only practice
+2. This substantially exceeds the statutory minimum of California Health & Safety Code § 11165.4, which requires a CURES check at the time of the first prescription and at least every six months thereafter if the substance remains part of the patient's treatment. The more frequent check under this SOP is a risk-management measure appropriate for a telehealth-only practice prescribing Schedule III controlled substances
 3. The CURES check must be performed on the same business day as the prescribing event and before the prescription is transmitted
 4. The Covering Physician documents the CURES check in OptiMantra: date of check, patient name, findings summary (no concerning results / concerning results identified), and action taken if concerning results are identified
 5. If the CURES check reveals concerning results (e.g., concurrent controlled substance prescriptions from other providers, patterns suggesting misuse, quantities exceeding expected use), the Covering Physician follows the escalation pathway in section 7.2
@@ -440,9 +440,9 @@ FDA-approved branded semaglutide and tirzepatide are the default GLP-1/GIP medic
 1. **FDA Drug Shortage:** The FDA-approved branded product is listed on the FDA Drug Shortage List (checked at the time of prescribing)
 2. **Patient-specific intolerance or allergy:** The patient has a documented adverse reaction, allergy, or intolerance to an inactive ingredient in the FDA-approved formulation that is not present in the compounded formulation
 3. **Dose or formulation unavailability:** The patient requires a dose or formulation that is not commercially available in the FDA-approved product (e.g., a microdose for initiation that is below the commercially available minimum)
-4. **Other patient-specific clinical reason:** The Covering Physician documents another patient-specific clinical reason that compounding is medically necessary
+4. **Other patient-specific clinical reason:** `[CLINICAL — PENDING COVERING PHYSICIAN: Define the specific clinical circumstances, beyond shortage, intolerance, and dose unavailability, that justify compounded GLP-1 prescribing under FDA 503A medical necessity. Define the documentation standard required for these circumstances — specifically, what level of clinical detail must appear in the chart note to support the medical necessity determination, and whether any additional documentation (e.g., a structured medical necessity attestation, a second physician concurrence if available, periodic utilization review) is required. The default posture of this SOP is conservative — compounded GLP-1 is the exception, not the rule — and the physician's clinical standard for this catch-all category should reflect that posture.]`
 
-`[CLINICAL — PENDING COVERING PHYSICIAN: Review and confirm or modify the medical necessity criteria above. Define any additional clinical criteria that justify compounded GLP-1 prescribing. Define whether the physician requires a specific documentation format for medical necessity (e.g., a standardized medical necessity attestation form) or whether a narrative chart note is sufficient. Define the clinical standard for "intolerance" — what level of adverse effect at what duration qualifies as intolerance justifying a switch to compounded product.]`
+`[CLINICAL — PENDING COVERING PHYSICIAN: Review and confirm or modify the medical necessity criteria above. Define the specific clinical content for criterion (4) per the inline marker. Define whether the physician requires a specific documentation format for medical necessity (e.g., a standardized medical necessity attestation form) or whether a narrative chart note is sufficient. Define the clinical standard for "intolerance" — what level of adverse effect at what duration qualifies as intolerance justifying a switch to compounded product. The conservative default-branded posture of this SOP should be preserved unless the physician documents a clinical rationale for a more permissive standard.]`
 
 **Prescribing workflow for compounded GLP-1:**
 
@@ -701,7 +701,7 @@ The training boundary between clinical and operational roles is absolute and is 
 | **Ryan Haight Online Pharmacy Consumer Protection Act (21 U.S.C. section 829(e))** | Requires a qualifying examination before prescribing controlled substances via the internet; the synchronous audiovisual GFE under SOP-005 satisfies this requirement |
 | **DEA Schedule III Prescribing Rules (21 CFR section 1306.22)** | Federal rules for Schedule III prescriptions: up to 5 refills within 6 months, EPCS permitted, oral/fax/electronic transmission |
 | **DEA EPCS Regulations (21 CFR Part 1311)** | Technical and procedural requirements for electronic prescribing of controlled substances; governs OptiMantra EPCS configuration and physician identity proofing |
-| **California EPCS Mandate (Cal. H&S Code section 11159.2)** | California mandate for electronic prescribing of controlled substances; all Schedule III prescriptions under this SOP are transmitted via EPCS |
+| **California EPCS Mandate (Cal. Bus. & Prof. Code § 688)** | California mandate for electronic prescribing of controlled substances effective January 1, 2022; all Schedule III prescriptions under this SOP are transmitted via EPCS |
 | **FDA section 503A (21 U.S.C. section 353a)** | Governs 503A compounding pharmacies; requires patient-specific prescription and medical necessity for compounded medications; applies to compounded GLP-1 exception pathway and compounded formulations |
 | **FDA Drug Shortage Lists** | Maintained by FDA; referenced in section 5.9 as a basis for compounded GLP-1 medical necessity; checked at each compounded GLP-1 refill cycle |
 | **FDA Prescribing Information — Testosterone Cypionate (Depo-Testosterone)** | Contraindications, warnings, precautions, dosing, and monitoring requirements for FDA-approved testosterone cypionate; informs Attachment A clinical parameters |
@@ -762,6 +762,7 @@ The training boundary between clinical and operational roles is absolute and is 
 | Version | Date | Author | Description of Change | Approver |
 | --- | --- | --- | --- | --- |
 | 0.1 | 2026-05-06 | Brian DeGuzman (MSO — operational scaffolding) | Initial draft. All 12 sections structurally complete. Governance sections (1-4, 6-12) are fully drafted with no clinical markers. Section 5 (Procedure) contains `[CLINICAL — PENDING COVERING PHYSICIAN]` markers in subsections 5.2, 5.4, 5.5, 5.7, and 5.9 where service-line-specific clinical parameters, thresholds, and decision criteria must be set by the Covering Physician. Operational content in section 5 (pharmacy routing, fill tracking, refill workflow, symptom intake) is fully drafted. Attachments A through G listed but not yet populated. This SOP is a clinical SOP per SOP-001 section 2.3; the initial v0.1 draft was prepared as operational scaffolding by the MSO Owner; clinical content authority and final approval are the Covering Physician's responsibility. | Covering Physician (TBD) |
+| 0.2 | 2026-05-06 | Brian DeGuzman, RN (MSO Owner) | Minor revision applying second-pass audit findings before physician routing. Changes: (1) §3 Definition of EPCS, §5.3 step 2, and §9 Compliance References table updated to correct California EPCS mandate citation from Cal. H&S Code § 11159.2 to Cal. Bus. & Prof. Code § 688 (the actual statutory location of California's EPCS mandate); (2) §3 Definition of CURES and §5.4 CURES check requirement step 2 updated to correct the statutory CURES consultation frequency from "every four months" to "every six months" per Cal. Health & Safety Code § 11165.4; (3) §5.9 compounded GLP-1 medical necessity criterion (4) "other patient-specific clinical reason" converted to a `[CLINICAL — PENDING COVERING PHYSICIAN]` marker to preserve clinical authority over the standard rather than defaulting to a broad MSO-defined catch-all that would undermine the conservative default-branded posture. Classified as minor revision per SOP-001 §5.11.1 — regulatory citation corrections and clinical-authority preservation with no procedural or scope changes. Five additional issues identified in audit (Schedule III refill rule citation precision, async refill "flagged symptom" operational definition, six-month synchronous encounter clock-reset timing, attachment naming consistency, and phentermine boundary handling) are deferred to Covering Physician's first review pass since they require physician input or are cosmetic. | Covering Physician (TBD) |
 
 ---
 
