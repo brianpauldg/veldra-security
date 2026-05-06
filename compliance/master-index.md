@@ -1,7 +1,7 @@
 # Bloom Metabolics — SOP Master Index
 
 **Classification:** INTERNAL — CLINICAL & OPERATIONAL USE ONLY
-**Last Updated:** 2026-05-05
+**Last Updated:** 2026-05-06
 **Maintained By:** Brian, Owner / Registered Nurse
 
 ---
@@ -15,6 +15,7 @@
 | SOP-003 | Clinical Eligibility Screening | 0.1 | Draft (Physician-Pending) | TBD | TBD | Covering Physician (TBD) | Covering Physician (TBD) | [SOP-003](sops/SOP-003-clinical-eligibility-screening/SOP-003-clinical-eligibility-screening.md) |
 | SOP-005 | Synchronous Telehealth Visit | 0.1 | Draft (Physician-Pending) | TBD | TBD | Covering Physician (TBD) | Covering Physician (TBD) | [SOP-005](sops/SOP-005-synchronous-telehealth-visit/SOP-005-synchronous-telehealth-visit.md) |
 | SOP-006 | Lab Ordering & Review | 0.2 | Draft (Hybrid — Physician-Pending) | TBD | TBD | Hybrid: Covering Physician (TBD) + Brian DeGuzman | Hybrid: Both signatures required | [SOP-006](sops/SOP-006-lab-ordering-and-review/SOP-006-lab-ordering-and-review.md) |
+| SOP-007 | Prescribing Protocols | 0.1 | Draft (Physician-Pending) | TBD | TBD | Covering Physician (TBD) | Covering Physician (TBD) | [SOP-007](sops/SOP-007-prescribing-protocols/SOP-007-prescribing-protocols.md) |
 
 ---
 
@@ -26,14 +27,9 @@ The following SOPs have been identified through the compliance audit and are que
 | --- | --- | --- | --- |
 | Identity Verification | High | Planned | Ryan Haight Act compliance; prerequisite for prescribing SOPs (note: operational ID verification is covered in SOP-002 §5.8; this SOP would cover automated verification at scale) |
 | Adverse Event & Incident Reporting | High | Planned | Phase 2 priority — patient safety |
-| Prescribing — Testosterone Replacement Therapy | High | Planned | Controlled substance; requires DEA/CURES alignment |
 | Controlled Substance Handling | High | Planned | DEA compliance; CURES reporting; storage and destruction |
 | Emergency & Mental Health Escalation | High | Planned | Patient safety; crisis intervention pathways |
-| Prescribing — GLP-1/GIP Weight Management | High | Planned | Semaglutide, tirzepatide, phentermine protocols |
-| Prescribing — Sexual Health | Medium | Planned | PT-141, tadalafil, sildenafil protocols |
-| Prescribing — Peptide Therapy | Medium | Planned | Pending LegitScript certification |
 | Treatment Discontinuation & Tapering | Medium | Planned | Safe discontinuation protocols |
-| Refill & Renewal Workflow | Medium | Planned | Routine maintenance prescribing |
 | Patient Communication Protocols | Medium | Planned | GHL/n8n automation governance |
 | Records Retention & Destruction | Medium | Planned | HIPAA six-year minimum; California seven-year medical records |
 | Business Associate Management | Medium | Planned | BAA tracking; vendor HIPAA compliance |
