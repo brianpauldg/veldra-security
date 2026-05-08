@@ -91,7 +91,7 @@ Patients commonly report meaningful weight reduction, improved appetite control,
 `[CLINICAL — PENDING COVERING PHYSICIAN: Specify alternative treatments the patient should be aware of. Industry-typical alternatives include:]`
 
 - `[CLINICAL — PENDING: Lifestyle modification alone (diet, exercise, behavioral counseling)]`
-- `[CLINICAL — PENDING: Other FDA-approved weight management medications (e.g., phentermine, orlistat, naltrexone/bupropion, phentermine/topiramate)]`
+- `[CLINICAL — PENDING: Other FDA-approved weight management medications (e.g., orlistat, naltrexone/bupropion)]`
 - `[CLINICAL — PENDING: Bariatric surgery — for patients meeting surgical criteria]`
 - `[CLINICAL — PENDING: Medically supervised weight loss programs]`
 - `[CLINICAL — PENDING: No treatment — observation and monitoring]`

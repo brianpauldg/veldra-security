@@ -483,7 +483,7 @@ Competency is demonstrated by reading the relevant sections, signing acknowledgm
 
 | Version | Date | Author | Description of Change | Approver |
 | --- | --- | --- | --- | --- |
-| 0.1 | 2026-05-03 | Brian DeGuzman (MSO — operational scaffolding) | Initial draft. Governance sections (1-4, 6-12) are structurally complete. Section 5 (Procedure) and attachments contain [CLINICAL — PENDING COVERING PHYSICIAN] markers to be populated by the Covering Physician upon assignment. This SOP is a clinical SOP per SOP-001 §2.3; the initial v0.1 draft was prepared as operational scaffolding by the MSO Owner; clinical content and final approval are the Covering Physician's responsibility. | Dr. Michael Napolitano, MD |
+| 0.1 | 2026-05-03 | Brian DeGuzman (MSO — operational scaffolding) | Initial draft. Governance sections (1-4, 6-12) are structurally complete. Section 5 (Procedure) and attachments contain [CLINICAL — PENDING COVERING PHYSICIAN] markers to be populated by the Covering Physician upon assignment. This SOP is a clinical SOP per SOP-001 §2.3; the initial v0.1 draft was prepared as operational scaffolding by the MSO Owner; clinical content and final approval are the Covering Physician's responsibility. | Covering Physician (TBD at time of issuance) |
 | 0.2 | 2026-05-08 | Brian DeGuzman (MSO — operational scaffolding) | Minor revision: (1) named Dr. Michael Napolitano, MD as Covering Physician / Medical Director in owner/approver fields, header metadata, and signature block; (2) removed phentermine references — phentermine is permanently out of scope at Bloom Metabolics. Classified as minor revision per SOP-001 §5.11.1 — document remains in Draft status. | Dr. Michael Napolitano, MD |
 
 ---
