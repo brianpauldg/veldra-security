@@ -1,7 +1,7 @@
 ---
 sop_id: "SOP-004"
 title: "Patient Self-Administration Injection Education"
-version: "0.1"
+version: "0.2"
 status: "Draft (Provisional pending Covering Physician approval per SOP-001 §5.6)"
 effective_date: "TBD (pending approval)"
 next_review_date: "12 months from effective date"
@@ -14,7 +14,7 @@ provisional_end_date: "180 calendar days from initial provisional approval per S
 # Patient Self-Administration Injection Education
 
 **SOP ID:** SOP-004
-**Version:** 0.1
+**Version:** 0.2
 **Status:** Draft (Provisional pending Covering Physician approval per SOP-001 §5.6)
 **Effective Date:** TBD (pending approval)
 **Next Scheduled Review:** 12 months from effective date
@@ -419,6 +419,7 @@ No formal patient-side training program is required beyond the protocol content 
 | Version | Date | Author | Description of Change | Approver |
 | --- | --- | --- | --- | --- |
 | 0.1 | 2026-05-03 | Brian DeGuzman, MSO Owner (operational scaffolding) | Initial draft. Provisional pending Covering Physician approval per SOP-001 §5.6. Five protocol attachments drafted using current evidence-based parameters. Three deliverable formats (Markdown, DOCX, PDF) generated from Markdown source. Website rendering deferred to separate Claude Code build prompt at `website-build/claude-code-prompt-website-protocol-pages.md`. Clinical content authority rests with the Covering Physician (TBD at time of issuance). | Covering Physician (TBD at time of issuance) |
+| 0.2 | 2026-05-08 | Brian DeGuzman, RN (MSO Owner) | Minor revision — physician name swap (recovery patch). The recovery commit on 2026-05-08 (merge from sop/SOP-004-injection-education-v0.1 followed by name swap) updated identifying fields (frontmatter owner/approver, header metadata Document Owner/Approving Authority, signature block Name/Title) to reflect Dr. Michael Napolitano, MD as the assigned Covering Physician via Doctors for Providers, but the version label was not bumped at that time. This patch closes the version-label gap and brings SOP-004 into version-numbering consistency with the rest of the SOP system (SOP-001 v0.4, SOP-002 v0.3, SOP-003 v0.2, SOP-005 v0.2, SOP-006 v0.3, SOP-007 v0.3). The role term "Covering Physician" remains unchanged throughout the body of the document because it refers to the durable role; only fields that identify the specific person currently in the role were updated. Credential fields (Medical License #, DEA #, NPI, board certification, CURES enrollment) remain blank for Dr. Napolitano to populate at signing. Provisional status under SOP-001 §5.6 is preserved unchanged; clinical content authority remains with the Covering Physician pending his approval and signature. Classified as minor revision per SOP-001 §5.11.1 — clarification of identifying information and version label with no procedural, scope, or clinical content changes. | Dr. Michael Napolitano, MD (signature pending) |
 
 ---
 

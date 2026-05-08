@@ -3,7 +3,7 @@ protocol_id: "Protocol-003"
 title: "HCG — Subcutaneous Injection Instructions"
 medication: "Human Chorionic Gonadotropin (HCG)"
 route: "Subcutaneous (SubQ)"
-version: "0.1"
+version: "0.2"
 status: "Draft (Provisional pending Covering Physician approval)"
 effective_date: "TBD"
 reviewed_by: "Pending — Dr. Michael Napolitano, MD"
@@ -17,7 +17,7 @@ parent_sop: "SOP-004"
 **Protocol ID:** Protocol-003
 **Medication:** Human Chorionic Gonadotropin (HCG)
 **Route:** Subcutaneous (SubQ)
-**Version:** 0.1
+**Version:** 0.2
 **Effective Date:** TBD (pending approval)
 **Reviewed by:** Pending — Dr. Michael Napolitano, MD
 
