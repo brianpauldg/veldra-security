@@ -24,7 +24,7 @@ Bloom Metabolics may prescribe either FDA-approved brand formulations or compoun
 
 ### 2. How Is It Administered?
 
-Both Semaglutide and Tirzepatide are administered via subcutaneous injection, typically once weekly. Patients who elect self-administration will be trained in accordance with [SOP-004 Protocol 002 — GLP-1/GIP Subcutaneous Self-Administration](../../SOP-004-self-administration-protocols/attachments/protocol-002-glp1-gip-subcutaneous.md) prior to initiating home injection.
+Both Semaglutide and Tirzepatide are administered via subcutaneous injection, typically once weekly. Patients who elect self-administration will be trained in accordance with [SOP-004 Protocol 002 — GLP-1/GIP Subcutaneous Self-Administration](../../SOP-004-injection-education/attachments/protocol-002-glp1-gip-subcutaneous.md) prior to initiating home injection.
 
 Both medications require a gradual dose titration schedule. The patient must follow the prescribed titration protocol; dose escalation without physician authorization is not permitted.
 
@@ -120,7 +120,7 @@ Patients commonly report meaningful weight reduction, improved appetite control,
 
 5. **Dose Titration Compliance.** The patient must follow the prescribed dose titration schedule. Escalating the dose without physician authorization may increase the risk and severity of side effects.
 
-6. **Self-Administration Responsibility.** Patients who self-administer injections accept responsibility for following the self-administration protocol as trained. Refer to [SOP-004 Protocol 002](../../SOP-004-self-administration-protocols/attachments/protocol-002-glp1-gip-subcutaneous.md) for technique, sharps disposal, and adverse event reporting procedures.
+6. **Self-Administration Responsibility.** Patients who self-administer injections accept responsibility for following the self-administration protocol as trained. Refer to [SOP-004 Protocol 002](../../SOP-004-injection-education/attachments/protocol-002-glp1-gip-subcutaneous.md) for technique, sharps disposal, and adverse event reporting procedures.
 
 7. **Telehealth Limitations.** This treatment is prescribed and managed via synchronous telehealth. Physical examination is limited to what can be assessed via audiovisual technology. The physician may require an in-person visit or referral to a local provider if clinical circumstances warrant.
 

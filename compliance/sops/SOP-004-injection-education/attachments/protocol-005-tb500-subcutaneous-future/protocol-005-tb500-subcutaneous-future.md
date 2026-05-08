@@ -6,7 +6,7 @@ route: "Subcutaneous (SubQ)"
 version: "0.1"
 status: "FUTURE — NOT CURRENTLY OPERATIVE"
 effective_date: "TBD (post-LegitScript certification)"
-reviewed_by: "Pending Covering Physician Review"
+reviewed_by: "Pending — Dr. Michael Napolitano, MD"
 parent_sop: "SOP-004"
 ---
 
@@ -21,7 +21,7 @@ parent_sop: "SOP-004"
 **Route:** Subcutaneous (SubQ)
 **Version:** 0.1
 **Effective Date:** TBD (post-LegitScript certification)
-**Reviewed by:** Pending Covering Physician Review
+**Reviewed by:** Pending — Dr. Michael Napolitano, MD
 
 ---
 

@@ -6,7 +6,7 @@ route: "Subcutaneous (SubQ)"
 version: "0.1"
 status: "Draft (Provisional pending Covering Physician approval)"
 effective_date: "TBD"
-reviewed_by: "Pending Covering Physician Review"
+reviewed_by: "Pending — Dr. Michael Napolitano, MD"
 parent_sop: "SOP-004"
 ---
 
@@ -19,7 +19,7 @@ parent_sop: "SOP-004"
 **Route:** Subcutaneous (SubQ)
 **Version:** 0.1
 **Effective Date:** TBD (pending approval)
-**Reviewed by:** Pending Covering Physician Review
+**Reviewed by:** Pending — Dr. Michael Napolitano, MD
 
 ---
 

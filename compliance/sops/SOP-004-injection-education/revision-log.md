@@ -11,7 +11,7 @@
 
 **Author:** Brian DeGuzman, MSO Owner (operational scaffolding)
 **Classification:** Initial draft
-**Approver:** Covering Physician (TBD)
+**Approver:** Covering Physician (TBD at time of issuance; now Dr. Michael Napolitano, MD)
 
 **Summary:** Initial draft of SOP-004 and five protocol attachments. Provisional pending Covering Physician approval per SOP-001 §5.6.
 

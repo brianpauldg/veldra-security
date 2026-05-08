@@ -5,8 +5,8 @@ version: "0.1"
 status: "Draft (Provisional pending Covering Physician approval per SOP-001 §5.6)"
 effective_date: "TBD (pending approval)"
 next_review_date: "12 months from effective date"
-owner: "Covering Physician (TBD — pending Doctors for Providers assignment); operational delegation to Brian DeGuzman, MSO Owner per SOP-001 §2.3"
-approver: "Covering Physician (clinical SOP per SOP-001 §2.3)"
+owner: "Dr. Michael Napolitano, MD; operational delegation to Brian DeGuzman, MSO Owner per SOP-001 §2.3"
+approver: "Dr. Michael Napolitano, MD (clinical SOP per SOP-001 §2.3)"
 classification: "INTERNAL — CLINICAL USE ONLY"
 provisional_end_date: "180 calendar days from initial provisional approval per SOP-001 §5.6"
 ---
@@ -18,8 +18,8 @@ provisional_end_date: "180 calendar days from initial provisional approval per S
 **Status:** Draft (Provisional pending Covering Physician approval per SOP-001 §5.6)
 **Effective Date:** TBD (pending approval)
 **Next Scheduled Review:** 12 months from effective date
-**Document Owner:** Covering Physician (TBD — pending Doctors for Providers assignment); operational delegation to Brian DeGuzman, MSO Owner per SOP-001 §2.3
-**Approving Authority:** Covering Physician (clinical SOP per SOP-001 §2.3)
+**Document Owner:** Dr. Michael Napolitano, MD; operational delegation to Brian DeGuzman, MSO Owner per SOP-001 §2.3
+**Approving Authority:** Dr. Michael Napolitano, MD (clinical SOP per SOP-001 §2.3)
 **Classification:** INTERNAL — CLINICAL USE ONLY
 **Provisional End Date:** 180 calendar days from initial provisional approval per SOP-001 §5.6
 
@@ -418,7 +418,7 @@ No formal patient-side training program is required beyond the protocol content 
 
 | Version | Date | Author | Description of Change | Approver |
 | --- | --- | --- | --- | --- |
-| 0.1 | 2026-05-03 | Brian DeGuzman, MSO Owner (operational scaffolding) | Initial draft. Provisional pending Covering Physician approval per SOP-001 §5.6. Five protocol attachments drafted using current evidence-based parameters. Three deliverable formats (Markdown, DOCX, PDF) generated from Markdown source. Website rendering deferred to separate Claude Code build prompt at `website-build/claude-code-prompt-website-protocol-pages.md`. Clinical content authority rests with the Covering Physician (TBD via Doctors for Providers). | Covering Physician (TBD) |
+| 0.1 | 2026-05-03 | Brian DeGuzman, MSO Owner (operational scaffolding) | Initial draft. Provisional pending Covering Physician approval per SOP-001 §5.6. Five protocol attachments drafted using current evidence-based parameters. Three deliverable formats (Markdown, DOCX, PDF) generated from Markdown source. Website rendering deferred to separate Claude Code build prompt at `website-build/claude-code-prompt-website-protocol-pages.md`. Clinical content authority rests with the Covering Physician (TBD at time of issuance). | Covering Physician (TBD at time of issuance) |
 
 ---
 
@@ -432,7 +432,7 @@ For clinical SOPs per [SOP-001 §2.3](../SOP-001-document-control/SOP-001-docume
 
 **Document Owner & Approving Authority (Covering Physician)**
 
-Name: _______________________________________________
+Name: Dr. Michael Napolitano, MD
 Title: Covering Physician, Bloom Metabolics PC
 License No.: _______________________________________________
 Signature: _______________________________________________
