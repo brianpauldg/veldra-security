@@ -1,24 +1,24 @@
 ---
 sop_id: "SOP-001"
 title: "Document Control & SOP Lifecycle Management"
-version: "0.3"
+version: "0.4"
 status: "Draft"
 effective_date: "TBD (pending approval)"
 next_review_date: "12 months from effective date"
 owner: "Brian, Owner / Registered Nurse"
-approver: "Covering Physician (TBD — pending Doctors for Providers retainer assignment)"
+approver: "Dr. Michael Napolitano, MD — Covering Physician / Medical Director"
 classification: "INTERNAL — CLINICAL & OPERATIONAL USE ONLY"
 ---
 
 # Document Control & SOP Lifecycle Management
 
 **SOP ID:** SOP-001
-**Version:** 0.3
+**Version:** 0.4
 **Status:** Draft
 **Effective Date:** TBD (pending approval)
 **Next Scheduled Review:** 12 months from effective date
 **Document Owner:** Brian, Owner / Registered Nurse
-**Approving Authority:** Covering Physician (TBD — pending Doctors for Providers retainer assignment)
+**Approving Authority:** Dr. Michael Napolitano, MD — Covering Physician / Medical Director
 **Classification:** INTERNAL — CLINICAL & OPERATIONAL USE ONLY
 
 ---
@@ -722,6 +722,7 @@ The following standards and regulations provide the basis for maintaining a form
 | 0.1 | 2026-05-02 | Brian | Initial draft. Pending covering physician review and approval. | TBD |
 | 0.2 | 2026-05-03 | Brian | Minor revision incorporating pre-physician-review structural and content refinements. Changes: (1) added §2.3 Corporate Structure Acknowledgment for MSO/PC framing; (2) defined Provisional status in §3; (3) added Provisional status guardrails (180-day max, 90-day counsel retention plan, quarterly reporting) in §5.6; (4) tiered operationalization windows (14/30/60 days) in §5.9; (5) two-path change request workflow (technical and non-technical) in §5.13; (6) wet signature alternative in §5.7; (7) clarified numbering convention (no pre-reservation) in §5.1; (8) added vendor change as accelerated review trigger in §5.10; (9) added Critical tier for regulatory conflicts with 4-hour physician contact in §7.3; (10) added CMIA and California Information Practices Act references in §9; (11) standardized ISO 8601 date format in §5.11.1; (12) restructured Notice block in master template and SOP-001. Classified as minor revision per SOP-001 §5.11 because the document remains in Draft status with no signatures or operationalization to disrupt. Subject to legal counsel review on items 1, 3, 6, and 10. | TBD |
 | 0.3 | 2026-05-03 | Brian | Minor revision resolving four internal contradictions identified in pre-physician-review second-pass audit. Changes: (1) reconciled §3 "Document Owner" definition with §2.3 by clarifying that the default owner depends on SOP type (MSO Owner for operational, Covering Physician for clinical, co-owned for hybrid); (2) reconciled §3 "Change Request" definition with §5.13's two-path workflow; (3) split §4 Owner row into MSO Owner and PC Owner rows reflecting the corporate practice structure; (4) corrected §5.6 reference to the Provisional disclosure mechanism to align with the restructured Notice block created in v0.2 Change #12. Classified as minor revision per §5.11.1 — non-substantive clarifications to existing definitions and roles, no procedural or scope changes. Three deferred items held for future revisions: timeline summary table consolidating all timing commitments, Attachment B-2 attestation form template, and review of SOP-001's own review cycle (currently 12 months). | TBD |
+| 0.4 | 2026-05-08 | Brian DeGuzman | Minor revision: (1) named Dr. Michael Napolitano, MD as Covering Physician / Medical Director in approver fields, header metadata, and signature block; (2) phentermine sweep — removed all references to phentermine as deferred or future scope across the SOP system (phentermine is permanently out of scope at Bloom Metabolics). Classified as minor revision per §5.11.1 — all affected documents remain in Draft status with no signatures or operationalization to disrupt. | Dr. Michael Napolitano, MD |
 
 ---
 
@@ -742,7 +743,7 @@ Date: _______________________________________________
 
 **Approving Authority — Covering Physician (Medical Director)**
 
-Name: _______________________________________________
+Name: Dr. Michael Napolitano, MD
 Title: _______________________________________________
 Medical License #: ___________________________________
 State: California

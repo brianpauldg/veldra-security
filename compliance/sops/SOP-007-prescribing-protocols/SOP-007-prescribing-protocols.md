@@ -1,24 +1,24 @@
 ---
 sop_id: "SOP-007"
 title: "Prescribing Protocols"
-version: "0.2"
+version: "0.3"
 status: "Draft"
 effective_date: "TBD (pending approval)"
 next_review_date: "12 months from effective date"
-owner: "Covering Physician (TBD — pending Doctors for Providers assignment)"
-approver: "Covering Physician (clinical SOP per SOP-001 §2.3)"
+owner: "Dr. Michael Napolitano, MD — Covering Physician / Medical Director"
+approver: "Dr. Michael Napolitano, MD — Covering Physician / Medical Director (clinical SOP per SOP-001 §2.3)"
 classification: "INTERNAL — CLINICAL USE ONLY"
 ---
 
 # Prescribing Protocols
 
 **SOP ID:** SOP-007
-**Version:** 0.2
+**Version:** 0.3
 **Status:** Draft
 **Effective Date:** TBD (pending approval)
 **Next Scheduled Review:** 12 months from effective date
-**Document Owner:** Covering Physician (TBD — pending Doctors for Providers assignment)
-**Approving Authority:** Covering Physician (clinical SOP per SOP-001 §2.3)
+**Document Owner:** Dr. Michael Napolitano, MD — Covering Physician / Medical Director
+**Approving Authority:** Dr. Michael Napolitano, MD — Covering Physician / Medical Director (clinical SOP per SOP-001 §2.3)
 **Classification:** INTERNAL — CLINICAL USE ONLY
 
 ---
@@ -41,7 +41,7 @@ This SOP is governed by [SOP-001 (Document Control & SOP Lifecycle Management)](
 
 ### Controlled Substance Notice
 
-> This SOP governs the prescribing of Schedule III controlled substances — specifically testosterone cypionate (200 mg/mL injectable solution) — under the Covering Physician's California DEA registration. The Covering Physician must maintain active California DEA registration, active CURES enrollment, and compliance with all applicable federal and state controlled substance regulations as a condition of prescribing under this SOP. Phentermine (Schedule IV) is explicitly deferred and out of scope at launch; no phentermine prescribing may occur under this SOP until a future SOP revision incorporates phentermine-specific protocols and the Covering Physician's DEA registration is verified for the applicable schedule. Any controlled substance prescribing that occurs outside the protocols defined herein constitutes a deviation requiring immediate documentation and escalation per section 7 of this SOP.
+> This SOP governs the prescribing of Schedule III controlled substances — specifically testosterone cypionate (200 mg/mL injectable solution) — under the Covering Physician's California DEA registration. The Covering Physician must maintain active California DEA registration, active CURES enrollment, and compliance with all applicable federal and state controlled substance regulations as a condition of prescribing under this SOP. Schedule III testosterone cypionate is the only controlled substance prescribed under this SOP. Any controlled substance prescribing that occurs outside the protocols defined herein constitutes a deviation requiring immediate documentation and escalation per section 7 of this SOP.
 
 ---
 
@@ -89,7 +89,6 @@ This SOP does NOT define specific medication doses, titration schedules, or clin
 
 ### 2.2 Out of Scope
 
-- **Phentermine prescribing** — Schedule IV; deferred at launch pending future SOP revision, DEA verification for the applicable schedule, and CURES protocol extension
 - **Peptide therapy prescribing details** — the Longevity service line is included in the structural framework, but specific peptide protocols (NAD+, glutathione, BPC-157) are deferred pending LegitScript certification and 503A/503B partner finalization; Attachment D will be populated upon resolution
 - **Other controlled substances** — no controlled substances other than Schedule III testosterone cypionate are prescribed under this SOP at launch
 - **Out-of-state prescribing** — Bloom Metabolics operates in California only at launch; multi-state prescribing requires SOP revision, state-specific DEA registration, and state-specific PDMP enrollment
@@ -761,8 +760,9 @@ The training boundary between clinical and operational roles is absolute and is 
 
 | Version | Date | Author | Description of Change | Approver |
 | --- | --- | --- | --- | --- |
-| 0.1 | 2026-05-06 | Brian DeGuzman (MSO — operational scaffolding) | Initial draft. All 12 sections structurally complete. Governance sections (1-4, 6-12) are fully drafted with no clinical markers. Section 5 (Procedure) contains `[CLINICAL — PENDING COVERING PHYSICIAN]` markers in subsections 5.2, 5.4, 5.5, 5.7, and 5.9 where service-line-specific clinical parameters, thresholds, and decision criteria must be set by the Covering Physician. Operational content in section 5 (pharmacy routing, fill tracking, refill workflow, symptom intake) is fully drafted. Attachments A through G listed but not yet populated. This SOP is a clinical SOP per SOP-001 section 2.3; the initial v0.1 draft was prepared as operational scaffolding by the MSO Owner; clinical content authority and final approval are the Covering Physician's responsibility. | Covering Physician (TBD) |
-| 0.2 | 2026-05-06 | Brian DeGuzman, RN (MSO Owner) | Minor revision applying second-pass audit findings before physician routing. Changes: (1) §3 Definition of EPCS, §5.3 step 2, and §9 Compliance References table updated to correct California EPCS mandate citation from Cal. H&S Code § 11159.2 to Cal. Bus. & Prof. Code § 688 (the actual statutory location of California's EPCS mandate); (2) §3 Definition of CURES and §5.4 CURES check requirement step 2 updated to correct the statutory CURES consultation frequency from "every four months" to "every six months" per Cal. Health & Safety Code § 11165.4; (3) §5.9 compounded GLP-1 medical necessity criterion (4) "other patient-specific clinical reason" converted to a `[CLINICAL — PENDING COVERING PHYSICIAN]` marker to preserve clinical authority over the standard rather than defaulting to a broad MSO-defined catch-all that would undermine the conservative default-branded posture. Classified as minor revision per SOP-001 §5.11.1 — regulatory citation corrections and clinical-authority preservation with no procedural or scope changes. Five additional issues identified in audit (Schedule III refill rule citation precision, async refill "flagged symptom" operational definition, six-month synchronous encounter clock-reset timing, attachment naming consistency, and phentermine boundary handling) are deferred to Covering Physician's first review pass since they require physician input or are cosmetic. | Covering Physician (TBD) |
+| 0.1 | 2026-05-06 | Brian DeGuzman (MSO — operational scaffolding) | Initial draft. All 12 sections structurally complete. Governance sections (1-4, 6-12) are fully drafted with no clinical markers. Section 5 (Procedure) contains `[CLINICAL — PENDING COVERING PHYSICIAN]` markers in subsections 5.2, 5.4, 5.5, 5.7, and 5.9 where service-line-specific clinical parameters, thresholds, and decision criteria must be set by the Covering Physician. Operational content in section 5 (pharmacy routing, fill tracking, refill workflow, symptom intake) is fully drafted. Attachments A through G listed but not yet populated. This SOP is a clinical SOP per SOP-001 section 2.3; the initial v0.1 draft was prepared as operational scaffolding by the MSO Owner; clinical content authority and final approval are the Covering Physician's responsibility. | Dr. Michael Napolitano, MD |
+| 0.2 | 2026-05-06 | Brian DeGuzman, RN (MSO Owner) | Minor revision applying second-pass audit findings before physician routing. Changes: (1) §3 Definition of EPCS, §5.3 step 2, and §9 Compliance References table updated to correct California EPCS mandate citation from Cal. H&S Code § 11159.2 to Cal. Bus. & Prof. Code § 688 (the actual statutory location of California's EPCS mandate); (2) §3 Definition of CURES and §5.4 CURES check requirement step 2 updated to correct the statutory CURES consultation frequency from "every four months" to "every six months" per Cal. Health & Safety Code § 11165.4; (3) §5.9 compounded GLP-1 medical necessity criterion (4) "other patient-specific clinical reason" converted to a `[CLINICAL — PENDING COVERING PHYSICIAN]` marker to preserve clinical authority over the standard rather than defaulting to a broad MSO-defined catch-all that would undermine the conservative default-branded posture. Classified as minor revision per SOP-001 §5.11.1 — regulatory citation corrections and clinical-authority preservation with no procedural or scope changes. Five additional issues identified in audit (Schedule III refill rule citation precision, async refill "flagged symptom" operational definition, six-month synchronous encounter clock-reset timing, attachment naming consistency, and phentermine boundary handling) are deferred to Covering Physician's first review pass since they require physician input or are cosmetic. | Dr. Michael Napolitano, MD |
+| 0.3 | 2026-05-08 | Brian DeGuzman, RN (MSO Owner) | Minor revision: (1) named Dr. Michael Napolitano, MD as Covering Physician / Medical Director in owner/approver fields, header metadata, and signature block; (2) phentermine permanently removed from scope — all "deferred pending DEA" references replaced with permanent exclusion; Controlled Substance Notice updated to state testosterone cypionate is the only controlled substance under this SOP. Classified as minor per SOP-001 §5.11.1 — document remains in Draft. | Dr. Michael Napolitano, MD |
 
 ---
 
@@ -776,7 +776,7 @@ This is a clinical SOP per [SOP-001 section 2.3](../SOP-001-document-control/SOP
 
 **Document Owner & Approving Authority — Covering Physician (Medical Director)**
 
-Name: _______________________________________________
+Name: Dr. Michael Napolitano, MD
 Title: _______________________________________________
 Medical License #: ___________________________________
 State: California

@@ -1,24 +1,24 @@
 ---
 sop_id: "SOP-006"
 title: "Lab Ordering & Review"
-version: "0.2"
+version: "0.3"
 status: "Draft"
 effective_date: "TBD (pending approval)"
 next_review_date: "12 months from effective date"
-owner: "Hybrid — Covering Physician (clinical content) + Brian DeGuzman, RN (operational content)"
-approver: "Dual — Covering Physician (clinical components) + Brian DeGuzman, RN (operational components)"
+owner: "Hybrid — Dr. Michael Napolitano, MD (clinical content) + Brian DeGuzman, RN (operational content)"
+approver: "Dual — Dr. Michael Napolitano, MD (clinical components) + Brian DeGuzman, RN (operational components)"
 classification: "INTERNAL — CLINICAL AND OPERATIONAL USE"
 ---
 
 # Lab Ordering & Review
 
 **SOP ID:** SOP-006
-**Version:** 0.2
+**Version:** 0.3
 **Status:** Draft
 **Effective Date:** TBD (pending approval)
 **Next Scheduled Review:** 12 months from effective date
-**Document Owner:** Hybrid — Covering Physician (clinical content) + Brian DeGuzman, RN (operational content)
-**Approving Authority:** Dual — Covering Physician (clinical components) + Brian DeGuzman, RN (operational components)
+**Document Owner:** Hybrid — Dr. Michael Napolitano, MD (clinical content) + Brian DeGuzman, RN (operational content)
+**Approving Authority:** Dual — Dr. Michael Napolitano, MD (clinical components) + Brian DeGuzman, RN (operational components)
 **Classification:** INTERNAL — CLINICAL AND OPERATIONAL USE
 
 ---
@@ -89,7 +89,6 @@ This SOP does not govern clinical interpretation of lab results for the purpose 
 - **Insurance billing for laboratory services** — Bloom is a cash-pay practice; labs are bundled into the service tier price and are not billed to insurance
 - **Lab interpretation for prescribing decisions** — clinical interpretation that informs prescribing is governed by future Prescribing SOPs per service line; this SOP governs the logistics of getting results to the physician and communicating outcomes to the patient
 - **Specialty or esoteric laboratory testing** — tests requiring reference laboratories beyond LabCorp's standard panels (e.g., genetic panels, advanced endocrine assays) are not covered and require ad hoc ordering outside this SOP
-- **Phentermine-related labs** — deferred pending DEA registration
 - **Peptide therapy-related labs** — deferred pending LegitScript certification and SP Bio Labs 503A licensure
 
 ---
@@ -630,6 +629,7 @@ The training boundary between clinical and operational roles is absolute:
 | --- | --- | --- | --- |
 | 0.1 | 2026-05-05 | Brian DeGuzman, RN (MSO Owner) | Initial draft. All 12 sections structurally complete. Operational sections fully drafted. Clinical sections contain `[CLINICAL — PENDING COVERING PHYSICIAN]` markers where physician input is required. Attachments A through F listed but not yet populated. |
 | 0.2 | 2026-05-05 | Brian DeGuzman, RN (MSO Owner) | Minor revision applying second-pass audit findings before MSO Owner signature on operational components. Changes: (1) §12 Provisional Operation Notice updated to align hybrid SOP Provisional timing with SOP-001 §5.6 standard 180-day clock instead of introducing a separate 60-day mechanism that would have required SOP-001 amendment; (2) §9 California regulatory citation corrected from B&P §1288 (which addresses bioanalyst training program approval) to CLIA 42 CFR §493.1241 (test result reporting); (3) §5.8 integration restoration verification process clarified to specify two operationally-executable verification methods (next live order or vendor-side test transmission) instead of unspecified "test order" that would have required a fake patient record. Classified as minor revision per SOP-001 §5.11.1 — non-substantive clarifications and citation corrections with no procedural or scope changes. Five additional issues identified in audit (SLA realism, Provisional fallback symmetry across service lines, Lab Cost Watch threshold change pathway, service tier add-on volume trigger, and attachment naming consistency) are deferred to Covering Physician's first review pass since they are clinical-adjacent or require operational experience to calibrate. |
+| 0.3 | 2026-05-08 | Brian DeGuzman, RN (MSO Owner) | Minor revision: (1) named Dr. Michael Napolitano, MD as Covering Physician in clinical owner/approver fields, header metadata, and signature block; (2) removed phentermine references — permanently out of scope. Classified as minor per SOP-001 §5.11.1. |
 
 ---
 
@@ -641,7 +641,7 @@ By signing below, the Covering Physician certifies that the clinical content of 
 
 | Field | Value |
 | --- | --- |
-| Name | __________________________________________ |
+| Name | Dr. Michael Napolitano, MD |
 | Title | Covering Physician, Bloom Metabolics Professional Corporation |
 | Signature | __________________________________________ |
 | Date | __________________________________________ |

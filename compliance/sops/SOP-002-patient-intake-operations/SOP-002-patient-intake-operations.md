@@ -1,7 +1,7 @@
 ---
 sop_id: "SOP-002"
 title: "Patient Intake Operations"
-version: "0.1"
+version: "0.3"
 status: "Draft"
 effective_date: "TBD (pending approval)"
 next_review_date: "12 months from effective date"
@@ -13,7 +13,7 @@ classification: "INTERNAL — OPERATIONAL USE ONLY"
 # Patient Intake Operations
 
 **SOP ID:** SOP-002
-**Version:** 0.1
+**Version:** 0.3
 **Status:** Draft
 **Effective Date:** TBD (pending approval)
 **Next Scheduled Review:** 12 months from effective date
@@ -129,7 +129,7 @@ The clinical electronic health record maintained in OptiMantra for each patient.
 The unique identifier returned by Corepay upon successful payment processing. This reference is stored in OptiMantra as part of the patient record. No card data passes through Bloom Metabolics systems.
 
 **Service Line**
-A category of clinical services offered by Bloom Metabolics. Service lines at launch: Testosterone Replacement Therapy (TRT), GLP-1/GIP Weight Management (semaglutide, tirzepatide), Sexual Health (PT-141, tadalafil, sildenafil), and Longevity (NAD+, glutathione). Phentermine and peptide therapy are deferred pending DEA registration and LegitScript certification, respectively.
+A category of clinical services offered by Bloom Metabolics. Service lines at launch: Testosterone Replacement Therapy (TRT), GLP-1/GIP Weight Management (semaglutide, tirzepatide), Sexual Health (PT-141, tadalafil, sildenafil), and Longevity (NAD+, glutathione). Peptide therapy is deferred pending LegitScript certification.
 
 ---
 
@@ -531,6 +531,7 @@ Competency is demonstrated by:
 | Version | Date | Author | Description of Change | Approver |
 | --- | --- | --- | --- | --- |
 | 0.1 | 2026-05-03 | Brian DeGuzman | Initial draft. SOP-002 is an operational SOP per SOP-001 §2.3 and is approved by the MSO Owner. Coupled with SOP-003 (Clinical Eligibility Screening) which is PC-owned and pending Covering Physician assignment. | Brian DeGuzman, MSO Owner |
+| 0.3 | 2026-05-08 | Brian DeGuzman, MSO Owner | Minor revision: removed phentermine references — phentermine is permanently out of scope at Bloom Metabolics, not deferred. Classified as minor per SOP-001 §5.11.1. | Brian DeGuzman, MSO Owner |
 
 ---
 

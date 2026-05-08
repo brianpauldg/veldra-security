@@ -104,7 +104,7 @@ Once SOP-001 is approved, I anticipate sending you clinical SOPs for review at a
 | 4 | GLP-1 / GIP Clinical Protocol (semaglutide, tirzepatide) | Long |
 | 5 | Sexual Health Protocol (PT-141, tadalafil, sildenafil) | Medium |
 | 5 | Mental Health Crisis Escalation | Short |
-| 6 | Controlled Substance Handling (phentermine specific) | Medium |
+| 6 | Controlled Substance Handling | Medium |
 | 6 | Emergency Adverse Event Protocols | Medium |
 
 This cadence is approximate. Regulatory developments, adverse events, and your availability may shift it. I will give you advance notice of each SOP's transmission so you can plan review time.

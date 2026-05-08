@@ -1,7 +1,7 @@
 # Bloom Metabolics — SOP Master Index
 
 **Classification:** INTERNAL — CLINICAL & OPERATIONAL USE ONLY
-**Last Updated:** 2026-05-06
+**Last Updated:** 2026-05-08
 **Maintained By:** Brian, Owner / Registered Nurse
 
 ---
@@ -10,12 +10,12 @@
 
 | SOP ID | Title | Version | Status | Effective Date | Next Review | Owner | Approver | File |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| SOP-001 | Document Control & SOP Lifecycle Management | 0.3 | Draft | TBD | TBD | Brian | Covering Physician (TBD) | [SOP-001](sops/SOP-001-document-control/SOP-001-document-control.md) |
-| SOP-002 | Patient Intake Operations | 0.1 | Draft | TBD | TBD | Brian DeGuzman | Brian DeGuzman | [SOP-002](sops/SOP-002-patient-intake-operations/SOP-002-patient-intake-operations.md) |
-| SOP-003 | Clinical Eligibility Screening | 0.1 | Draft (Physician-Pending) | TBD | TBD | Covering Physician (TBD) | Covering Physician (TBD) | [SOP-003](sops/SOP-003-clinical-eligibility-screening/SOP-003-clinical-eligibility-screening.md) |
-| SOP-005 | Synchronous Telehealth Visit | 0.1 | Draft (Physician-Pending) | TBD | TBD | Covering Physician (TBD) | Covering Physician (TBD) | [SOP-005](sops/SOP-005-synchronous-telehealth-visit/SOP-005-synchronous-telehealth-visit.md) |
-| SOP-006 | Lab Ordering & Review | 0.2 | Draft (Hybrid — Physician-Pending) | TBD | TBD | Hybrid: Covering Physician (TBD) + Brian DeGuzman | Hybrid: Both signatures required | [SOP-006](sops/SOP-006-lab-ordering-and-review/SOP-006-lab-ordering-and-review.md) |
-| SOP-007 | Prescribing Protocols | 0.2 | Draft (Physician-Pending) | TBD | TBD | Covering Physician (TBD) | Covering Physician (TBD) | [SOP-007](sops/SOP-007-prescribing-protocols/SOP-007-prescribing-protocols.md) |
+| SOP-001 | Document Control & SOP Lifecycle Management | 0.4 | Draft | TBD | TBD | Brian | Dr. Michael Napolitano, MD | [SOP-001](sops/SOP-001-document-control/SOP-001-document-control.md) |
+| SOP-002 | Patient Intake Operations | 0.3 | Draft | TBD | TBD | Brian DeGuzman | Brian DeGuzman | [SOP-002](sops/SOP-002-patient-intake-operations/SOP-002-patient-intake-operations.md) |
+| SOP-003 | Clinical Eligibility Screening | 0.2 | Draft (Physician-Pending) | TBD | TBD | Dr. Michael Napolitano, MD | Dr. Michael Napolitano, MD | [SOP-003](sops/SOP-003-clinical-eligibility-screening/SOP-003-clinical-eligibility-screening.md) |
+| SOP-005 | Synchronous Telehealth Visit | 0.2 | Draft (Physician-Pending) | TBD | TBD | Dr. Michael Napolitano, MD | Dr. Michael Napolitano, MD | [SOP-005](sops/SOP-005-synchronous-telehealth-visit/SOP-005-synchronous-telehealth-visit.md) |
+| SOP-006 | Lab Ordering & Review | 0.3 | Draft (Hybrid — Physician-Pending) | TBD | TBD | Hybrid: Dr. Michael Napolitano, MD + Brian DeGuzman | Hybrid: Both signatures required | [SOP-006](sops/SOP-006-lab-ordering-and-review/SOP-006-lab-ordering-and-review.md) |
+| SOP-007 | Prescribing Protocols | 0.3 | Draft (Physician-Pending) | TBD | TBD | Dr. Michael Napolitano, MD | Dr. Michael Napolitano, MD | [SOP-007](sops/SOP-007-prescribing-protocols/SOP-007-prescribing-protocols.md) |
 
 ---
 

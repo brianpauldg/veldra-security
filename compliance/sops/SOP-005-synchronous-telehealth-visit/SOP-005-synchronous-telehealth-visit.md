@@ -1,24 +1,24 @@
 ---
 sop_id: "SOP-005"
 title: "Synchronous Telehealth Visit"
-version: "0.1"
+version: "0.2"
 status: "Draft"
 effective_date: "TBD (pending approval)"
 next_review_date: "12 months from effective date"
-owner: "Covering Physician (TBD — pending Doctors for Providers assignment)"
-approver: "Covering Physician (clinical SOP per SOP-001 §2.3)"
+owner: "Dr. Michael Napolitano, MD — Covering Physician / Medical Director"
+approver: "Dr. Michael Napolitano, MD — Covering Physician / Medical Director"
 classification: "INTERNAL — CLINICAL USE ONLY"
 ---
 
 # Synchronous Telehealth Visit
 
 **SOP ID:** SOP-005
-**Version:** 0.1
+**Version:** 0.2
 **Status:** Draft
 **Effective Date:** TBD (pending approval)
 **Next Scheduled Review:** 12 months from effective date
-**Document Owner:** Covering Physician (TBD — pending Doctors for Providers assignment)
-**Approving Authority:** Covering Physician (clinical SOP per SOP-001 §2.3)
+**Document Owner:** Dr. Michael Napolitano, MD — Covering Physician / Medical Director
+**Approving Authority:** Dr. Michael Napolitano, MD — Covering Physician / Medical Director
 **Classification:** INTERNAL — CLINICAL USE ONLY
 
 ---
@@ -90,7 +90,6 @@ This SOP does NOT address:
 - Follow-up visit scheduling and cadence (governed by future Follow-Up Visit SOP)
 - Refill and renewal workflows (governed by future Refill & Renewal SOP)
 - Post-treatment monitoring protocols (governed by future Monitoring SOPs)
-- Phentermine prescribing visits (deferred pending DEA registration)
 - Peptide therapy prescribing visits (deferred pending LegitScript certification and SP Bio Labs 503A licensure)
 - In-person physical examination (Bloom Metabolics is a telehealth-only practice; all clinical encounters are conducted via synchronous video)
 
@@ -631,7 +630,8 @@ The MSO Owner and any future MSO Intake Staff involved in the synchronous telehe
 
 | Version | Date | Author | Description of Change | Approver |
 | --- | --- | --- | --- | --- |
-| 0.1 | 2026-05-05 | Brian DeGuzman (MSO — operational scaffolding) | Initial draft. Governance sections (1-4, 6-12) are structurally complete. Section 5 (Procedure) and attachments contain `[CLINICAL — PENDING COVERING PHYSICIAN]` markers to be populated by the Covering Physician upon assignment. This SOP is a clinical SOP per SOP-001 section 2.3; the initial v0.1 draft was prepared as operational scaffolding by the MSO Owner; clinical content authority and final approval are the Covering Physician's responsibility. | Covering Physician (TBD) |
+| 0.1 | 2026-05-05 | Brian DeGuzman (MSO — operational scaffolding) | Initial draft. Governance sections (1-4, 6-12) are structurally complete. Section 5 (Procedure) and attachments contain `[CLINICAL — PENDING COVERING PHYSICIAN]` markers to be populated by the Covering Physician upon assignment. This SOP is a clinical SOP per SOP-001 section 2.3; the initial v0.1 draft was prepared as operational scaffolding by the MSO Owner; clinical content authority and final approval are the Covering Physician's responsibility. | Dr. Michael Napolitano, MD |
+| 0.2 | 2026-05-08 | Brian DeGuzman (MSO — operational scaffolding) | Minor revision: (1) named Dr. Michael Napolitano, MD as Covering Physician / Medical Director; (2) removed phentermine references — permanently out of scope. Classified as minor revision per SOP-001 §5.11.1. | Dr. Michael Napolitano, MD |
 
 ---
 
@@ -645,7 +645,7 @@ This is a clinical SOP per [SOP-001 section 2.3](../SOP-001-document-control/SOP
 
 **Document Owner & Approving Authority — Covering Physician (Medical Director)**
 
-Name: _______________________________________________
+Name: Dr. Michael Napolitano, MD
 Title: _______________________________________________
 Medical License #: ___________________________________
 State: California
