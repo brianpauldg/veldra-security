@@ -3,7 +3,7 @@ protocol_id: "Protocol-005"
 title: "TB-500 (Thymosin Beta-4) — Subcutaneous Injection Instructions (FUTURE)"
 medication: "TB-500 (Thymosin Beta-4 Fragment)"
 route: "Subcutaneous (SubQ)"
-version: "0.1"
+version: "0.2"
 status: "FUTURE — NOT CURRENTLY OPERATIVE"
 effective_date: "TBD (post-LegitScript certification)"
 reviewed_by: "Pending — Dr. Michael Napolitano, MD"
@@ -19,7 +19,7 @@ parent_sop: "SOP-004"
 **Protocol ID:** Protocol-005
 **Medication:** TB-500 (Thymosin Beta-4 Fragment)
 **Route:** Subcutaneous (SubQ)
-**Version:** 0.1
+**Version:** 0.2
 **Effective Date:** TBD (post-LegitScript certification)
 **Reviewed by:** Pending — Dr. Michael Napolitano, MD
 

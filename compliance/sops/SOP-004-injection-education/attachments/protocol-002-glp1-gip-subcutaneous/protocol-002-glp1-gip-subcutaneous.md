@@ -3,7 +3,7 @@ protocol_id: "Protocol-002"
 title: "GLP-1/GIP Agonist — Subcutaneous Injection Instructions"
 medication: "Semaglutide / Tirzepatide"
 route: "Subcutaneous (SubQ)"
-version: "0.1"
+version: "0.2"
 status: "Draft (Provisional pending Covering Physician approval)"
 effective_date: "TBD"
 reviewed_by: "Pending — Dr. Michael Napolitano, MD"
@@ -17,7 +17,7 @@ parent_sop: "SOP-004"
 **Protocol ID:** Protocol-002
 **Medication:** Semaglutide / Tirzepatide (GLP-1/GIP Agonist)
 **Route:** Subcutaneous (SubQ)
-**Version:** 0.1
+**Version:** 0.2
 **Effective Date:** TBD (pending approval)
 **Reviewed by:** Pending — Dr. Michael Napolitano, MD
 
