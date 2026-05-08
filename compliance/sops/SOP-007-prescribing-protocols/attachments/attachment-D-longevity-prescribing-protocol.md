@@ -193,7 +193,7 @@ The following patient education topics must be addressed and documented before o
 
 ### Injection Technique
 
-- Self-administration of subcutaneous injection for both NAD+ and glutathione. Reference [SOP-004](../../SOP-004-self-injection-training/SOP-004-self-injection-training.md) if applicable for injection training protocol.
+- Self-administration of subcutaneous injection for both NAD+ and glutathione. Reference [SOP-004](../../SOP-004-injection-education/SOP-004-injection-education.md) if applicable for injection training protocol.
 - Injection site rotation to minimize local reactions.
 - Proper sharps disposal.
 

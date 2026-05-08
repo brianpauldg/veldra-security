@@ -208,7 +208,7 @@ The following patient education topics must be addressed and documented before o
 
 ### PT-141 Education
 
-- **Injection technique:** Self-administration of subcutaneous injection. Reference [SOP-004](../../SOP-004-self-injection-training/SOP-004-self-injection-training.md) if applicable for injection training protocol.
+- **Injection technique:** Self-administration of subcutaneous injection. Reference [SOP-004](../../SOP-004-injection-education/SOP-004-injection-education.md) if applicable for injection training protocol.
 - **Blood pressure awareness:** Patient should be counseled that transient blood pressure elevation is expected and typically self-limited.
 - **Nausea management:** Most common side effect. Patient should be advised on timing relative to meals and symptom expectations.
 - **Hyperpigmentation disclosure:** Repeated use may cause focal skin darkening. Patient should report any new or changing skin pigmentation.

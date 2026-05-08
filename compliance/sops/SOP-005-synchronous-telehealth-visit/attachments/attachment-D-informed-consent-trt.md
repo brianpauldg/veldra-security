@@ -24,7 +24,7 @@ Testosterone is classified as a Schedule III controlled substance under the Cont
 
 ### 2. How Is It Administered?
 
-Testosterone Cypionate is administered via intramuscular injection. Patients who elect self-administration will be trained in accordance with [SOP-004 Protocol 001 — TRT Intramuscular Self-Administration](../../SOP-004-self-administration-protocols/attachments/protocol-001-trt-intramuscular.md) prior to initiating home injection.
+Testosterone Cypionate is administered via intramuscular injection. Patients who elect self-administration will be trained in accordance with [SOP-004 Protocol 001 — TRT Intramuscular Self-Administration](../../SOP-004-injection-education/attachments/protocol-001-trt-intramuscular.md) prior to initiating home injection.
 
 `[CLINICAL — PENDING COVERING PHYSICIAN: Specify injection site(s), needle gauge, injection frequency (e.g., weekly, biweekly), typical starting dose range, and any dose adjustment criteria.]`
 
@@ -112,7 +112,7 @@ Patients commonly report improvements in energy, mood, libido, body composition,
 
 3. **Ongoing Treatment.** TRT is typically an ongoing therapy. Abrupt discontinuation may result in a return of hypogonadal symptoms and a period of suppressed endogenous production before recovery.
 
-4. **Self-Administration Responsibility.** Patients who self-administer injections accept responsibility for following the self-administration protocol as trained. Refer to [SOP-004 Protocol 001](../../SOP-004-self-administration-protocols/attachments/protocol-001-trt-intramuscular.md) for technique, sharps disposal, and adverse event reporting procedures.
+4. **Self-Administration Responsibility.** Patients who self-administer injections accept responsibility for following the self-administration protocol as trained. Refer to [SOP-004 Protocol 001](../../SOP-004-injection-education/attachments/protocol-001-trt-intramuscular.md) for technique, sharps disposal, and adverse event reporting procedures.
 
 5. **Telehealth Limitations.** This treatment is prescribed and managed via synchronous telehealth. Physical examination is limited to what can be assessed via audiovisual technology. The physician may require an in-person visit or referral to a local provider if clinical circumstances warrant.
 
