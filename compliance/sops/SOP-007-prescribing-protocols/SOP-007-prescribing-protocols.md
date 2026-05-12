@@ -1,7 +1,7 @@
 ---
 sop_id: "SOP-007"
 title: "Prescribing Protocols"
-version: "0.3"
+version: "0.4"
 status: "Draft"
 effective_date: "TBD (pending approval)"
 next_review_date: "12 months from effective date"
@@ -13,7 +13,7 @@ classification: "INTERNAL — CLINICAL USE ONLY"
 # Prescribing Protocols
 
 **SOP ID:** SOP-007
-**Version:** 0.3
+**Version:** 0.4
 **Status:** Draft
 **Effective Date:** TBD (pending approval)
 **Next Scheduled Review:** 12 months from effective date
@@ -61,7 +61,7 @@ Specifically, this SOP defines:
 - **Prescribing documentation requirements** that produce a complete, auditable medico-legal record in OptiMantra for every prescribing event
 - **Pharmacy coordination** protocols covering prescription transmission, fill-status tracking, pharmacy communication, and supply-chain disruption management
 - **Compounded GLP-1 exception pathway** for patients requiring compounded semaglutide or tirzepatide under FDA 503A medical necessity when FDA-approved branded products are the default
-- Interfaces with [SOP-005 (Synchronous Telehealth Visit)](../SOP-005-synchronous-telehealth-visit/SOP-005-synchronous-telehealth-visit.md), [SOP-006 (Lab Ordering & Review)](../SOP-006-lab-ordering-and-review/SOP-006-lab-ordering-and-review.md), and future SOPs governing adverse events, treatment discontinuation, follow-up visits, and patient communication
+- Interfaces with [SOP-005 (Synchronous Telehealth Visit)](../SOP-005-synchronous-telehealth-visit/SOP-005-synchronous-telehealth-visit.md), [SOP-006 (Lab Ordering & Review)](../SOP-006-lab-ordering-and-review/SOP-006-lab-ordering-and-review.md), [SOP-008 (Adverse Event & Incident Reporting)](../SOP-008-adverse-event-reporting/SOP-008-adverse-event-reporting.md), and future SOPs governing treatment discontinuation, follow-up visits, and patient communication
 
 This SOP does NOT define specific medication doses, titration schedules, or clinical decision thresholds. Those parameters are set by the Covering Physician in the service-line attachments (Attachments A through D) and in the `[CLINICAL — PENDING COVERING PHYSICIAN]` markers within section 5. This SOP provides the structural and operational framework within which those clinical parameters operate.
 
@@ -217,7 +217,7 @@ Every patient is assigned to one of three treatment phases for each service line
 
 - **Entry:** Covering Physician documents that the patient meets stable maintenance criteria
 - **Characteristics:** Stable dose; reduced monitoring frequency; eligible for async refill (non-controlled) or modified-async refill (controlled); scheduled synchronous encounters at defined intervals
-- **Exit criteria:** Maintenance does not have a terminal exit — the patient remains in Maintenance as long as the regimen is stable and effective. Exit occurs only upon dose adjustment (returns to Titration), treatment discontinuation, adverse event, or patient request
+- **Exit criteria:** Maintenance does not have a terminal exit — the patient remains in Maintenance as long as the regimen is stable and effective. Exit occurs only upon dose adjustment (returns to Titration), treatment discontinuation, adverse event (see [SOP-008](../SOP-008-adverse-event-reporting/SOP-008-adverse-event-reporting.md)), or patient request
 
 `[CLINICAL — PENDING COVERING PHYSICIAN: Define the service-line-specific Maintenance phase parameters for each service line in Attachments A through D, including: stable maintenance criteria (lab ranges, symptom status, adherence); monitoring lab cadence during Maintenance; mandatory synchronous encounter interval; and criteria for returning a patient from Maintenance to Titration.]`
 
@@ -504,7 +504,7 @@ This section consolidates the documentation requirements for all prescribing-rel
 | Pharmacy rejection documented | Rejection reason, date, physician notification, re-routing decision | OptiMantra — prescription record + chart note |
 | Patient-reported symptom received | Verbatim report, date, channel, routing priority, physician review and determination | OptiMantra — chart note |
 | Compounded GLP-1 medical necessity documented | Criterion, supporting evidence, 503A notation, re-evaluation schedule | OptiMantra — chart note |
-| Adverse event flag (prescribing-related) | Event description, date, severity, medication suspected, physician assessment, action taken | OptiMantra — chart note (flagged for future AE SOP) |
+| Adverse event flag (prescribing-related) | Event description, date, severity, medication suspected, physician assessment, action taken | OptiMantra — chart note (cross-referenced to AE Register per [SOP-008](../SOP-008-adverse-event-reporting/SOP-008-adverse-event-reporting.md)) |
 | Patient communication (prescribing-related) | Date, channel, communicator, content summary, patient response | OptiMantra — patient communication log |
 
 ---
@@ -597,7 +597,7 @@ This section consolidates the documentation requirements for all prescribing-rel
 1. MSO Intake Staff routes the report to the Covering Physician per the priority classification in section 5.8.
 2. The Covering Physician assesses the report and determines causality (definitely related, probably related, possibly related, unlikely related, unrelated).
 3. The Covering Physician determines the clinical response: continue current regimen with monitoring, dose adjustment (section 5.7), medication hold, treatment discontinuation, or referral to emergency services or specialist.
-4. If the adverse effect is serious (as defined by FDA: results in death, is life-threatening, requires hospitalization, results in persistent or significant disability, or is a congenital anomaly), the Covering Physician documents the event and flags it for reporting under the future Adverse Event Reporting SOP.
+4. If the adverse effect is serious (as defined by FDA: results in death, is life-threatening, requires hospitalization, results in persistent or significant disability, or is a congenital anomaly), the Covering Physician documents the event and flags it for reporting under [SOP-008 (Adverse Event & Incident Reporting)](../SOP-008-adverse-event-reporting/SOP-008-adverse-event-reporting.md) §5.4 (Serious Adverse Event Handling).
 5. All adverse effect assessments and responses are documented in OptiMantra with the date, patient's report, physician's assessment, causality determination, and action taken.
 
 ### 7.7 Strive Pharmacy or Compounding Partner Operational Disruption
@@ -748,7 +748,7 @@ The training boundary between clinical and operational roles is absolute and is 
 
 | Document | Relationship |
 | --- | --- |
-| Adverse Event Reporting SOP | Will govern formal adverse event documentation and reporting; referenced in section 7.6 |
+| [SOP-008 — Adverse Event & Incident Reporting](../SOP-008-adverse-event-reporting/SOP-008-adverse-event-reporting.md) | Governs formal adverse event documentation, severity/causality assessment, FDA voluntary reporting, HIPAA breach handling, and quality improvement. Referenced in section 7.6. |
 | Treatment Discontinuation SOP | Will govern formal treatment discontinuation procedures; referenced in section 7.8 |
 | Follow-Up Visit SOP | Will govern synchronous follow-up encounters referenced in treatment phase cadences |
 | Refill & Renewal SOP | May consolidate refill pathway procedures from this SOP into a standalone operational document as volume grows |
@@ -763,6 +763,7 @@ The training boundary between clinical and operational roles is absolute and is 
 | 0.1 | 2026-05-06 | Brian DeGuzman (MSO — operational scaffolding) | Initial draft. All 12 sections structurally complete. Governance sections (1-4, 6-12) are fully drafted with no clinical markers. Section 5 (Procedure) contains `[CLINICAL — PENDING COVERING PHYSICIAN]` markers in subsections 5.2, 5.4, 5.5, 5.7, and 5.9 where service-line-specific clinical parameters, thresholds, and decision criteria must be set by the Covering Physician. Operational content in section 5 (pharmacy routing, fill tracking, refill workflow, symptom intake) is fully drafted. Attachments A through G listed but not yet populated. This SOP is a clinical SOP per SOP-001 section 2.3; the initial v0.1 draft was prepared as operational scaffolding by the MSO Owner; clinical content authority and final approval are the Covering Physician's responsibility. | Covering Physician (TBD at time of issuance) |
 | 0.2 | 2026-05-06 | Brian DeGuzman, RN (MSO Owner) | Minor revision applying second-pass audit findings before physician routing. Changes: (1) §3 Definition of EPCS, §5.3 step 2, and §9 Compliance References table updated to correct California EPCS mandate citation from Cal. H&S Code § 11159.2 to Cal. Bus. & Prof. Code § 688 (the actual statutory location of California's EPCS mandate); (2) §3 Definition of CURES and §5.4 CURES check requirement step 2 updated to correct the statutory CURES consultation frequency from "every four months" to "every six months" per Cal. Health & Safety Code § 11165.4; (3) §5.9 compounded GLP-1 medical necessity criterion (4) "other patient-specific clinical reason" converted to a `[CLINICAL — PENDING COVERING PHYSICIAN]` marker to preserve clinical authority over the standard rather than defaulting to a broad MSO-defined catch-all that would undermine the conservative default-branded posture. Classified as minor revision per SOP-001 §5.11.1 — regulatory citation corrections and clinical-authority preservation with no procedural or scope changes. Five additional issues identified in audit (Schedule III refill rule citation precision, async refill "flagged symptom" operational definition, six-month synchronous encounter clock-reset timing, attachment naming consistency, and phentermine boundary handling) are deferred to Covering Physician's first review pass since they require physician input or are cosmetic. | Covering Physician (TBD at time of issuance) |
 | 0.3 | 2026-05-08 | Brian DeGuzman, RN (MSO Owner) | Minor revision: (1) named Dr. Michael Napolitano, MD as Covering Physician / Medical Director in owner/approver fields, header metadata, and signature block; (2) phentermine permanently removed from scope — all "deferred pending DEA" references replaced with permanent exclusion; Controlled Substance Notice updated to state testosterone cypionate is the only controlled substance under this SOP. Classified as minor per SOP-001 §5.11.1 — document remains in Draft. | Dr. Michael Napolitano, MD |
+| 0.4 | 2026-05-11 | Brian DeGuzman, RN (MSO Owner) | Minor revision per SOP-001 §5.11.1: cross-reference backfill. All forward references to "future Adverse Event Reporting SOP" updated to point to [SOP-008 (Adverse Event & Incident Reporting)](../SOP-008-adverse-event-reporting/SOP-008-adverse-event-reporting.md). Affected locations: §1 (interfaces list), §5.2 (Maintenance exit criteria), §6 (adverse event flag documentation row), §7.6 (patient-reported adverse effect escalation step 4), and §10 (Future SOPs Referenced table — entry moved from future to active cross-reference). No procedural, scope, or clinical content changes. | Dr. Michael Napolitano, MD |
 
 ---
 
