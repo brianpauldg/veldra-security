@@ -6,25 +6,33 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X, ArrowRight } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import Meridian from './Meridian'
-import WaitlistModal from './WaitlistModal'
 
 const navigation = [
-  { name: 'Practice', href: '/services' },
+  { name: 'Pricing', href: '/pricing' },
+  { name: 'About', href: '/about' },
   { name: 'Process', href: '/how-it-works' },
   { name: 'FAQ', href: '/faq' },
+]
+
+const resourcesDropdown = [
+  { name: 'The Library', href: '/learn' },
+  { name: 'Blog', href: '/blog' },
   { name: 'Injection Guides', href: '/inject' },
 ]
 
-const treatmentDropdown = [
+const servicesDropdown = [
   { name: 'Testosterone Therapy', href: '/trt' },
   { name: 'GLP-1 Weight Loss', href: '/glp1' },
+  { name: 'Sexual Health', href: '/pricing#add-ons' },
+  { name: 'Longevity', href: '/pricing#add-ons' },
+  { name: 'Peptide Roadmap', href: '/peptides' },
 ]
 
 export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false)
-  const [treatmentsOpen, setTreatmentsOpen] = useState(false)
+  const [servicesOpen, setServicesOpen] = useState(false)
+  const [resourcesOpen, setResourcesOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
-  const [waitlistOpen, setWaitlistOpen] = useState(false)
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20)
@@ -59,17 +67,17 @@ export default function Header() {
 
           {/* Desktop Nav */}
           <div className="hidden lg:flex items-center gap-1">
-            {/* Treatments dropdown */}
+            {/* Services dropdown */}
             <div
               className="relative"
-              onMouseEnter={() => setTreatmentsOpen(true)}
-              onMouseLeave={() => setTreatmentsOpen(false)}
+              onMouseEnter={() => setServicesOpen(true)}
+              onMouseLeave={() => setServicesOpen(false)}
             >
               <button className="px-4 py-2 text-[13px] font-light text-[#8a8268] hover:text-[#d8cfbe] transition-colors tracking-wide">
-                Protocols
+                Services
               </button>
               <AnimatePresence>
-                {treatmentsOpen && (
+                {servicesOpen && (
                   <motion.div
                     initial={{ opacity: 0, y: 4 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -78,7 +86,7 @@ export default function Header() {
                     className="absolute top-full left-0 pt-2 min-w-[220px]"
                   >
                     <div className="bg-[#0d0c0a] border border-[#1a1814] rounded-lg py-2">
-                      {treatmentDropdown.map((item) => (
+                      {servicesDropdown.map((item) => (
                         <Link
                           key={item.name}
                           href={item.href}
@@ -93,7 +101,7 @@ export default function Header() {
               </AnimatePresence>
             </div>
 
-            {navigation.slice(1).map((item) => (
+            {navigation.map((item) => (
               <Link
                 key={item.name}
                 href={item.href}
@@ -102,16 +110,47 @@ export default function Header() {
                 {item.name}
               </Link>
             ))}
+
+            {/* Resources dropdown */}
+            <div
+              className="relative"
+              onMouseEnter={() => setResourcesOpen(true)}
+              onMouseLeave={() => setResourcesOpen(false)}
+            >
+              <button className="px-4 py-2 text-[13px] font-light text-[#8a8268] hover:text-[#d8cfbe] transition-colors tracking-wide">
+                Resources
+              </button>
+              <AnimatePresence>
+                {resourcesOpen && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 4 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: 4 }}
+                    transition={{ duration: 0.15 }}
+                    className="absolute top-full left-0 pt-2 min-w-[220px]"
+                  >
+                    <div className="bg-[#0d0c0a] border border-[#1a1814] rounded-lg py-2">
+                      {resourcesDropdown.map((item) => (
+                        <Link
+                          key={item.name}
+                          href={item.href}
+                          className="block px-4 py-2.5 text-[13px] font-light text-[#8a8268] hover:text-[#d8cfbe] hover:bg-[#1a1814]/50 transition-colors"
+                        >
+                          {item.name}
+                        </Link>
+                      ))}
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
           </div>
 
-          {/* Desktop CTAs */}
+          {/* Desktop CTA */}
           <div className="hidden lg:flex items-center gap-3">
-            <button onClick={() => setWaitlistOpen(true)} className="bloom-btn">
-              Join Waitlist
+            <Link href="/book" className="bloom-btn">
+              Book Consultation
               <ArrowRight className="w-3.5 h-3.5" />
-            </button>
-            <Link href="/book" className="bloom-btn bloom-btn-ghost">
-              Consultation
             </Link>
           </div>
 
@@ -137,9 +176,9 @@ export default function Header() {
           >
             <div className="px-6 py-4 space-y-1">
               <div className="eyebrow px-3 py-2">
-                Protocols
+                Services
               </div>
-              {treatmentDropdown.map((item) => (
+              {servicesDropdown.map((item) => (
                 <Link
                   key={item.name}
                   href={item.href}
@@ -150,7 +189,7 @@ export default function Header() {
                 </Link>
               ))}
               <hr className="bloom-divider my-3" />
-              {navigation.slice(1).map((item) => (
+              {navigation.map((item) => (
                 <Link
                   key={item.name}
                   href={item.href}
@@ -160,28 +199,34 @@ export default function Header() {
                   {item.name}
                 </Link>
               ))}
-              <div className="pt-4 space-y-2">
-                <button
-                  onClick={() => { setMobileOpen(false); setWaitlistOpen(true) }}
-                  className="bloom-btn w-full justify-center"
+              <hr className="bloom-divider my-3" />
+              <div className="eyebrow px-3 py-2">
+                Resources
+              </div>
+              {resourcesDropdown.map((item) => (
+                <Link
+                  key={item.name}
+                  href={item.href}
+                  onClick={() => setMobileOpen(false)}
+                  className="block px-3 py-2.5 text-[15px] font-light text-[#8a8268] hover:text-[#d8cfbe] transition-colors"
                 >
-                  Join Waitlist
-                  <ArrowRight className="w-3.5 h-3.5" />
-                </button>
+                  {item.name}
+                </Link>
+              ))}
+              <div className="pt-4">
                 <Link
                   href="/book"
                   onClick={() => setMobileOpen(false)}
-                  className="bloom-btn bloom-btn-ghost w-full justify-center"
+                  className="bloom-btn w-full justify-center"
                 >
-                  Consultation
+                  Book Consultation
+                  <ArrowRight className="w-3.5 h-3.5" />
                 </Link>
               </div>
             </div>
           </motion.div>
         )}
       </AnimatePresence>
-
-      <WaitlistModal isOpen={waitlistOpen} onClose={() => setWaitlistOpen(false)} />
     </header>
   )
 }
