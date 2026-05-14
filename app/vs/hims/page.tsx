@@ -15,14 +15,15 @@ const fadeUp = {
 }
 
 const comparisonRows = [
+  { feature: 'Model', nova: 'Membership-based optimization platform (3 tiers)', hims: 'Per-product subscription at scale' },
   { feature: 'Approach', nova: 'Personalized, lab-informed protocols', hims: 'Standardized protocols at scale' },
   { feature: 'Providers', nova: 'Licensed, board-eligible clinicians', hims: 'Licensed providers (high patient volume)' },
   { feature: 'Lab Work', nova: 'Comprehensive panels + quarterly monitoring', hims: 'Basic labs, less frequent monitoring' },
   { feature: 'Treatment Customization', nova: 'Individualized dosing based on biomarkers', hims: 'Standardized dosing tiers' },
   { feature: 'Follow-up Cadence', nova: 'Regular check-ins, proactive adjustments', hims: 'Periodic check-ins, patient-initiated' },
-  { feature: 'Services', nova: 'TRT, GLP-1', hims: 'TRT, ED, hair loss, skincare, GLP-1' },
-  { feature: 'Pricing', nova: 'Premium, consultation + program fee', hims: 'Subscription, lower price point' },
-  { feature: 'Pharmacy', nova: 'Partner pharmacy network', hims: 'Third-party pharmacy' },
+  { feature: 'Services', nova: 'TRT, GLP-1, Sexual Health, Longevity, Peptide Roadmap', hims: 'Testosterone support (enclomiphene), ED, hair loss, skincare, GLP-1' },
+  { feature: 'Pricing', nova: 'Membership $149–$599/mo + treatment add-ons', hims: '$99–$199/mo per product (as of May 2026)' },
+  { feature: 'Pharmacy', nova: 'Licensed compounding pharmacy network', hims: 'Third-party pharmacy' },
 ]
 
 const detailedSections = [
@@ -78,20 +79,20 @@ export default function VsHimsPage() {
   return (
     <>
       {/* Hero */}
-      <section className="relative bg-graphite-950 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-graphite-950 via-graphite-900 to-graphite-950" />
+      <section className="relative bg-zinc-950 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-zinc-950 via-zinc-900 to-zinc-950" />
         <div className="relative max-w-7xl mx-auto px-6 lg:px-8 py-28 lg:py-36">
           <motion.div initial="initial" animate="animate" className="max-w-3xl">
             <motion.div {...fadeUp} className="mb-6">
-              <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-[12px] font-medium text-graphite-300 tracking-wide">
+              <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-[12px] font-medium text-zinc-300 tracking-wide">
                 Honest Comparison \u2014 Updated 2026
               </span>
             </motion.div>
             <motion.h1 {...fadeUp} className="text-display-lg text-white mb-6">
               Bloom Metabolics vs Hims
             </motion.h1>
-            <motion.p {...fadeUp} className="text-xl text-graphite-400 leading-relaxed max-w-2xl">
-              Comparing personalized, lab-informed TRT with licensed providers to Hims&apos; high-volume telehealth model. An honest look at what each offers.
+            <motion.p {...fadeUp} className="text-xl text-zinc-400 leading-relaxed max-w-2xl">
+              Membership-based optimization vs. per-product subscriptions. An honest look at what each model offers.
             </motion.p>
           </motion.div>
         </div>
@@ -106,8 +107,8 @@ export default function VsHimsPage() {
       <Section>
         <SectionLabel>TL;DR</SectionLabel>
         <div className="max-w-3xl">
-          <p className="text-lg text-graphite-600 leading-relaxed">
-            Hims is the largest men&apos;s telehealth brand — affordable, fast, and familiar. Bloom Metabolics is a premium alternative built for men who want individualized protocols, comprehensive labs, and ongoing medical oversight rather than a standardized approach. <strong className="text-graphite-950">If cost is your primary concern, Hims is hard to beat. If quality of care and personalization matter more, Bloom Metabolics is designed for that.</strong>
+          <p className="text-lg text-zinc-600 leading-relaxed">
+            Hims is the largest men&apos;s telehealth brand — affordable, fast, and familiar. Bloom Metabolics is a membership-based optimization platform built for men who want a coordinated care team, comprehensive labs, and ongoing medical oversight across multiple treatment protocols. <strong className="text-zinc-950">Hims sells products. Bloom sells ongoing physician relationships. The right choice depends on what you value.</strong>
           </p>
         </div>
       </Section>
@@ -119,18 +120,18 @@ export default function VsHimsPage() {
         <div className="mt-10 overflow-x-auto">
           <table className="w-full text-left">
             <thead>
-              <tr className="border-b border-graphite-800">
-                <th className="py-4 pr-6 text-[13px] font-semibold text-graphite-400 uppercase tracking-wider w-1/4">Feature</th>
+              <tr className="border-b border-zinc-800">
+                <th className="py-4 pr-6 text-[13px] font-semibold text-zinc-400 uppercase tracking-wider w-1/4">Feature</th>
                 <th className="py-4 pr-6 text-[13px] font-semibold text-emerald-400 uppercase tracking-wider w-[37.5%]">Bloom Metabolics</th>
-                <th className="py-4 text-[13px] font-semibold text-graphite-400 uppercase tracking-wider w-[37.5%]">Hims</th>
+                <th className="py-4 text-[13px] font-semibold text-zinc-400 uppercase tracking-wider w-[37.5%]">Hims</th>
               </tr>
             </thead>
             <tbody>
               {comparisonRows.map((row, i) => (
-                <tr key={i} className="border-b border-graphite-800/50">
-                  <td className="py-4 pr-6 text-[14px] font-medium text-graphite-300">{row.feature}</td>
-                  <td className="py-4 pr-6 text-[14px] text-graphite-400">{row.nova}</td>
-                  <td className="py-4 text-[14px] text-graphite-500">{row.hims}</td>
+                <tr key={i} className="border-b border-zinc-800/50">
+                  <td className="py-4 pr-6 text-[14px] font-medium text-zinc-300">{row.feature}</td>
+                  <td className="py-4 pr-6 text-[14px] text-zinc-400">{row.nova}</td>
+                  <td className="py-4 text-[14px] text-zinc-500">{row.hims}</td>
                 </tr>
               ))}
             </tbody>
@@ -146,23 +147,23 @@ export default function VsHimsPage() {
           {detailedSections.map((section, i) => (
             <div key={i}>
               <div className="flex items-center gap-3 mb-6">
-                <div className="w-10 h-10 rounded-xl bg-graphite-100 flex items-center justify-center">
-                  <section.icon className="w-5 h-5 text-graphite-700" />
+                <div className="w-10 h-10 rounded-xl bg-zinc-100 flex items-center justify-center">
+                  <section.icon className="w-5 h-5 text-zinc-700" />
                 </div>
-                <h3 className="text-xl font-semibold text-graphite-950">{section.title}</h3>
+                <h3 className="text-xl font-semibold text-zinc-950">{section.title}</h3>
               </div>
               <div className="grid md:grid-cols-2 gap-6 mb-4">
                 <Card>
                   <div className="text-[12px] font-semibold text-emerald-600 uppercase tracking-wider mb-3">Bloom Metabolics</div>
-                  <p className="text-[15px] text-graphite-600 leading-relaxed">{section.nova}</p>
+                  <p className="text-[15px] text-zinc-600 leading-relaxed">{section.nova}</p>
                 </Card>
                 <Card>
-                  <div className="text-[12px] font-semibold text-graphite-400 uppercase tracking-wider mb-3">Hims</div>
-                  <p className="text-[15px] text-graphite-600 leading-relaxed">{section.hims}</p>
+                  <div className="text-[12px] font-semibold text-zinc-400 uppercase tracking-wider mb-3">Hims</div>
+                  <p className="text-[15px] text-zinc-600 leading-relaxed">{section.hims}</p>
                 </Card>
               </div>
-              <div className="bg-graphite-50 rounded-xl px-6 py-4">
-                <p className="text-[14px] text-graphite-700"><strong>Bottom line:</strong> {section.bottomLine}</p>
+              <div className="bg-zinc-50 rounded-xl px-6 py-4">
+                <p className="text-[14px] text-zinc-700"><strong>Bottom line:</strong> {section.bottomLine}</p>
               </div>
             </div>
           ))}
@@ -185,23 +186,23 @@ export default function VsHimsPage() {
               ].map((item, i) => (
                 <li key={i} className="flex items-start gap-3">
                   <Check className="w-4 h-4 text-emerald-400 flex-shrink-0 mt-1" />
-                  <span className="text-[14px] text-graphite-300">{item}</span>
+                  <span className="text-[14px] text-zinc-300">{item}</span>
                 </li>
               ))}
             </ul>
           </Card>
           <Card dark>
-            <div className="text-[13px] font-semibold text-graphite-400 uppercase tracking-wider mb-4">Hims May Suit</div>
+            <div className="text-[13px] font-semibold text-zinc-400 uppercase tracking-wider mb-4">Hims May Suit</div>
             <ul className="space-y-3">
               {[
                 'Men who prioritize affordability above all',
                 'Those comfortable with standardized protocols',
                 'Patients who want TRT, ED, and hair loss in one subscription',
-                'Men starting their hormone journey with a low-commitment entry',
+                'Men starting hormone therapy with a low-commitment entry',
               ].map((item, i) => (
                 <li key={i} className="flex items-start gap-3">
-                  <Check className="w-4 h-4 text-graphite-500 flex-shrink-0 mt-1" />
-                  <span className="text-[14px] text-graphite-400">{item}</span>
+                  <Check className="w-4 h-4 text-zinc-500 flex-shrink-0 mt-1" />
+                  <span className="text-[14px] text-zinc-400">{item}</span>
                 </li>
               ))}
             </ul>
@@ -217,10 +218,10 @@ export default function VsHimsPage() {
           {testimonials.map((t, i) => (
             <Card key={i} className="relative">
               {/* FTC — star ratings removed */}
-              <p className="text-[15px] text-graphite-600 leading-relaxed mb-4 italic">
+              <p className="text-[15px] text-zinc-600 leading-relaxed mb-4 italic">
                 &ldquo;{t.quote}&rdquo;
               </p>
-              <p className="text-[13px] font-semibold text-graphite-950">
+              <p className="text-[13px] font-semibold text-zinc-950">
                 {t.name}, Age {t.age}
               </p>
               <TestimonialDisclosure variant="hormone" />
@@ -247,26 +248,26 @@ export default function VsHimsPage() {
                 {item.step}
               </div>
               <h4 className="text-[15px] font-semibold text-white mb-2">{item.title}</h4>
-              <p className="text-[14px] text-graphite-400">{item.desc}</p>
+              <p className="text-[14px] text-zinc-400">{item.desc}</p>
             </Card>
           ))}
         </div>
       </Section>
 
       {/* Final CTA */}
-      <section className="bg-graphite-950 py-20 lg:py-28">
+      <section className="bg-zinc-950 py-20 lg:py-28">
         <div className="max-w-3xl mx-auto px-6 lg:px-8 text-center">
           <h2 className="text-display text-white mb-5">
-            Ready to Experience the Difference?
+            A different standard of care.
           </h2>
-          <p className="text-lg text-graphite-400 mb-8 max-w-xl mx-auto">
-            Book a consultation with a Bloom Metabolics provider. We&apos;ll review your health history, order comprehensive labs, and build a protocol around your individual biomarkers.
+          <p className="text-lg text-zinc-400 mb-8 max-w-xl mx-auto">
+            Apply to become a patient. We review your health history, order comprehensive labs, and build a protocol around your individual biomarkers.
           </p>
           <Link
-            href="/pricing"
-            className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-white text-graphite-950 text-[15px] font-semibold hover:bg-graphite-100 transition-all shadow-lg"
+            href="/book"
+            className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-white text-zinc-950 text-[15px] font-semibold hover:bg-zinc-100 transition-all shadow-lg"
           >
-            Book Consultation
+            Apply Now
             <ArrowRight className="w-4 h-4" />
           </Link>
         </div>

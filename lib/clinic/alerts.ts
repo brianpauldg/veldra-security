@@ -168,7 +168,7 @@ export function severityColor(severity: AlertSeverity): string {
     high: 'text-orange-400 bg-orange-500/10 border-orange-500/20',
     medium: 'text-yellow-400 bg-yellow-500/10 border-yellow-500/20',
     low: 'text-blue-400 bg-blue-500/10 border-blue-500/20',
-    info: 'text-graphite-400 bg-graphite-500/10 border-graphite-500/20',
+    info: 'text-zinc-400 bg-zinc-500/10 border-zinc-500/20',
   }
   return colors[severity]
 }

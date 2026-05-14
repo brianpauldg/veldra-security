@@ -54,13 +54,13 @@ export default function PatientProfile() {
   }, [id])
 
   if (loading) {
-    return <div className="flex items-center justify-center py-20"><div className="text-graphite-500">Loading patient...</div></div>
+    return <div className="flex items-center justify-center py-20"><div className="text-zinc-500">Loading patient...</div></div>
   }
 
   if (!patient) {
     return (
       <div className="flex flex-col items-center justify-center py-20 text-center">
-        <User className="w-12 h-12 text-graphite-600 mb-4" />
+        <User className="w-12 h-12 text-zinc-600 mb-4" />
         <h2 className="text-xl font-bold text-white mb-2">Patient Not Found</h2>
         <Link href="/clinic/patients" className="text-sm text-nova-400 hover:text-nova-300">Back to patients</Link>
       </div>
@@ -86,25 +86,25 @@ export default function PatientProfile() {
     <div className="space-y-6">
       {/* Back + header */}
       <div>
-        <Link href="/clinic/patients" className="inline-flex items-center gap-1.5 text-sm text-graphite-500 hover:text-white transition-colors mb-4">
+        <Link href="/clinic/patients" className="inline-flex items-center gap-1.5 text-sm text-zinc-500 hover:text-white transition-colors mb-4">
           <ArrowLeft className="w-4 h-4" /> Back to patients
         </Link>
 
         <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-4">
           <div className="flex items-start gap-4">
-            <div className="w-14 h-14 rounded-xl bg-graphite-800 border border-graphite-700 flex items-center justify-center text-lg font-bold text-white">
+            <div className="w-14 h-14 rounded-xl bg-zinc-800 border border-zinc-700 flex items-center justify-center text-lg font-bold text-white">
               {patient.firstName[0]}{patient.lastName[0]}
             </div>
             <div>
               <h1 className="text-2xl font-bold text-white">{patient.firstName} {patient.lastName}</h1>
-              <div className="flex items-center gap-3 mt-1 text-sm text-graphite-400">
+              <div className="flex items-center gap-3 mt-1 text-sm text-zinc-400">
                 <span>{patient.mrn}</span>
                 <span>·</span>
                 <span>{age}y {patient.gender}</span>
                 <span>·</span>
                 <span className="capitalize">{patient.status}</span>
               </div>
-              <div className="flex items-center gap-4 mt-2 text-xs text-graphite-500">
+              <div className="flex items-center gap-4 mt-2 text-xs text-zinc-500">
                 <span className="flex items-center gap-1"><Mail className="w-3 h-3" />{patient.email}</span>
                 <span className="flex items-center gap-1"><Phone className="w-3 h-3" />{patient.phone}</span>
                 <span className="flex items-center gap-1"><MapPin className="w-3 h-3" />{patient.state}</span>
@@ -129,13 +129,13 @@ export default function PatientProfile() {
           </div>
           <div className="space-y-2">
             {activeAlerts.map(a => (
-              <div key={a.id} className="flex items-start gap-3 p-2.5 rounded-lg bg-graphite-900/50">
+              <div key={a.id} className="flex items-start gap-3 p-2.5 rounded-lg bg-zinc-900/50">
                 <span className={cn('text-[10px] font-bold uppercase px-1.5 py-0.5 rounded border', severityColor(a.severity))}>
                   {a.severity}
                 </span>
                 <div className="flex-1">
                   <p className="text-xs font-medium text-white">{a.title}</p>
-                  <p className="text-[11px] text-graphite-400 mt-0.5">{a.rationale}</p>
+                  <p className="text-[11px] text-zinc-400 mt-0.5">{a.rationale}</p>
                 </div>
               </div>
             ))}
@@ -158,7 +158,7 @@ export default function PatientProfile() {
           <ProfileCard title="Current Protocol" icon={Shield}>
             <div className="space-y-2">
               <p className="text-sm font-medium text-white capitalize">{patient.primaryProtocol.replace(/_/g, ' ')}</p>
-              <p className="text-xs text-graphite-500">Enrolled: {patient.enrollmentDate}</p>
+              <p className="text-xs text-zinc-500">Enrolled: {patient.enrollmentDate}</p>
             </div>
           </ProfileCard>
 
@@ -166,31 +166,31 @@ export default function PatientProfile() {
             {activeMeds.length > 0 ? (
               <div className="space-y-2.5">
                 {activeMeds.map(med => (
-                  <div key={med.id} className="p-2.5 rounded-lg bg-graphite-800/30 border border-graphite-800/50">
+                  <div key={med.id} className="p-2.5 rounded-lg bg-zinc-800/30 border border-zinc-800/50">
                     <p className="text-xs font-medium text-white">{med.name}</p>
-                    <p className="text-[11px] text-graphite-400">{med.dosage} — {med.frequency}</p>
-                    <p className="text-[10px] text-graphite-600">{med.route} · Since {med.startDate}</p>
+                    <p className="text-[11px] text-zinc-400">{med.dosage} — {med.frequency}</p>
+                    <p className="text-[10px] text-zinc-600">{med.route} · Since {med.startDate}</p>
                   </div>
                 ))}
               </div>
-            ) : <p className="text-xs text-graphite-500">No active medications</p>}
+            ) : <p className="text-xs text-zinc-500">No active medications</p>}
           </ProfileCard>
 
           <ProfileCard title="Recent Visits" icon={CalendarClock}>
             {encounters.length > 0 ? (
               <div className="space-y-3">
                 {encounters.map(enc => (
-                  <div key={enc.id} className="p-2.5 rounded-lg bg-graphite-800/20">
+                  <div key={enc.id} className="p-2.5 rounded-lg bg-zinc-800/20">
                     <div className="flex items-center justify-between mb-1">
                       <span className="text-[11px] font-medium text-white capitalize">{enc.type.replace(/_/g, ' ')}</span>
-                      <span className="text-[10px] text-graphite-600">{enc.date}</span>
+                      <span className="text-[10px] text-zinc-600">{enc.date}</span>
                     </div>
-                    <p className="text-[11px] text-graphite-400 line-clamp-3">{enc.assessment}</p>
+                    <p className="text-[11px] text-zinc-400 line-clamp-3">{enc.assessment}</p>
                     <p className="text-[10px] text-nova-400/80 mt-1">Plan: {enc.plan}</p>
                   </div>
                 ))}
               </div>
-            ) : <p className="text-xs text-graphite-500">No encounters recorded</p>}
+            ) : <p className="text-xs text-zinc-500">No encounters recorded</p>}
           </ProfileCard>
 
           <ProfileCard title="Symptom Assessment" icon={Heart}>
@@ -198,7 +198,7 @@ export default function PatientProfile() {
               <div className="space-y-3">
                 {symptoms.map(s => (
                   <div key={s.id}>
-                    <p className="text-[10px] text-graphite-600 mb-2">{s.date}</p>
+                    <p className="text-[10px] text-zinc-600 mb-2">{s.date}</p>
                     <div className="grid grid-cols-3 gap-2">
                       <SymptomBar label="Energy" value={s.energyLevel} />
                       <SymptomBar label="Libido" value={s.libido} />
@@ -217,7 +217,7 @@ export default function PatientProfile() {
                   </div>
                 ))}
               </div>
-            ) : <p className="text-xs text-graphite-500">No assessments recorded</p>}
+            ) : <p className="text-xs text-zinc-500">No assessments recorded</p>}
           </ProfileCard>
         </div>
 
@@ -264,21 +264,21 @@ export default function PatientProfile() {
             {insights.length > 0 ? (
               <div className="space-y-3">
                 {insights.map(i => (
-                  <div key={i.id} className="p-2.5 rounded-lg bg-graphite-800/30 border border-nova-500/10">
+                  <div key={i.id} className="p-2.5 rounded-lg bg-zinc-800/30 border border-nova-500/10">
                     <div className="flex items-center gap-2 mb-1">
                       <span className="text-[10px] font-medium text-nova-300 capitalize">{i.type.replace(/_/g, ' ')}</span>
-                      <span className="text-[9px] text-graphite-600">· {Math.round(i.confidence * 100)}% confidence</span>
+                      <span className="text-[9px] text-zinc-600">· {Math.round(i.confidence * 100)}% confidence</span>
                     </div>
-                    <p className="text-xs text-graphite-300">{i.content}</p>
-                    <p className="text-[9px] text-graphite-600 mt-1.5">{i.generatedAt}</p>
+                    <p className="text-xs text-zinc-300">{i.content}</p>
+                    <p className="text-[9px] text-zinc-600 mt-1.5">{i.generatedAt}</p>
                   </div>
                 ))}
-                <p className="text-[10px] text-graphite-600 italic">AI outputs are review support — not clinical decisions.</p>
+                <p className="text-[10px] text-zinc-600 italic">AI outputs are review support — not clinical decisions.</p>
               </div>
             ) : (
               <div className="text-center py-4">
-                <Bot className="w-8 h-8 text-graphite-700 mx-auto mb-2" />
-                <p className="text-xs text-graphite-500">No AI insights generated yet.</p>
+                <Bot className="w-8 h-8 text-zinc-700 mx-auto mb-2" />
+                <p className="text-xs text-zinc-500">No AI insights generated yet.</p>
                 <button className="mt-2 text-[11px] text-nova-400 hover:text-nova-300 transition-colors">Generate chart review</button>
               </div>
             )}
@@ -289,16 +289,16 @@ export default function PatientProfile() {
             {tasks.length > 0 ? (
               <div className="space-y-2">
                 {tasks.map(t => (
-                  <div key={t.id} className="flex items-start gap-2 p-2 rounded-lg bg-graphite-800/20">
+                  <div key={t.id} className="flex items-start gap-2 p-2 rounded-lg bg-zinc-800/20">
                     <PriorityDot priority={t.priority} />
                     <div>
                       <p className="text-xs font-medium text-white">{t.title}</p>
-                      <p className="text-[10px] text-graphite-500">{t.assigneeName} · Due {t.dueDate}</p>
+                      <p className="text-[10px] text-zinc-500">{t.assigneeName} · Due {t.dueDate}</p>
                     </div>
                   </div>
                 ))}
               </div>
-            ) : <p className="text-xs text-graphite-500">No tasks</p>}
+            ) : <p className="text-xs text-zinc-500">No tasks</p>}
           </ProfileCard>
 
           {/* Refills */}
@@ -306,16 +306,16 @@ export default function PatientProfile() {
             {refills.length > 0 ? (
               <div className="space-y-2">
                 {refills.map(r => (
-                  <div key={r.id} className="flex items-center gap-3 p-2 rounded-lg bg-graphite-800/20">
+                  <div key={r.id} className="flex items-center gap-3 p-2 rounded-lg bg-zinc-800/20">
                     <RefillStatusDot status={r.status} />
                     <div>
                       <p className="text-xs font-medium text-white">{r.medicationName}</p>
-                      <p className="text-[10px] text-graphite-500 capitalize">{r.status} · {r.requestedAt}</p>
+                      <p className="text-[10px] text-zinc-500 capitalize">{r.status} · {r.requestedAt}</p>
                     </div>
                   </div>
                 ))}
               </div>
-            ) : <p className="text-xs text-graphite-500">No pending refills</p>}
+            ) : <p className="text-xs text-zinc-500">No pending refills</p>}
           </ProfileCard>
 
           {/* Key dates */}
@@ -356,7 +356,7 @@ function LabTrendChart({ marker, labs }: { marker: LabMarker; labs: any[] }) {
   return (
     <div>
       <div className="flex items-center justify-between mb-1.5">
-        <span className="text-xs font-medium text-graphite-300">{ref.label}</span>
+        <span className="text-xs font-medium text-zinc-300">{ref.label}</span>
         <span className={cn('text-xs font-bold', isAbnormal ? 'text-red-400' : 'text-white')}>
           {latest.value} {ref.unit}
         </span>
@@ -392,7 +392,7 @@ function LabTrendChart({ marker, labs }: { marker: LabMarker; labs: any[] }) {
         </ResponsiveContainer>
       </div>
       <div className="flex items-center justify-between mt-0.5">
-        <span className="text-[9px] text-graphite-600">Ref: {ref.min} – {ref.max} {ref.unit}</span>
+        <span className="text-[9px] text-zinc-600">Ref: {ref.min} – {ref.max} {ref.unit}</span>
       </div>
     </div>
   )
@@ -416,7 +416,7 @@ function VitalTrendChart({ type, vitals }: { type: VitalType; vitals: any[] }) {
   return (
     <div>
       <div className="flex items-center justify-between mb-1.5">
-        <span className="text-xs font-medium text-graphite-300">{meta.label}</span>
+        <span className="text-xs font-medium text-zinc-300">{meta.label}</span>
         <span className={cn('text-xs font-bold', isAbnormal ? 'text-red-400' : 'text-white')}>
           {latest.value} {meta.unit}
         </span>
@@ -450,10 +450,10 @@ function ProfileCard({ title, icon: Icon, children, variant = 'default' }: {
   return (
     <div className={cn(
       'rounded-xl border p-4',
-      variant === 'accent' ? 'bg-graphite-900/50 border-nova-500/10' : 'bg-graphite-900/50 border-graphite-800'
+      variant === 'accent' ? 'bg-zinc-900/50 border-nova-500/10' : 'bg-zinc-900/50 border-zinc-800'
     )}>
       <div className="flex items-center gap-2 mb-3">
-        <Icon className={cn('w-4 h-4', variant === 'accent' ? 'text-nova-400' : 'text-graphite-500')} />
+        <Icon className={cn('w-4 h-4', variant === 'accent' ? 'text-nova-400' : 'text-zinc-500')} />
         <h3 className="text-sm font-semibold text-white">{title}</h3>
       </div>
       {children}
@@ -481,10 +481,10 @@ function SymptomBar({ label, value }: { label: string; value: number }) {
   return (
     <div>
       <div className="flex items-center justify-between mb-0.5">
-        <span className="text-[10px] text-graphite-500">{label}</span>
+        <span className="text-[10px] text-zinc-500">{label}</span>
         <span className="text-[10px] font-bold text-white">{value}</span>
       </div>
-      <div className="h-1 rounded-full bg-graphite-800">
+      <div className="h-1 rounded-full bg-zinc-800">
         <div className={cn('h-full rounded-full transition-all', color)} style={{ width: `${pct}%` }} />
       </div>
     </div>
@@ -492,19 +492,19 @@ function SymptomBar({ label, value }: { label: string; value: number }) {
 }
 
 function PriorityDot({ priority }: { priority: string }) {
-  const color = priority === 'urgent' ? 'bg-red-400' : priority === 'high' ? 'bg-orange-400' : priority === 'normal' ? 'bg-blue-400' : 'bg-graphite-400'
+  const color = priority === 'urgent' ? 'bg-red-400' : priority === 'high' ? 'bg-orange-400' : priority === 'normal' ? 'bg-blue-400' : 'bg-zinc-400'
   return <div className={cn('w-1.5 h-1.5 rounded-full shrink-0 mt-1.5', color)} />
 }
 
 function RefillStatusDot({ status }: { status: string }) {
-  const color = status === 'pending' ? 'bg-yellow-400' : status === 'approved' ? 'bg-emerald-400' : status === 'shipped' ? 'bg-blue-400' : 'bg-graphite-400'
+  const color = status === 'pending' ? 'bg-yellow-400' : status === 'approved' ? 'bg-emerald-400' : status === 'shipped' ? 'bg-blue-400' : 'bg-zinc-400'
   return <div className={cn('w-2 h-2 rounded-full shrink-0', color)} />
 }
 
 function DateRow({ label, value, overdue = false }: { label: string; value: string; overdue?: boolean }) {
   return (
     <div className="flex items-center justify-between py-1">
-      <span className="text-[11px] text-graphite-500">{label}</span>
+      <span className="text-[11px] text-zinc-500">{label}</span>
       <span className={cn('text-xs', overdue ? 'text-red-400 font-medium' : 'text-white')}>{value}</span>
     </div>
   )
@@ -634,10 +634,10 @@ function IntakeDataPanel({ intake }: { intake: any }) {
   })
 
   return (
-    <div className="rounded-xl border border-graphite-800 bg-graphite-900/50 p-5">
+    <div className="rounded-xl border border-zinc-800 bg-zinc-900/50 p-5">
       <div className="flex items-center justify-between mb-4">
         <div className="flex items-center gap-2">
-          <FileText className="w-4 h-4 text-graphite-500" />
+          <FileText className="w-4 h-4 text-zinc-500" />
           <h3 className="text-sm font-semibold text-white">Intake Form — {type}</h3>
         </div>
         <span className={cn('text-[10px] px-2 py-0.5 rounded-full',
@@ -649,12 +649,12 @@ function IntakeDataPanel({ intake }: { intake: any }) {
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         {sections.map((section) => (
-          <div key={section.title} className="p-3 rounded-lg bg-graphite-800/20 border border-graphite-800/30">
-            <h4 className="text-[10px] text-graphite-500 uppercase tracking-wider mb-2">{section.title}</h4>
+          <div key={section.title} className="p-3 rounded-lg bg-zinc-800/20 border border-zinc-800/30">
+            <h4 className="text-[10px] text-zinc-500 uppercase tracking-wider mb-2">{section.title}</h4>
             <div className="space-y-1.5">
               {section.fields.map((field) => (
                 <div key={field.label} className="flex justify-between gap-2">
-                  <span className="text-[11px] text-graphite-500 shrink-0">{field.label}</span>
+                  <span className="text-[11px] text-zinc-500 shrink-0">{field.label}</span>
                   <span className={cn('text-[11px] text-right',
                     field.value.includes('FLAGGED') || field.value.includes('CONTRAINDICATION') ? 'text-red-400 font-bold' :
                     field.value === 'Severe' ? 'text-red-400' :
@@ -721,23 +721,23 @@ function BillingPanel({ patientId, patientStatus, treatmentType }: { patientId: 
   const price = treatmentType === 'glp1' ? '$249' : '$299'
 
   return (
-    <div className="rounded-xl border border-graphite-800 bg-graphite-900/50 p-5">
+    <div className="rounded-xl border border-zinc-800 bg-zinc-900/50 p-5">
       <div className="flex items-center justify-between mb-4">
         <div className="flex items-center gap-2">
-          <Activity className="w-4 h-4 text-graphite-500" />
+          <Activity className="w-4 h-4 text-zinc-500" />
           <h3 className="text-sm font-semibold text-white">Billing &amp; Subscription</h3>
         </div>
-        <span className="text-[10px] px-2 py-0.5 rounded-full bg-graphite-800 text-graphite-400 uppercase">
+        <span className="text-[10px] px-2 py-0.5 rounded-full bg-zinc-800 text-zinc-400 uppercase">
           {type} · {price}/mo
         </span>
       </div>
 
       {loading ? (
-        <p className="text-xs text-graphite-500">Loading billing...</p>
+        <p className="text-xs text-zinc-500">Loading billing...</p>
       ) : billing?.has_subscription ? (
         <div className="space-y-3">
           {billing.subscriptions.map((sub: any) => (
-            <div key={sub.id} className="p-3 rounded-lg bg-graphite-800/30 border border-graphite-800/50">
+            <div key={sub.id} className="p-3 rounded-lg bg-zinc-800/30 border border-zinc-800/50">
               <div className="flex items-center justify-between mb-1">
                 <span className="text-xs font-medium text-white">${sub.amount}/mo</span>
                 <span className={cn('text-[10px] px-1.5 py-0.5 rounded-full',
@@ -746,7 +746,7 @@ function BillingPanel({ patientId, patientStatus, treatmentType }: { patientId: 
                   'bg-yellow-500/10 text-yellow-400'
                 )}>{sub.status}</span>
               </div>
-              <p className="text-[10px] text-graphite-500">
+              <p className="text-[10px] text-zinc-500">
                 Next billing: {new Date(sub.current_period_end).toLocaleDateString()}
                 {sub.cancel_at_period_end && ' (cancels at end of period)'}
               </p>
@@ -764,10 +764,10 @@ function BillingPanel({ patientId, patientStatus, treatmentType }: { patientId: 
 
           {billing.invoices?.length > 0 && (
             <div>
-              <p className="text-[10px] text-graphite-500 uppercase tracking-wider mb-2">Recent Invoices</p>
+              <p className="text-[10px] text-zinc-500 uppercase tracking-wider mb-2">Recent Invoices</p>
               {billing.invoices.slice(0, 3).map((inv: any) => (
-                <div key={inv.id} className="flex items-center justify-between py-1.5 border-b border-graphite-800/30 last:border-0">
-                  <span className="text-[11px] text-graphite-400">{new Date(inv.created).toLocaleDateString()}</span>
+                <div key={inv.id} className="flex items-center justify-between py-1.5 border-b border-zinc-800/30 last:border-0">
+                  <span className="text-[11px] text-zinc-400">{new Date(inv.created).toLocaleDateString()}</span>
                   <span className="text-[11px] text-white">${inv.amount_paid || inv.amount_due}</span>
                   <span className={cn('text-[10px]', inv.status === 'paid' ? 'text-emerald-400' : 'text-yellow-400')}>{inv.status}</span>
                 </div>
@@ -777,9 +777,9 @@ function BillingPanel({ patientId, patientStatus, treatmentType }: { patientId: 
         </div>
       ) : (
         <div className="space-y-3">
-          <div className="p-3 rounded-lg bg-graphite-800/30 border border-graphite-800/50">
+          <div className="p-3 rounded-lg bg-zinc-800/30 border border-zinc-800/50">
             <p className="text-[11px] font-medium text-white mb-1">Post-Consultation Workflow</p>
-            <ol className="text-[10px] text-graphite-400 space-y-1 list-decimal list-inside">
+            <ol className="text-[10px] text-zinc-400 space-y-1 list-decimal list-inside">
               <li>Physician approves treatment eligibility</li>
               <li>Schedule protocol call (assign to Brian or Mahshad below)</li>
               <li>Call patient — review protocol, discuss add-ons, verbally confirm recurring fee</li>
@@ -788,20 +788,20 @@ function BillingPanel({ patientId, patientStatus, treatmentType }: { patientId: 
           </div>
 
           {/* Step 1: Schedule protocol call */}
-          <div className="p-3 rounded-lg border border-graphite-800/50 bg-graphite-800/20">
-            <p className="text-[10px] text-graphite-500 uppercase tracking-wider mb-2">Step 1 — Protocol Call</p>
+          <div className="p-3 rounded-lg border border-zinc-800/50 bg-zinc-800/20">
+            <p className="text-[10px] text-zinc-500 uppercase tracking-wider mb-2">Step 1 — Protocol Call</p>
             <div className="flex flex-wrap gap-2">
               <button
                 onClick={() => handleAction('schedule_protocol_call', { assignee: 'Brian DeGuzman, RN' })}
                 disabled={!!actionLoading}
-                className="flex items-center gap-1.5 px-3 py-2 rounded-lg bg-graphite-800/50 border border-graphite-800 text-graphite-300 text-xs font-medium hover:bg-graphite-800 transition-colors disabled:opacity-50"
+                className="flex items-center gap-1.5 px-3 py-2 rounded-lg bg-zinc-800/50 border border-zinc-800 text-zinc-300 text-xs font-medium hover:bg-zinc-800 transition-colors disabled:opacity-50"
               >
                 {actionLoading === 'schedule_protocol_call' ? 'Creating...' : 'Assign to Brian'}
               </button>
               <button
                 onClick={() => handleAction('schedule_protocol_call', { assignee: 'Mahshad Nejad, Patient Coordinator' })}
                 disabled={!!actionLoading}
-                className="flex items-center gap-1.5 px-3 py-2 rounded-lg bg-graphite-800/50 border border-graphite-800 text-graphite-300 text-xs font-medium hover:bg-graphite-800 transition-colors disabled:opacity-50"
+                className="flex items-center gap-1.5 px-3 py-2 rounded-lg bg-zinc-800/50 border border-zinc-800 text-zinc-300 text-xs font-medium hover:bg-zinc-800 transition-colors disabled:opacity-50"
               >
                 {actionLoading === 'schedule_protocol_call' ? 'Creating...' : 'Assign to Mahshad'}
               </button>
@@ -809,9 +809,9 @@ function BillingPanel({ patientId, patientStatus, treatmentType }: { patientId: 
           </div>
 
           {/* Step 2: After verbal confirmation + payment collected on phone */}
-          <div className="p-3 rounded-lg border border-graphite-800/50 bg-graphite-800/20">
-            <p className="text-[10px] text-graphite-500 uppercase tracking-wider mb-2">Step 2 — Payment Collected on Phone</p>
-            <p className="text-[10px] text-graphite-400 mb-2">After you have collected payment over the phone, click below to mark as paid and send a receipt + recurring confirmation to the patient&apos;s email.</p>
+          <div className="p-3 rounded-lg border border-zinc-800/50 bg-zinc-800/20">
+            <p className="text-[10px] text-zinc-500 uppercase tracking-wider mb-2">Step 2 — Payment Collected on Phone</p>
+            <p className="text-[10px] text-zinc-400 mb-2">After you have collected payment over the phone, click below to mark as paid and send a receipt + recurring confirmation to the patient&apos;s email.</p>
             <button
               onClick={() => {
                 if (confirm(`Confirm:\n\n1. Protocol reviewed with patient\n2. Payment collected verbally on phone\n3. Patient confirmed ${price}/mo recurring for ${type}\n\nThis will mark the invoice as paid and send a receipt to the patient's email.`)) {
@@ -825,7 +825,7 @@ function BillingPanel({ patientId, patientStatus, treatmentType }: { patientId: 
             </button>
           </div>
 
-          <p className="text-[10px] text-graphite-500">
+          <p className="text-[10px] text-zinc-500">
             $49 consultation credit applies within 7 days of approved eligibility. After 7 days, patient requires re-evaluation ($49 consultation fee). Invoice is only sent after manual approval.
           </p>
         </div>

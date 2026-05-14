@@ -127,7 +127,7 @@ function CellValue({ value }: { value: string | number | boolean }) {
   if (typeof value === 'boolean') {
     return value
       ? <Check className="w-4 h-4 text-emerald-500" />
-      : <span className="text-graphite-400">{'\u2014'}</span>
+      : <span className="text-zinc-400">{'\u2014'}</span>
   }
   return <span className="text-[13px]">{String(value)}</span>
 }
@@ -155,12 +155,12 @@ export default function BestTRTClinicsPage() {
   return (
     <>
       {/* Hero */}
-      <section className="relative bg-graphite-950 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-graphite-950 via-graphite-900 to-graphite-950" />
+      <section className="relative bg-zinc-950 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-zinc-950 via-zinc-900 to-zinc-950" />
         <div className="relative max-w-7xl mx-auto px-6 lg:px-8 py-28 lg:py-36">
           <motion.div initial="initial" animate="animate" className="max-w-3xl">
             <motion.div {...fadeUp} className="mb-6">
-              <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-[12px] font-medium text-graphite-300 tracking-wide">
+              <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-[12px] font-medium text-zinc-300 tracking-wide">
                 Updated April 2026
               </span>
             </motion.div>
@@ -168,7 +168,7 @@ export default function BestTRTClinicsPage() {
             <motion.h1 {...fadeUp} className="text-display-lg text-white mb-6">
               Choosing an Online TRT Clinic: A Patient&apos;s Guide (2026)
             </motion.h1>
-            <motion.p {...fadeUp} className="text-xl text-graphite-400 leading-relaxed max-w-2xl">
+            <motion.p {...fadeUp} className="text-xl text-zinc-400 leading-relaxed max-w-2xl">
               An overview of five online TRT clinics — Bloom Metabolics, Hims, Roman, Marek Health, and Peter MD — covering their approaches to lab work, personalization, and patient care.
             </motion.p>
           </motion.div>
@@ -185,17 +185,17 @@ export default function BestTRTClinicsPage() {
         <SectionLabel>Context</SectionLabel>
         <SectionTitle>Why Men Are Looking for Alternatives</SectionTitle>
         <div className="mt-8 max-w-3xl">
-          <p className="text-lg text-graphite-600 leading-relaxed mb-6">
+          <p className="text-lg text-zinc-600 leading-relaxed mb-6">
             If you&apos;re researching online TRT clinics, you&apos;re probably in one of two situations:
           </p>
           <div className="grid gap-4">
-            <div className="flex items-start gap-4 bg-graphite-50 rounded-xl p-5">
-              <div className="w-8 h-8 rounded-full bg-graphite-950 text-white text-[13px] font-bold flex items-center justify-center flex-shrink-0">1</div>
-              <p className="text-[15px] text-graphite-600"><strong className="text-graphite-950">You&apos;ve been on Hims or Roman</strong> and feel like your protocol isn&apos;t dialed in. You want individualized protocols with comprehensive lab monitoring.</p>
+            <div className="flex items-start gap-4 bg-zinc-50 rounded-xl p-5">
+              <div className="w-8 h-8 rounded-full bg-zinc-950 text-white text-[13px] font-bold flex items-center justify-center flex-shrink-0">1</div>
+              <p className="text-[15px] text-zinc-600"><strong className="text-zinc-950">You&apos;ve been on Hims or Roman</strong> and feel like your protocol isn&apos;t dialed in. You want individualized protocols with comprehensive lab monitoring.</p>
             </div>
-            <div className="flex items-start gap-4 bg-graphite-50 rounded-xl p-5">
-              <div className="w-8 h-8 rounded-full bg-graphite-950 text-white text-[13px] font-bold flex items-center justify-center flex-shrink-0">2</div>
-              <p className="text-[15px] text-graphite-600"><strong className="text-graphite-950">You&apos;re new to TRT</strong> and trying to figure out which clinic is actually good \u2014 not just good at marketing.</p>
+            <div className="flex items-start gap-4 bg-zinc-50 rounded-xl p-5">
+              <div className="w-8 h-8 rounded-full bg-zinc-950 text-white text-[13px] font-bold flex items-center justify-center flex-shrink-0">2</div>
+              <p className="text-[15px] text-zinc-600"><strong className="text-zinc-950">You&apos;re new to TRT</strong> and trying to figure out which clinic is actually good \u2014 not just good at marketing.</p>
             </div>
           </div>
         </div>
@@ -216,7 +216,7 @@ export default function BestTRTClinicsPage() {
             <Card key={i} dark>
               <item.icon className="w-5 h-5 text-emerald-400 mb-3" />
               <h4 className="text-[14px] font-semibold text-white mb-1">{item.title}</h4>
-              <p className="text-[13px] text-graphite-400">{item.desc}</p>
+              <p className="text-[13px] text-zinc-400">{item.desc}</p>
             </Card>
           ))}
         </div>
@@ -231,16 +231,16 @@ export default function BestTRTClinicsPage() {
           {clinics.map((clinic, i) => (
             <div
               key={i}
-              className="rounded-2xl border border-graphite-100 bg-white p-8"
+              className="rounded-2xl border border-zinc-100 bg-white p-8"
             >
               <div className="flex items-start justify-between flex-wrap gap-4 mb-6">
                 <div>
-                  <h3 className="text-xl font-semibold text-graphite-950">{clinic.name}</h3>
-                  <p className="text-[14px] text-graphite-500">{clinic.tagline}</p>
+                  <h3 className="text-xl font-semibold text-zinc-950">{clinic.name}</h3>
+                  <p className="text-[14px] text-zinc-500">{clinic.tagline}</p>
                 </div>
               </div>
 
-              <p className="text-[15px] text-graphite-600 mb-6">{clinic.overview}</p>
+              <p className="text-[15px] text-zinc-600 mb-6">{clinic.overview}</p>
 
               <div className="grid md:grid-cols-2 gap-6 mb-6">
                 <div>
@@ -249,34 +249,34 @@ export default function BestTRTClinicsPage() {
                     {clinic.strengths.map((s, j) => (
                       <li key={j} className="flex items-start gap-2">
                         <Check className="w-4 h-4 text-emerald-500 flex-shrink-0 mt-0.5" />
-                        <span className="text-[14px] text-graphite-600">{s}</span>
+                        <span className="text-[14px] text-zinc-600">{s}</span>
                       </li>
                     ))}
                   </ul>
                 </div>
                 <div>
-                  <h4 className="text-[12px] font-semibold text-graphite-400 uppercase tracking-wider mb-3">Considerations</h4>
+                  <h4 className="text-[12px] font-semibold text-zinc-400 uppercase tracking-wider mb-3">Considerations</h4>
                   <ul className="space-y-2">
                     {clinic.considerations.map((c, j) => (
                       <li key={j} className="flex items-start gap-2">
-                        <span className="w-1.5 h-1.5 rounded-full bg-graphite-300 flex-shrink-0 mt-2" />
-                        <span className="text-[14px] text-graphite-500">{c}</span>
+                        <span className="w-1.5 h-1.5 rounded-full bg-zinc-300 flex-shrink-0 mt-2" />
+                        <span className="text-[14px] text-zinc-500">{c}</span>
                       </li>
                     ))}
                   </ul>
                 </div>
               </div>
 
-              <div className="bg-graphite-50 rounded-xl px-5 py-3 flex items-start gap-2">
-                <span className="text-[14px] font-semibold text-graphite-950">Best if:</span>
-                <span className="text-[14px] text-graphite-600">{clinic.bestIf}</span>
+              <div className="bg-zinc-50 rounded-xl px-5 py-3 flex items-start gap-2">
+                <span className="text-[14px] font-semibold text-zinc-950">Best if:</span>
+                <span className="text-[14px] text-zinc-600">{clinic.bestIf}</span>
               </div>
 
               {clinic.link && (
                 <div className="mt-6">
                   <Link
                     href={clinic.link}
-                    className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-graphite-950 text-white text-[14px] font-semibold hover:bg-graphite-800 transition-all"
+                    className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-zinc-950 text-white text-[14px] font-semibold hover:bg-zinc-800 transition-all"
                   >
                     Book Consultation
                     <ArrowRight className="w-4 h-4" />
@@ -295,10 +295,10 @@ export default function BestTRTClinicsPage() {
         <div className="mt-10 overflow-x-auto">
           <table className="w-full text-left">
             <thead>
-              <tr className="border-b border-graphite-800">
-                <th className="py-4 pr-4 text-[13px] font-semibold text-graphite-400 uppercase tracking-wider">Feature</th>
+              <tr className="border-b border-zinc-800">
+                <th className="py-4 pr-4 text-[13px] font-semibold text-zinc-400 uppercase tracking-wider">Feature</th>
                 {clinicNames.map((name, i) => (
-                  <th key={i} className={`py-4 px-3 text-[13px] font-semibold uppercase tracking-wider ${i === 0 ? 'text-emerald-400' : 'text-graphite-400'}`}>
+                  <th key={i} className={`py-4 px-3 text-[13px] font-semibold uppercase tracking-wider ${i === 0 ? 'text-emerald-400' : 'text-zinc-400'}`}>
                     {name}
                   </th>
                 ))}
@@ -306,10 +306,10 @@ export default function BestTRTClinicsPage() {
             </thead>
             <tbody>
               {comparisonTable.map((row, i) => (
-                <tr key={i} className="border-b border-graphite-800/50">
-                  <td className="py-4 pr-4 text-[14px] font-medium text-graphite-300">{row.feature}</td>
+                <tr key={i} className="border-b border-zinc-800/50">
+                  <td className="py-4 pr-4 text-[14px] font-medium text-zinc-300">{row.feature}</td>
                   {row.values.map((val, j) => (
-                    <td key={j} className={`py-4 px-3 ${j === 0 ? 'text-graphite-300' : 'text-graphite-500'}`}>
+                    <td key={j} className={`py-4 px-3 ${j === 0 ? 'text-zinc-300' : 'text-zinc-500'}`}>
                       <CellValue value={val} />
                     </td>
                   ))}
@@ -328,10 +328,10 @@ export default function BestTRTClinicsPage() {
           {testimonials.map((t, i) => (
             <Card key={i}>
               {/* FTC — star ratings removed */}
-              <p className="text-[14px] text-graphite-600 leading-relaxed mb-4 italic">
+              <p className="text-[14px] text-zinc-600 leading-relaxed mb-4 italic">
                 &ldquo;{t.quote}&rdquo;
               </p>
-              <p className="text-[13px] font-semibold text-graphite-950">
+              <p className="text-[13px] font-semibold text-zinc-950">
                 {t.name}, Age {t.age}
               </p>
               <TestimonialDisclosure variant="hormone" />
@@ -355,7 +355,7 @@ export default function BestTRTClinicsPage() {
             { need: 'Simple, no-frills hormone management', pick: 'Peter MD' },
           ].map((item, i) => (
             <Card key={i} dark>
-              <p className="text-[14px] text-graphite-400 mb-2">{item.need}</p>
+              <p className="text-[14px] text-zinc-400 mb-2">{item.need}</p>
               <p className="text-[15px] font-semibold text-white">\u2192 {item.pick}</p>
             </Card>
           ))}
@@ -363,22 +363,22 @@ export default function BestTRTClinicsPage() {
       </Section>
 
       {/* Final CTA */}
-      <section className="bg-graphite-950 py-20 lg:py-28 border-t border-graphite-800">
+      <section className="bg-zinc-950 py-20 lg:py-28 border-t border-zinc-800">
         <div className="max-w-3xl mx-auto px-6 lg:px-8 text-center">
           <h2 className="text-display text-white mb-5">
             The &ldquo;Best&rdquo; Clinic Depends on You
           </h2>
-          <p className="text-lg text-graphite-400 mb-8 max-w-xl mx-auto">
+          <p className="text-lg text-zinc-400 mb-8 max-w-xl mx-auto">
             If you&apos;ve made it this far in your research, you probably care about more than just price. Book a Bloom Metabolics consultation and find out what personalized care actually feels like.
           </p>
           <Link
             href="/pricing"
-            className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-white text-graphite-950 text-[15px] font-semibold hover:bg-graphite-100 transition-all shadow-lg"
+            className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-white text-zinc-950 text-[15px] font-semibold hover:bg-zinc-100 transition-all shadow-lg"
           >
             Book Consultation
             <ArrowRight className="w-4 h-4" />
           </Link>
-          <p className="text-[12px] text-graphite-400 mt-8">
+          <p className="text-[12px] text-zinc-400 mt-8">
             Bloom Metabolics produced this comparison. We&apos;ve made every effort to be accurate and fair.
             We encourage you to do your own research. Last updated April 2026.
           </p>

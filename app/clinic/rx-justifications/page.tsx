@@ -23,7 +23,7 @@ export default function RxJustificationsPage() {
       <div className="flex items-center justify-between">
         <div>
           <h1 className="text-2xl font-bold text-white tracking-tight">Compounded Rx Justifications</h1>
-          <p className="text-sm text-graphite-500 mt-1">FDA April 2026 — patient-specific medical necessity documentation</p>
+          <p className="text-sm text-zinc-500 mt-1">FDA April 2026 — patient-specific medical necessity documentation</p>
         </div>
         <Link href="/clinic/rx-justifications/new" className="flex items-center gap-2 px-4 py-2 rounded-lg bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-medium hover:bg-emerald-500/20 transition-colors">
           <Plus className="w-3.5 h-3.5" /> New Justification
@@ -32,34 +32,34 @@ export default function RxJustificationsPage() {
 
       <div className="flex gap-2">
         {(['all', 'signed', 'flagged'] as const).map(f => (
-          <button key={f} onClick={() => setFilter(f)} className={`px-3 py-1.5 rounded-lg text-xs font-medium border transition-colors ${filter === f ? 'bg-nova-500/10 border-nova-500/30 text-nova-400' : 'bg-graphite-900 border-graphite-800 text-graphite-400'}`}>
+          <button key={f} onClick={() => setFilter(f)} className={`px-3 py-1.5 rounded-lg text-xs font-medium border transition-colors ${filter === f ? 'bg-nova-500/10 border-nova-500/30 text-nova-400' : 'bg-zinc-900 border-zinc-800 text-zinc-400'}`}>
             {f === 'all' ? 'All' : f === 'signed' ? 'Signed' : 'Flagged'}
           </button>
         ))}
       </div>
 
-      <div className="rounded-xl border border-graphite-800 overflow-hidden">
+      <div className="rounded-xl border border-zinc-800 overflow-hidden">
         {loading ? (
-          <div className="p-8 text-center text-graphite-500 text-sm">Loading...</div>
+          <div className="p-8 text-center text-zinc-500 text-sm">Loading...</div>
         ) : justifications.length === 0 ? (
           <div className="p-8 text-center">
-            <FileText className="w-8 h-8 text-graphite-600 mx-auto mb-2" />
-            <p className="text-sm text-graphite-500">No justifications found.</p>
+            <FileText className="w-8 h-8 text-zinc-600 mx-auto mb-2" />
+            <p className="text-sm text-zinc-500">No justifications found.</p>
           </div>
         ) : (
           <table className="w-full text-sm">
-            <thead><tr className="bg-graphite-900/80 border-b border-graphite-800">
-              <th className="text-left px-4 py-3 text-xs font-medium text-graphite-500 uppercase">Drug</th>
-              <th className="text-left px-4 py-3 text-xs font-medium text-graphite-500 uppercase">Patient</th>
-              <th className="text-left px-4 py-3 text-xs font-medium text-graphite-500 uppercase">Signed</th>
-              <th className="text-left px-4 py-3 text-xs font-medium text-graphite-500 uppercase">Status</th>
+            <thead><tr className="bg-zinc-900/80 border-b border-zinc-800">
+              <th className="text-left px-4 py-3 text-xs font-medium text-zinc-500 uppercase">Drug</th>
+              <th className="text-left px-4 py-3 text-xs font-medium text-zinc-500 uppercase">Patient</th>
+              <th className="text-left px-4 py-3 text-xs font-medium text-zinc-500 uppercase">Signed</th>
+              <th className="text-left px-4 py-3 text-xs font-medium text-zinc-500 uppercase">Status</th>
             </tr></thead>
-            <tbody className="divide-y divide-graphite-800/50">
+            <tbody className="divide-y divide-zinc-800/50">
               {justifications.map(j => (
-                <tr key={j.id} className="hover:bg-graphite-900/50">
+                <tr key={j.id} className="hover:bg-zinc-900/50">
                   <td className="px-4 py-3 text-white">{j.drug}</td>
-                  <td className="px-4 py-3 text-graphite-400">{j.patient_id?.slice(0, 8)}...</td>
-                  <td className="px-4 py-3 text-graphite-400">{new Date(j.signed_at).toLocaleDateString()}</td>
+                  <td className="px-4 py-3 text-zinc-400">{j.patient_id?.slice(0, 8)}...</td>
+                  <td className="px-4 py-3 text-zinc-400">{new Date(j.signed_at).toLocaleDateString()}</td>
                   <td className="px-4 py-3">
                     <span className={`text-[10px] px-2 py-0.5 rounded-full ${j.status === 'flagged' ? 'bg-red-500/10 text-red-400' : 'bg-emerald-500/10 text-emerald-400'}`}>
                       {j.status}

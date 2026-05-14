@@ -19,25 +19,25 @@ export default function SettingsPage() {
     <div className="space-y-6 max-w-4xl">
       <div>
         <h1 className="text-2xl font-bold text-white tracking-tight">Settings</h1>
-        <p className="text-sm text-graphite-500 mt-1">Platform configuration and integrations</p>
+        <p className="text-sm text-zinc-500 mt-1">Platform configuration and integrations</p>
       </div>
 
       {/* Team */}
       <SettingsCard title="Team & Roles" icon={Users}>
         <div className="space-y-2">
           {TEAM.map(user => (
-            <div key={user.id} className="flex items-center gap-3 p-3 rounded-lg bg-graphite-800/30">
-              <div className="w-8 h-8 rounded-full bg-graphite-800 border border-graphite-700 flex items-center justify-center text-xs font-bold text-white">
+            <div key={user.id} className="flex items-center gap-3 p-3 rounded-lg bg-zinc-800/30">
+              <div className="w-8 h-8 rounded-full bg-zinc-800 border border-zinc-700 flex items-center justify-center text-xs font-bold text-white">
                 {user.firstName[0]}{user.lastName[0]}
               </div>
               <div className="flex-1">
                 <p className="text-xs font-medium text-white">{user.firstName} {user.lastName}</p>
-                <p className="text-[10px] text-graphite-500">{user.title}{user.email ? ` · ${user.email}` : ''}</p>
+                <p className="text-[10px] text-zinc-500">{user.title}{user.email ? ` · ${user.email}` : ''}</p>
               </div>
-              <span className="text-[10px] px-2 py-0.5 rounded-full bg-graphite-800 text-graphite-400 capitalize">
+              <span className="text-[10px] px-2 py-0.5 rounded-full bg-zinc-800 text-zinc-400 capitalize">
                 {ROLE_LABELS[user.role]}
               </span>
-              <div className={cn('w-2 h-2 rounded-full', user.isActive ? 'bg-emerald-400' : 'bg-graphite-600')} />
+              <div className={cn('w-2 h-2 rounded-full', user.isActive ? 'bg-emerald-400' : 'bg-zinc-600')} />
             </div>
           ))}
         </div>
@@ -51,12 +51,12 @@ export default function SettingsPage() {
             <span className="text-xs text-nova-300 font-medium">MCP Server Connected</span>
           </div>
 
-          <p className="text-xs text-graphite-400">Available agent tools:</p>
+          <p className="text-xs text-zinc-400">Available agent tools:</p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
             {Object.values(mcpTools).map(tool => (
-              <div key={tool.name} className="p-2.5 rounded-lg bg-graphite-800/30 border border-graphite-800/50">
+              <div key={tool.name} className="p-2.5 rounded-lg bg-zinc-800/30 border border-zinc-800/50">
                 <p className="text-[11px] font-mono text-nova-400">{tool.name}</p>
-                <p className="text-[10px] text-graphite-500 mt-0.5 line-clamp-2">{tool.description}</p>
+                <p className="text-[10px] text-zinc-500 mt-0.5 line-clamp-2">{tool.description}</p>
               </div>
             ))}
           </div>
@@ -74,14 +74,14 @@ export default function SettingsPage() {
             { label: 'Lab results', desc: 'When new lab results are available', enabled: true },
             { label: 'Agent actions', desc: 'When an AI agent completes an action', enabled: false },
           ].map(item => (
-            <div key={item.label} className="flex items-center justify-between p-3 rounded-lg bg-graphite-800/20">
+            <div key={item.label} className="flex items-center justify-between p-3 rounded-lg bg-zinc-800/20">
               <div>
                 <p className="text-xs font-medium text-white">{item.label}</p>
-                <p className="text-[10px] text-graphite-500">{item.desc}</p>
+                <p className="text-[10px] text-zinc-500">{item.desc}</p>
               </div>
               <div className={cn(
                 'w-8 h-5 rounded-full relative cursor-pointer transition-colors',
-                item.enabled ? 'bg-nova-500' : 'bg-graphite-700'
+                item.enabled ? 'bg-nova-500' : 'bg-zinc-700'
               )}>
                 <div className={cn(
                   'w-3.5 h-3.5 rounded-full bg-white absolute top-0.5 transition-transform',
@@ -95,28 +95,28 @@ export default function SettingsPage() {
 
       {/* Security */}
       <SettingsCard title="Security & Compliance" icon={Shield}>
-        <div className="space-y-2 text-xs text-graphite-400">
-          <div className="flex items-center justify-between p-3 rounded-lg bg-graphite-800/20">
+        <div className="space-y-2 text-xs text-zinc-400">
+          <div className="flex items-center justify-between p-3 rounded-lg bg-zinc-800/20">
             <span>Session timeout</span>
             <span className="text-white">30 minutes</span>
           </div>
-          <div className="flex items-center justify-between p-3 rounded-lg bg-graphite-800/20">
+          <div className="flex items-center justify-between p-3 rounded-lg bg-zinc-800/20">
             <span>Audit logging</span>
             <span className="text-emerald-400">Enabled</span>
           </div>
-          <div className="flex items-center justify-between p-3 rounded-lg bg-graphite-800/20">
+          <div className="flex items-center justify-between p-3 rounded-lg bg-zinc-800/20">
             <span>PHI field encryption</span>
             <span className="text-emerald-400">Enabled</span>
           </div>
-          <div className="flex items-center justify-between p-3 rounded-lg bg-graphite-800/20">
+          <div className="flex items-center justify-between p-3 rounded-lg bg-zinc-800/20">
             <span>Role-based access control</span>
             <span className="text-emerald-400">Enabled</span>
           </div>
-          <div className="flex items-center justify-between p-3 rounded-lg bg-graphite-800/20">
+          <div className="flex items-center justify-between p-3 rounded-lg bg-zinc-800/20">
             <span>Password policy</span>
             <span className="text-white">Strong (12+ chars, special)</span>
           </div>
-          <p className="text-[10px] text-graphite-600 mt-2 italic">
+          <p className="text-[10px] text-zinc-600 mt-2 italic">
             This platform is built with compliance-minded engineering principles. Formal HIPAA compliance requires additional organizational controls.
           </p>
         </div>
@@ -129,9 +129,9 @@ function SettingsCard({ title, icon: Icon, children }: {
   title: string; icon: React.ElementType; children: React.ReactNode
 }) {
   return (
-    <div className="rounded-xl border border-graphite-800 bg-graphite-900/50 p-5">
+    <div className="rounded-xl border border-zinc-800 bg-zinc-900/50 p-5">
       <div className="flex items-center gap-2 mb-4">
-        <Icon className="w-4 h-4 text-graphite-500" />
+        <Icon className="w-4 h-4 text-zinc-500" />
         <h3 className="text-sm font-semibold text-white">{title}</h3>
       </div>
       {children}

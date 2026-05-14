@@ -14,11 +14,11 @@ export default function Card({ children, className, dark = false, hover = true }
       className={cn(
         'rounded-2xl p-8 transition-all duration-300',
         dark
-          ? 'bg-graphite-900 border border-graphite-800'
-          : 'bg-white border border-graphite-100',
+          ? 'bg-zinc-900 border border-zinc-800'
+          : 'bg-white border border-zinc-100',
         hover && (dark
-          ? 'hover:border-graphite-700 hover:bg-graphite-800/50'
-          : 'hover:border-graphite-200 hover:shadow-lg'),
+          ? 'hover:border-zinc-700 hover:bg-zinc-800/50'
+          : 'hover:border-zinc-200 hover:shadow-lg'),
         className
       )}
     >
@@ -31,7 +31,7 @@ export function CardIcon({ children, className }: { children: ReactNode; classNa
   return (
     <div className={cn(
       'w-12 h-12 rounded-xl flex items-center justify-center mb-5',
-      'bg-graphite-100 text-graphite-700',
+      'bg-zinc-100 text-zinc-700',
       className
     )}>
       {children}

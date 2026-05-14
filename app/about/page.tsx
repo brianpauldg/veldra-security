@@ -13,8 +13,8 @@ export default function About() {
   return (
     <>
       {/* Hero */}
-      <section className="relative bg-graphite-950 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-graphite-950 via-graphite-900 to-graphite-950" />
+      <section className="relative bg-zinc-950 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-zinc-950 via-zinc-900 to-zinc-950" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_rgba(26,154,115,0.08),_transparent_60%)]" />
 
         <div className="relative max-w-7xl mx-auto px-6 lg:px-8 py-28 lg:py-36">
@@ -24,16 +24,16 @@ export default function About() {
             transition={{ duration: 0.7, ease: [0.25, 0.1, 0, 1] }}
             className="max-w-3xl"
           >
-            <span className="text-[11px] font-semibold uppercase tracking-[0.15em] text-graphite-400 mb-4 block">
+            <span className="text-[11px] font-semibold uppercase tracking-[0.15em] text-zinc-400 mb-4 block">
               About Bloom Metabolics
             </span>
             <h1 className="text-display-xl text-white mb-6">
               Built for men who take their health seriously
             </h1>
-            <p className="text-xl text-graphite-400 leading-relaxed max-w-2xl">
-              Bloom Metabolics exists because modern men deserve healthcare that matches
-              how they live — efficient, evidence-based, and built around outcomes,
-              not office visits.
+            <p className="text-xl text-zinc-400 leading-relaxed max-w-2xl">
+              Bloom Metabolics exists because the gap between what primary care offers
+              and what informed patients need is wider than it should be. Efficient,
+              evidence-based, and built around outcomes — not office visits.
             </p>
           </motion.div>
         </div>
@@ -44,7 +44,7 @@ export default function About() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <div>
             <SectionLabel>Our Mission</SectionLabel>
-            <SectionTitle>Premium care without the friction</SectionTitle>
+            <SectionTitle>Clinical care without the friction</SectionTitle>
             <SectionDescription>
               Traditional healthcare makes men wait weeks for appointments, sit in
               waiting rooms, and repeat their story to every new provider. We built
@@ -66,20 +66,20 @@ export default function About() {
             </div>
           </div>
 
-          <div className="bg-graphite-50 rounded-3xl p-8 lg:p-10">
-            <h3 className="text-[14px] font-semibold text-graphite-400 uppercase tracking-widest mb-8">
+          <div className="bg-zinc-50 rounded-3xl p-8 lg:p-10">
+            <h3 className="text-[14px] font-semibold text-zinc-400 uppercase tracking-widest mb-8">
               What We Stand For
             </h3>
             <div className="space-y-6">
               {[
                 { title: 'Medical Rigor First', desc: 'Every protocol is evidence-based and provider-supervised. No shortcuts, no exceptions.' },
-                { title: 'Radical Transparency', desc: 'Clear pricing, honest timelines, and straightforward communication. No hidden fees or false promises.' },
+                { title: 'Radical Transparency', desc: 'Clear pricing, honest timelines, and straightforward communication. Every cost disclosed upfront.' },
                 { title: 'Personalized Protocols', desc: 'Your treatment is designed around your labs, your goals, and your medical history — not a template.' },
                 { title: 'Ongoing Optimization', desc: 'We don\'t prescribe and disappear. Regular monitoring, check-ins, and adjustments are built into every program.' },
               ].map((item) => (
                 <div key={item.title}>
-                  <h4 className="text-[15px] font-semibold text-graphite-950 mb-1">{item.title}</h4>
-                  <p className="text-[13px] text-graphite-500 leading-relaxed">{item.desc}</p>
+                  <h4 className="text-[15px] font-semibold text-zinc-950 mb-1">{item.title}</h4>
+                  <p className="text-[13px] text-zinc-500 leading-relaxed">{item.desc}</p>
                 </div>
               ))}
             </div>
@@ -122,11 +122,11 @@ export default function About() {
             },
           ].map((item) => (
             <div key={item.title} className="glass rounded-2xl p-6">
-              <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center text-graphite-300 mb-4">
+              <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center text-zinc-300 mb-4">
                 {item.icon}
               </div>
               <h3 className="text-[15px] font-semibold text-white mb-2">{item.title}</h3>
-              <p className="text-[13px] text-graphite-400 leading-relaxed">{item.desc}</p>
+              <p className="text-[13px] text-zinc-400 leading-relaxed">{item.desc}</p>
             </div>
           ))}
         </div>
@@ -157,7 +157,7 @@ export default function About() {
               points: [
                 'HIPAA-compliant platform',
                 'Encrypted data at rest and in transit',
-                'Stripe-secured payment processing',
+                'PCI-compliant payment processing',
                 'Regular security audits',
               ],
             },
@@ -167,19 +167,19 @@ export default function About() {
               points: [
                 'No guaranteed outcome promises',
                 'Clear eligibility criteria',
-                'Transparent pricing — no hidden fees',
+                'Transparent pricing — every cost disclosed upfront',
                 'We say no when treatment isn\'t right',
               ],
             },
           ].map((item) => (
             <Card key={item.title}>
               <CardIcon>{item.icon}</CardIcon>
-              <h3 className="text-headline text-graphite-950 mb-4">{item.title}</h3>
+              <h3 className="text-headline text-zinc-950 mb-4">{item.title}</h3>
               <ul className="space-y-3">
                 {item.points.map((point) => (
                   <li key={point} className="flex items-start gap-2">
                     <Check className="w-4 h-4 text-emerald-500 mt-0.5 flex-shrink-0" />
-                    <span className="text-[13px] text-graphite-600">{point}</span>
+                    <span className="text-[13px] text-zinc-600">{point}</span>
                   </li>
                 ))}
               </ul>
@@ -192,25 +192,25 @@ export default function About() {
       <Section dark className="gradient-hero">
         <div className="max-w-3xl mx-auto text-center">
           <h2 className="text-display-lg text-white mb-6">
-            Ready to experience healthcare built for you?
+            Clinical care, built around your biology.
           </h2>
-          <p className="text-lg text-graphite-400 leading-relaxed mb-10 max-w-xl mx-auto">
+          <p className="text-lg text-zinc-400 leading-relaxed mb-10 max-w-xl mx-auto">
             Start with a consultation. A focused session with a licensed provider to
             discuss your health, your goals, and your options.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <Link
               href="/pricing"
-              className="inline-flex items-center gap-2 px-10 py-4 rounded-full bg-white text-graphite-950 text-[15px] font-semibold hover:bg-graphite-100 transition-all shadow-lg"
+              className="inline-flex items-center gap-2 px-10 py-4 rounded-full bg-white text-zinc-950 text-[15px] font-semibold hover:bg-zinc-100 transition-all shadow-lg"
             >
-              Book Your Consultation
+              Apply Now
               <ArrowRight className="w-4 h-4" />
             </Link>
             <Link
               href="/quiz"
               className="inline-flex items-center gap-2 px-8 py-4 rounded-full border border-white/15 text-white text-[15px] font-medium hover:bg-white/5 transition-all"
             >
-              Take the Free Assessment
+              Take the Assessment
             </Link>
           </div>
           <p className="text-[12px] text-[#8a8268] mt-6">

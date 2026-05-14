@@ -51,30 +51,30 @@ export default function AISuggestionsPage() {
     <div className="space-y-4">
       <div>
         <h1 className="text-2xl font-bold text-white tracking-tight">AI Suggestions</h1>
-        <p className="text-sm text-graphite-500 mt-1">AB 3030 — AI-generated actions awaiting clinician confirmation</p>
+        <p className="text-sm text-zinc-500 mt-1">AB 3030 — AI-generated actions awaiting clinician confirmation</p>
       </div>
 
-      <div className="rounded-xl border border-graphite-800 overflow-hidden">
+      <div className="rounded-xl border border-zinc-800 overflow-hidden">
         {loading ? (
-          <div className="p-8 text-center text-graphite-500 text-sm">Loading...</div>
+          <div className="p-8 text-center text-zinc-500 text-sm">Loading...</div>
         ) : confirmations.length === 0 ? (
           <div className="p-8 text-center">
-            <Bot className="w-8 h-8 text-graphite-600 mx-auto mb-2" />
-            <p className="text-sm text-graphite-500">No pending AI suggestions.</p>
-            <p className="text-xs text-graphite-600 mt-1">AI-suggested actions will appear here for your review before execution.</p>
+            <Bot className="w-8 h-8 text-zinc-600 mx-auto mb-2" />
+            <p className="text-sm text-zinc-500">No pending AI suggestions.</p>
+            <p className="text-xs text-zinc-600 mt-1">AI-suggested actions will appear here for your review before execution.</p>
           </div>
         ) : (
-          <div className="divide-y divide-graphite-800/50">
+          <div className="divide-y divide-zinc-800/50">
             {confirmations.map((c: any) => (
-              <div key={c.token} className="p-4 hover:bg-graphite-900/50">
+              <div key={c.token} className="p-4 hover:bg-zinc-900/50">
                 <div className="flex items-start justify-between">
                   <div>
                     <div className="flex items-center gap-2 mb-1">
-                      <span className="text-[10px] px-2 py-0.5 rounded-full bg-graphite-800 text-graphite-400">{c.ai_source}</span>
+                      <span className="text-[10px] px-2 py-0.5 rounded-full bg-zinc-800 text-zinc-400">{c.ai_source}</span>
                       <span className="text-xs text-white font-medium">{c.write_action}</span>
                     </div>
-                    <p className="text-xs text-graphite-400">{JSON.stringify(c.write_payload).slice(0, 100)}...</p>
-                    <div className="flex items-center gap-1 mt-1 text-[10px] text-graphite-500">
+                    <p className="text-xs text-zinc-400">{JSON.stringify(c.write_payload).slice(0, 100)}...</p>
+                    <div className="flex items-center gap-1 mt-1 text-[10px] text-zinc-500">
                       <Clock className="w-3 h-3" />
                       Expires: {new Date(c.expires_at).toLocaleString()}
                     </div>

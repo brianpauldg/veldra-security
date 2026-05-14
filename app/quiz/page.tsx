@@ -228,16 +228,16 @@ export default function QuizPage() {
   return (
     <>
       {/* Hero */}
-      <section className="bg-graphite-950 pt-32 pb-16">
+      <section className="bg-zinc-950 pt-32 pb-16">
         <div className="max-w-3xl mx-auto px-6 lg:px-8 text-center">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-[12px] font-medium text-graphite-300 tracking-wide mb-6">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-[12px] font-medium text-zinc-300 tracking-wide mb-6">
             <Activity className="w-3.5 h-3.5 text-emerald-400" />
             2-Minute Self-Assessment
           </div>
           <h1 className="text-display text-white mb-4">
             Is It Low T?
           </h1>
-          <p className="text-lg text-graphite-400 max-w-xl mx-auto">
+          <p className="text-lg text-zinc-400 max-w-xl mx-auto">
             Answer 12 quick questions about your symptoms. Get a personalized risk assessment and find out if your testosterone levels may be holding you back.
           </p>
         </div>
@@ -256,8 +256,8 @@ export default function QuizPage() {
                 exit={{ opacity: 0, y: -20 }}
                 className="text-center"
               >
-                <div className="bg-graphite-50 rounded-2xl p-8 mb-8">
-                  <h2 className="text-display-sm text-graphite-950 mb-4">How It Works</h2>
+                <div className="bg-zinc-50 rounded-2xl p-8 mb-8">
+                  <h2 className="text-display-sm text-zinc-950 mb-4">How It Works</h2>
                   <div className="grid gap-4 text-left max-w-md mx-auto">
                     {[
                       'Answer 12 questions about your symptoms',
@@ -265,22 +265,22 @@ export default function QuizPage() {
                       'Receive tailored recommendations based on your results',
                     ].map((item, i) => (
                       <div key={i} className="flex items-start gap-3">
-                        <div className="w-7 h-7 rounded-full bg-graphite-950 text-white text-[13px] font-semibold flex items-center justify-center flex-shrink-0 mt-0.5">
+                        <div className="w-7 h-7 rounded-full bg-zinc-950 text-white text-[13px] font-semibold flex items-center justify-center flex-shrink-0 mt-0.5">
                           {i + 1}
                         </div>
-                        <p className="text-[15px] text-graphite-600">{item}</p>
+                        <p className="text-[15px] text-zinc-600">{item}</p>
                       </div>
                     ))}
                   </div>
                 </div>
                 <button
                   onClick={() => setStep('quiz')}
-                  className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-graphite-950 text-white text-[15px] font-semibold hover:bg-graphite-800 transition-all shadow-lg"
+                  className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-zinc-950 text-white text-[15px] font-semibold hover:bg-zinc-800 transition-all shadow-lg"
                 >
                   Start Assessment
                   <ArrowRight className="w-4 h-4" />
                 </button>
-                <p className="text-[12px] text-graphite-400 mt-4">
+                <p className="text-[12px] text-zinc-400 mt-4">
                   This assessment is for educational purposes only and does not constitute medical advice.
                 </p>
               </motion.div>
@@ -298,16 +298,16 @@ export default function QuizPage() {
                 {/* Progress */}
                 <div className="mb-8">
                   <div className="flex items-center justify-between mb-2">
-                    <span className="text-[12px] font-medium text-graphite-400 uppercase tracking-wider">
+                    <span className="text-[12px] font-medium text-zinc-400 uppercase tracking-wider">
                       Question {current + 1} of {questions.length}
                     </span>
-                    <span className="text-[12px] font-medium text-graphite-400">
+                    <span className="text-[12px] font-medium text-zinc-400">
                       {Math.round(((current + 1) / questions.length) * 100)}%
                     </span>
                   </div>
-                  <div className="h-1.5 bg-graphite-100 rounded-full overflow-hidden">
+                  <div className="h-1.5 bg-zinc-100 rounded-full overflow-hidden">
                     <motion.div
-                      className="h-full bg-graphite-950 rounded-full"
+                      className="h-full bg-zinc-950 rounded-full"
                       initial={{ width: `${(current / questions.length) * 100}%` }}
                       animate={{ width: `${((current + 1) / questions.length) * 100}%` }}
                       transition={{ duration: 0.3 }}
@@ -315,7 +315,7 @@ export default function QuizPage() {
                   </div>
                 </div>
 
-                <h2 className="text-display-sm text-graphite-950 mb-8">
+                <h2 className="text-display-sm text-zinc-950 mb-8">
                   {questions[current].question}
                 </h2>
 
@@ -324,7 +324,7 @@ export default function QuizPage() {
                     <button
                       key={i}
                       onClick={() => handleAnswer(option.score)}
-                      className="w-full text-left px-6 py-4 rounded-xl border border-graphite-200 text-[15px] text-graphite-700 hover:border-graphite-400 hover:bg-graphite-50 transition-all"
+                      className="w-full text-left px-6 py-4 rounded-xl border border-zinc-200 text-[15px] text-zinc-700 hover:border-zinc-400 hover:bg-zinc-50 transition-all"
                     >
                       {option.label}
                     </button>
@@ -334,7 +334,7 @@ export default function QuizPage() {
                 {current > 0 && (
                   <button
                     onClick={handleBack}
-                    className="mt-6 inline-flex items-center gap-2 text-[14px] text-graphite-500 hover:text-graphite-700 transition-colors"
+                    className="mt-6 inline-flex items-center gap-2 text-[14px] text-zinc-500 hover:text-zinc-700 transition-colors"
                   >
                     <ArrowLeft className="w-4 h-4" />
                     Previous question
@@ -352,13 +352,13 @@ export default function QuizPage() {
                 exit={{ opacity: 0, y: -20 }}
                 className="text-center"
               >
-                <div className="w-16 h-16 rounded-2xl bg-graphite-100 flex items-center justify-center mx-auto mb-6">
-                  <Activity className="w-8 h-8 text-graphite-700" />
+                <div className="w-16 h-16 rounded-2xl bg-zinc-100 flex items-center justify-center mx-auto mb-6">
+                  <Activity className="w-8 h-8 text-zinc-700" />
                 </div>
-                <h2 className="text-display-sm text-graphite-950 mb-3">
+                <h2 className="text-display-sm text-zinc-950 mb-3">
                   Your Results Are Ready
                 </h2>
-                <p className="text-[15px] text-graphite-500 mb-8 max-w-md mx-auto">
+                <p className="text-[15px] text-zinc-500 mb-8 max-w-md mx-auto">
                   Enter your email to see your personalized hormone health risk score and get tailored recommendations.
                 </p>
                 <form onSubmit={handleEmailSubmit} className="max-w-sm mx-auto">
@@ -367,20 +367,20 @@ export default function QuizPage() {
                     value={email}
                     onChange={(e) => { setEmail(e.target.value); setEmailError('') }}
                     placeholder="Enter your email"
-                    className="w-full px-5 py-3.5 rounded-xl border border-graphite-200 text-[15px] text-graphite-900 placeholder:text-graphite-400 focus:outline-none focus:ring-2 focus:ring-graphite-300 mb-2"
+                    className="w-full px-5 py-3.5 rounded-xl border border-zinc-200 text-[15px] text-zinc-900 placeholder:text-zinc-400 focus:outline-none focus:ring-2 focus:ring-zinc-300 mb-2"
                   />
                   {emailError && (
                     <p className="text-[13px] text-red-500 mb-2">{emailError}</p>
                   )}
                   <button
                     type="submit"
-                    className="w-full mt-2 inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl bg-graphite-950 text-white text-[15px] font-semibold hover:bg-graphite-800 transition-all"
+                    className="w-full mt-2 inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl bg-zinc-950 text-white text-[15px] font-semibold hover:bg-zinc-800 transition-all"
                   >
                     See My Results
                     <ArrowRight className="w-4 h-4" />
                   </button>
                 </form>
-                <p className="text-[12px] text-graphite-400 mt-4">
+                <p className="text-[12px] text-zinc-400 mt-4">
                   No spam. We&apos;ll send your results and relevant health content. Unsubscribe anytime.
                 </p>
               </motion.div>
@@ -402,24 +402,24 @@ export default function QuizPage() {
                     <result.icon className="w-4 h-4" />
                     {result.title} &mdash; Score: {totalScore}/36
                   </div>
-                  <h2 className="text-display-sm text-graphite-950 mb-4">
+                  <h2 className="text-display-sm text-zinc-950 mb-4">
                     Your Hormone Health Assessment
                   </h2>
-                  <p className="text-[15px] text-graphite-500 max-w-lg mx-auto">
+                  <p className="text-[15px] text-zinc-500 max-w-lg mx-auto">
                     {result.description}
                   </p>
                 </div>
 
                 {/* Score Breakdown */}
-                <div className="bg-graphite-50 rounded-2xl p-6 mb-8">
-                  <h3 className="text-[14px] font-semibold text-graphite-950 mb-4 uppercase tracking-wider">Your Symptom Profile</h3>
+                <div className="bg-zinc-50 rounded-2xl p-6 mb-8">
+                  <h3 className="text-[14px] font-semibold text-zinc-950 mb-4 uppercase tracking-wider">Your Symptom Profile</h3>
                   <div className="grid gap-3">
                     {questions.map((q, i) => {
                       if (i >= answers.length) return null
                       const score = answers[i]
                       return (
                         <div key={q.id} className="flex items-center justify-between">
-                          <span className="text-[14px] text-graphite-600">{q.question.replace(/\?$/, '').substring(0, 50)}...</span>
+                          <span className="text-[14px] text-zinc-600">{q.question.replace(/\?$/, '').substring(0, 50)}...</span>
                           <div className="flex gap-1">
                             {[0, 1, 2, 3].map((level) => (
                               <div
@@ -427,7 +427,7 @@ export default function QuizPage() {
                                 className={`w-3 h-3 rounded-full ${
                                   level <= score
                                     ? score <= 1 ? 'bg-emerald-400' : score === 2 ? 'bg-amber-400' : 'bg-red-400'
-                                    : 'bg-graphite-200'
+                                    : 'bg-zinc-200'
                                 }`}
                               />
                             ))}
@@ -439,7 +439,7 @@ export default function QuizPage() {
                 </div>
 
                 {/* CTA */}
-                <div className="bg-graphite-950 rounded-2xl p-8 text-center">
+                <div className="bg-zinc-950 rounded-2xl p-8 text-center">
                   <h3 className="text-xl font-semibold text-white mb-3">
                     {tier === 'high'
                       ? 'We\u2019d Strongly Recommend Getting Your Labs Checked'
@@ -447,7 +447,7 @@ export default function QuizPage() {
                       ? 'A Comprehensive Lab Panel Can Give You Answers'
                       : 'Stay Proactive About Your Health'}
                   </h3>
-                  <p className="text-[15px] text-graphite-400 mb-6 max-w-md mx-auto">
+                  <p className="text-[15px] text-zinc-400 mb-6 max-w-md mx-auto">
                     {tier === 'high'
                       ? 'A Bloom Metabolics provider can order comprehensive labs and build a personalized protocol if treatment is appropriate.'
                       : tier === 'moderate'
@@ -456,14 +456,14 @@ export default function QuizPage() {
                   </p>
                   <Link
                     href="/pricing"
-                    className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-white text-graphite-950 text-[15px] font-semibold hover:bg-graphite-100 transition-all"
+                    className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-white text-zinc-950 text-[15px] font-semibold hover:bg-zinc-100 transition-all"
                   >
                     {tier === 'low' ? 'Learn About Our Services' : 'Book Consultation'}
                     <ArrowRight className="w-4 h-4" />
                   </Link>
                 </div>
 
-                <p className="text-[12px] text-graphite-400 text-center mt-6">
+                <p className="text-[12px] text-zinc-400 text-center mt-6">
                   This assessment is for educational purposes only and does not constitute a medical diagnosis.
                   Individual results vary. All treatments require evaluation by a licensed provider.
                 </p>

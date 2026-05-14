@@ -62,7 +62,7 @@ export default function EmailCapture() {
             type="email"
             placeholder="Enter your email"
             {...register('email')}
-            className="w-full px-5 py-3 rounded-full border border-graphite-200 text-[14px] text-graphite-900 placeholder:text-graphite-400 focus:outline-none focus:ring-2 focus:ring-graphite-300 focus:border-transparent transition-all"
+            className="w-full px-5 py-3 rounded-full border border-zinc-200 text-[14px] text-zinc-900 placeholder:text-zinc-400 focus:outline-none focus:ring-2 focus:ring-zinc-300 focus:border-transparent transition-all"
           />
           {errors.email && (
             <p className="text-[12px] text-red-500 mt-1.5 pl-5">{errors.email.message}</p>
@@ -71,7 +71,7 @@ export default function EmailCapture() {
         <button
           type="submit"
           disabled={isSubmitting}
-          className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-graphite-950 text-white text-[14px] font-medium hover:bg-graphite-800 transition-all disabled:opacity-50 flex-shrink-0"
+          className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-zinc-950 text-white text-[14px] font-medium hover:bg-zinc-800 transition-all disabled:opacity-50 flex-shrink-0"
         >
           Subscribe
           <ArrowRight className="w-3.5 h-3.5" />

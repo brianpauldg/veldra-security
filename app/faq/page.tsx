@@ -9,11 +9,19 @@ import { CONSULTATION, primaryCtaLabel, primaryCtaSublabel } from '@/lib/pricing
 
 const faqCategories = [
   {
-    category: 'Pricing & Cost',
+    category: 'Membership & Pricing',
     items: [
       {
         q: 'How much does Bloom Metabolics cost?',
-        a: `${CONSULTATION.display} for the consultation. Program pricing is confirmed by your physician based on the medication and dose prescribed, before you commit. ${primaryCtaSublabel()}.`,
+        a: `Start with a ${CONSULTATION.display} Optimization Consultation. If you continue, choose from three membership tiers: Essentials ($149/mo), Core ($299/mo), or Signature ($599/mo). Add treatment protocols — TRT, GLP-1, Sexual Health, or Longevity — as needed. Your ${CONSULTATION.display} consultation fee is credited toward Month 1 of membership.`,
+      },
+      {
+        q: 'What\'s included in the membership vs. add-ons?',
+        a: 'Your membership covers care team access, messaging, lab review, and ongoing care coordination. Treatment add-ons (TRT +$199/mo, GLP-1 +$299/mo, Sexual Health +$129/mo, Longevity +$249/mo) include all medication and supplies.',
+      },
+      {
+        q: 'Is there an annual option?',
+        a: 'Yes. Annual prepay saves approximately two months (about 17% off). Billed in advance. See our Terms of Service for cancellation and refund policy.',
       },
       {
         q: 'What if I don\'t qualify for treatment?',
@@ -21,15 +29,15 @@ const faqCategories = [
       },
       {
         q: 'Are there hidden fees?',
-        a: 'No. The consultation fee and program pricing are the only charges. Shipping from our licensed compounding pharmacy is free on all programs. Some state-required lab work may be billed separately — your physician will tell you upfront.',
+        a: 'No. Membership, add-on, and consultation pricing are the only charges. Shipping from our licensed compounding pharmacy is free. Some state-required lab work may be billed separately — your physician will tell you upfront. Signature tier includes quarterly comprehensive labs at no additional cost.',
       },
       {
         q: 'Do you accept insurance?',
-        a: 'Bloom Metabolics is cash-pay. We don\'t bill insurance. Payments run on Stripe.',
+        a: 'Bloom Metabolics is cash-pay. We do not bill insurance. Many patients find cash-pay simpler and more affordable than navigating insurance restrictions.',
       },
       {
         q: 'Can I cancel anytime?',
-        a: 'Yes. Monthly programs can be cancelled anytime. You keep any medication you\'ve already received.',
+        a: 'Yes. Monthly memberships and add-ons can be cancelled anytime. Annual prepay cancellations follow our Terms of Service refund policy.',
       },
     ],
   },
@@ -59,7 +67,7 @@ const faqCategories = [
     items: [
       {
         q: 'How does the consultation work?',
-        a: 'You book a consultation, complete a short digital intake, and meet with a physician via secure video. The physician reviews your history, answers questions, and confirms whether treatment is appropriate.',
+        a: 'You book an Optimization Consultation, complete a short digital intake, and meet with a physician via secure video. The physician reviews your history, answers questions, and confirms whether treatment is appropriate. After consultation, you select your membership tier and any add-on protocols.',
       },
       {
         q: 'How long does the consultation take?',
@@ -71,7 +79,7 @@ const faqCategories = [
       },
       {
         q: 'How quickly will I hear back after booking?',
-        a: 'You\'ll get a confirmation email instantly and can typically book a consultation within 24–48 hours.',
+        a: 'You\'ll get a confirmation email instantly and can typically book a consultation within 24\u201348 hours.',
       },
     ],
   },
@@ -80,20 +88,24 @@ const faqCategories = [
     items: [
       {
         q: 'Who qualifies for TRT?',
-        a: 'Eligibility is determined by your physician based on symptoms, lab results (testosterone levels), and medical history. Low testosterone is diagnosed by blood test — not every patient with symptoms qualifies.',
+        a: 'Eligibility is determined by your physician based on symptoms, lab results (testosterone levels), and medical history. Low testosterone is diagnosed by blood test \u2014 not every patient with symptoms qualifies.',
       },
       {
         q: 'What GLP-1 medications do you offer?',
-        // FDA April 1 2026 — compounded designation + medical necessity
+        // FDA April 1 2026 \u2014 compounded designation + medical necessity
         a: 'Your physician evaluates each patient individually. Based on clinician-determined medical necessity, the physician may prescribe compounded semaglutide or tirzepatide. Compounded medications are not FDA-approved and are prepared by a licensed compounding pharmacy.',
       },
       {
         q: 'Can I combine treatments?',
-        a: 'Yes, some patients benefit from combined protocols. Your physician designs a coordinated plan tailored to your goals.',
+        a: 'Yes. Multiple add-ons can be attached to any membership tier. Your physician designs a coordinated protocol tailored to your goals.',
       },
       {
         q: 'How long until I see results?',
-        a: 'Timelines vary. TRT patients often notice initial changes within 2–4 weeks. GLP-1 weight changes typically appear within the first month. Your physician will set realistic expectations.',
+        a: 'Timelines vary. TRT patients often notice initial changes within 2\u20134 weeks. GLP-1 weight changes typically appear within the first month. Your physician will set realistic expectations.',
+      },
+      {
+        q: 'When will peptide therapy be available?',
+        a: 'Our peptide service line is sequenced to FDA 503A pathway events. Tranche 1 targets Q3\u2013Q4 2026. Join the Peptide Roadmap waitlist to be notified at launch.',
       },
     ],
   },
@@ -102,7 +114,7 @@ const faqCategories = [
     items: [
       {
         q: 'Is my health information protected?',
-        a: 'Yes. We use HIPAA-compliant systems, encrypted data transmission, and secure storage. Payments are processed by Stripe.',
+        a: 'Yes. We use HIPAA-compliant systems, encrypted data transmission, and secure storage for all patient information.',
       },
       {
         q: 'Do you share my data?',
@@ -143,7 +155,7 @@ function FAQItem({ q, a }: { q: string; a: string }) {
 export default function FAQPage() {
   return (
     <>
-      <section className="bg-graphite-950 py-20 lg:py-28">
+      <section className="bg-zinc-950 py-20 lg:py-28">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 24 }}
@@ -152,8 +164,8 @@ export default function FAQPage() {
             className="text-center max-w-3xl mx-auto"
           >
             <h1 className="text-display-lg text-chrome mb-4">Frequently Asked Questions</h1>
-            <p className="text-lg text-graphite-400">
-              Pricing, providers, treatment — answered plainly.
+            <p className="text-lg text-zinc-400">
+              Membership, providers, treatment \u2014 answered plainly.
             </p>
           </motion.div>
         </div>

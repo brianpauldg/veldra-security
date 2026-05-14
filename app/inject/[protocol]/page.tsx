@@ -100,11 +100,11 @@ export default function ProtocolPage({ params }: PageProps) {
         {/* Storage and frequency notes */}
         <section className="bg-ink py-8 px-6 md:px-12">
           <div className="max-w-4xl mx-auto grid sm:grid-cols-2 gap-4">
-            <div className="p-4 rounded border border-steel/20 bg-graphite-950">
+            <div className="p-4 rounded border border-steel/20 bg-zinc-950">
               <p className="text-xs font-mono text-brass mb-2">STORAGE</p>
               <p className="text-sm text-champagne/70">{protocol.storageNote}</p>
             </div>
-            <div className="p-4 rounded border border-steel/20 bg-graphite-950">
+            <div className="p-4 rounded border border-steel/20 bg-zinc-950">
               <p className="text-xs font-mono text-brass mb-2">FREQUENCY</p>
               <p className="text-sm text-champagne/70">{protocol.frequencyNote}</p>
             </div>

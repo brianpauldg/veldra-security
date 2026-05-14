@@ -15,14 +15,15 @@ const fadeUp = {
 }
 
 const comparisonRows = [
-  { feature: 'Approach', nova: 'Specialized hormone optimization', ro: 'Broad men\u2019s digital health' },
+  { feature: 'Model', nova: 'Membership-based optimization platform (3 tiers)', ro: 'Per-product subscription' },
+  { feature: 'Approach', nova: 'Specialized hormone and metabolic optimization', ro: 'Broad men\u2019s digital health' },
   { feature: 'Providers', nova: 'Dedicated clinicians, low patient ratio', ro: 'Licensed providers, high volume' },
   { feature: 'Lab Work', nova: 'Comprehensive panels + quarterly monitoring', ro: 'At-home test kits, basic panels' },
   { feature: 'Treatment Customization', nova: 'Individualized by biomarkers', ro: 'Protocol-based with some flexibility' },
   { feature: 'Follow-up', nova: 'Proactive provider outreach', ro: 'Mostly patient-initiated' },
-  { feature: 'Services', nova: 'TRT, GLP-1', ro: 'TRT, ED, hair loss, weight loss, primary care' },
-  { feature: 'Pricing', nova: 'Premium, consultation-based', ro: 'Mid-range subscription' },
-  { feature: 'Pharmacy', nova: 'Partner pharmacy network', ro: 'In-house Ro Pharmacy (home delivery)' },
+  { feature: 'Services', nova: 'TRT, GLP-1, Sexual Health, Longevity, Peptide Roadmap', ro: 'TRT, ED, hair loss, weight loss, primary care' },
+  { feature: 'Pricing', nova: 'Membership $149\u2013$599/mo + treatment add-ons', ro: '$150\u2013$250/mo per treatment (as of May 2026)' },
+  { feature: 'Pharmacy', nova: 'Licensed compounding pharmacy network', ro: 'In-house Ro Pharmacy (home delivery)' },
 ]
 
 const detailedSections = [
@@ -70,20 +71,20 @@ export default function VsRomanPage() {
   return (
     <>
       {/* Hero */}
-      <section className="relative bg-graphite-950 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-graphite-950 via-graphite-900 to-graphite-950" />
+      <section className="relative bg-zinc-950 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-zinc-950 via-zinc-900 to-zinc-950" />
         <div className="relative max-w-7xl mx-auto px-6 lg:px-8 py-28 lg:py-36">
           <motion.div initial="initial" animate="animate" className="max-w-3xl">
             <motion.div {...fadeUp} className="mb-6">
-              <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-[12px] font-medium text-graphite-300 tracking-wide">
+              <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-[12px] font-medium text-zinc-300 tracking-wide">
                 Honest Comparison \u2014 Updated 2026
               </span>
             </motion.div>
             <motion.h1 {...fadeUp} className="text-display-lg text-white mb-6">
               Bloom Metabolics vs Ro (Roman)
             </motion.h1>
-            <motion.p {...fadeUp} className="text-xl text-graphite-400 leading-relaxed max-w-2xl">
-              Comparing personalized protocols and ongoing optimization to Ro&apos;s convenient digital health model. An honest look at what each offers.
+            <motion.p {...fadeUp} className="text-xl text-zinc-400 leading-relaxed max-w-2xl">
+              Membership-based optimization vs. per-product digital health. An honest look at what each model offers.
             </motion.p>
           </motion.div>
         </div>
@@ -98,8 +99,8 @@ export default function VsRomanPage() {
       <Section>
         <SectionLabel>TL;DR</SectionLabel>
         <div className="max-w-3xl">
-          <p className="text-lg text-graphite-600 leading-relaxed">
-            Ro (formerly Roman) is a well-known digital health platform offering TRT alongside ED, hair loss, and weight loss treatments. Bloom Metabolics is a specialized clinic focused on hormone optimization and GLP-1 therapy with personalized protocols and ongoing monitoring. <strong className="text-graphite-950">Ro offers broad convenience at scale; Bloom Metabolics offers depth and personalization in a narrower lane.</strong>
+          <p className="text-lg text-zinc-600 leading-relaxed">
+            Ro (formerly Roman) is a well-known digital health platform offering TRT alongside ED, hair loss, and weight loss treatments. Bloom Metabolics is a membership-based optimization platform where your care team coordinates across treatment protocols — TRT, GLP-1, sexual health, and longevity — under one physician relationship. <strong className="text-zinc-950">Ro sells individual treatments. Bloom provides an ongoing care relationship with coordinated protocols. The right choice depends on whether you want a product or a provider.</strong>
           </p>
         </div>
       </Section>
@@ -111,18 +112,18 @@ export default function VsRomanPage() {
         <div className="mt-10 overflow-x-auto">
           <table className="w-full text-left">
             <thead>
-              <tr className="border-b border-graphite-800">
-                <th className="py-4 pr-6 text-[13px] font-semibold text-graphite-400 uppercase tracking-wider w-1/4">Feature</th>
+              <tr className="border-b border-zinc-800">
+                <th className="py-4 pr-6 text-[13px] font-semibold text-zinc-400 uppercase tracking-wider w-1/4">Feature</th>
                 <th className="py-4 pr-6 text-[13px] font-semibold text-emerald-400 uppercase tracking-wider w-[37.5%]">Bloom Metabolics</th>
-                <th className="py-4 text-[13px] font-semibold text-graphite-400 uppercase tracking-wider w-[37.5%]">Ro (Roman)</th>
+                <th className="py-4 text-[13px] font-semibold text-zinc-400 uppercase tracking-wider w-[37.5%]">Ro (Roman)</th>
               </tr>
             </thead>
             <tbody>
               {comparisonRows.map((row, i) => (
-                <tr key={i} className="border-b border-graphite-800/50">
-                  <td className="py-4 pr-6 text-[14px] font-medium text-graphite-300">{row.feature}</td>
-                  <td className="py-4 pr-6 text-[14px] text-graphite-400">{row.nova}</td>
-                  <td className="py-4 text-[14px] text-graphite-500">{row.ro}</td>
+                <tr key={i} className="border-b border-zinc-800/50">
+                  <td className="py-4 pr-6 text-[14px] font-medium text-zinc-300">{row.feature}</td>
+                  <td className="py-4 pr-6 text-[14px] text-zinc-400">{row.nova}</td>
+                  <td className="py-4 text-[14px] text-zinc-500">{row.ro}</td>
                 </tr>
               ))}
             </tbody>
@@ -138,23 +139,23 @@ export default function VsRomanPage() {
           {detailedSections.map((section, i) => (
             <div key={i}>
               <div className="flex items-center gap-3 mb-6">
-                <div className="w-10 h-10 rounded-xl bg-graphite-100 flex items-center justify-center">
-                  <section.icon className="w-5 h-5 text-graphite-700" />
+                <div className="w-10 h-10 rounded-xl bg-zinc-100 flex items-center justify-center">
+                  <section.icon className="w-5 h-5 text-zinc-700" />
                 </div>
-                <h3 className="text-xl font-semibold text-graphite-950">{section.title}</h3>
+                <h3 className="text-xl font-semibold text-zinc-950">{section.title}</h3>
               </div>
               <div className="grid md:grid-cols-2 gap-6 mb-4">
                 <Card>
                   <div className="text-[12px] font-semibold text-emerald-600 uppercase tracking-wider mb-3">Bloom Metabolics</div>
-                  <p className="text-[15px] text-graphite-600 leading-relaxed">{section.nova}</p>
+                  <p className="text-[15px] text-zinc-600 leading-relaxed">{section.nova}</p>
                 </Card>
                 <Card>
-                  <div className="text-[12px] font-semibold text-graphite-400 uppercase tracking-wider mb-3">Ro (Roman)</div>
-                  <p className="text-[15px] text-graphite-600 leading-relaxed">{section.ro}</p>
+                  <div className="text-[12px] font-semibold text-zinc-400 uppercase tracking-wider mb-3">Ro (Roman)</div>
+                  <p className="text-[15px] text-zinc-600 leading-relaxed">{section.ro}</p>
                 </Card>
               </div>
-              <div className="bg-graphite-50 rounded-xl px-6 py-4">
-                <p className="text-[14px] text-graphite-700"><strong>Bottom line:</strong> {section.bottomLine}</p>
+              <div className="bg-zinc-50 rounded-xl px-6 py-4">
+                <p className="text-[14px] text-zinc-700"><strong>Bottom line:</strong> {section.bottomLine}</p>
               </div>
             </div>
           ))}
@@ -177,13 +178,13 @@ export default function VsRomanPage() {
               ].map((item, i) => (
                 <li key={i} className="flex items-start gap-3">
                   <Check className="w-4 h-4 text-emerald-400 flex-shrink-0 mt-1" />
-                  <span className="text-[14px] text-graphite-300">{item}</span>
+                  <span className="text-[14px] text-zinc-300">{item}</span>
                 </li>
               ))}
             </ul>
           </Card>
           <Card dark>
-            <div className="text-[13px] font-semibold text-graphite-400 uppercase tracking-wider mb-4">Ro May Suit</div>
+            <div className="text-[13px] font-semibold text-zinc-400 uppercase tracking-wider mb-4">Ro May Suit</div>
             <ul className="space-y-3">
               {[
                 'Men who want broad health services under one roof',
@@ -192,8 +193,8 @@ export default function VsRomanPage() {
                 'Men looking for a mid-range price point',
               ].map((item, i) => (
                 <li key={i} className="flex items-start gap-3">
-                  <Check className="w-4 h-4 text-graphite-500 flex-shrink-0 mt-1" />
-                  <span className="text-[14px] text-graphite-400">{item}</span>
+                  <Check className="w-4 h-4 text-zinc-500 flex-shrink-0 mt-1" />
+                  <span className="text-[14px] text-zinc-400">{item}</span>
                 </li>
               ))}
             </ul>
@@ -209,10 +210,10 @@ export default function VsRomanPage() {
           {testimonials.map((t, i) => (
             <Card key={i}>
               {/* FTC — star ratings removed */}
-              <p className="text-[15px] text-graphite-600 leading-relaxed mb-4 italic">
+              <p className="text-[15px] text-zinc-600 leading-relaxed mb-4 italic">
                 &ldquo;{t.quote}&rdquo;
               </p>
-              <p className="text-[13px] font-semibold text-graphite-950">
+              <p className="text-[13px] font-semibold text-zinc-950">
                 {t.name}, Age {t.age}
               </p>
               <TestimonialDisclosure variant="hormone" />
@@ -238,26 +239,26 @@ export default function VsRomanPage() {
                 {item.step}
               </div>
               <h4 className="text-[15px] font-semibold text-white mb-2">{item.title}</h4>
-              <p className="text-[14px] text-graphite-400">{item.desc}</p>
+              <p className="text-[14px] text-zinc-400">{item.desc}</p>
             </Card>
           ))}
         </div>
       </Section>
 
       {/* Final CTA */}
-      <section className="bg-graphite-950 py-20 lg:py-28">
+      <section className="bg-zinc-950 py-20 lg:py-28">
         <div className="max-w-3xl mx-auto px-6 lg:px-8 text-center">
           <h2 className="text-display text-white mb-5">
-            Ready for More Personalized Care?
+            A different clinical model.
           </h2>
-          <p className="text-lg text-graphite-400 mb-8 max-w-xl mx-auto">
-            Book a consultation with a Bloom Metabolics provider. We&apos;ll review your health history, order comprehensive labs, and build a protocol around your individual biomarkers.
+          <p className="text-lg text-zinc-400 mb-8 max-w-xl mx-auto">
+            Apply to become a patient. We review your health history, order comprehensive labs, and build a protocol around your individual biomarkers.
           </p>
           <Link
-            href="/pricing"
-            className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-white text-graphite-950 text-[15px] font-semibold hover:bg-graphite-100 transition-all shadow-lg"
+            href="/book"
+            className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-white text-zinc-950 text-[15px] font-semibold hover:bg-zinc-100 transition-all shadow-lg"
           >
-            Book Consultation
+            Apply Now
             <ArrowRight className="w-4 h-4" />
           </Link>
         </div>

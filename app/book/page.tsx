@@ -95,13 +95,13 @@ function BookContent() {
   if (paid) {
     return (
       <>
-        <section className="bg-graphite-950 py-16">
+        <section className="bg-zinc-950 py-16">
           <div className="max-w-7xl mx-auto px-6 lg:px-8 text-center">
             <div className="inline-flex items-center justify-center w-14 h-14 rounded-full bg-white/10 mb-5">
               <CheckCircle className="w-7 h-7 text-white" />
             </div>
             <h1 className="text-display text-white mb-3">Payment Confirmed</h1>
-            <p className="text-lg text-graphite-400">
+            <p className="text-lg text-zinc-400">
               Pick a time that works for you. Your physician will meet you via secure video.
             </p>
           </div>
@@ -109,7 +109,7 @@ function BookContent() {
 
         <section className="py-16 lg:py-20">
           <div className="max-w-3xl mx-auto px-6 lg:px-8">
-            <div className="flex items-center gap-2 mb-4 text-[12px] font-medium text-graphite-500">
+            <div className="flex items-center gap-2 mb-4 text-[12px] font-medium text-zinc-500">
               <Calendar className="w-3.5 h-3.5" />
               Step 2 of 2 — Schedule your consultation
             </div>
@@ -117,21 +117,21 @@ function BookContent() {
             {calendlyUrl ? (
               <iframe
                 src={calendlyUrl}
-                className="w-full h-[720px] border border-graphite-200 rounded-2xl"
+                className="w-full h-[720px] border border-zinc-200 rounded-2xl"
                 title="Book appointment"
               />
             ) : (
-              <div className="rounded-2xl border-2 border-dashed border-graphite-200 bg-graphite-50 p-12 text-center">
-                <Calendar className="w-12 h-12 text-graphite-400 mx-auto mb-4" />
-                <h3 className="text-headline text-graphite-950 mb-2">Calendar coming online</h3>
-                <p className="text-[14px] text-graphite-600 mb-6 max-w-md mx-auto">
+              <div className="rounded-2xl border-2 border-dashed border-zinc-200 bg-zinc-50 p-12 text-center">
+                <Calendar className="w-12 h-12 text-zinc-400 mx-auto mb-4" />
+                <h3 className="text-headline text-zinc-950 mb-2">Calendar coming online</h3>
+                <p className="text-[14px] text-zinc-600 mb-6 max-w-md mx-auto">
                   Your booking calendar will embed here once{' '}
-                  <code className="text-[12px] bg-white border border-graphite-200 px-1.5 py-0.5 rounded">NEXT_PUBLIC_CALENDLY_URL</code>{' '}
+                  <code className="text-[12px] bg-white border border-zinc-200 px-1.5 py-0.5 rounded">NEXT_PUBLIC_CALENDLY_URL</code>{' '}
                   is configured.
                 </p>
                 <button
                   onClick={() => router.push('/success')}
-                  className="inline-flex items-center gap-2 px-8 py-3 rounded-full bg-graphite-950 text-white text-[14px] font-semibold hover:bg-graphite-800 transition-all"
+                  className="inline-flex items-center gap-2 px-8 py-3 rounded-full bg-zinc-950 text-white text-[14px] font-semibold hover:bg-zinc-800 transition-all"
                 >
                   Continue (demo) <ArrowRight className="w-4 h-4" />
                 </button>
@@ -146,16 +146,16 @@ function BookContent() {
   // ─── Pre-payment: 4-field form ───
   return (
     <>
-      <section className="bg-graphite-950 py-14">
+      <section className="bg-zinc-950 py-14">
         <div className="max-w-7xl mx-auto px-6 lg:px-8 text-center">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
-            <div className="inline-flex items-center gap-2 text-[11px] font-medium uppercase tracking-widest text-graphite-400 mb-3">
+            <div className="inline-flex items-center gap-2 text-[11px] font-medium uppercase tracking-widest text-zinc-400 mb-3">
               <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
               Step 1 of 2
             </div>
-            <h1 className="text-display-lg text-white mb-3">Book your consultation</h1>
-            <p className="text-lg text-graphite-400 max-w-xl mx-auto">
-              {CONSULTATION.tagline} {primaryCtaSublabel()}.
+            <h1 className="text-display-lg text-white mb-3">Apply to Become a Patient</h1>
+            <p className="text-lg text-zinc-400 max-w-xl mx-auto">
+              {CONSULTATION.tagline} {CONSULTATION.creditNote}
             </p>
           </motion.div>
         </div>
@@ -167,49 +167,49 @@ function BookContent() {
             <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
               <div className="grid grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-[13px] font-medium text-graphite-700 mb-1.5">First name</label>
+                  <label className="block text-[13px] font-medium text-zinc-700 mb-1.5">First name</label>
                   <input
                     {...register('firstName')}
-                    className="w-full px-4 py-3 rounded-xl border border-graphite-200 text-[14px] focus:outline-none focus:ring-2 focus:ring-graphite-950/10 focus:border-graphite-400"
+                    className="w-full px-4 py-3 rounded-xl border border-zinc-200 text-[14px] focus:outline-none focus:ring-2 focus:ring-zinc-950/10 focus:border-zinc-400"
                   />
                   {errors.firstName && <p className="text-[12px] text-red-500 mt-1">{errors.firstName.message}</p>}
                 </div>
                 <div>
-                  <label className="block text-[13px] font-medium text-graphite-700 mb-1.5">Last name</label>
+                  <label className="block text-[13px] font-medium text-zinc-700 mb-1.5">Last name</label>
                   <input
                     {...register('lastName')}
-                    className="w-full px-4 py-3 rounded-xl border border-graphite-200 text-[14px] focus:outline-none focus:ring-2 focus:ring-graphite-950/10 focus:border-graphite-400"
+                    className="w-full px-4 py-3 rounded-xl border border-zinc-200 text-[14px] focus:outline-none focus:ring-2 focus:ring-zinc-950/10 focus:border-zinc-400"
                   />
                   {errors.lastName && <p className="text-[12px] text-red-500 mt-1">{errors.lastName.message}</p>}
                 </div>
               </div>
 
               <div>
-                <label className="block text-[13px] font-medium text-graphite-700 mb-1.5">Email</label>
+                <label className="block text-[13px] font-medium text-zinc-700 mb-1.5">Email</label>
                 <input
                   type="email"
                   {...register('email')}
-                  className="w-full px-4 py-3 rounded-xl border border-graphite-200 text-[14px] focus:outline-none focus:ring-2 focus:ring-graphite-950/10 focus:border-graphite-400"
+                  className="w-full px-4 py-3 rounded-xl border border-zinc-200 text-[14px] focus:outline-none focus:ring-2 focus:ring-zinc-950/10 focus:border-zinc-400"
                 />
                 {errors.email && <p className="text-[12px] text-red-500 mt-1">{errors.email.message}</p>}
               </div>
 
               <div>
-                <label className="block text-[13px] font-medium text-graphite-700 mb-1.5">Phone</label>
+                <label className="block text-[13px] font-medium text-zinc-700 mb-1.5">Phone</label>
                 <input
                   type="tel"
                   {...register('phone')}
                   placeholder="(555) 555-5555"
-                  className="w-full px-4 py-3 rounded-xl border border-graphite-200 text-[14px] focus:outline-none focus:ring-2 focus:ring-graphite-950/10 focus:border-graphite-400"
+                  className="w-full px-4 py-3 rounded-xl border border-zinc-200 text-[14px] focus:outline-none focus:ring-2 focus:ring-zinc-950/10 focus:border-zinc-400"
                 />
                 {errors.phone && <p className="text-[12px] text-red-500 mt-1">{errors.phone.message}</p>}
               </div>
 
               <div>
-                <label className="block text-[13px] font-medium text-graphite-700 mb-1.5">What are you interested in?</label>
+                <label className="block text-[13px] font-medium text-zinc-700 mb-1.5">What are you interested in?</label>
                 <select
                   {...register('serviceInterest')}
-                  className="w-full px-4 py-3 rounded-xl border border-graphite-200 text-[14px] bg-white focus:outline-none focus:ring-2 focus:ring-graphite-950/10 focus:border-graphite-400"
+                  className="w-full px-4 py-3 rounded-xl border border-zinc-200 text-[14px] bg-white focus:outline-none focus:ring-2 focus:ring-zinc-950/10 focus:border-zinc-400"
                 >
                   <option value="general">Not sure yet — help me decide</option>
                   <option value="trt">Testosterone Therapy (TRT)</option>
@@ -233,34 +233,34 @@ function BookContent() {
               <button
                 type="submit"
                 disabled={loading}
-                className="w-full flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-graphite-950 text-white text-[15px] font-semibold hover:bg-graphite-800 transition-all disabled:opacity-50 shadow-lg"
+                className="w-full flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-zinc-950 text-white text-[15px] font-semibold hover:bg-zinc-800 transition-all disabled:opacity-50 shadow-lg"
               >
                 {loading ? 'Processing…' : 'Continue to Payment'}
                 {!loading && <ArrowRight className="w-4 h-4" />}
               </button>
 
-              <div className="flex items-center justify-center gap-5 text-[11px] text-graphite-500 pt-2">
+              <div className="flex items-center justify-center gap-5 text-[11px] text-zinc-500 pt-2">
                 <span className="flex items-center gap-1"><Lock className="w-3 h-3" /> Encrypted</span>
                 <span className="flex items-center gap-1"><Shield className="w-3 h-3" /> HIPAA</span>
-                <span className="flex items-center gap-1"><Check className="w-3 h-3" /> Stripe</span>
+                <span className="flex items-center gap-1"><Check className="w-3 h-3" /> Secure Payment</span>
               </div>
             </form>
           </div>
 
           <aside className="lg:col-span-2">
-            <div className="rounded-2xl border border-graphite-200 p-6 lg:sticky lg:top-28">
-              <h3 className="text-[15px] font-semibold text-graphite-950 mb-1">{CONSULTATION.name}</h3>
-              <div className="text-[22px] font-bold text-graphite-950 mb-4">{CONSULTATION.display}</div>
+            <div className="rounded-2xl border border-zinc-200 p-6 lg:sticky lg:top-28">
+              <h3 className="text-[15px] font-semibold text-zinc-950 mb-1">{CONSULTATION.name}</h3>
+              <div className="text-[22px] font-bold text-zinc-950 mb-4">{CONSULTATION.display}</div>
               <ul className="space-y-2.5 mb-4">
                 {CONSULTATION.includes.map((item) => (
                   <li key={item} className="flex items-start gap-2">
-                    <Check className="w-4 h-4 text-graphite-950 mt-0.5 flex-shrink-0" />
-                    <span className="text-[13px] text-graphite-600">{item}</span>
+                    <Check className="w-4 h-4 text-zinc-950 mt-0.5 flex-shrink-0" />
+                    <span className="text-[13px] text-zinc-600">{item}</span>
                   </li>
                 ))}
               </ul>
-              <p className="text-[11px] text-graphite-500 leading-relaxed border-t border-graphite-100 pt-4">
-                Payment is processed via Stripe. All treatment is subject to physician evaluation and eligibility.
+              <p className="text-[11px] text-zinc-500 leading-relaxed border-t border-zinc-100 pt-4">
+                Secure payment processing. All treatment is subject to physician evaluation and eligibility. Consultation fee credited toward Month 1 of membership.
               </p>
             </div>
           </aside>
@@ -272,7 +272,7 @@ function BookContent() {
 
 export default function BookPage() {
   return (
-    <Suspense fallback={<div className="min-h-screen bg-graphite-950" />}>
+    <Suspense fallback={<div className="min-h-screen bg-zinc-950" />}>
       <BookContent />
     </Suspense>
   )

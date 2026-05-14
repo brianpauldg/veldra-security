@@ -128,14 +128,14 @@ export default function CompoundedRxJustificationForm({ defaultPatientId }: Prop
       <div>
         <label className="block text-[12px] text-[#8a8268] mb-1.5">Patient ID</label>
         <input value={patientId} onChange={e => setPatientId(e.target.value)} placeholder="Patient UUID"
-          className="w-full px-4 py-2.5 rounded-lg bg-graphite-900 border border-graphite-800 text-sm text-white placeholder:text-graphite-600 focus:border-nova-500/50 focus:outline-none" />
+          className="w-full px-4 py-2.5 rounded-lg bg-zinc-900 border border-zinc-800 text-sm text-white placeholder:text-zinc-600 focus:border-nova-500/50 focus:outline-none" />
       </div>
 
       {/* Drug */}
       <div>
         <label className="block text-[12px] text-[#8a8268] mb-1.5">Compounded Medication</label>
         <select value={drug} onChange={e => setDrug(e.target.value)}
-          className="w-full px-4 py-2.5 rounded-lg bg-graphite-900 border border-graphite-800 text-sm text-white focus:border-nova-500/50 focus:outline-none">
+          className="w-full px-4 py-2.5 rounded-lg bg-zinc-900 border border-zinc-800 text-sm text-white focus:border-nova-500/50 focus:outline-none">
           {COMPOUNDABLE_DRUGS.map(d => <option key={d.id} value={d.id}>{d.display_name}</option>)}
         </select>
       </div>
@@ -147,9 +147,9 @@ export default function CompoundedRxJustificationForm({ defaultPatientId }: Prop
           {DEVIATION_CATEGORIES.map(cat => (
             <div key={cat.id}>
               <button type="button" onClick={() => toggleCategory(cat.id)}
-                className={`w-full text-left px-4 py-3 rounded-lg border transition-all ${categories.includes(cat.id) ? 'border-nova-500/30 bg-nova-500/5 text-white' : 'border-graphite-800 bg-graphite-900 text-graphite-400 hover:border-graphite-700'}`}>
+                className={`w-full text-left px-4 py-3 rounded-lg border transition-all ${categories.includes(cat.id) ? 'border-nova-500/30 bg-nova-500/5 text-white' : 'border-zinc-800 bg-zinc-900 text-zinc-400 hover:border-zinc-700'}`}>
                 <div className="flex items-center gap-2">
-                  <div className={`w-4 h-4 rounded border flex-shrink-0 flex items-center justify-center ${categories.includes(cat.id) ? 'bg-nova-500/30 border-nova-500/50' : 'border-graphite-700'}`}>
+                  <div className={`w-4 h-4 rounded border flex-shrink-0 flex items-center justify-center ${categories.includes(cat.id) ? 'bg-nova-500/30 border-nova-500/50' : 'border-zinc-700'}`}>
                     {categories.includes(cat.id) && <Check className="w-3 h-3 text-nova-400" />}
                   </div>
                   <span className="text-xs">{cat.label}</span>
@@ -158,7 +158,7 @@ export default function CompoundedRxJustificationForm({ defaultPatientId }: Prop
               {categories.includes(cat.id) && (
                 <textarea value={categoryDetails[cat.id] || ''} onChange={e => setCategoryDetails(prev => ({ ...prev, [cat.id]: e.target.value }))}
                   placeholder={cat.prompt} rows={2}
-                  className="w-full mt-2 px-4 py-2.5 rounded-lg bg-graphite-800/50 border border-graphite-700 text-xs text-white placeholder:text-graphite-500 focus:outline-none focus:border-nova-500/50 resize-none" />
+                  className="w-full mt-2 px-4 py-2.5 rounded-lg bg-zinc-800/50 border border-zinc-700 text-xs text-white placeholder:text-zinc-500 focus:outline-none focus:border-nova-500/50 resize-none" />
               )}
             </div>
           ))}
@@ -169,9 +169,9 @@ export default function CompoundedRxJustificationForm({ defaultPatientId }: Prop
       <div>
         <label className="block text-[12px] text-[#8a8268] mb-1.5">Clinical Rationale</label>
         <textarea value={rationale} onChange={e => setRationale(e.target.value)} rows={5} placeholder="Document patient-specific medical necessity for compounded medication (minimum 100 characters)..."
-          className="w-full px-4 py-2.5 rounded-lg bg-graphite-900 border border-graphite-800 text-xs text-white placeholder:text-graphite-600 focus:border-nova-500/50 focus:outline-none resize-none" />
+          className="w-full px-4 py-2.5 rounded-lg bg-zinc-900 border border-zinc-800 text-xs text-white placeholder:text-zinc-600 focus:border-nova-500/50 focus:outline-none resize-none" />
         <div className="flex items-center justify-between mt-1">
-          <span className={`text-[10px] ${rationale.length >= 100 ? 'text-emerald-400' : 'text-graphite-500'}`}>{rationale.length}/100 characters</span>
+          <span className={`text-[10px] ${rationale.length >= 100 ? 'text-emerald-400' : 'text-zinc-500'}`}>{rationale.length}/100 characters</span>
           {rationaleValidation.warnings && (
             <span className="flex items-center gap-1 text-[10px] text-amber-400"><AlertTriangle className="w-3 h-3" /> Clinical rationale must demonstrate medical necessity, not cost or convenience</span>
           )}
@@ -184,8 +184,8 @@ export default function CompoundedRxJustificationForm({ defaultPatientId }: Prop
       {/* Attestation */}
       <label className="flex items-start gap-3 cursor-pointer">
         <input type="checkbox" checked={attestation} onChange={e => setAttestation(e.target.checked)}
-          className="mt-0.5 w-4 h-4 rounded border-graphite-700 bg-graphite-900 text-nova-500" />
-        <span className="text-[11px] text-graphite-300 leading-relaxed">
+          className="mt-0.5 w-4 h-4 rounded border-zinc-700 bg-zinc-900 text-nova-500" />
+        <span className="text-[11px] text-zinc-300 leading-relaxed">
           I have determined this compounded product produces a significant difference for this identified individual patient based on my clinical judgment.
         </span>
       </label>
@@ -194,12 +194,12 @@ export default function CompoundedRxJustificationForm({ defaultPatientId }: Prop
       <div>
         <div className="flex items-center justify-between mb-1.5">
           <label className="text-[12px] text-[#8a8268]">Prescriber Signature</label>
-          {hasSignature && <button onClick={clearSignature} className="text-[10px] text-graphite-500 hover:text-white">Clear</button>}
+          {hasSignature && <button onClick={clearSignature} className="text-[10px] text-zinc-500 hover:text-white">Clear</button>}
         </div>
         <canvas ref={canvasRef} width={400} height={100}
           onMouseDown={startDraw} onMouseMove={draw} onMouseUp={() => setIsDrawing(false)} onMouseLeave={() => setIsDrawing(false)}
           onTouchStart={startDraw} onTouchMove={draw} onTouchEnd={() => setIsDrawing(false)}
-          className="w-full rounded-lg border border-graphite-800 bg-graphite-900 cursor-crosshair touch-none" style={{ height: 100 }} />
+          className="w-full rounded-lg border border-zinc-800 bg-zinc-900 cursor-crosshair touch-none" style={{ height: 100 }} />
       </div>
 
       {error && <p className="text-xs text-red-400">{error}</p>}

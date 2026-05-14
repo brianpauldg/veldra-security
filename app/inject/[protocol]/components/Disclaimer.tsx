@@ -12,7 +12,7 @@ export function Disclaimer({ protocol }: DisclaimerProps) {
   });
 
   return (
-    <section className="bg-graphite-950 py-12 px-6 md:px-12 border-t border-steel/20">
+    <section className="bg-zinc-950 py-12 px-6 md:px-12 border-t border-steel/20">
       <div className="max-w-4xl mx-auto">
         <p className="text-xs text-brass/40 leading-relaxed mb-4">
           These instructions are provided for active Bloom Metabolics patients receiving care under

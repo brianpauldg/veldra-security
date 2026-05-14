@@ -9,8 +9,11 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // ─── Bloom Metabolics brand system (LOCKED) ───
-        graphite: {
+        // ─── Cool neutral scale (utility-only) ───
+        // Renamed from 'graphite' to 'zinc' to disambiguate from the warm
+        // 'graphite' in app/globals.css @theme. This scale is cool zinc-gray;
+        // the brand-correct warm palette lives in CSS custom properties.
+        zinc: {
           50: '#fafafa',
           100: '#f4f4f5',
           200: '#e4e4e7',
@@ -30,6 +33,17 @@ const config: Config = {
         bronze: '#B8A688',
         cream: '#F0E8DA',
         muted: '#C8BFB0',
+        // ─── Locked design-system tokens (spec reference) ───
+        // NOTE: The actual working palette (obsidian, ink, brass, champagne)
+        // has drifted from the original spec. These tokens preserve the
+        // original spec values for reference. The warm palette defined in
+        // globals.css @theme is the canonical source of truth.
+        'spec-black': '#020202',
+        'spec-lifted': '#0E0E11',
+        'spec-card': '#080808',
+        'spec-cream': '#F0E8DA',
+        'spec-muted': '#C8BFB0',
+        'spec-bronze': '#B8A688',
         // Legacy — retained for existing components during migration
         nova: {
           50: '#fafafa',

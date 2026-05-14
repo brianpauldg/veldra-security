@@ -101,7 +101,7 @@ export default function PatientList() {
     <div className="space-y-4">
       <div>
         <h1 className="text-2xl font-bold text-white tracking-tight">Patients</h1>
-        <p className="text-sm text-graphite-500 mt-1">{patients.length} patients</p>
+        <p className="text-sm text-zinc-500 mt-1">{patients.length} patients</p>
       </div>
 
       {/* Treatment Type Tabs */}
@@ -119,13 +119,13 @@ export default function PatientList() {
               'flex items-center gap-2 px-4 py-2 rounded-lg text-xs font-medium transition-colors border',
               treatmentFilter === tab.key
                 ? 'bg-nova-500/10 border-nova-500/30 text-nova-400'
-                : 'bg-graphite-900 border-graphite-800 text-graphite-400 hover:text-white'
+                : 'bg-zinc-900 border-zinc-800 text-zinc-400 hover:text-white'
             )}
           >
             {tab.icon && <tab.icon className="w-3.5 h-3.5" />}
             {tab.label}
             {tab.count > 0 && (
-              <span className="text-[10px] bg-graphite-800 px-1.5 py-0.5 rounded-full">{tab.count}</span>
+              <span className="text-[10px] bg-zinc-800 px-1.5 py-0.5 rounded-full">{tab.count}</span>
             )}
           </button>
         ))}
@@ -134,15 +134,15 @@ export default function PatientList() {
       {/* Search + Filter bar */}
       <div className="flex items-center gap-3">
         <div className="relative flex-1 max-w-md">
-          <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-graphite-500" />
+          <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-zinc-500" />
           <input
             value={search}
             onChange={e => setSearch(e.target.value)}
             placeholder="Search by name, MRN, or email..."
-            className="w-full pl-10 pr-4 py-2.5 rounded-lg bg-graphite-900 border border-graphite-800 text-sm text-white placeholder:text-graphite-600 focus:border-nova-500/50 focus:outline-none transition-colors"
+            className="w-full pl-10 pr-4 py-2.5 rounded-lg bg-zinc-900 border border-zinc-800 text-sm text-white placeholder:text-zinc-600 focus:border-nova-500/50 focus:outline-none transition-colors"
           />
           {search && (
-            <button onClick={() => setSearch('')} className="absolute right-3 top-1/2 -translate-y-1/2 text-graphite-500 hover:text-white">
+            <button onClick={() => setSearch('')} className="absolute right-3 top-1/2 -translate-y-1/2 text-zinc-500 hover:text-white">
               <X className="w-3.5 h-3.5" />
             </button>
           )}
@@ -154,7 +154,7 @@ export default function PatientList() {
             'flex items-center gap-2 px-3 py-2.5 rounded-lg border text-sm transition-colors',
             showFilters || activeFilterCount > 0
               ? 'bg-nova-500/10 border-nova-500/30 text-nova-400'
-              : 'bg-graphite-900 border-graphite-800 text-graphite-400 hover:text-white'
+              : 'bg-zinc-900 border-zinc-800 text-zinc-400 hover:text-white'
           )}
         >
           <SlidersHorizontal className="w-4 h-4" />
@@ -169,7 +169,7 @@ export default function PatientList() {
 
       {/* Filter panel */}
       {showFilters && (
-        <div className="flex flex-wrap items-center gap-3 p-4 rounded-xl bg-graphite-900 border border-graphite-800">
+        <div className="flex flex-wrap items-center gap-3 p-4 rounded-xl bg-zinc-900 border border-zinc-800">
           <FilterSelect label="Status" value={statusFilter} onChange={v => setStatusFilter(v as PatientStatus | 'all')}
             options={[{ value: 'all', label: 'All' }, { value: 'active', label: 'Active' }, { value: 'inactive', label: 'Inactive' }, { value: 'onboarding', label: 'Onboarding' }, { value: 'paused', label: 'Paused' }]} />
           <FilterSelect label="Adherence" value={adherenceFilter} onChange={v => setAdherenceFilter(v as AdherenceLevel | 'all')}
@@ -179,7 +179,7 @@ export default function PatientList() {
           {activeFilterCount > 0 && (
             <button
               onClick={() => { setStatusFilter('all'); setAdherenceFilter('all'); setShowAlerts(false); setShowOverdue(false) }}
-              className="text-xs text-graphite-500 hover:text-white ml-auto transition-colors"
+              className="text-xs text-zinc-500 hover:text-white ml-auto transition-colors"
             >
               Clear all
             </button>
@@ -188,29 +188,29 @@ export default function PatientList() {
       )}
 
       {/* Table */}
-      <div className="rounded-xl border border-graphite-800 overflow-hidden">
+      <div className="rounded-xl border border-zinc-800 overflow-hidden">
         <div className="overflow-x-auto">
           <table className="w-full text-sm">
             <thead>
-              <tr className="bg-graphite-900/80 border-b border-graphite-800">
+              <tr className="bg-zinc-900/80 border-b border-zinc-800">
                 <SortHeader field="name" current={sortField} dir={sortDir} onClick={toggleSort}>Patient</SortHeader>
-                <th className="text-left px-4 py-3 text-xs font-medium text-graphite-500 uppercase tracking-wider">Protocol</th>
+                <th className="text-left px-4 py-3 text-xs font-medium text-zinc-500 uppercase tracking-wider">Protocol</th>
                 <SortHeader field="risk" current={sortField} dir={sortDir} onClick={toggleSort}>Risk</SortHeader>
                 <SortHeader field="adherence" current={sortField} dir={sortDir} onClick={toggleSort}>Adherence</SortHeader>
-                <th className="text-left px-4 py-3 text-xs font-medium text-graphite-500 uppercase tracking-wider">Status</th>
+                <th className="text-left px-4 py-3 text-xs font-medium text-zinc-500 uppercase tracking-wider">Status</th>
                 <SortHeader field="lastVisit" current={sortField} dir={sortDir} onClick={toggleSort}>Last Visit</SortHeader>
                 <SortHeader field="nextFollowUp" current={sortField} dir={sortDir} onClick={toggleSort}>Next F/U</SortHeader>
-                <th className="text-left px-4 py-3 text-xs font-medium text-graphite-500 uppercase tracking-wider">Flags</th>
+                <th className="text-left px-4 py-3 text-xs font-medium text-zinc-500 uppercase tracking-wider">Flags</th>
                 <th className="px-4 py-3"></th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-graphite-800/50">
+            <tbody className="divide-y divide-zinc-800/50">
               {patients.map(patient => (
                 <PatientRow key={patient.id} patient={patient} />
               ))}
               {patients.length === 0 && (
                 <tr>
-                  <td colSpan={9} className="text-center py-12 text-graphite-500">No patients match your filters.</td>
+                  <td colSpan={9} className="text-center py-12 text-zinc-500">No patients match your filters.</td>
                 </tr>
               )}
             </tbody>
@@ -229,29 +229,29 @@ function PatientRow({ patient }: { patient: Patient }) {
   const isLabOverdue = new Date(patient.nextLabDueDate) < now
 
   return (
-    <tr className="hover:bg-graphite-900/50 transition-colors group">
+    <tr className="hover:bg-zinc-900/50 transition-colors group">
       <td className="px-4 py-3">
         <Link href={`/clinic/patients/${patient.id}`} className="flex items-center gap-3">
-          <div className="w-8 h-8 rounded-full bg-graphite-800 border border-graphite-700 flex items-center justify-center text-xs font-bold text-white shrink-0">
+          <div className="w-8 h-8 rounded-full bg-zinc-800 border border-zinc-700 flex items-center justify-center text-xs font-bold text-white shrink-0">
             {patient.firstName[0]}{patient.lastName[0]}
           </div>
           <div>
             <p className="text-sm font-medium text-white group-hover:text-nova-300 transition-colors">
               {patient.firstName} {patient.lastName}
             </p>
-            <p className="text-[11px] text-graphite-500">{patient.mrn}</p>
+            <p className="text-[11px] text-zinc-500">{patient.mrn}</p>
           </div>
         </Link>
       </td>
       <td className="px-4 py-3">
-        <span className="text-xs text-graphite-300 capitalize">{patient.primaryProtocol.replace(/_/g, ' ')}</span>
+        <span className="text-xs text-zinc-300 capitalize">{patient.primaryProtocol.replace(/_/g, ' ')}</span>
       </td>
       <td className="px-4 py-3"><RiskBadge score={patient.riskScore} /></td>
       <td className="px-4 py-3"><AdherenceBadge level={patient.adherence} /></td>
       <td className="px-4 py-3"><StatusBadge status={patient.status} /></td>
-      <td className="px-4 py-3 text-xs text-graphite-400">{patient.lastVisitDate}</td>
+      <td className="px-4 py-3 text-xs text-zinc-400">{patient.lastVisitDate}</td>
       <td className="px-4 py-3">
-        <span className={cn('text-xs', isFollowUpOverdue ? 'text-red-400 font-medium' : 'text-graphite-400')}>
+        <span className={cn('text-xs', isFollowUpOverdue ? 'text-red-400 font-medium' : 'text-zinc-400')}>
           {patient.nextFollowUpDate}
         </span>
       </td>
@@ -276,7 +276,7 @@ function PatientRow({ patient }: { patient: Patient }) {
       </td>
       <td className="px-4 py-3">
         <Link href={`/clinic/patients/${patient.id}`} className="opacity-0 group-hover:opacity-100 transition-opacity">
-          <ArrowRight className="w-4 h-4 text-graphite-500 hover:text-white" />
+          <ArrowRight className="w-4 h-4 text-zinc-500 hover:text-white" />
         </Link>
       </td>
     </tr>
@@ -299,7 +299,7 @@ function AdherenceBadge({ level }: { level: AdherenceLevel }) {
     good: 'text-blue-400 bg-blue-500/10',
     fair: 'text-yellow-400 bg-yellow-500/10',
     poor: 'text-red-400 bg-red-500/10',
-    unknown: 'text-graphite-400 bg-graphite-500/10',
+    unknown: 'text-zinc-400 bg-zinc-500/10',
   }
   return <span className={cn('text-[10px] font-medium px-2 py-0.5 rounded-full capitalize', styles[level])}>{level}</span>
 }
@@ -307,10 +307,10 @@ function AdherenceBadge({ level }: { level: AdherenceLevel }) {
 function StatusBadge({ status }: { status: PatientStatus }) {
   const styles: Record<PatientStatus, string> = {
     active: 'text-emerald-400 bg-emerald-500/10',
-    inactive: 'text-graphite-400 bg-graphite-500/10',
+    inactive: 'text-zinc-400 bg-zinc-500/10',
     onboarding: 'text-blue-400 bg-blue-500/10',
     paused: 'text-yellow-400 bg-yellow-500/10',
-    discharged: 'text-graphite-400 bg-graphite-500/10',
+    discharged: 'text-zinc-400 bg-zinc-500/10',
   }
   return <span className={cn('text-[10px] font-medium px-2 py-0.5 rounded-full capitalize', styles[status])}>{status}</span>
 }
@@ -322,11 +322,11 @@ function FilterSelect({ label, value, onChange, options }: {
 }) {
   return (
     <div className="flex items-center gap-2">
-      <label className="text-[11px] text-graphite-500">{label}:</label>
+      <label className="text-[11px] text-zinc-500">{label}:</label>
       <select
         value={value}
         onChange={e => onChange(e.target.value)}
-        className="text-xs bg-graphite-800 border border-graphite-700 text-white rounded-lg px-2 py-1.5 focus:outline-none focus:border-nova-500/50"
+        className="text-xs bg-zinc-800 border border-zinc-700 text-white rounded-lg px-2 py-1.5 focus:outline-none focus:border-nova-500/50"
       >
         {options.map(o => <option key={o.value} value={o.value}>{o.label}</option>)}
       </select>
@@ -342,7 +342,7 @@ function ToggleChip({ active, onClick, icon: Icon, label }: {
       onClick={onClick}
       className={cn(
         'flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg border text-xs transition-colors',
-        active ? 'bg-nova-500/10 border-nova-500/30 text-nova-400' : 'bg-graphite-800/50 border-graphite-700 text-graphite-400 hover:text-white'
+        active ? 'bg-nova-500/10 border-nova-500/30 text-nova-400' : 'bg-zinc-800/50 border-zinc-700 text-zinc-400 hover:text-white'
       )}
     >
       <Icon className="w-3 h-3" />
@@ -357,12 +357,12 @@ function SortHeader({ field, current, dir, onClick, children }: {
   const isActive = current === field
   return (
     <th
-      className="text-left px-4 py-3 text-xs font-medium text-graphite-500 uppercase tracking-wider cursor-pointer select-none hover:text-white transition-colors"
+      className="text-left px-4 py-3 text-xs font-medium text-zinc-500 uppercase tracking-wider cursor-pointer select-none hover:text-white transition-colors"
       onClick={() => onClick(field)}
     >
       <div className="flex items-center gap-1">
         {children}
-        <ArrowUpDown className={cn('w-3 h-3', isActive ? 'text-nova-400' : 'text-graphite-600')} />
+        <ArrowUpDown className={cn('w-3 h-3', isActive ? 'text-nova-400' : 'text-zinc-600')} />
       </div>
     </th>
   )

@@ -82,7 +82,7 @@ export default function CURESAttestationForm({ defaultPatientId }: Props) {
       <div>
         <label className="block text-[12px] text-[#8a8268] mb-1.5">Patient ID</label>
         <input value={patientId} onChange={e => setPatientId(e.target.value)} placeholder="Patient UUID"
-          className="w-full px-4 py-2.5 rounded-lg bg-graphite-900 border border-graphite-800 text-sm text-white placeholder:text-graphite-600 focus:outline-none" />
+          className="w-full px-4 py-2.5 rounded-lg bg-zinc-900 border border-zinc-800 text-sm text-white placeholder:text-zinc-600 focus:outline-none" />
       </div>
 
       <div>
@@ -90,7 +90,7 @@ export default function CURESAttestationForm({ defaultPatientId }: Props) {
         <div className="flex gap-3">
           {(['dosespot_pmp', 'manual_portal'] as const).map(m => (
             <button key={m} type="button" onClick={() => setQueryMethod(m)}
-              className={`px-4 py-2 rounded-lg text-xs border transition-all ${queryMethod === m ? 'border-nova-500/30 bg-nova-500/5 text-white' : 'border-graphite-800 text-graphite-400'}`}>
+              className={`px-4 py-2 rounded-lg text-xs border transition-all ${queryMethod === m ? 'border-nova-500/30 bg-nova-500/5 text-white' : 'border-zinc-800 text-zinc-400'}`}>
               {m === 'dosespot_pmp' ? 'DoseSpot PMP' : 'Manual Portal'}
             </button>
           ))}
@@ -101,20 +101,20 @@ export default function CURESAttestationForm({ defaultPatientId }: Props) {
         <div>
           <label className="block text-[12px] text-[#8a8268] mb-1.5">Query Reference ID</label>
           <input value={queryRef} onChange={e => setQueryRef(e.target.value)} placeholder="DoseSpot query reference"
-            className="w-full px-4 py-2.5 rounded-lg bg-graphite-900 border border-graphite-800 text-sm text-white placeholder:text-graphite-600 focus:outline-none" />
+            className="w-full px-4 py-2.5 rounded-lg bg-zinc-900 border border-zinc-800 text-sm text-white placeholder:text-zinc-600 focus:outline-none" />
         </div>
       )}
 
       <div>
         <label className="block text-[12px] text-[#8a8268] mb-1.5">Query Date/Time</label>
         <input type="datetime-local" value={queryDatetime} onChange={e => setQueryDatetime(e.target.value)}
-          className="w-full px-4 py-2.5 rounded-lg bg-graphite-900 border border-graphite-800 text-sm text-white focus:outline-none" />
+          className="w-full px-4 py-2.5 rounded-lg bg-zinc-900 border border-zinc-800 text-sm text-white focus:outline-none" />
       </div>
 
       <div>
         <label className="block text-[12px] text-[#8a8268] mb-1.5">Risk Stratification</label>
         <select value={riskStrat} onChange={e => setRiskStrat(e.target.value)}
-          className="w-full px-4 py-2.5 rounded-lg bg-graphite-900 border border-graphite-800 text-sm text-white focus:outline-none">
+          className="w-full px-4 py-2.5 rounded-lg bg-zinc-900 border border-zinc-800 text-sm text-white focus:outline-none">
           <option value="none">None</option><option value="low">Low</option><option value="moderate">Moderate</option>
           <option value="high">High</option><option value="declined_to_prescribe">Declined to Prescribe</option>
         </select>
@@ -126,8 +126,8 @@ export default function CURESAttestationForm({ defaultPatientId }: Props) {
           {FINDINGS.map(f => (
             <label key={f.id} className="flex items-start gap-3 cursor-pointer">
               <input type="checkbox" checked={findings[f.id]} onChange={e => setFindings(prev => ({ ...prev, [f.id]: e.target.checked }))}
-                className="mt-0.5 w-4 h-4 rounded border-graphite-700 bg-graphite-900 text-red-500" />
-              <span className="text-xs text-graphite-300">{f.label}</span>
+                className="mt-0.5 w-4 h-4 rounded border-zinc-700 bg-zinc-900 text-red-500" />
+              <span className="text-xs text-zinc-300">{f.label}</span>
             </label>
           ))}
         </div>
@@ -138,20 +138,20 @@ export default function CURESAttestationForm({ defaultPatientId }: Props) {
           <label className="block text-[12px] text-[#8a8268] mb-1.5">Clinical Judgment (required — min 50 chars)</label>
           <textarea value={clinicalJudgment} onChange={e => setClinicalJudgment(e.target.value)} rows={3}
             placeholder="Document clinical reasoning for proceeding despite concerning findings..."
-            className="w-full px-4 py-2.5 rounded-lg bg-graphite-900 border border-graphite-800 text-xs text-white placeholder:text-graphite-600 focus:outline-none resize-none" />
-          <span className={`text-[10px] ${clinicalJudgment.length >= 50 ? 'text-emerald-400' : 'text-graphite-500'}`}>{clinicalJudgment.length}/50</span>
+            className="w-full px-4 py-2.5 rounded-lg bg-zinc-900 border border-zinc-800 text-xs text-white placeholder:text-zinc-600 focus:outline-none resize-none" />
+          <span className={`text-[10px] ${clinicalJudgment.length >= 50 ? 'text-emerald-400' : 'text-zinc-500'}`}>{clinicalJudgment.length}/50</span>
         </div>
       )}
 
       <label className="flex items-start gap-3 cursor-pointer">
         <input type="checkbox" checked={outageAttested} onChange={e => setOutageAttested(e.target.checked)}
-          className="mt-0.5 w-4 h-4 rounded border-graphite-700 bg-graphite-900 text-amber-500" />
-        <span className="text-xs text-graphite-300">CURES system was experiencing an outage at time of query</span>
+          className="mt-0.5 w-4 h-4 rounded border-zinc-700 bg-zinc-900 text-amber-500" />
+        <span className="text-xs text-zinc-300">CURES system was experiencing an outage at time of query</span>
       </label>
 
       {outageAttested && (
         <textarea value={outageDetails} onChange={e => setOutageDetails(e.target.value)} rows={2} placeholder="Describe outage circumstances..."
-          className="w-full px-4 py-2.5 rounded-lg bg-graphite-900 border border-graphite-800 text-xs text-white placeholder:text-graphite-600 focus:outline-none resize-none" />
+          className="w-full px-4 py-2.5 rounded-lg bg-zinc-900 border border-zinc-800 text-xs text-white placeholder:text-zinc-600 focus:outline-none resize-none" />
       )}
 
       <div>
@@ -159,7 +159,7 @@ export default function CURESAttestationForm({ defaultPatientId }: Props) {
         <canvas ref={canvasRef} width={400} height={100}
           onMouseDown={startDraw} onMouseMove={draw} onMouseUp={() => setIsDrawing(false)} onMouseLeave={() => setIsDrawing(false)}
           onTouchStart={startDraw} onTouchMove={draw} onTouchEnd={() => setIsDrawing(false)}
-          className="w-full rounded-lg border border-graphite-800 bg-graphite-900 cursor-crosshair touch-none" style={{ height: 100 }} />
+          className="w-full rounded-lg border border-zinc-800 bg-zinc-900 cursor-crosshair touch-none" style={{ height: 100 }} />
       </div>
 
       {error && <p className="text-xs text-red-400">{error}</p>}

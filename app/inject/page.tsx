@@ -60,7 +60,7 @@ export default function InjectIndexPage() {
   return (
     <main>
       {/* Hero */}
-      <section className="bg-graphite-950 pt-12 pb-16 px-6 md:px-12 border-b border-steel">
+      <section className="bg-zinc-950 pt-12 pb-16 px-6 md:px-12 border-b border-steel">
         <div className="max-w-4xl mx-auto">
           <div className="flex items-center gap-3 mb-8">
             <svg width="28" height="28" viewBox="0 0 28 28" fill="none" className="text-champagne">
@@ -103,7 +103,7 @@ export default function InjectIndexPage() {
       </section>
 
       {/* Protocol Cards */}
-      <section className="bg-graphite-950 py-12 px-6 md:px-12">
+      <section className="bg-zinc-950 py-12 px-6 md:px-12">
         <div className="max-w-4xl mx-auto">
           <p className="eyebrow mb-3">Select Your Protocol</p>
           <h2 className="text-headline text-champagne mb-8">Injection Guides by Medication</h2>
@@ -162,7 +162,7 @@ export default function InjectIndexPage() {
       </section>
 
       {/* Disclaimer */}
-      <section className="bg-graphite-950 py-8 px-6 md:px-12 border-t border-steel/20">
+      <section className="bg-zinc-950 py-8 px-6 md:px-12 border-t border-steel/20">
         <div className="max-w-4xl mx-auto">
           <p className="text-xs text-brass/40 leading-relaxed">
             These guides are provided for active Bloom Metabolics patients receiving

@@ -40,9 +40,9 @@ export default function CommandCenter() {
       <div className="flex items-start justify-between">
         <div>
           <h1 className="text-2xl font-bold text-white tracking-tight">Command Center</h1>
-          <p className="text-sm text-graphite-500 mt-1">Real-time clinical operations overview</p>
+          <p className="text-sm text-zinc-500 mt-1">Real-time clinical operations overview</p>
         </div>
-        <div className="flex items-center gap-2 text-[11px] text-graphite-500">
+        <div className="flex items-center gap-2 text-[11px] text-zinc-500">
           <div className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
           Live
         </div>
@@ -77,16 +77,16 @@ export default function CommandCenter() {
                   <Link
                     key={alert.id}
                     href={`/clinic/patients/${alert.patientId}`}
-                    className="flex items-start gap-3 p-3 rounded-lg bg-graphite-800/30 hover:bg-graphite-800/60 border border-graphite-800/50 transition-colors group"
+                    className="flex items-start gap-3 p-3 rounded-lg bg-zinc-800/30 hover:bg-zinc-800/60 border border-zinc-800/50 transition-colors group"
                   >
                     <div className={cn('mt-0.5 px-1.5 py-0.5 rounded text-[10px] font-bold uppercase border', severityColor(alert.severity))}>
                       {alert.severity}
                     </div>
                     <div className="flex-1 min-w-0">
                       <p className="text-sm font-medium text-white truncate">{alert.title}</p>
-                      <p className="text-xs text-graphite-400 mt-0.5">{alert.patientName}</p>
+                      <p className="text-xs text-zinc-400 mt-0.5">{alert.patientName}</p>
                     </div>
-                    <ArrowRight className="w-4 h-4 text-graphite-600 group-hover:text-graphite-400 mt-1 shrink-0 transition-colors" />
+                    <ArrowRight className="w-4 h-4 text-zinc-600 group-hover:text-zinc-400 mt-1 shrink-0 transition-colors" />
                   </Link>
                 ))}
             </div>
@@ -104,15 +104,15 @@ export default function CommandCenter() {
                 <Link
                   key={patient.id}
                   href={`/clinic/patients/${patient.id}`}
-                  className="flex items-center gap-3 p-3 rounded-lg bg-graphite-800/30 hover:bg-graphite-800/60 border border-graphite-800/50 transition-colors group"
+                  className="flex items-center gap-3 p-3 rounded-lg bg-zinc-800/30 hover:bg-zinc-800/60 border border-zinc-800/50 transition-colors group"
                 >
-                  <div className="w-9 h-9 rounded-full bg-graphite-800 border border-graphite-700 flex items-center justify-center text-xs font-bold text-white">
+                  <div className="w-9 h-9 rounded-full bg-zinc-800 border border-zinc-700 flex items-center justify-center text-xs font-bold text-white">
                     {patient.firstName[0]}{patient.lastName[0]}
                   </div>
                   <div className="flex-1 min-w-0">
                     <p className="text-sm font-medium text-white">{patient.firstName} {patient.lastName}</p>
                     <div className="flex items-center gap-2 mt-0.5">
-                      <span className="text-[11px] text-graphite-500">{patient.primaryProtocol.replace(/_/g, ' ')}</span>
+                      <span className="text-[11px] text-zinc-500">{patient.primaryProtocol.replace(/_/g, ' ')}</span>
                       {patient.activeAlertCount > 0 && (
                         <span className="text-[10px] px-1.5 py-0.5 rounded-full bg-red-500/10 text-red-400 border border-red-500/20">
                           {patient.activeAlertCount} alerts
@@ -132,14 +132,14 @@ export default function CommandCenter() {
           <DashboardCard title="Recent Activity" subtitle="Last 7 days" icon={Activity}>
             <div className="space-y-3">
               {([] as any[]).slice(0, 4).map(enc => (
-                <div key={enc.id} className="flex items-start gap-3 p-3 rounded-lg bg-graphite-800/20">
+                <div key={enc.id} className="flex items-start gap-3 p-3 rounded-lg bg-zinc-800/20">
                   <div className="w-8 h-8 rounded-full bg-nova-500/10 border border-nova-500/20 flex items-center justify-center shrink-0">
                     <UserCheck className="w-3.5 h-3.5 text-nova-400" />
                   </div>
                   <div className="flex-1 min-w-0">
                     <p className="text-xs font-medium text-white">{enc.type.replace(/_/g, ' ')} — {enc.providerName}</p>
-                    <p className="text-[11px] text-graphite-400 mt-0.5 line-clamp-2">{enc.assessment}</p>
-                    <p className="text-[10px] text-graphite-600 mt-1">{enc.date}</p>
+                    <p className="text-[11px] text-zinc-400 mt-0.5 line-clamp-2">{enc.assessment}</p>
+                    <p className="text-[10px] text-zinc-600 mt-1">{enc.date}</p>
                   </div>
                 </div>
               ))}
@@ -165,12 +165,12 @@ export default function CommandCenter() {
                 })
                 .slice(0, 5)
                 .map(task => (
-                  <div key={task.id} className="p-2.5 rounded-lg bg-graphite-800/30 border border-graphite-800/50">
+                  <div key={task.id} className="p-2.5 rounded-lg bg-zinc-800/30 border border-zinc-800/50">
                     <div className="flex items-center gap-2 mb-1">
                       <PriorityDot priority={task.priority} />
                       <span className="text-xs font-medium text-white truncate">{task.title}</span>
                     </div>
-                    <div className="flex items-center gap-2 text-[10px] text-graphite-500">
+                    <div className="flex items-center gap-2 text-[10px] text-zinc-500">
                       <span>{task.assigneeName}</span>
                       <span>·</span>
                       <span>Due {task.dueDate}</span>
@@ -184,13 +184,13 @@ export default function CommandCenter() {
           <DashboardCard title="Pending Refills" subtitle={`${pendingRefills} awaiting review`} icon={Pill} href="/clinic/tasks">
             <div className="space-y-2">
               {([] as any[]).filter(r => r.status === 'pending').slice(0, 5).map(refill => (
-                <div key={refill.id} className="flex items-center gap-3 p-2.5 rounded-lg bg-graphite-800/30 border border-graphite-800/50">
-                  <Pill className="w-3.5 h-3.5 text-graphite-500 shrink-0" />
+                <div key={refill.id} className="flex items-center gap-3 p-2.5 rounded-lg bg-zinc-800/30 border border-zinc-800/50">
+                  <Pill className="w-3.5 h-3.5 text-zinc-500 shrink-0" />
                   <div className="flex-1 min-w-0">
                     <p className="text-xs font-medium text-white truncate">{refill.medicationName}</p>
-                    <p className="text-[10px] text-graphite-500">{refill.patientName}</p>
+                    <p className="text-[10px] text-zinc-500">{refill.patientName}</p>
                   </div>
-                  <span className="text-[10px] text-graphite-600 shrink-0">{refill.requestedAt}</span>
+                  <span className="text-[10px] text-zinc-600 shrink-0">{refill.requestedAt}</span>
                 </div>
               ))}
             </div>
@@ -203,18 +203,18 @@ export default function CommandCenter() {
                 <Link
                   key={insight.id}
                   href={`/clinic/patients/${insight.patientId}`}
-                  className="block p-2.5 rounded-lg bg-graphite-800/30 border border-nova-500/10 hover:border-nova-500/30 transition-colors"
+                  className="block p-2.5 rounded-lg bg-zinc-800/30 border border-nova-500/10 hover:border-nova-500/30 transition-colors"
                 >
                   <p className="text-xs font-medium text-nova-300">{insight.title}</p>
-                  <p className="text-[11px] text-graphite-400 mt-1 line-clamp-2">{insight.content}</p>
+                  <p className="text-[11px] text-zinc-400 mt-1 line-clamp-2">{insight.content}</p>
                   <div className="flex items-center gap-2 mt-1.5">
-                    <span className="text-[9px] text-graphite-600">Confidence: {Math.round(insight.confidence * 100)}%</span>
-                    <span className="text-[9px] text-graphite-600">·</span>
-                    <span className="text-[9px] text-graphite-600">{insight.generatedAt}</span>
+                    <span className="text-[9px] text-zinc-600">Confidence: {Math.round(insight.confidence * 100)}%</span>
+                    <span className="text-[9px] text-zinc-600">·</span>
+                    <span className="text-[9px] text-zinc-600">{insight.generatedAt}</span>
                   </div>
                 </Link>
               ))}
-              <p className="text-[10px] text-graphite-600 italic pt-1">AI outputs are review support only — not autonomous clinical decisions.</p>
+              <p className="text-[10px] text-zinc-600 italic pt-1">AI outputs are review support only — not autonomous clinical decisions.</p>
             </div>
           </DashboardCard>
 
@@ -245,17 +245,17 @@ function MetricCard({ label, value, icon: Icon, variant = 'default', href }: {
       'p-4 rounded-xl border transition-all',
       variant === 'danger' ? 'bg-red-500/5 border-red-500/20' :
       variant === 'warning' ? 'bg-yellow-500/5 border-yellow-500/20' :
-      'bg-graphite-900 border-graphite-800',
-      href && 'hover:border-graphite-600 cursor-pointer'
+      'bg-zinc-900 border-zinc-800',
+      href && 'hover:border-zinc-600 cursor-pointer'
     )}>
       <div className="flex items-center justify-between mb-2">
         <Icon className={cn(
           'w-4 h-4',
           variant === 'danger' ? 'text-red-400' :
           variant === 'warning' ? 'text-yellow-400' :
-          'text-graphite-500'
+          'text-zinc-500'
         )} />
-        {href && <ArrowUpRight className="w-3 h-3 text-graphite-600" />}
+        {href && <ArrowUpRight className="w-3 h-3 text-zinc-600" />}
       </div>
       <p className={cn(
         'text-2xl font-bold',
@@ -263,7 +263,7 @@ function MetricCard({ label, value, icon: Icon, variant = 'default', href }: {
         variant === 'warning' ? 'text-yellow-400' :
         'text-white'
       )}>{value}</p>
-      <p className="text-[11px] text-graphite-500 mt-0.5">{label}</p>
+      <p className="text-[11px] text-zinc-500 mt-0.5">{label}</p>
     </div>
   )
   return href ? <Link href={href}>{card}</Link> : card
@@ -275,10 +275,10 @@ function DashboardCard({ title, subtitle, icon: Icon, children, href, variant = 
   return (
     <div className={cn(
       'rounded-xl border p-5',
-      variant === 'danger' ? 'bg-graphite-900/50 border-red-500/10' :
-      variant === 'warning' ? 'bg-graphite-900/50 border-yellow-500/10' :
-      variant === 'accent' ? 'bg-graphite-900/50 border-nova-500/10' :
-      'bg-graphite-900/50 border-graphite-800'
+      variant === 'danger' ? 'bg-zinc-900/50 border-red-500/10' :
+      variant === 'warning' ? 'bg-zinc-900/50 border-yellow-500/10' :
+      variant === 'accent' ? 'bg-zinc-900/50 border-nova-500/10' :
+      'bg-zinc-900/50 border-zinc-800'
     )}>
       <div className="flex items-center justify-between mb-4">
         <div className="flex items-center gap-2">
@@ -287,15 +287,15 @@ function DashboardCard({ title, subtitle, icon: Icon, children, href, variant = 
             variant === 'danger' ? 'text-red-400' :
             variant === 'warning' ? 'text-yellow-400' :
             variant === 'accent' ? 'text-nova-400' :
-            'text-graphite-500'
+            'text-zinc-500'
           )} />
           <div>
             <h3 className="text-sm font-semibold text-white">{title}</h3>
-            {subtitle && <p className="text-[10px] text-graphite-500">{subtitle}</p>}
+            {subtitle && <p className="text-[10px] text-zinc-500">{subtitle}</p>}
           </div>
         </div>
         {href && (
-          <Link href={href} className="text-[11px] text-graphite-500 hover:text-white transition-colors flex items-center gap-1">
+          <Link href={href} className="text-[11px] text-zinc-500 hover:text-white transition-colors flex items-center gap-1">
             View all <ArrowRight className="w-3 h-3" />
           </Link>
         )}
@@ -320,15 +320,15 @@ function RiskBadge({ score }: { score: number }) {
 function PriorityDot({ priority }: { priority: string }) {
   const color = priority === 'urgent' ? 'bg-red-400' :
     priority === 'high' ? 'bg-orange-400' :
-    priority === 'normal' ? 'bg-blue-400' : 'bg-graphite-400'
+    priority === 'normal' ? 'bg-blue-400' : 'bg-zinc-400'
   return <div className={cn('w-1.5 h-1.5 rounded-full shrink-0', color)} />
 }
 
 function MiniKPI({ label, value }: { label: string; value: string }) {
   return (
-    <div className="p-2.5 rounded-lg bg-graphite-800/30">
+    <div className="p-2.5 rounded-lg bg-zinc-800/30">
       <p className="text-lg font-bold text-white">{value}</p>
-      <p className="text-[10px] text-graphite-500">{label}</p>
+      <p className="text-[10px] text-zinc-500">{label}</p>
     </div>
   )
 }
