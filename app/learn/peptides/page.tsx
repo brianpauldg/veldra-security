@@ -90,9 +90,9 @@ const regulatoryArticles: Article[] = [
 
 function PendingBadge() {
   return (
-    <div className="inline-flex items-center gap-2 rounded-full border border-[#c9b88c]/20 bg-[#c9b88c]/5 px-3 py-1">
-      <span className="w-1.5 h-1.5 rounded-full bg-[#c9b88c]/60" />
-      <span className="text-[10px] uppercase tracking-[0.15em] text-[#c9b88c]/80 font-medium">
+    <div className="inline-flex items-center gap-2 rounded-full border border-gold/20 bg-gold/5 px-3 py-1">
+      <span className="w-1.5 h-1.5 rounded-full bg-gold/60" />
+      <span className="text-[10px] uppercase tracking-[0.15em] text-gold/80 font-medium">
         Pending FDA 503A Pathway
       </span>
     </div>
@@ -101,13 +101,13 @@ function PendingBadge() {
 
 function ArticleCard({ slug, category, title, readingTime, description, bookingCta }: Article) {
   return (
-    <div className="rounded-2xl bg-[#080808] border border-[#1a1814] p-6 transition-all duration-300 hover:border-[#c9b88c]/30 hover:bg-[#0a0a08] h-full flex flex-col">
+    <div className="rounded-2xl bg-[#080808] border border-[#1a1814] p-6 transition-all duration-300 hover:border-gold/30 hover:bg-[#0a0a08] h-full flex flex-col">
       <Link href={`/blog/${slug}`} className="group block flex-1">
-        <span className="text-[10px] uppercase tracking-[0.15em] text-[#c9b88c] font-medium">
+        <span className="text-[10px] uppercase tracking-[0.15em] text-gold font-medium">
           {category}
         </span>
         <h3
-          className="text-[16px] text-[#d8cfbe] mt-2 mb-2 group-hover:text-[#c9b88c] transition-colors leading-snug"
+          className="text-[16px] text-[#d8cfbe] mt-2 mb-2 group-hover:text-gold transition-colors leading-snug"
           style={{ fontFamily: 'Fraunces, serif', fontWeight: 400 }}
         >
           {title}
@@ -122,14 +122,14 @@ function ArticleCard({ slug, category, title, readingTime, description, bookingC
       </Link>
       {bookingCta ? (
         <div className="mt-4 pt-4 border-t border-[#1a1814]">
-          <span className="text-[10px] text-[#c9b88c]/60 uppercase tracking-wider block mb-2">Available Now via Longevity Stack</span>
-          <Link href="/book" className="text-[12px] text-[#c9b88c] hover:text-[#d8cfbe] transition-colors font-medium">
+          <span className="text-[10px] text-gold/60 uppercase tracking-wider block mb-2">Available Now via Longevity Stack</span>
+          <Link href="/book" className="text-[12px] text-gold hover:text-[#d8cfbe] transition-colors font-medium">
             Book Consultation &rarr;
           </Link>
         </div>
       ) : (
         <div className="mt-4 pt-4 border-t border-[#1a1814]">
-          <Link href="/waitlist?service=peptides" className="text-[12px] text-[#8a8268] hover:text-[#c9b88c] transition-colors font-medium">
+          <Link href="/waitlist?service=peptides" className="text-[12px] text-[#8a8268] hover:text-gold transition-colors font-medium">
             Join Waitlist &rarr;
           </Link>
         </div>
@@ -143,7 +143,7 @@ function ArticleCluster({ label, title, articles, showBadge = true }: { label: s
     <section className="py-16 px-6">
       <div className="max-w-5xl mx-auto">
         <div className="flex flex-wrap items-center gap-4 mb-2">
-          <span className="text-[10px] uppercase tracking-[0.15em] text-[#c9b88c] font-medium">
+          <span className="text-[10px] uppercase tracking-[0.15em] text-gold font-medium">
             {label}
           </span>
           {showBadge && <PendingBadge />}
@@ -172,12 +172,12 @@ export default function PeptidePillarPage() {
         <div className="max-w-5xl mx-auto">
           {/* Breadcrumb */}
           <nav className="flex items-center gap-2 text-[12px] text-[#8a8268]/60 mb-8">
-            <Link href="/learn" className="hover:text-[#c9b88c] transition-colors">Learn</Link>
+            <Link href="/learn" className="hover:text-gold transition-colors">Learn</Link>
             <ChevronRight className="w-3 h-3" />
-            <span className="text-[#c9b88c]">Peptide Therapy</span>
+            <span className="text-gold">Peptide Therapy</span>
           </nav>
 
-          <div className="inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.2em] text-[#c9b88c] mb-5">
+          <div className="inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.2em] text-gold mb-5">
             <FlaskConical className="w-4 h-4" />
             Peptide Education
           </div>
@@ -235,9 +235,9 @@ export default function PeptidePillarPage() {
           <div className="space-y-0">
             {/* Tranche 1 */}
             <div className="relative pl-8 pb-10 border-l border-[#1a1814]">
-              <div className="absolute left-0 top-0 w-3 h-3 rounded-full bg-[#c9b88c]/40 border-2 border-[#c9b88c]/60 -translate-x-[7px]" />
+              <div className="absolute left-0 top-0 w-3 h-3 rounded-full bg-gold/40 border-2 border-gold/60 -translate-x-[7px]" />
               <div className="rounded-2xl bg-[#080808] border border-[#1a1814] p-5">
-                <span className="text-[10px] uppercase tracking-[0.15em] text-[#c9b88c] font-medium">Tranche 1</span>
+                <span className="text-[10px] uppercase tracking-[0.15em] text-gold font-medium">Tranche 1</span>
                 <h3 className="text-[15px] text-[#d8cfbe] mt-1 mb-2" style={{ fontFamily: 'Fraunces, serif', fontWeight: 400 }}>
                   Recovery & Repair Peptides
                 </h3>

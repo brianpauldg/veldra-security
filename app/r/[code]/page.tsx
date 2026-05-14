@@ -23,7 +23,7 @@ export default function ReferralLandingPage() {
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-[#1a1a1a]">
-      <p className="text-[#c9b88c] text-lg">Redirecting...</p>
+      <p className="text-gold text-lg">Redirecting...</p>
     </div>
   )
 }

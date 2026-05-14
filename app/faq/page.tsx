@@ -155,7 +155,7 @@ function FAQItem({ q, a }: { q: string; a: string }) {
 export default function FAQPage() {
   return (
     <>
-      <section className="bg-zinc-950 py-20 lg:py-28">
+      <section className="bg-[#020202] py-20 lg:py-28">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 24 }}
@@ -164,7 +164,7 @@ export default function FAQPage() {
             className="text-center max-w-3xl mx-auto"
           >
             <h1 className="text-display-lg text-chrome mb-4">Frequently Asked Questions</h1>
-            <p className="text-lg text-zinc-400">
+            <p className="text-lg text-[#8a8268]">
               Membership, providers, treatment \u2014 answered plainly.
             </p>
           </motion.div>

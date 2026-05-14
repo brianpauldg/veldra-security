@@ -102,18 +102,18 @@ export function AngleGuide({ protocol }: AngleGuideProps) {
         </div>
 
         <div className="grid sm:grid-cols-2 gap-4 max-w-lg mx-auto text-center">
-          <div className="p-4 rounded border border-steel/30 bg-zinc-950">
+          <div className="p-4 rounded border border-steel/30 bg-[#020202]">
             <p className="text-xs font-mono text-brass mb-1">ANGLE</p>
             <p className="text-champagne text-lg">{protocol.angle.degrees}°</p>
           </div>
-          <div className="p-4 rounded border border-steel/30 bg-zinc-950">
+          <div className="p-4 rounded border border-steel/30 bg-[#020202]">
             <p className="text-xs font-mono text-brass mb-1">SKIN PINCH</p>
             <p className="text-champagne text-lg">{protocol.angle.pinchAndPoke ? 'Yes' : 'No'}</p>
           </div>
         </div>
 
         {!protocol.aspiration.required && (
-          <div className="mt-6 p-4 rounded border border-steel/20 bg-zinc-950 max-w-lg mx-auto">
+          <div className="mt-6 p-4 rounded border border-steel/20 bg-[#020202] max-w-lg mx-auto">
             <p className="text-xs font-mono text-brass mb-1">ASPIRATION</p>
             <p className="text-sm text-brass/70">{protocol.aspiration.rationale}</p>
           </div>

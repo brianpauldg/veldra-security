@@ -13,7 +13,7 @@ export function ProtocolHero({ protocol }: ProtocolHeroProps) {
   });
 
   return (
-    <section className="relative bg-zinc-950 pt-12 pb-16 px-6 md:px-12 border-b border-steel">
+    <section className="relative bg-[#020202] pt-12 pb-16 px-6 md:px-12 border-b border-steel">
       <div className="max-w-4xl mx-auto">
         <div className="flex items-center justify-between mb-8">
           <div className="flex items-center gap-3">

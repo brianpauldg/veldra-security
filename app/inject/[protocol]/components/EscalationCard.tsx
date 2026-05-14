@@ -10,7 +10,7 @@ export function EscalationCard({
   return (
     <section className="bg-ink py-12 px-6 md:px-12">
       <div className="max-w-4xl mx-auto">
-        <div className="border-2 border-brass/40 rounded-lg p-8 bg-zinc-950">
+        <div className="border-2 border-brass/40 rounded-lg p-8 bg-[#020202]">
           <h2 className="text-headline text-champagne mb-6">Need help right now</h2>
 
           <div className="grid gap-4 sm:grid-cols-3">

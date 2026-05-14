@@ -7,7 +7,7 @@ interface InjectionSiteMapProps {
 
 export function InjectionSiteMap({ sites, route }: InjectionSiteMapProps) {
   return (
-    <section className="bg-zinc-950 py-12 px-6 md:px-12">
+    <section className="bg-[#020202] py-12 px-6 md:px-12">
       <div className="max-w-4xl mx-auto">
         <p className="eyebrow mb-3">Step 2</p>
         <h2 className="text-headline text-champagne mb-2">Injection Sites</h2>

@@ -12,12 +12,12 @@ function BookingRedirect() {
     const session = params.get('session')
     router.replace(session ? `/book?session=${encodeURIComponent(session)}` : '/book')
   }, [params, router])
-  return <div className="min-h-screen bg-zinc-950" />
+  return <div className="min-h-screen bg-[#020202]" />
 }
 
 export default function BookingPage() {
   return (
-    <Suspense fallback={<div className="min-h-screen bg-zinc-950" />}>
+    <Suspense fallback={<div className="min-h-screen bg-[#020202]" />}>
       <BookingRedirect />
     </Suspense>
   )

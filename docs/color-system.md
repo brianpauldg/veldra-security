@@ -1,7 +1,7 @@
 # Bloom Metabolics — Color System Reference
 
 **Last updated:** 2026-05-14
-**Phase 1 (non-destructive rename) complete.** Phase 2 (warm-palette migration) pending.
+**Migration complete.** All customer-facing pages use the warm brand palette. Cool zinc scale retained for clinic admin pages only.
 
 ---
 
@@ -19,6 +19,7 @@
 | graphite | `--color-graphite` | `#1a1814` | Borders, dividers, card outlines |
 | steel | `--color-steel` | `#2a2620` | De-emphasized microcopy (disclaimer text) |
 | brass | `--color-brass` | `#8a8268` | Muted accent, labels, eyebrow text, body text |
+| gold | `--color-gold` | `#c9b88c` | Premium accent, emphasized callouts, check marks, key visual punctuation |
 | champagne | `--color-champagne` | `#d8cfbe` | Headline text, card titles, emphasized text |
 | parchment | `--color-parchment` | `#f5ecd9` | Bright headline gradient top, selection bg |
 
@@ -148,16 +149,24 @@ Phase 2 work targets Category A files. The migration strategy:
 
 ---
 
-## Inline Hex Values (Future Cleanup)
+## Inline Hex Values — Resolved
 
-The audit found inline hex values in components that are not defined in either color system:
+| Hex | Resolution | Status |
+|-----|-----------|--------|
+| `#c9b88c` | Added as `--color-gold` token. All 102 inline refs replaced with `gold` class. | Done |
+| `#a89878` | Recognized as the `body` text color (`globals.css:50`). Component refs are redundant overrides of body default — left as-is. Not a named token because it's the CSS body color, not a semantic brand token. | Documented |
+| `#0a0908` | Replaced with `#0d0c0a` (ink). Single occurrence in peptides hero gradient. | Done |
+| `#0a0a0a` | Replaced with `#0d0c0a` (ink). Single occurrence in PricingTable peptide card. | Done |
+| `#c4b9a5` | Exists only in CSS `@theme` graphite-700 legacy alias. Not used in components. | N/A |
 
-| Hex | Approximate Role | Files Using It |
-|-----|-----------------|----------------|
-| `#c9b88c` | Warm gold accent (between champagne and brass) | PricingTable, peptides page, learn pages |
-| `#a89878` | Warm body text (between brass and champagne) | globals.css body color, about page, homepage |
-| `#0a0908` | Very dark warm tone (near ink) | Peptides hero gradient |
-| `#0a0a0a` | Near-black | Peptide tranche card |
-| `#c4b9a5` | Light warm (near champagne) | CSS @theme graphite-700 alias |
+---
 
-These should be added as named tokens in a future refactor. They're all warm-palette-adjacent and don't conflict with the cool zinc scale.
+## Migration Complete — 2026-05-14
+
+**Final state:**
+- **8 named warm palette tokens:** obsidian, ink, graphite, steel, brass, gold, champagne, parchment
+- **0 zinc references** in customer-facing pages, shared components, and injection guides
+- **313 zinc references** in clinic admin pages (Category D) — correct, separate design system
+- **All customer-facing pages** render on the warm brand palette
+- **Card.tsx and Button.tsx** are dark-warm-only (light variants removed)
+- **Blog content CSS** uses `var(--color-gold)` and `var(--color-champagne)` instead of inline hex

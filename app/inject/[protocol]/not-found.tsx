@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 export default function ProtocolNotFound() {
   return (
-    <div className="min-h-screen bg-zinc-950 flex items-center justify-center px-6">
+    <div className="min-h-screen bg-[#020202] flex items-center justify-center px-6">
       <div className="max-w-md text-center">
         <p className="eyebrow mb-4">Protocol Not Found</p>
         <h1 className="text-display-sm text-champagne mb-6">

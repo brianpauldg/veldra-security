@@ -133,12 +133,12 @@ const faqs = [
 function ArticleCard({ slug, category, title, readingTime, description }: Article) {
   return (
     <Link href={`/blog/${slug}`} className="group block">
-      <div className="rounded-2xl bg-[#080808] border border-[#1a1814] p-6 transition-all duration-300 hover:border-[#c9b88c]/30 hover:bg-[#0a0a08] h-full">
-        <span className="text-[10px] uppercase tracking-[0.15em] text-[#c9b88c] font-medium">
+      <div className="rounded-2xl bg-[#080808] border border-[#1a1814] p-6 transition-all duration-300 hover:border-gold/30 hover:bg-[#0a0a08] h-full">
+        <span className="text-[10px] uppercase tracking-[0.15em] text-gold font-medium">
           {category}
         </span>
         <h3
-          className="text-[16px] text-[#d8cfbe] mt-2 mb-2 group-hover:text-[#c9b88c] transition-colors leading-snug"
+          className="text-[16px] text-[#d8cfbe] mt-2 mb-2 group-hover:text-gold transition-colors leading-snug"
           style={{ fontFamily: 'Fraunces, serif', fontWeight: 400 }}
         >
           {title}
@@ -159,7 +159,7 @@ function ArticleCluster({ label, title, articles }: { label: string; title: stri
   return (
     <section className="py-16 px-6">
       <div className="max-w-5xl mx-auto">
-        <span className="text-[10px] uppercase tracking-[0.15em] text-[#c9b88c] font-medium">
+        <span className="text-[10px] uppercase tracking-[0.15em] text-gold font-medium">
           {label}
         </span>
         <h2
@@ -186,12 +186,12 @@ export default function TRTPillarPage() {
         <div className="max-w-5xl mx-auto">
           {/* Breadcrumb */}
           <nav className="flex items-center gap-2 text-[12px] text-[#8a8268]/60 mb-8">
-            <Link href="/learn" className="hover:text-[#c9b88c] transition-colors">Learn</Link>
+            <Link href="/learn" className="hover:text-gold transition-colors">Learn</Link>
             <ChevronRight className="w-3 h-3" />
-            <span className="text-[#c9b88c]">Testosterone Therapy</span>
+            <span className="text-gold">Testosterone Therapy</span>
           </nav>
 
-          <div className="inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.2em] text-[#c9b88c] mb-5">
+          <div className="inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.2em] text-gold mb-5">
             <BookOpen className="w-4 h-4" />
             TRT Education
           </div>

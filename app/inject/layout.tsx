@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 
 export default function InjectLayout({ children }: { children: React.ReactNode }) {
   return (
-    <div className="min-h-screen bg-zinc-950">
+    <div className="min-h-screen bg-[#020202]">
       {children}
     </div>
   );

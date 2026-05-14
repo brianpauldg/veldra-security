@@ -35,7 +35,7 @@ export function VideoPlayer({ protocol }: VideoPlayerProps) {
 
   if (!hasVideo) {
     return (
-      <section className="bg-zinc-950 py-12 px-6 md:px-12">
+      <section className="bg-[#020202] py-12 px-6 md:px-12">
         <div className="max-w-4xl mx-auto">
           <p className="eyebrow mb-3">Video Guide</p>
           <h2 className="text-headline text-champagne mb-6">Demonstration</h2>
@@ -68,7 +68,7 @@ export function VideoPlayer({ protocol }: VideoPlayerProps) {
   }
 
   return (
-    <section className="bg-zinc-950 py-12 px-6 md:px-12">
+    <section className="bg-[#020202] py-12 px-6 md:px-12">
       <div className="max-w-4xl mx-auto">
         <p className="eyebrow mb-3">Video Guide</p>
         <h2 className="text-headline text-champagne mb-6">Demonstration</h2>

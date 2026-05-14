@@ -88,12 +88,12 @@ function ArticleCard({ slug, category, title, readingTime, description }: {
 }) {
   return (
     <Link href={`/blog/${slug}`} className="group block">
-      <div className="rounded-2xl bg-[#080808] border border-[#1a1814] p-6 transition-all duration-300 hover:border-[#c9b88c]/30 hover:bg-[#0a0a08]">
-        <span className="text-[10px] uppercase tracking-[0.15em] text-[#c9b88c] font-medium">
+      <div className="rounded-2xl bg-[#080808] border border-[#1a1814] p-6 transition-all duration-300 hover:border-gold/30 hover:bg-[#0a0a08]">
+        <span className="text-[10px] uppercase tracking-[0.15em] text-gold font-medium">
           {category}
         </span>
         <h3
-          className="text-[17px] text-[#d8cfbe] mt-2 mb-2 group-hover:text-[#c9b88c] transition-colors leading-snug"
+          className="text-[17px] text-[#d8cfbe] mt-2 mb-2 group-hover:text-gold transition-colors leading-snug"
           style={{ fontFamily: 'Fraunces, serif', fontWeight: 400 }}
         >
           {title}
@@ -116,7 +116,7 @@ export default function LearnHubPage() {
       {/* Hero */}
       <section className="pt-32 pb-20 px-6">
         <div className="max-w-5xl mx-auto text-center">
-          <div className="inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.2em] text-[#c9b88c] mb-6">
+          <div className="inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.2em] text-gold mb-6">
             <BookOpen className="w-4 h-4" />
             Learn
           </div>
@@ -142,7 +142,7 @@ export default function LearnHubPage() {
             </Link>
           </div>
           <div className="flex items-center justify-center gap-2 text-[12px] text-[#8a8268]/70">
-            <Shield className="w-3.5 h-3.5 text-[#c9b88c]/50" />
+            <Shield className="w-3.5 h-3.5 text-gold/50" />
             <span>Physician-Reviewed &middot; 30+ Guides</span>
           </div>
         </div>
@@ -152,7 +152,7 @@ export default function LearnHubPage() {
       <section className="py-20 bg-[#0E0E11] px-6">
         <div className="max-w-5xl mx-auto">
           <div className="mb-10">
-            <span className="text-[10px] uppercase tracking-[0.15em] text-[#c9b88c] font-medium">
+            <span className="text-[10px] uppercase tracking-[0.15em] text-gold font-medium">
               Hormone Optimization
             </span>
             <h2
@@ -173,7 +173,7 @@ export default function LearnHubPage() {
           </div>
           <Link
             href="/learn/trt"
-            className="inline-flex items-center gap-2 text-[13px] text-[#c9b88c] hover:text-[#d8cfbe] transition-colors"
+            className="inline-flex items-center gap-2 text-[13px] text-gold hover:text-[#d8cfbe] transition-colors"
           >
             View all TRT guides <ArrowRight className="w-4 h-4" />
           </Link>
@@ -184,7 +184,7 @@ export default function LearnHubPage() {
       <section className="py-20 bg-[#020202] px-6">
         <div className="max-w-5xl mx-auto">
           <div className="mb-10">
-            <span className="text-[10px] uppercase tracking-[0.15em] text-[#c9b88c] font-medium">
+            <span className="text-[10px] uppercase tracking-[0.15em] text-gold font-medium">
               Medical Weight Loss
             </span>
             <h2
@@ -205,7 +205,7 @@ export default function LearnHubPage() {
           </div>
           <Link
             href="/learn/glp1"
-            className="inline-flex items-center gap-2 text-[13px] text-[#c9b88c] hover:text-[#d8cfbe] transition-colors"
+            className="inline-flex items-center gap-2 text-[13px] text-gold hover:text-[#d8cfbe] transition-colors"
           >
             View all GLP-1 guides <ArrowRight className="w-4 h-4" />
           </Link>
@@ -216,7 +216,7 @@ export default function LearnHubPage() {
       <section className="py-20 bg-[#0E0E11] px-6">
         <div className="max-w-5xl mx-auto">
           <div className="mb-10">
-            <span className="text-[10px] uppercase tracking-[0.15em] text-[#c9b88c] font-medium">
+            <span className="text-[10px] uppercase tracking-[0.15em] text-gold font-medium">
               Research & Education
             </span>
             <h2
@@ -225,9 +225,9 @@ export default function LearnHubPage() {
             >
               Peptide Research
             </h2>
-            <div className="inline-flex items-center gap-2 rounded-full border border-[#c9b88c]/20 bg-[#c9b88c]/5 px-3 py-1 mb-4">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#c9b88c]/60" />
-              <span className="text-[10px] uppercase tracking-[0.15em] text-[#c9b88c]/80 font-medium">
+            <div className="inline-flex items-center gap-2 rounded-full border border-gold/20 bg-gold/5 px-3 py-1 mb-4">
+              <span className="w-1.5 h-1.5 rounded-full bg-gold/60" />
+              <span className="text-[10px] uppercase tracking-[0.15em] text-gold/80 font-medium">
                 Pending FDA 503A Pathway
               </span>
             </div>
@@ -243,7 +243,7 @@ export default function LearnHubPage() {
           </div>
           <Link
             href="/learn/peptides"
-            className="inline-flex items-center gap-2 text-[13px] text-[#c9b88c] hover:text-[#d8cfbe] transition-colors"
+            className="inline-flex items-center gap-2 text-[13px] text-gold hover:text-[#d8cfbe] transition-colors"
           >
             View all peptide guides <ArrowRight className="w-4 h-4" />
           </Link>
@@ -253,7 +253,7 @@ export default function LearnHubPage() {
       {/* Editorial Standards */}
       <section className="py-20 bg-[#020202] px-6">
         <div className="max-w-3xl mx-auto text-center">
-          <Shield className="w-8 h-8 text-[#c9b88c]/40 mx-auto mb-5" />
+          <Shield className="w-8 h-8 text-gold/40 mx-auto mb-5" />
           <h2
             className="text-2xl md:text-3xl text-[#d8cfbe] mb-5"
             style={{ fontFamily: 'Fraunces, serif', fontWeight: 300 }}
@@ -267,7 +267,7 @@ export default function LearnHubPage() {
           <div className="grid md:grid-cols-2 gap-6 text-left">
             <div className="rounded-2xl bg-[#080808] border border-[#1a1814] p-6">
               <div className="flex items-center gap-3 mb-3">
-                <CheckCircle className="w-4 h-4 text-[#c9b88c]/60" />
+                <CheckCircle className="w-4 h-4 text-gold/60" />
                 <span className="text-[13px] text-[#d8cfbe] font-medium">Written By</span>
               </div>
               <p className="text-[13px] text-[#8a8268] leading-relaxed">
@@ -276,7 +276,7 @@ export default function LearnHubPage() {
             </div>
             <div className="rounded-2xl bg-[#080808] border border-[#1a1814] p-6">
               <div className="flex items-center gap-3 mb-3">
-                <CheckCircle className="w-4 h-4 text-[#c9b88c]/60" />
+                <CheckCircle className="w-4 h-4 text-gold/60" />
                 <span className="text-[13px] text-[#d8cfbe] font-medium">Medical Review</span>
               </div>
               <p className="text-[13px] text-[#8a8268] leading-relaxed">

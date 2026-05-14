@@ -62,7 +62,7 @@ export function AcknowledgmentForm({ protocol }: AcknowledgmentFormProps) {
     return (
       <section className="bg-ink py-12 px-6 md:px-12">
         <div className="max-w-4xl mx-auto">
-          <div className="border border-brass/30 rounded-lg p-6 bg-zinc-950 text-center">
+          <div className="border border-brass/30 rounded-lg p-6 bg-[#020202] text-center">
             <svg width="32" height="32" viewBox="0 0 32 32" className="mx-auto mb-3 text-brass">
               <circle cx="16" cy="16" r="14" fill="none" stroke="currentColor" strokeWidth="1.5" />
               <path d="M10 16l4 4 8-8" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
@@ -81,7 +81,7 @@ export function AcknowledgmentForm({ protocol }: AcknowledgmentFormProps) {
         <p className="eyebrow mb-3">Acknowledgment</p>
         <h2 className="text-headline text-champagne mb-6">Confirm Review</h2>
 
-        <form onSubmit={handleSubmit} className="border border-steel/30 rounded-lg p-6 bg-zinc-950">
+        <form onSubmit={handleSubmit} className="border border-steel/30 rounded-lg p-6 bg-[#020202]">
           <label className="flex items-start gap-3 cursor-pointer mb-6">
             <input
               type="checkbox"
