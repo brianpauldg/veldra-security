@@ -2,7 +2,7 @@ import { forwardRef, type ButtonHTMLAttributes } from 'react'
 import { cn } from '@/lib/utils'
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: 'primary' | 'secondary' | 'outline' | 'ghost' | 'white'
+  variant?: 'primary' | 'secondary' | 'outline' | 'ghost'
   size?: 'sm' | 'md' | 'lg'
 }
 
@@ -13,14 +13,13 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         ref={ref}
         className={cn(
           'inline-flex items-center justify-center font-medium transition-all duration-200 rounded-full',
-          'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-400 focus-visible:ring-offset-2',
+          'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#8a8268] focus-visible:ring-offset-2 focus-visible:ring-offset-[#050404]',
           'disabled:opacity-50 disabled:pointer-events-none',
           {
-            'bg-zinc-950 text-white hover:bg-zinc-800 shadow-sm hover:shadow-md': variant === 'primary',
-            'bg-zinc-100 text-zinc-900 hover:bg-zinc-200': variant === 'secondary',
-            'border border-zinc-200 text-zinc-700 hover:bg-zinc-50 hover:border-zinc-300': variant === 'outline',
-            'text-zinc-600 hover:text-zinc-950 hover:bg-zinc-50': variant === 'ghost',
-            'bg-white text-zinc-950 hover:bg-zinc-50 shadow-sm': variant === 'white',
+            'bg-[#1a1814] text-[#d8cfbe] hover:bg-[#2a2620] border border-[#1a1814] hover:border-[#2a2620]': variant === 'primary',
+            'bg-[#0d0c0a] text-[#d8cfbe] hover:bg-[#1a1814] border border-[#1a1814]': variant === 'secondary',
+            'border border-[#8a8268]/30 text-[#8a8268] hover:text-[#d8cfbe] hover:border-[#8a8268]/50': variant === 'outline',
+            'text-[#8a8268] hover:text-[#d8cfbe]': variant === 'ghost',
           },
           {
             'px-4 py-2 text-[13px]': size === 'sm',

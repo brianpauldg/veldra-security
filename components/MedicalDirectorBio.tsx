@@ -26,19 +26,19 @@ export const MEDICAL_DIRECTOR = {
 export default function MedicalDirectorBio() {
   if (!MEDICAL_DIRECTOR_LIVE) {
     return (
-      <div className="rounded-2xl border border-zinc-200 bg-zinc-50 p-8">
+      <div className="rounded-2xl border border-[#1a1814] bg-[#050404] p-8">
         <div className="flex items-start gap-4">
-          <div className="w-12 h-12 rounded-full bg-zinc-200 flex items-center justify-center flex-shrink-0">
-            <Stethoscope className="w-6 h-6 text-zinc-500" />
+          <div className="w-12 h-12 rounded-full bg-[#1a1814] flex items-center justify-center flex-shrink-0">
+            <Stethoscope className="w-6 h-6 text-[#8a8268]" />
           </div>
           <div>
-            <div className="text-[11px] font-semibold uppercase tracking-widest text-zinc-500 mb-1">
+            <div className="text-[11px] font-semibold uppercase tracking-widest text-[#8a8268] mb-1">
               Clinical Oversight
             </div>
-            <h3 className="text-[18px] font-semibold text-zinc-950 mb-2">
+            <h3 className="text-[18px] font-semibold text-[#d8cfbe] mb-2">
               Board-certified medical team
             </h3>
-            <p className="text-[14px] text-zinc-600 leading-relaxed">
+            <p className="text-[14px] text-[#8a8268] leading-relaxed">
               Every prescription is evaluated and signed by a U.S.-licensed physician. Our providers operate within state telehealth regulations and prescribe through licensed pharmacies.
             </p>
           </div>
@@ -48,7 +48,7 @@ export default function MedicalDirectorBio() {
   }
 
   return (
-    <div className="rounded-2xl border border-zinc-200 bg-white p-8">
+    <div className="rounded-2xl border border-[#1a1814] bg-[#0d0c0a] p-8">
       <div className="flex items-start gap-5">
         {MEDICAL_DIRECTOR.photoUrl ? (
           /* eslint-disable-next-line @next/next/no-img-element */
@@ -58,21 +58,21 @@ export default function MedicalDirectorBio() {
             className="w-16 h-16 rounded-full object-cover flex-shrink-0"
           />
         ) : (
-          <div className="w-16 h-16 rounded-full bg-zinc-200 flex items-center justify-center flex-shrink-0">
-            <Stethoscope className="w-7 h-7 text-zinc-500" />
+          <div className="w-16 h-16 rounded-full bg-[#1a1814] flex items-center justify-center flex-shrink-0">
+            <Stethoscope className="w-7 h-7 text-[#8a8268]" />
           </div>
         )}
         <div>
-          <div className="text-[11px] font-semibold uppercase tracking-widest text-zinc-500 mb-1">
+          <div className="text-[11px] font-semibold uppercase tracking-widest text-[#8a8268] mb-1">
             {MEDICAL_DIRECTOR.title}
           </div>
-          <h3 className="text-[18px] font-semibold text-zinc-950 mb-2">{MEDICAL_DIRECTOR.name}</h3>
+          <h3 className="text-[18px] font-semibold text-[#d8cfbe] mb-2">{MEDICAL_DIRECTOR.name}</h3>
           <ul className="space-y-1 mb-3">
             {MEDICAL_DIRECTOR.credentials.map((c) => (
-              <li key={c} className="text-[13px] text-zinc-600">{c}</li>
+              <li key={c} className="text-[13px] text-[#8a8268]">{c}</li>
             ))}
           </ul>
-          <p className="text-[14px] text-zinc-600 leading-relaxed">{MEDICAL_DIRECTOR.bio}</p>
+          <p className="text-[14px] text-[#8a8268] leading-relaxed">{MEDICAL_DIRECTOR.bio}</p>
         </div>
       </div>
     </div>

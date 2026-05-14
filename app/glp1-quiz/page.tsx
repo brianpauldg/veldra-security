@@ -175,22 +175,22 @@ export default function GLP1QuizPage() {
 
   return (
     <>
-      <section className="bg-zinc-950 pt-32 pb-16">
+      <section className="bg-[#020202] pt-32 pb-16">
         <div className="max-w-3xl mx-auto px-6 lg:px-8 text-center">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-[12px] font-medium text-zinc-300 tracking-wide mb-6">
-            <Scale className="w-3.5 h-3.5 text-emerald-400" />
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#0d0c0a]/5 border border-white/10 text-[12px] font-medium text-[#8a8268] tracking-wide mb-6">
+            <Scale className="w-3.5 h-3.5 text-[#c9b88c]" />
             GLP-1 Eligibility Screener
           </div>
           <h1 className="text-display text-white mb-4">
             Am I a Candidate for GLP-1?
           </h1>
-          <p className="text-lg text-zinc-400 max-w-xl mx-auto">
+          <p className="text-lg text-[#8a8268] max-w-xl mx-auto">
             Answer 7 quick questions to find out if GLP-1 medical weight loss may be right for you. Get personalized results instantly.
           </p>
         </div>
       </section>
 
-      <section className="bg-white py-16 lg:py-20 min-h-[60vh]">
+      <section className="bg-[#0d0c0a] py-16 lg:py-20 min-h-[60vh]">
         <div className="max-w-2xl mx-auto px-6 lg:px-8">
           <AnimatePresence mode="wait">
             {step === 'intro' && (
@@ -201,8 +201,8 @@ export default function GLP1QuizPage() {
                 exit={{ opacity: 0, y: -20 }}
                 className="text-center"
               >
-                <div className="bg-zinc-50 rounded-2xl p-8 mb-8">
-                  <h2 className="text-display-sm text-zinc-950 mb-4">What You&apos;ll Learn</h2>
+                <div className="bg-[#050404] rounded-2xl p-8 mb-8">
+                  <h2 className="text-display-sm text-[#d8cfbe] mb-4">What You&apos;ll Learn</h2>
                   <div className="grid gap-4 text-left max-w-md mx-auto">
                     {[
                       'Whether your health profile aligns with GLP-1 eligibility criteria',
@@ -210,20 +210,20 @@ export default function GLP1QuizPage() {
                       'How to connect with a licensed provider for medical evaluation',
                     ].map((item, i) => (
                       <div key={i} className="flex items-start gap-3">
-                        <Check className="w-5 h-5 text-emerald-600 flex-shrink-0 mt-0.5" />
-                        <p className="text-[15px] text-zinc-600">{item}</p>
+                        <Check className="w-5 h-5 text-[#c9b88c] flex-shrink-0 mt-0.5" />
+                        <p className="text-[15px] text-[#8a8268]">{item}</p>
                       </div>
                     ))}
                   </div>
                 </div>
                 <button
                   onClick={() => setStep('quiz')}
-                  className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-zinc-950 text-white text-[15px] font-semibold hover:bg-zinc-800 transition-all shadow-lg"
+                  className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-[#020202] text-white text-[15px] font-semibold hover:bg-[#0d0c0a] transition-all shadow-lg"
                 >
                   Check My Eligibility
                   <ArrowRight className="w-4 h-4" />
                 </button>
-                <p className="text-[12px] text-zinc-400 mt-4">
+                <p className="text-[12px] text-[#8a8268] mt-4">
                   This screener does not replace a medical evaluation. All treatments require provider approval.
                 </p>
               </motion.div>
@@ -239,16 +239,16 @@ export default function GLP1QuizPage() {
               >
                 <div className="mb-8">
                   <div className="flex items-center justify-between mb-2">
-                    <span className="text-[12px] font-medium text-zinc-400 uppercase tracking-wider">
+                    <span className="text-[12px] font-medium text-[#8a8268] uppercase tracking-wider">
                       Question {current + 1} of {questions.length}
                     </span>
-                    <span className="text-[12px] font-medium text-zinc-400">
+                    <span className="text-[12px] font-medium text-[#8a8268]">
                       {Math.round(((current + 1) / questions.length) * 100)}%
                     </span>
                   </div>
-                  <div className="h-1.5 bg-zinc-100 rounded-full overflow-hidden">
+                  <div className="h-1.5 bg-[#0d0c0a] rounded-full overflow-hidden">
                     <motion.div
-                      className="h-full bg-zinc-950 rounded-full"
+                      className="h-full bg-[#020202] rounded-full"
                       initial={{ width: `${(current / questions.length) * 100}%` }}
                       animate={{ width: `${((current + 1) / questions.length) * 100}%` }}
                       transition={{ duration: 0.3 }}
@@ -256,11 +256,11 @@ export default function GLP1QuizPage() {
                   </div>
                 </div>
 
-                <h2 className="text-display-sm text-zinc-950 mb-2">
+                <h2 className="text-display-sm text-[#d8cfbe] mb-2">
                   {questions[current].question}
                 </h2>
                 {questions[current].subtitle && (
-                  <p className="text-[14px] text-zinc-500 mb-8">{questions[current].subtitle}</p>
+                  <p className="text-[14px] text-[#8a8268] mb-8">{questions[current].subtitle}</p>
                 )}
 
                 <div className="grid gap-3">
@@ -268,7 +268,7 @@ export default function GLP1QuizPage() {
                     <button
                       key={i}
                       onClick={() => handleAnswer(option.score)}
-                      className="w-full text-left px-6 py-4 rounded-xl border border-zinc-200 text-[15px] text-zinc-700 hover:border-zinc-400 hover:bg-zinc-50 transition-all"
+                      className="w-full text-left px-6 py-4 rounded-xl border border-[#1a1814] text-[15px] text-[#d8cfbe] hover:border-[#8a8268] hover:bg-[#050404] transition-all"
                     >
                       {option.label}
                     </button>
@@ -278,7 +278,7 @@ export default function GLP1QuizPage() {
                 {current > 0 && (
                   <button
                     onClick={handleBack}
-                    className="mt-6 inline-flex items-center gap-2 text-[14px] text-zinc-500 hover:text-zinc-700 transition-colors"
+                    className="mt-6 inline-flex items-center gap-2 text-[14px] text-[#8a8268] hover:text-[#d8cfbe] transition-colors"
                   >
                     <ArrowLeft className="w-4 h-4" />
                     Previous question
@@ -295,13 +295,13 @@ export default function GLP1QuizPage() {
                 exit={{ opacity: 0, y: -20 }}
                 className="text-center"
               >
-                <div className="w-16 h-16 rounded-2xl bg-zinc-100 flex items-center justify-center mx-auto mb-6">
-                  <Scale className="w-8 h-8 text-zinc-700" />
+                <div className="w-16 h-16 rounded-2xl bg-[#0d0c0a] flex items-center justify-center mx-auto mb-6">
+                  <Scale className="w-8 h-8 text-[#d8cfbe]" />
                 </div>
-                <h2 className="text-display-sm text-zinc-950 mb-3">
+                <h2 className="text-display-sm text-[#d8cfbe] mb-3">
                   Your Eligibility Results Are Ready
                 </h2>
-                <p className="text-[15px] text-zinc-500 mb-8 max-w-md mx-auto">
+                <p className="text-[15px] text-[#8a8268] mb-8 max-w-md mx-auto">
                   Enter your details to see your personalized GLP-1 eligibility assessment.
                 </p>
                 <form onSubmit={handleSubmit} className="max-w-sm mx-auto space-y-3">
@@ -310,27 +310,27 @@ export default function GLP1QuizPage() {
                     value={email}
                     onChange={(e) => { setEmail(e.target.value); setEmailError('') }}
                     placeholder="Email address"
-                    className="w-full px-5 py-3.5 rounded-xl border border-zinc-200 text-[15px] text-zinc-900 placeholder:text-zinc-400 focus:outline-none focus:ring-2 focus:ring-zinc-300"
+                    className="w-full px-5 py-3.5 rounded-xl border border-[#1a1814] text-[15px] text-[#d8cfbe] placeholder:text-[#8a8268] focus:outline-none focus:ring-2 focus:ring-[#8a8268]/30"
                   />
                   <input
                     type="tel"
                     value={phone}
                     onChange={(e) => setPhone(e.target.value)}
                     placeholder="Phone number (optional)"
-                    className="w-full px-5 py-3.5 rounded-xl border border-zinc-200 text-[15px] text-zinc-900 placeholder:text-zinc-400 focus:outline-none focus:ring-2 focus:ring-zinc-300"
+                    className="w-full px-5 py-3.5 rounded-xl border border-[#1a1814] text-[15px] text-[#d8cfbe] placeholder:text-[#8a8268] focus:outline-none focus:ring-2 focus:ring-[#8a8268]/30"
                   />
                   {emailError && (
                     <p className="text-[13px] text-red-500">{emailError}</p>
                   )}
                   <button
                     type="submit"
-                    className="w-full inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl bg-zinc-950 text-white text-[15px] font-semibold hover:bg-zinc-800 transition-all"
+                    className="w-full inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl bg-[#020202] text-white text-[15px] font-semibold hover:bg-[#0d0c0a] transition-all"
                   >
                     See My Results
                     <ArrowRight className="w-4 h-4" />
                   </button>
                 </form>
-                <p className="text-[12px] text-zinc-400 mt-4">
+                <p className="text-[12px] text-[#8a8268] mt-4">
                   No spam. We&apos;ll send your results and relevant information. Unsubscribe anytime.
                 </p>
               </motion.div>
@@ -346,22 +346,22 @@ export default function GLP1QuizPage() {
                   <div className={`inline-flex items-center gap-2 px-4 py-2 rounded-full border mb-6 text-[13px] font-semibold ${
                     tier === 'likely' ? 'border-emerald-200 bg-emerald-50 text-emerald-700' :
                     tier === 'possible' ? 'border-amber-200 bg-amber-50 text-amber-700' :
-                    'border-zinc-200 bg-zinc-50 text-zinc-600'
+                    'border-[#1a1814] bg-[#050404] text-[#8a8268]'
                   }`}>
                     {tier === 'likely' ? <Check className="w-4 h-4" /> : <AlertTriangle className="w-4 h-4" />}
                     {result.title}
                   </div>
-                  <h2 className="text-display-sm text-zinc-950 mb-4">
+                  <h2 className="text-display-sm text-[#d8cfbe] mb-4">
                     Your GLP-1 Eligibility Assessment
                   </h2>
-                  <p className="text-[15px] text-zinc-500 max-w-lg mx-auto">
+                  <p className="text-[15px] text-[#8a8268] max-w-lg mx-auto">
                     {result.description}
                   </p>
                 </div>
 
                 {tier !== 'unlikely' && (
-                  <div className="bg-zinc-50 rounded-2xl p-6 mb-8">
-                    <h3 className="text-[14px] font-semibold text-zinc-950 mb-3 uppercase tracking-wider">What Happens Next</h3>
+                  <div className="bg-[#050404] rounded-2xl p-6 mb-8">
+                    <h3 className="text-[14px] font-semibold text-[#d8cfbe] mb-3 uppercase tracking-wider">What Happens Next</h3>
                     <div className="grid gap-3">
                       {[
                         'Book a consultation with a licensed Bloom Metabolics provider',
@@ -369,17 +369,17 @@ export default function GLP1QuizPage() {
                         'If appropriate, receive a personalized GLP-1 protocol with ongoing monitoring',
                       ].map((item, i) => (
                         <div key={i} className="flex items-start gap-3">
-                          <div className="w-6 h-6 rounded-full bg-zinc-950 text-white text-[12px] font-semibold flex items-center justify-center flex-shrink-0 mt-0.5">
+                          <div className="w-6 h-6 rounded-full bg-[#020202] text-white text-[12px] font-semibold flex items-center justify-center flex-shrink-0 mt-0.5">
                             {i + 1}
                           </div>
-                          <p className="text-[14px] text-zinc-600">{item}</p>
+                          <p className="text-[14px] text-[#8a8268]">{item}</p>
                         </div>
                       ))}
                     </div>
                   </div>
                 )}
 
-                <div className="bg-zinc-950 rounded-2xl p-8 text-center">
+                <div className="bg-[#020202] rounded-2xl p-8 text-center">
                   <h3 className="text-xl font-semibold text-white mb-3">
                     {tier === 'likely'
                       ? 'Ready to Get Started?'
@@ -387,7 +387,7 @@ export default function GLP1QuizPage() {
                       ? 'Let\u2019s Find Out Together'
                       : 'Explore Other Options'}
                   </h3>
-                  <p className="text-[15px] text-zinc-400 mb-6 max-w-md mx-auto">
+                  <p className="text-[15px] text-[#8a8268] mb-6 max-w-md mx-auto">
                     {tier === 'likely'
                       ? 'Book a consultation and a licensed provider will confirm your eligibility and build your personalized GLP-1 protocol.'
                       : tier === 'possible'
@@ -396,14 +396,14 @@ export default function GLP1QuizPage() {
                   </p>
                   <Link
                     href="/pricing"
-                    className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-white text-zinc-950 text-[15px] font-semibold hover:bg-zinc-100 transition-all"
+                    className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-[#0d0c0a] text-[#d8cfbe] text-[15px] font-semibold hover:bg-[#0d0c0a] transition-all"
                   >
                     Book Consultation
                     <ArrowRight className="w-4 h-4" />
                   </Link>
                 </div>
 
-                <p className="text-[12px] text-zinc-400 text-center mt-6">
+                <p className="text-[12px] text-[#8a8268] text-center mt-6">
                   This screener is for informational purposes only and does not constitute medical advice or guarantee eligibility.
                   All treatments require evaluation and approval by a licensed medical provider.
                 </p>

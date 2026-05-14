@@ -13,8 +13,8 @@ export default function PricingPage() {
   return (
     <>
       {/* Hero */}
-      <section className="relative bg-zinc-950 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-zinc-950 via-zinc-900 to-zinc-950" />
+      <section className="relative bg-[#020202] overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-[#020202] via-[#050404] to-[#020202]" />
         <div className="relative max-w-7xl mx-auto px-6 lg:px-8 py-20 lg:py-28">
           <motion.div
             initial={{ opacity: 0, y: 24 }}
@@ -22,14 +22,14 @@ export default function PricingPage() {
             transition={{ duration: 0.6 }}
             className="text-center max-w-3xl mx-auto"
           >
-            <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/5 border border-white/10 text-[11px] font-medium text-zinc-300 uppercase tracking-[0.12em] mb-5">
+            <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#0d0c0a]/5 border border-white/10 text-[11px] font-medium text-[#8a8268] uppercase tracking-[0.12em] mb-5">
               Membership Pricing
             </span>
             <h1 className="text-display-lg text-chrome mb-5">
               Three tiers of<br />
               precision care.
             </h1>
-            <p className="text-lg text-zinc-400 leading-relaxed max-w-xl mx-auto">
+            <p className="text-lg text-[#8a8268] leading-relaxed max-w-xl mx-auto">
               Choose your membership level. Add treatment protocols as needed.
               Every path starts with a {CONSULTATION.display} Optimization Consultation — credited toward your first month.
             </p>
@@ -44,16 +44,16 @@ export default function PricingPage() {
         <div className="text-center mt-12">
           <Link
             href="/book"
-            className="inline-flex items-center gap-2 px-10 py-4 rounded-full bg-zinc-950 text-white text-[15px] font-semibold hover:bg-zinc-800 transition-all shadow-lg"
+            className="inline-flex items-center gap-2 px-10 py-4 rounded-full bg-[#020202] text-white text-[15px] font-semibold hover:bg-[#0d0c0a] transition-all shadow-lg"
           >
             {ctaLabel} <ArrowRight className="w-4 h-4" />
           </Link>
-          <p className="text-[12px] text-zinc-500 mt-3">{primaryCtaSublabel()}</p>
+          <p className="text-[12px] text-[#8a8268] mt-3">{primaryCtaSublabel()}</p>
         </div>
       </Section>
 
       {/* What you actually get */}
-      <Section className="bg-zinc-50">
+      <Section className="bg-[#050404]">
         <div className="text-center mb-12">
           <SectionLabel>What you get</SectionLabel>
           <SectionTitle>Every membership includes</SectionTitle>
@@ -65,12 +65,12 @@ export default function PricingPage() {
             { icon: <Package className="w-5 h-5" />, title: 'Licensed pharmacy', desc: 'Medication shipped from a U.S.-licensed compounding pharmacy. Free shipping.' },
             { icon: <Shield className="w-5 h-5" />, title: 'Ongoing access', desc: 'Message your care team directly. Response times based on your membership tier.' },
           ].map((item) => (
-            <div key={item.title} className="bg-white rounded-2xl border border-zinc-200 p-6">
-              <div className="w-9 h-9 rounded-xl bg-zinc-950 text-white flex items-center justify-center mb-4">
+            <div key={item.title} className="bg-[#0d0c0a] rounded-2xl border border-[#1a1814] p-6">
+              <div className="w-9 h-9 rounded-xl bg-[#020202] text-white flex items-center justify-center mb-4">
                 {item.icon}
               </div>
-              <h3 className="text-[15px] font-semibold text-zinc-950 mb-2">{item.title}</h3>
-              <p className="text-[13px] text-zinc-600 leading-relaxed">{item.desc}</p>
+              <h3 className="text-[15px] font-semibold text-[#d8cfbe] mb-2">{item.title}</h3>
+              <p className="text-[13px] text-[#8a8268] leading-relaxed">{item.desc}</p>
             </div>
           ))}
         </div>
@@ -137,16 +137,16 @@ export default function PricingPage() {
           <h2 className="text-display text-chrome mb-5">
             Start with a consultation.
           </h2>
-          <p className="text-lg text-zinc-400 leading-relaxed mb-8">
+          <p className="text-lg text-[#8a8268] leading-relaxed mb-8">
             Talk to a licensed physician. Get clear on eligibility, membership, and your personalized protocol before you commit.
           </p>
           <Link
             href="/book"
-            className="inline-flex items-center gap-2 px-10 py-4 rounded-full bg-white text-zinc-950 text-[15px] font-semibold hover:bg-zinc-100 transition-all shadow-lg"
+            className="inline-flex items-center gap-2 px-10 py-4 rounded-full bg-[#0d0c0a] text-[#d8cfbe] text-[15px] font-semibold hover:bg-[#0d0c0a] transition-all shadow-lg"
           >
             {ctaLabel} <ArrowRight className="w-4 h-4" />
           </Link>
-          <p className="text-[12px] text-zinc-500 mt-4">{primaryCtaSublabel()}</p>
+          <p className="text-[12px] text-[#8a8268] mt-4">{primaryCtaSublabel()}</p>
         </div>
       </Section>
     </>

@@ -22,10 +22,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE_URL}/waitlist`, lastModified: now, changeFrequency: 'weekly', priority: 0.9 },
   ]
 
-  // Comparison pages
+  // Comparison pages (vs/hims and vs/roman removed — redirected to homepage)
   const comparisonPages: MetadataRoute.Sitemap = [
-    { url: `${BASE_URL}/vs/hims`, lastModified: now, changeFrequency: 'monthly', priority: 0.7 },
-    { url: `${BASE_URL}/vs/roman`, lastModified: now, changeFrequency: 'monthly', priority: 0.7 },
     { url: `${BASE_URL}/alternatives/best-online-trt-clinics`, lastModified: now, changeFrequency: 'monthly', priority: 0.7 },
   ]
 

@@ -42,7 +42,7 @@ export default function ContactPage() {
 
   return (
     <>
-      <section className="bg-zinc-950 py-20 lg:py-28">
+      <section className="bg-[#020202] py-20 lg:py-28">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 24 }}
@@ -51,7 +51,7 @@ export default function ContactPage() {
             className="text-center max-w-3xl mx-auto"
           >
             <h1 className="text-display-lg text-white mb-4">Get in Touch</h1>
-            <p className="text-lg text-zinc-400">
+            <p className="text-lg text-[#8a8268]">
               Questions about our treatments? Need help with your account? We&apos;re here to help.
             </p>
           </motion.div>
@@ -66,48 +66,48 @@ export default function ContactPage() {
               {submitted ? (
                 <div className="rounded-2xl border border-emerald-200 bg-emerald-50 p-8 text-center">
                   <div className="w-12 h-12 rounded-full bg-emerald-100 flex items-center justify-center mx-auto mb-4">
-                    <Check className="w-6 h-6 text-emerald-600" />
+                    <Check className="w-6 h-6 text-[#c9b88c]" />
                   </div>
-                  <h3 className="text-headline text-zinc-950 mb-2">Message sent</h3>
-                  <p className="text-[14px] text-zinc-500">
+                  <h3 className="text-headline text-[#d8cfbe] mb-2">Message sent</h3>
+                  <p className="text-[14px] text-[#8a8268]">
                     We&apos;ll get back to you within 24 hours. Check your email for a confirmation.
                   </p>
                 </div>
               ) : (
                 <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
                   <div>
-                    <label className="block text-[13px] font-medium text-zinc-700 mb-1.5">Name</label>
+                    <label className="block text-[13px] font-medium text-[#d8cfbe] mb-1.5">Name</label>
                     <input
                       {...register('name')}
-                      className="w-full px-4 py-3 rounded-xl border border-zinc-200 text-[14px] focus:outline-none focus:ring-2 focus:ring-zinc-300 focus:border-transparent"
+                      className="w-full px-4 py-3 rounded-xl border border-[#1a1814] bg-[#0d0c0a] text-[14px] text-[#d8cfbe] focus:outline-none focus:ring-2 focus:ring-[#8a8268]/30 focus:border-transparent"
                     />
                     {errors.name && <p className="text-[12px] text-red-500 mt-1">{errors.name.message}</p>}
                   </div>
 
                   <div>
-                    <label className="block text-[13px] font-medium text-zinc-700 mb-1.5">Email</label>
+                    <label className="block text-[13px] font-medium text-[#d8cfbe] mb-1.5">Email</label>
                     <input
                       type="email"
                       {...register('email')}
-                      className="w-full px-4 py-3 rounded-xl border border-zinc-200 text-[14px] focus:outline-none focus:ring-2 focus:ring-zinc-300 focus:border-transparent"
+                      className="w-full px-4 py-3 rounded-xl border border-[#1a1814] bg-[#0d0c0a] text-[14px] text-[#d8cfbe] focus:outline-none focus:ring-2 focus:ring-[#8a8268]/30 focus:border-transparent"
                     />
                     {errors.email && <p className="text-[12px] text-red-500 mt-1">{errors.email.message}</p>}
                   </div>
 
                   <div>
-                    <label className="block text-[13px] font-medium text-zinc-700 mb-1.5">Phone (optional)</label>
+                    <label className="block text-[13px] font-medium text-[#d8cfbe] mb-1.5">Phone (optional)</label>
                     <input
                       type="tel"
                       {...register('phone')}
-                      className="w-full px-4 py-3 rounded-xl border border-zinc-200 text-[14px] focus:outline-none focus:ring-2 focus:ring-zinc-300 focus:border-transparent"
+                      className="w-full px-4 py-3 rounded-xl border border-[#1a1814] bg-[#0d0c0a] text-[14px] text-[#d8cfbe] focus:outline-none focus:ring-2 focus:ring-[#8a8268]/30 focus:border-transparent"
                     />
                   </div>
 
                   <div>
-                    <label className="block text-[13px] font-medium text-zinc-700 mb-1.5">Subject</label>
+                    <label className="block text-[13px] font-medium text-[#d8cfbe] mb-1.5">Subject</label>
                     <select
                       {...register('subject')}
-                      className="w-full px-4 py-3 rounded-xl border border-zinc-200 text-[14px] focus:outline-none focus:ring-2 focus:ring-zinc-300 focus:border-transparent bg-white"
+                      className="w-full px-4 py-3 rounded-xl border border-[#1a1814] bg-[#0d0c0a] text-[14px] text-[#d8cfbe] focus:outline-none focus:ring-2 focus:ring-[#8a8268]/30 focus:border-transparent bg-[#0d0c0a]"
                     >
                       <option value="">Select a topic</option>
                       <option value="treatment">Treatment Questions</option>
@@ -120,11 +120,11 @@ export default function ContactPage() {
                   </div>
 
                   <div>
-                    <label className="block text-[13px] font-medium text-zinc-700 mb-1.5">Message</label>
+                    <label className="block text-[13px] font-medium text-[#d8cfbe] mb-1.5">Message</label>
                     <textarea
                       {...register('message')}
                       rows={5}
-                      className="w-full px-4 py-3 rounded-xl border border-zinc-200 text-[14px] focus:outline-none focus:ring-2 focus:ring-zinc-300 focus:border-transparent resize-none"
+                      className="w-full px-4 py-3 rounded-xl border border-[#1a1814] bg-[#0d0c0a] text-[14px] text-[#d8cfbe] focus:outline-none focus:ring-2 focus:ring-[#8a8268]/30 focus:border-transparent resize-none"
                       placeholder="How can we help?"
                     />
                     {errors.message && <p className="text-[12px] text-red-500 mt-1">{errors.message.message}</p>}
@@ -133,7 +133,7 @@ export default function ContactPage() {
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full flex items-center justify-center gap-2 px-8 py-3.5 rounded-full bg-zinc-950 text-white text-[15px] font-medium hover:bg-zinc-800 transition-all disabled:opacity-50"
+                    className="w-full flex items-center justify-center gap-2 px-8 py-3.5 rounded-full bg-[#020202] text-white text-[15px] font-medium hover:bg-[#0d0c0a] transition-all disabled:opacity-50"
                   >
                     {isSubmitting ? 'Sending...' : 'Send Message'}
                     {!isSubmitting && <ArrowRight className="w-4 h-4" />}

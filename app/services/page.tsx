@@ -51,8 +51,8 @@ export default function Services() {
   return (
     <>
       {/* Hero */}
-      <section className="relative bg-zinc-950 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-zinc-950 via-zinc-900 to-zinc-950" />
+      <section className="relative bg-[#020202] overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-[#020202] via-[#050404] to-[#020202]" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_rgba(26,154,115,0.08),_transparent_60%)]" />
 
         <div className="relative max-w-7xl mx-auto px-6 lg:px-8 py-28 lg:py-36">
@@ -62,13 +62,13 @@ export default function Services() {
             transition={{ duration: 0.7, ease: [0.25, 0.1, 0, 1] }}
             className="max-w-3xl"
           >
-            <span className="text-[11px] font-semibold uppercase tracking-[0.15em] text-zinc-400 mb-4 block">
+            <span className="text-[11px] font-semibold uppercase tracking-[0.15em] text-[#8a8268] mb-4 block">
               Treatment Programs
             </span>
             <h1 className="text-display-xl text-white mb-6">
               Our Treatment Programs
             </h1>
-            <p className="text-xl text-zinc-400 leading-relaxed max-w-2xl">
+            <p className="text-xl text-[#8a8268] leading-relaxed max-w-2xl">
               Physician-guided treatment protocols — available as add-ons to any Bloom membership tier.
               Each individually tailored and designed for measurable outcomes.
             </p>
@@ -78,33 +78,33 @@ export default function Services() {
 
       {/* Services */}
       {services.map((service, index) => (
-        <Section key={service.tag} className={index % 2 === 1 ? 'bg-zinc-50' : ''}>
+        <Section key={service.tag} className={index % 2 === 1 ? 'bg-[#050404]' : ''}>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
             <div>
               <div className="flex items-center gap-3 mb-6">
                 <CardIcon className="!mb-0">{service.icon}</CardIcon>
-                <span className="text-[11px] font-semibold uppercase tracking-widest text-zinc-400">
+                <span className="text-[11px] font-semibold uppercase tracking-widest text-[#8a8268]">
                   {service.tag}
                 </span>
               </div>
 
-              <h2 className="text-display-sm text-zinc-950 mb-4">{service.title}</h2>
-              <p className="text-subheadline text-zinc-500 mb-4">{service.description}</p>
+              <h2 className="text-display-sm text-[#d8cfbe] mb-4">{service.title}</h2>
+              <p className="text-subheadline text-[#8a8268] mb-4">{service.description}</p>
               {'pricing' in service && service.pricing && (
-                <p className="text-[14px] font-medium text-zinc-700 mb-8 bg-zinc-50 px-4 py-2 rounded-lg inline-block">{service.pricing}</p>
+                <p className="text-[14px] font-medium text-[#d8cfbe] mb-8 bg-[#050404] px-4 py-2 rounded-lg inline-block">{service.pricing}</p>
               )}
 
               <div className="flex flex-wrap gap-4">
                 <Link
                   href={service.href}
-                  className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-zinc-950 text-white text-[14px] font-medium hover:bg-zinc-800 transition-all shadow-sm"
+                  className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#020202] text-white text-[14px] font-medium hover:bg-[#0d0c0a] transition-all shadow-sm"
                 >
                   Learn More <ChevronRight className="w-4 h-4" />
                 </Link>
                 {service.quizHref && (
                   <Link
                     href={service.quizHref}
-                    className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-zinc-200 text-zinc-700 text-[14px] font-medium hover:bg-zinc-50 transition-all"
+                    className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-[#1a1814] text-[#d8cfbe] text-[14px] font-medium hover:bg-[#050404] transition-all"
                   >
                     {service.quizLabel}
                   </Link>
@@ -114,21 +114,21 @@ export default function Services() {
 
             <div>
               <Card hover={false}>
-                <h3 className="text-[14px] font-semibold text-zinc-950 mb-4">What&apos;s Included</h3>
+                <h3 className="text-[14px] font-semibold text-[#d8cfbe] mb-4">What&apos;s Included</h3>
                 <ul className="space-y-3 mb-6">
                   {service.benefits.map((benefit) => (
                     <li key={benefit} className="flex items-start gap-2">
-                      <Check className="w-4 h-4 text-emerald-500 mt-0.5 flex-shrink-0" />
-                      <span className="text-[14px] text-zinc-600">{benefit}</span>
+                      <Check className="w-4 h-4 text-[#c9b88c] mt-0.5 flex-shrink-0" />
+                      <span className="text-[14px] text-[#8a8268]">{benefit}</span>
                     </li>
                   ))}
                 </ul>
 
-                <div className="pt-4 border-t border-zinc-100">
-                  <h4 className="text-[12px] font-semibold text-zinc-400 uppercase tracking-widest mb-2">
+                <div className="pt-4 border-t border-[#1a1814]">
+                  <h4 className="text-[12px] font-semibold text-[#8a8268] uppercase tracking-widest mb-2">
                     Ideal For
                   </h4>
-                  <p className="text-[13px] text-zinc-500 leading-relaxed">{service.ideal}</p>
+                  <p className="text-[13px] text-[#8a8268] leading-relaxed">{service.ideal}</p>
                 </div>
               </Card>
             </div>
@@ -169,14 +169,14 @@ export default function Services() {
             },
           ].map((item) => (
             <div key={item.step} className="text-center">
-              <div className="w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center text-zinc-300 mx-auto mb-4">
+              <div className="w-12 h-12 rounded-xl bg-[#0d0c0a]/5 flex items-center justify-center text-[#8a8268] mx-auto mb-4">
                 {item.icon}
               </div>
-              <span className="text-[11px] font-semibold text-zinc-500 tracking-widest">
+              <span className="text-[11px] font-semibold text-[#8a8268] tracking-widest">
                 Step {item.step}
               </span>
               <h3 className="text-[16px] font-semibold text-white mt-2 mb-2">{item.title}</h3>
-              <p className="text-[13px] text-zinc-400 leading-relaxed">{item.desc}</p>
+              <p className="text-[13px] text-[#8a8268] leading-relaxed">{item.desc}</p>
             </div>
           ))}
         </div>
@@ -184,12 +184,12 @@ export default function Services() {
         <div className="text-center mt-14">
           <Link
             href="/pricing"
-            className="inline-flex items-center gap-2 px-10 py-4 rounded-full bg-white text-zinc-950 text-[15px] font-semibold hover:bg-zinc-100 transition-all shadow-lg"
+            className="inline-flex items-center gap-2 px-10 py-4 rounded-full bg-[#0d0c0a] text-[#d8cfbe] text-[15px] font-semibold hover:bg-[#0d0c0a] transition-all shadow-lg"
           >
             View Membership Pricing
             <ArrowRight className="w-4 h-4" />
           </Link>
-          <p className="text-[12px] text-zinc-600 mt-4">
+          <p className="text-[12px] text-[#8a8268] mt-4">
             All treatment protocols are available as add-ons to any Bloom membership tier. Evaluation by a licensed provider required. Individual results vary.
           </p>
         </div>

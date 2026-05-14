@@ -3,6 +3,13 @@ const nextConfig = {
   poweredByHeader: false,
   reactStrictMode: true,
 
+  async redirects() {
+    return [
+      { source: '/vs/hims', destination: '/', permanent: true },
+      { source: '/vs/roman', destination: '/', permanent: true },
+    ]
+  },
+
   async headers() {
     return [
       {

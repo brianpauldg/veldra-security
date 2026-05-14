@@ -163,7 +163,7 @@ export default function LeadPopup({
         >
           {/* Overlay */}
           <div
-            className="absolute inset-0 bg-zinc-950/60 backdrop-blur-sm"
+            className="absolute inset-0 bg-[#020202]/60 backdrop-blur-sm"
             onClick={handleClose}
           />
 
@@ -173,11 +173,11 @@ export default function LeadPopup({
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 24, scale: 0.96 }}
             transition={{ duration: 0.3, ease: [0.25, 0.1, 0, 1] }}
-            className="relative bg-white rounded-2xl shadow-2xl max-w-md w-full p-8 lg:p-10"
+            className="relative bg-[#0d0c0a] rounded-2xl shadow-2xl max-w-md w-full p-8 lg:p-10"
           >
             <button
               onClick={handleClose}
-              className="absolute top-4 right-4 p-2 text-zinc-400 hover:text-zinc-600 transition-colors"
+              className="absolute top-4 right-4 p-2 text-[#8a8268] hover:text-[#8a8268] transition-colors"
               aria-label="Close"
             >
               <X className="w-5 h-5" />
@@ -185,10 +185,10 @@ export default function LeadPopup({
 
             {!isSubmitted ? (
               <>
-                <h2 className="text-display-sm text-zinc-950 mb-3">
+                <h2 className="text-display-sm text-[#d8cfbe] mb-3">
                   {copy.headline}
                 </h2>
-                <p className="text-[14px] text-zinc-500 leading-relaxed mb-6">
+                <p className="text-[14px] text-[#8a8268] leading-relaxed mb-6">
                   {copy.body}
                 </p>
 
@@ -201,13 +201,13 @@ export default function LeadPopup({
                         trackEvent('popup_cta_clicked', { variant })
                         handleClose()
                       }}
-                      className="block w-full text-center px-6 py-3.5 rounded-full bg-zinc-950 text-white text-[14px] font-semibold hover:bg-zinc-800 transition-all"
+                      className="block w-full text-center px-6 py-3.5 rounded-full bg-[#020202] text-white text-[14px] font-semibold hover:bg-[#0d0c0a] transition-all"
                     >
                       {copy.cta}
                     </a>
                     <button
                       onClick={handleClose}
-                      className="block w-full text-center text-[13px] text-zinc-400 hover:text-zinc-600 transition-colors"
+                      className="block w-full text-center text-[13px] text-[#8a8268] hover:text-[#8a8268] transition-colors"
                     >
                       {copy.dismiss}
                     </button>
@@ -220,7 +220,7 @@ export default function LeadPopup({
                         {...register('email')}
                         type="email"
                         placeholder="Your email address"
-                        className="w-full px-4 py-3 rounded-xl border border-zinc-200 text-[14px] text-zinc-950 placeholder:text-zinc-400 focus:outline-none focus:ring-2 focus:ring-zinc-300 focus:border-transparent transition-all"
+                        className="w-full px-4 py-3 rounded-xl border border-[#1a1814] text-[14px] text-[#d8cfbe] placeholder:text-[#8a8268] focus:outline-none focus:ring-2 focus:ring-[#8a8268]/30 focus:border-transparent transition-all"
                       />
                       {errors.email && (
                         <p className="text-[12px] text-red-500 mt-1">{errors.email.message}</p>
@@ -231,9 +231,9 @@ export default function LeadPopup({
                         type="checkbox"
                         checked={emailConsent}
                         onChange={(e) => { setEmailConsent(e.target.checked); setConsentError('') }}
-                        className="mt-0.5 w-4 h-4 rounded border-zinc-300 text-zinc-950 focus:ring-zinc-500"
+                        className="mt-0.5 w-4 h-4 rounded border-[#1a1814] text-[#d8cfbe] focus:ring-[#8a8268]/30"
                       />
-                      <span className="text-[10px] text-zinc-400 leading-relaxed">
+                      <span className="text-[10px] text-[#8a8268] leading-relaxed">
                         I agree to receive emails from Bloom Metabolics. Unsubscribe anytime. <a href="/privacy" className="underline">Privacy Policy</a>.
                       </span>
                     </label>
@@ -241,14 +241,14 @@ export default function LeadPopup({
                     <button
                       type="submit"
                       disabled={isSubmitting}
-                      className="w-full px-6 py-3.5 rounded-full bg-zinc-950 text-white text-[14px] font-semibold hover:bg-zinc-800 transition-all disabled:opacity-50"
+                      className="w-full px-6 py-3.5 rounded-full bg-[#020202] text-white text-[14px] font-semibold hover:bg-[#0d0c0a] transition-all disabled:opacity-50"
                     >
                       {isSubmitting ? 'Sending...' : copy.cta}
                     </button>
                     <button
                       type="button"
                       onClick={handleClose}
-                      className="block w-full text-center text-[13px] text-zinc-400 hover:text-zinc-600 transition-colors"
+                      className="block w-full text-center text-[13px] text-[#8a8268] hover:text-[#8a8268] transition-colors"
                     >
                       {copy.dismiss}
                     </button>
@@ -258,12 +258,12 @@ export default function LeadPopup({
             ) : (
               <div className="text-center py-4">
                 <div className="w-12 h-12 rounded-full bg-emerald-50 flex items-center justify-center mx-auto mb-4">
-                  <svg className="w-6 h-6 text-emerald-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <svg className="w-6 h-6 text-[#c9b88c]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                   </svg>
                 </div>
-                <h3 className="text-headline text-zinc-950 mb-2">Your guide is on the way</h3>
-                <p className="text-[14px] text-zinc-500">Check your inbox in the next few minutes.</p>
+                <h3 className="text-headline text-[#d8cfbe] mb-2">Your guide is on the way</h3>
+                <p className="text-[14px] text-[#8a8268]">Check your inbox in the next few minutes.</p>
               </div>
             )}
           </motion.div>
