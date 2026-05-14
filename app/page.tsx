@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { motion } from 'framer-motion'
 import {
   ArrowRight, ChevronRight,
@@ -86,6 +87,62 @@ export default function Home() {
               className="hidden lg:flex items-center justify-center"
             >
               <Meridian size="lg" />
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* ═══════════════════════════════════════════════════════
+          FOUNDER
+      ═══════════════════════════════════════════════════════ */}
+      <section className="bg-[#020202] py-20 lg:py-28">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+            <motion.div
+              initial={{ opacity: 0, x: -24 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, ease: [0.25, 0.1, 0, 1] }}
+              className="flex justify-center lg:justify-end"
+            >
+              <div className="relative w-72 h-72 lg:w-80 lg:h-80 rounded-2xl overflow-hidden border border-[#1a1814]">
+                <Image
+                  src="/images/founder-brian.png"
+                  alt="Brian DeGuzman, RN — Founder of Bloom Metabolics"
+                  fill
+                  className="object-cover object-top"
+                  sizes="(max-width: 1024px) 288px, 320px"
+                  priority
+                />
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.1, ease: [0.25, 0.1, 0, 1] }}
+            >
+              <div className="eyebrow mb-4">Founder</div>
+              <h2
+                className="text-display-sm text-chrome mb-6"
+                style={{ fontFamily: 'Fraunces, serif', fontWeight: 300 }}
+              >
+                Brian DeGuzman, <em className="italic">RN</em>
+              </h2>
+              <div className="space-y-4 max-w-lg">
+                <p className="text-[15px] text-[#a89878] leading-relaxed font-light">
+                  Registered Nurse. Pursuing Advanced Practice Nursing licensure.
+                  Built Bloom Metabolics because the men he saw in clinical practice
+                  deserved protocols informed by their labs — not a five-minute
+                  telehealth script.
+                </p>
+                <p className="text-[15px] text-[#a89878] leading-relaxed font-light">
+                  Every patient relationship at Bloom is physician-prescribed and
+                  clinically overseen. Brian runs the operations, coordinates care,
+                  and ensures the clinical standard holds.
+                </p>
+              </div>
             </motion.div>
           </div>
         </div>
@@ -238,23 +295,28 @@ export default function Home() {
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 mb-16">
           <div className="lg:col-span-1">
-            <SectionLabel>Investment · <span className="num">03</span> Tiers</SectionLabel>
-            <SectionTitle>Three tiers of <em className="italic">care.</em></SectionTitle>
+            <SectionLabel>Membership · <span className="num">03</span> Tiers</SectionLabel>
+            <SectionTitle>Three tiers of <em className="italic">precision</em> care.</SectionTitle>
           </div>
           <div className="lg:col-span-2 flex items-end">
             <SectionDescription className="lg:ml-auto lg:text-right max-w-md">
-              Pricing confirmed at consultation. Pay only after a physician confirms you are a candidate.
+              Choose your membership level. Add treatment protocols as needed. Begin with a $49 initial evaluation — credited toward Month 1.
             </SectionDescription>
           </div>
         </div>
 
-        <PricingTable />
+        <PricingTable showAddOns={false} showPeptideRoadmap={false} />
 
         <div className="text-center mt-14">
-          <Link href="/book" className="bloom-btn">
-            Begin Consultation
-            <ArrowRight className="w-3.5 h-3.5" />
+          <Link href="/pricing" className="bloom-btn bloom-btn-ghost bloom-btn text-[13px]">
+            View Full Pricing & Add-Ons <ArrowRight className="w-3.5 h-3.5" />
           </Link>
+          <div className="mt-4">
+            <Link href="/book" className="bloom-btn">
+              Apply Now — $49
+              <ArrowRight className="w-3.5 h-3.5" />
+            </Link>
+          </div>
         </div>
       </Section>
 
@@ -325,11 +387,11 @@ export default function Home() {
 
           <div className="divide-y divide-[#1a1814] border-y border-[#1a1814]">
             {[
-              { q: 'What does a consultation cost?', a: `${CONSULTATION.display} for the consultation. Program pricing is set by your physician based on the medication and dose prescribed — and confirmed before you pay.` },
-              { q: 'Who are the prescribing physicians?', a: 'Every prescription is evaluated and signed by a U.S.-licensed physician. Your physician will be introduced to you at the consultation.' },
+              { q: 'What does a consultation cost?', a: `${CONSULTATION.display} for the Optimization Consultation. If you continue to a membership, it's credited toward your first month. If you don't qualify, it's refunded in full.` },
+              { q: 'How does membership work?', a: 'Choose from three membership tiers (Essentials, Core, or Signature) for ongoing care access. Add treatment protocols — TRT, GLP-1, Sexual Health, or Longevity — as needed. All medication is included in add-on pricing.' },
               { q: 'Do I need bloodwork?', a: 'Yes. Bloodwork is required before treatment for both Testosterone Therapy and GLP-1 programs. Lab results from the past six months may be accepted; otherwise your physician will order a local draw through LabCorp or Quest Diagnostics.' },
               { q: 'What if I do not qualify for treatment?', a: 'You receive a full refund of the consultation fee. You still receive a physician-reviewed eligibility report.' },
-              { q: 'Is this covered by insurance?', a: 'Bloom Metabolics operates on a cash-pay model. Payments are processed by Stripe. We do not bill insurance.' },
+              { q: 'Is this covered by insurance?', a: 'Bloom Metabolics operates on a cash-pay model. We do not bill insurance. Many patients find cash-pay simpler and more affordable than navigating insurance restrictions.' },
             ].map((faq) => (
               <div key={faq.q} className="py-6">
                 <h3 className="text-[15px] text-[#d8cfbe] mb-2" style={{ fontFamily: 'Fraunces, serif', fontWeight: 400 }}>
@@ -366,7 +428,7 @@ export default function Home() {
           </p>
           <div className="flex flex-wrap justify-center gap-4 mb-12">
             <Link href="/book" className="bloom-btn">
-              Begin Consultation
+              Begin Your Application
               <ArrowRight className="w-3.5 h-3.5" />
             </Link>
           </div>
@@ -375,7 +437,7 @@ export default function Home() {
 
           <div className="max-w-sm mx-auto">
             <p className="text-[13px] text-[#8a8268] mb-4 font-light">
-              Not ready to book? Receive the eligibility checklist.
+              Not ready to apply? Receive the eligibility checklist.
             </p>
             <EmailCapture />
           </div>
@@ -395,11 +457,11 @@ export default function Home() {
         <div className="max-w-2xl mx-auto text-center py-8">
           <div className="eyebrow mb-6">Early Access</div>
           <h2 className="text-display text-chrome mb-6" style={{ fontFamily: 'Fraunces, serif', fontWeight: 300 }}>
-            Ready to start your metabolic{' '}
-            <em className="italic">health journey?</em>
+            Structured clinical programs.{' '}
+            <em className="italic">Measured outcomes.</em>
           </h2>
           <p className="text-[16px] text-[#8a8268] leading-relaxed mb-10 max-w-md mx-auto font-light">
-            Join the waitlist for early access to personalized hormone optimization, GLP-1 protocols, and longevity-focused care.
+            Physician-led hormone optimization, GLP-1 protocols, and longevity-focused care. Apply for early access.
           </p>
           <button onClick={() => setWaitlistOpen(true)} className="bloom-btn">
             Join Waitlist
