@@ -4,7 +4,7 @@ import TreatmentPage from '@/components/TreatmentPage'
 
 export const metadata: Metadata = {
   title: 'TRT — Testosterone Replacement Therapy',
-  description: 'Clinician-guided testosterone replacement therapy via premium telehealth. Restore energy, drive, body composition, and vitality with personalized, lab-informed TRT protocols.',
+  description: 'Clinician-guided testosterone replacement therapy via telehealth. Personalized, lab-informed TRT protocols. Physician-prescribed, individually dosed, and monitored.',
   keywords: 'TRT, testosterone replacement therapy, telehealth TRT, online TRT, hormone optimization, low testosterone treatment',
 }
 
@@ -17,12 +17,12 @@ export default function TRTPage() {
       description="Clinician-guided testosterone optimization designed around your labs, your symptoms, and your goals. Not a cookie-cutter protocol — a personalized program supervised by licensed providers."
       icon={<Zap className="w-6 h-6" />}
       benefits={[
-        { title: 'Energy & Vitality', description: 'Patients commonly report increased energy, reduced fatigue, and improved daily performance within the first weeks of treatment.', icon: <Zap className="w-5 h-5" /> },
-        { title: 'Body Composition', description: 'Optimized testosterone levels may support lean muscle maintenance, reduced body fat, and improved metabolic health.', icon: <TrendingUp className="w-5 h-5" /> },
-        { title: 'Mental Clarity', description: 'Many patients experience improved focus, cognitive sharpness, and reduced brain fog with properly managed hormone levels.', icon: <Brain className="w-5 h-5" /> },
-        { title: 'Libido & Sexual Health', description: 'TRT is commonly associated with improvements in libido, sexual function, and overall confidence.', icon: <HeartPulse className="w-5 h-5" /> },
-        { title: 'Mood & Motivation', description: 'Balanced hormones may support emotional stability, motivation, and a greater sense of well-being.', icon: <Activity className="w-5 h-5" /> },
-        { title: 'Recovery & Sleep', description: 'Patients frequently report improved recovery from exercise and better sleep quality with optimized testosterone.', icon: <Shield className="w-5 h-5" /> },
+        { title: 'Energy & Vitality', description: 'TRT may support increased energy and reduced fatigue. Individual results vary based on baseline levels and protocol adherence.', icon: <Zap className="w-5 h-5" /> },
+        { title: 'Body Composition', description: 'Optimized testosterone levels may support lean muscle maintenance, reduced body fat, and improved metabolic health. Individual results vary.', icon: <TrendingUp className="w-5 h-5" /> },
+        { title: 'Mental Clarity', description: 'Some patients report improved focus and reduced brain fog with properly managed hormone levels. Individual results vary.', icon: <Brain className="w-5 h-5" /> },
+        { title: 'Libido & Sexual Health', description: 'TRT may support improvements in libido and sexual function. Individual results vary.', icon: <HeartPulse className="w-5 h-5" /> },
+        { title: 'Mood & Motivation', description: 'Balanced hormones may support emotional stability and motivation. Individual results vary.', icon: <Activity className="w-5 h-5" /> },
+        { title: 'Recovery & Sleep', description: 'Some patients report improved recovery from exercise and better sleep quality with optimized testosterone. Individual results vary.', icon: <Shield className="w-5 h-5" /> },
       ]}
       process={[
         { step: '01', title: 'Consultation', description: 'Meet with a licensed provider to discuss your symptoms, health history, and goals.' },
@@ -48,6 +48,7 @@ export default function TRTPage() {
         { question: 'Do I need TRT forever?', answer: 'Treatment duration varies. Your provider will discuss your options, including the potential for long-term therapy and what happens if you choose to discontinue.' },
         { question: 'Will insurance cover this?', answer: 'Bloom Metabolics operates as a cash-pay telehealth clinic. We provide transparent pricing without insurance billing complexity. Many patients find this more convenient and cost-effective.' },
       ]}
+      addOnPricing="+$199/mo add-on to any Bloom membership tier. Medication included."
       disclaimer="All TRT treatments require evaluation and prescription by a licensed medical provider. Individual results vary. Not everyone qualifies for testosterone replacement therapy."
     />
   )

@@ -19,11 +19,11 @@ export default function GLP1Page() {
       description="Physician-prescribed compounded GLP-1 receptor agonist therapy for medically indicated weight management. Compounded medications are not FDA-approved. Lab-informed dosing, regular monitoring, and a care team that stays with you."
       icon={<TrendingUp className="w-6 h-6" />}
       benefits={[
-        { title: 'Sustainable Weight Loss', description: 'GLP-1 medications have demonstrated significant weight reduction in clinical studies when combined with lifestyle modifications.', icon: <TrendingUp className="w-5 h-5" /> },
+        { title: 'Weight Management', description: 'Clinical trials of brand-name GLP-1 medications have shown meaningful weight reduction when combined with lifestyle modifications. Compounded formulations have not been independently studied. Individual results vary.', icon: <TrendingUp className="w-5 h-5" /> },
         { title: 'Appetite Regulation', description: 'GLP-1 receptor agonists work by mimicking natural hormones that regulate appetite and satiety, reducing cravings naturally.', icon: <Brain className="w-5 h-5" /> },
         { title: 'Metabolic Health', description: 'Beyond weight loss, GLP-1 therapy may support improvements in blood sugar regulation, cardiovascular markers, and metabolic function.', icon: <HeartPulse className="w-5 h-5" /> },
         { title: 'Body Composition', description: 'Medically supervised protocols designed to support fat loss while maintaining lean mass through proper nutrition guidance.', icon: <Activity className="w-5 h-5" /> },
-        { title: 'Energy & Vitality', description: 'Many patients report improved energy levels and overall well-being as they achieve healthier body composition.', icon: <Zap className="w-5 h-5" /> },
+        { title: 'Energy & Vitality', description: 'Some patients report improved energy levels and overall well-being as body composition changes. Individual results vary.', icon: <Zap className="w-5 h-5" /> },
         { title: 'Medical Oversight', description: 'Every step supervised by licensed providers with regular lab monitoring and dosage adjustments for safety and efficacy.', icon: <Shield className="w-5 h-5" /> },
       ]}
       process={[
@@ -51,6 +51,7 @@ export default function GLP1Page() {
         { question: 'How long do I need to take GLP-1 medication?', answer: 'Treatment duration is individualized. Your provider will work with you to develop a long-term plan that may include gradual tapering and transition to maintenance strategies.' },
         { question: 'Do I need to diet and exercise too?', answer: 'GLP-1 medications work best in combination with healthy nutrition and regular physical activity. Your care team provides guidance on sustainable lifestyle modifications.' },
       ]}
+      addOnPricing="+$299/mo add-on to any Bloom membership tier. Medication included."
       // FDA April 1 2026 — compounded disclosure in disclaimer
       disclaimer="GLP-1 medications provided by Bloom Metabolics are compounded by a licensed compounding pharmacy and are not FDA-approved. Prescribed based on individual medical evaluation and patient-specific medical necessity. Not all patients qualify. Results vary significantly. Treatment includes regular medical monitoring."
     />

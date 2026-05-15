@@ -204,7 +204,7 @@ export async function GET(req: NextRequest) {
       return NextResponse.json({
         team: [
           { id: 'usr_admin_001', name: 'Brian DeGuzman', role: 'super_admin', title: 'Founder & RN', email: 'brian@bloommetabolics.com', isActive: true },
-          { id: 'usr_doc_001', name: 'Albert Aparisio', role: 'physician', title: 'Medical Director', email: '', isActive: true },
+          { id: 'usr_doc_001', name: 'Michael Napolitano', role: 'physician', title: 'Covering Physician', email: '', isActive: true },
           { id: 'usr_coord_001', name: 'Mahshad Nejad', role: 'admin_ops', title: 'Patient Coordinator / Operations', email: '', isActive: true },
         ],
       })

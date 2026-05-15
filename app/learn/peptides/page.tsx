@@ -274,7 +274,7 @@ export default function PeptidePillarPage() {
             </div>
           </div>
           <p className="text-[11px] text-[#8a8268]/50 mt-8 leading-relaxed">
-            Timeline is subject to change based on FDA regulatory decisions. All peptide offerings require physician evaluation and prescription. Individual results vary.
+            Timeline is subject to change based on FDA regulatory decisions. All peptide therapies are compounded by a US-based, state-licensed 503A pharmacy under individual patient prescription following physician evaluation. Compounded medications are not FDA-approved for safety or efficacy. Individual results vary. This content is educational and does not constitute medical advice.
           </p>
         </div>
       </section>

@@ -280,7 +280,7 @@ export default function LearnHubPage() {
                 <span className="text-[13px] text-[#d8cfbe] font-medium">Medical Review</span>
               </div>
               <p className="text-[13px] text-[#8a8268] leading-relaxed">
-                Dr. Michael Napolitano, MD — Board-certified physician responsible for clinical accuracy review of all published guides.
+                Dr. Michael Napolitano, MD — U.S.-licensed physician responsible for clinical accuracy review of all published guides.
               </p>
             </div>
           </div>

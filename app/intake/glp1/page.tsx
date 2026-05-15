@@ -428,7 +428,7 @@ const glp1Steps: StepConfig[] = [
           <h3 className="text-[14px] text-white font-semibold mb-4">Potential Benefits</h3>
           <ul className="space-y-2 text-[13px] text-[#d8cfbe] leading-relaxed">
             {[
-              'Significant weight reduction — patients commonly report 15–20% body weight loss',
+              'Weight reduction — clinical trials of brand-name GLP-1 medications showed 15–22% average body weight loss over 68 weeks. Individual results with compounded formulations vary.',
               'Improved glycemic control and A1C reduction',
               'Reduced cardiovascular risk factors',
               'Lower blood pressure and improved cholesterol levels',

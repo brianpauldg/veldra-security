@@ -69,6 +69,16 @@ export default function PeptidesPage() {
               Each tranche below will launch as an add-on to any Bloom membership tier once regulatory clarity is established.
               Patients on the Peptide Roadmap waitlist will be notified at each tranche launch.
             </p>
+            <p className="text-[15px] text-[#8a8268] leading-relaxed font-light">
+              All peptide therapies are compounded by a US-based, state-licensed 503A pharmacy under individual patient
+              prescription following physician evaluation. Compounded medications are not FDA-approved for safety or efficacy.
+              Treatment is initiated only after physician evaluation. Results vary. This information is educational and does not
+              constitute medical advice.
+            </p>
+            <p className="text-[15px] text-gold leading-relaxed font-light mt-4">
+              Peptide therapies will be available to enrolled patients following physician consultation.
+              Join the waitlist to be notified when enrollment opens.
+            </p>
           </div>
         </div>
       </Section>

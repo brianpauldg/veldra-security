@@ -9,7 +9,7 @@ import { ROLE_LABELS } from '@/lib/clinic/roles'
 
 const TEAM = [
   { id: 'usr_admin_001', firstName: 'Brian', lastName: 'DeGuzman', email: 'brian@bloommetabolics.com', role: 'super_admin' as const, title: 'Founder & RN', isActive: true },
-  { id: 'usr_doc_001', firstName: 'Albert', lastName: 'Aparisio', email: '', role: 'physician' as const, title: 'Medical Director', isActive: true },
+  { id: 'usr_doc_001', firstName: 'Michael', lastName: 'Napolitano', email: '', role: 'physician' as const, title: 'Covering Physician', isActive: true },
   { id: 'usr_coord_001', firstName: 'Mahshad', lastName: 'Nejad', email: '', role: 'admin_ops' as const, title: 'Patient Coordinator / Operations', isActive: true },
 ]
 import { mcpTools } from '@/lib/clinic/mcp-adapter'

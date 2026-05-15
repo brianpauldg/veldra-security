@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { motion } from 'framer-motion'
 import {
   ArrowRight, ChevronRight, Check, Syringe, TrendingUp,
-  Stethoscope, Clock, Shield
+  Stethoscope, Clock, Shield, HeartPulse, Activity
 } from 'lucide-react'
 import Section, { SectionLabel, SectionTitle, SectionDescription } from '@/components/ui/Section'
 import Card, { CardIcon } from '@/components/ui/Card'
@@ -44,6 +44,40 @@ const services = [
     href: '/glp1',
     quizHref: '/glp1-quiz',
     quizLabel: 'Take the GLP-1 Assessment',
+  },
+  {
+    icon: <HeartPulse className="w-6 h-6" />,
+    tag: 'Sexual Health',
+    title: 'Sexual Health Optimization',
+    description: 'Physician-prescribed medications for sexual health concerns. Clinically appropriate options selected based on individual evaluation. All medications compounded by a licensed 503A pharmacy.',
+    pricing: '+$129/mo add-on to any membership tier. Medication included.',
+    benefits: [
+      'Clinician-selected medication (PT-141, tadalafil, or sildenafil)',
+      'Discreet shipping from licensed pharmacy',
+      'Quarterly follow-up and protocol review',
+      'Medications included in price',
+    ],
+    ideal: 'Men experiencing sexual health concerns who want physician-supervised, evidence-based treatment with discreet fulfillment. Individual results vary.',
+    href: '/waitlist',
+    quizHref: undefined,
+    quizLabel: undefined,
+  },
+  {
+    icon: <Activity className="w-6 h-6" />,
+    tag: 'Longevity',
+    title: 'Longevity Stack',
+    description: 'Subcutaneous NAD+ and glutathione protocols prescribed and monitored by a licensed physician. Compounded medications are not FDA-approved. Individual medical evaluation required.',
+    pricing: '+$249/mo add-on to any membership tier. Medication included.',
+    benefits: [
+      'Subcutaneous NAD+ and glutathione protocols (standard grade)',
+      'Injection supplies and dosing guidance included',
+      'Quarterly aging biomarker review',
+      'Advanced IV-grade protocols available on a custom basis',
+    ],
+    ideal: 'Men interested in longevity-focused interventions with physician oversight and regular biomarker monitoring. Individual results vary.',
+    href: '/waitlist',
+    quizHref: undefined,
+    quizLabel: undefined,
   },
 ]
 
@@ -118,7 +152,7 @@ export default function Services() {
                 <ul className="space-y-3 mb-6">
                   {service.benefits.map((benefit) => (
                     <li key={benefit} className="flex items-start gap-2">
-                      <Check className="w-4 h-4 text-[#c9b88c] mt-0.5 flex-shrink-0" />
+                      <Check className="w-4 h-4 text-gold mt-0.5 flex-shrink-0" />
                       <span className="text-[14px] text-[#8a8268]">{benefit}</span>
                     </li>
                   ))}
