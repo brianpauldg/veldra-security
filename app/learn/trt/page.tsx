@@ -208,7 +208,7 @@ export default function TRTPillarPage() {
             <Link href="/quiz" className="bloom-btn">
               Take the TRT Quiz
             </Link>
-            <Link href="/book" className="bloom-btn-ghost">
+            <Link href="/join" className="bloom-btn-ghost">
               Book a Consultation
             </Link>
           </div>

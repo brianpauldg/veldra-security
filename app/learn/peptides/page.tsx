@@ -123,7 +123,7 @@ function ArticleCard({ slug, category, title, readingTime, description, bookingC
       {bookingCta ? (
         <div className="mt-4 pt-4 border-t border-[#1a1814]">
           <span className="text-[10px] text-gold/60 uppercase tracking-wider block mb-2">Available Now via Longevity Stack</span>
-          <Link href="/book" className="text-[12px] text-gold hover:text-[#d8cfbe] transition-colors font-medium">
+          <Link href="/join" className="text-[12px] text-gold hover:text-[#d8cfbe] transition-colors font-medium">
             Book Consultation &rarr;
           </Link>
         </div>

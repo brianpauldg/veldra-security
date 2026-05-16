@@ -9,6 +9,18 @@ import { CONSULTATION, primaryCtaLabel, primaryCtaSublabel } from '@/lib/pricing
 
 const faqCategories = [
   {
+    category: 'Pre-Launch',
+    items: [
+      { q: 'Is Bloom Metabolics currently accepting patients?', a: 'Not yet. Bloom is in pre-launch. We are building the clinical infrastructure and finalizing our physician partnership. Enrollment opens early-to-mid June 2026. Join the waitlist to be notified.' },
+      { q: 'When does enrollment open?', a: 'Early-to-mid June 2026. Waitlist members are notified first.' },
+      { q: 'What does the waitlist do?', a: 'You receive a 3-email welcome sequence introducing the clinical approach, what Bloom offers, and how enrollment works. When enrollment opens, you\u2019re notified before the general public. No spam. Unsubscribe anytime.' },
+      { q: 'Do I need to pay anything to join the waitlist?', a: 'No. The waitlist is free. No payment information is collected. The $49 physician evaluation fee applies only when enrollment opens and you choose to book.' },
+      { q: 'Can I cancel my waitlist signup?', a: 'Yes. Every email includes an unsubscribe link. No follow-up if you opt out.' },
+      { q: 'What information is Bloom collecting at this stage?', a: 'Email address and optional preference data (first name, area of interest, how you found us). No health information, no medical history, no protected health information (PHI) of any kind.' },
+      { q: 'Who can I contact with questions?', a: 'Brian DeGuzman, RN \u2014 brian@bloommetabolics.com. Reply to any waitlist email or email directly.' },
+    ],
+  },
+  {
     category: 'Membership & Pricing',
     items: [
       {

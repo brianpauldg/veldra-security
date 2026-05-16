@@ -116,12 +116,12 @@ export default async function BlogPostPage({ params }: Props) {
             Ready to explore whether this is right for you?
           </p>
           <Link
-            href="/book"
+            href="/join"
             className="inline-flex items-center gap-2 px-8 py-3 rounded-full bg-gold/10 text-gold border border-gold/30 text-[14px] font-semibold hover:bg-gold/20 transition-all"
           >
-            Book an Optimization Consultation — $49
+            Join Waitlist
           </Link>
-          <p className="text-[11px] text-[#8a8268] mt-2">Credited toward Month 1 of membership</p>
+          <p className="text-[11px] text-[#8a8268] mt-2">Enrollment opens early-to-mid June 2026</p>
         </div>
 
         {/* Related Articles */}

@@ -10,14 +10,14 @@ const GOOGLE_ADS_ID = process.env.NEXT_PUBLIC_GOOGLE_ADS_ID || ''
 
 export const metadata: Metadata = {
   title: {
-    default: 'Bloom Metabolics — Testosterone and GLP-1 Therapy from Licensed Physicians',
+    default: 'Bloom Metabolics — Membership-Based Hormone & Metabolic Optimization',
     template: '%s | Bloom Metabolics',
   },
-  description: 'Premium physician-managed telehealth for TRT and GLP-1 weight loss. Comprehensive labs. Transparent pricing. Proactive care.',
-  keywords: 'TRT telehealth, testosterone replacement, online TRT clinic, GLP-1 weight loss, semaglutide, tirzepatide, telehealth, hormone optimization',
+  description: 'Membership-based physician-managed telehealth for TRT, GLP-1, sexual health, and longevity. Three tiers of precision care. Comprehensive labs. Licensed physicians.',
+  keywords: 'TRT telehealth, testosterone replacement, online TRT clinic, GLP-1 weight loss, semaglutide, tirzepatide, telehealth, hormone optimization, metabolic health membership, longevity',
   openGraph: {
-    title: 'Bloom Metabolics — Your Metabolism, Optimized',
-    description: 'TRT and GLP-1 therapy. Licensed physicians. Comprehensive labs. Transparent pricing.',
+    title: 'Bloom Metabolics — Membership-Based Metabolic Optimization',
+    description: 'Three tiers of precision care. TRT, GLP-1, sexual health, and longevity protocols. Licensed physicians. Comprehensive labs.',
     type: 'website',
     siteName: 'Bloom Metabolics',
     images: [{ url: '/og-image.png', width: 1200, height: 630 }],
@@ -28,8 +28,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Bloom Metabolics — Premium Metabolic Health Telehealth',
-    description: 'TRT and GLP-1 therapy. Licensed providers. Comprehensive labs. Book a consultation today.',
+    title: 'Bloom Metabolics — Membership-Based Metabolic Optimization',
+    description: 'Three tiers of precision care. TRT, GLP-1, sexual health, and longevity protocols. Enrollment opens early-to-mid June 2026.',
   },
   robots: {
     index: true,

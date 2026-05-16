@@ -72,11 +72,12 @@ function formatPhone(value: string): string {
 interface WaitlistModalProps {
   isOpen: boolean
   onClose: () => void
+  preselectedInterest?: string
 }
 
 type SubmitState = 'idle' | 'submitting' | 'success' | 'error' | 'rate-limited'
 
-export default function WaitlistModal({ isOpen, onClose }: WaitlistModalProps) {
+export default function WaitlistModal({ isOpen, onClose, preselectedInterest }: WaitlistModalProps) {
   const [submitState, setSubmitState] = useState<SubmitState>('idle')
   const [hasDirtyData, setHasDirtyData] = useState(false)
   const [stateMessage, setStateMessage] = useState('')
@@ -96,6 +97,7 @@ export default function WaitlistModal({ isOpen, onClose }: WaitlistModalProps) {
     resolver: zodResolver(waitlistSchema),
     defaultValues: {
       preferredContact: 'email',
+      primaryInterest: preselectedInterest || undefined,
       medicalDisclaimer: undefined,
       tcpaConsent: undefined,
       website: '',

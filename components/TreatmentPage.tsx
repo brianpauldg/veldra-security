@@ -62,10 +62,10 @@ export default function TreatmentPage({
 
             <motion.div {...fadeUp} className="flex flex-wrap gap-4">
               <Link
-                href="/book"
+                href="/join"
                 className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-[#0d0c0a] text-[#d8cfbe] text-[15px] font-semibold hover:bg-[#0d0c0a] transition-all shadow-lg"
               >
-                Apply Now <ArrowRight className="w-4 h-4" />
+                Join Waitlist <ArrowRight className="w-4 h-4" />
               </Link>
               <Link
                 href="/how-it-works"
@@ -135,7 +135,7 @@ export default function TreatmentPage({
             <ul className="space-y-4">
               {idealFor.map((item) => (
                 <li key={item} className="flex items-start gap-3">
-                  <Check className="w-4 h-4 text-[#c9b88c] mt-0.5 flex-shrink-0" />
+                  <Check className="w-4 h-4 text-gold mt-0.5 flex-shrink-0" />
                   <span className="text-[15px] text-[#8a8268]">{item}</span>
                 </li>
               ))}
@@ -177,10 +177,10 @@ export default function TreatmentPage({
             discuss your goals, and determine if {title.toLowerCase()} is right for you.
           </p>
           <Link
-            href="/book"
+            href="/join"
             className="inline-flex items-center gap-2 px-10 py-4 rounded-full bg-[#0d0c0a] text-[#d8cfbe] text-[15px] font-semibold hover:bg-[#0d0c0a] transition-all shadow-lg"
           >
-            Apply Now <ArrowRight className="w-4 h-4" />
+            Join Waitlist <ArrowRight className="w-4 h-4" />
           </Link>
           <p className="text-[12px] text-[#8a8268] mt-5">{disclaimer}</p>
         </div>

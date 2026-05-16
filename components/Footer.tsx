@@ -36,8 +36,11 @@ export default function Footer() {
                 </div>
               </div>
             </div>
-            <p className="text-[13px] text-[#8a8268] leading-relaxed max-w-xs font-light mb-4">
+            <p className="text-[13px] text-[#8a8268] leading-relaxed max-w-xs font-light mb-2">
               Physician-prescribed TRT and GLP-1 therapy. Comprehensive labs. Transparent practice.
+            </p>
+            <p className="text-[11px] text-[#2a2620] font-light mb-4">
+              Founded by Brian DeGuzman, RN
             </p>
             <a href="mailto:brian@bloommetabolics.com" className="text-[13px] text-[#d8cfbe] hover:text-white transition-colors">
               brian@bloommetabolics.com

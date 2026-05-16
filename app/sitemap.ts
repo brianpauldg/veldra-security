@@ -20,6 +20,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE_URL}/glp1-quiz`, lastModified: now, changeFrequency: 'monthly', priority: 0.8 },
     { url: `${BASE_URL}/booking`, lastModified: now, changeFrequency: 'monthly', priority: 0.7 },
     { url: `${BASE_URL}/waitlist`, lastModified: now, changeFrequency: 'weekly', priority: 0.9 },
+    { url: `${BASE_URL}/join`, lastModified: now, changeFrequency: 'weekly', priority: 0.9 },
   ]
 
   // Comparison pages (vs/hims and vs/roman removed — redirected to homepage)

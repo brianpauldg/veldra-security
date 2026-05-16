@@ -178,7 +178,7 @@ export default function About() {
               <ul className="space-y-3">
                 {item.points.map((point) => (
                   <li key={point} className="flex items-start gap-2">
-                    <Check className="w-4 h-4 text-[#c9b88c] mt-0.5 flex-shrink-0" />
+                    <Check className="w-4 h-4 text-gold mt-0.5 flex-shrink-0" />
                     <span className="text-[13px] text-[#8a8268]">{point}</span>
                   </li>
                 ))}
@@ -200,10 +200,10 @@ export default function About() {
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <Link
-              href="/pricing"
+              href="/join"
               className="inline-flex items-center gap-2 px-10 py-4 rounded-full bg-[#0d0c0a] text-[#d8cfbe] text-[15px] font-semibold hover:bg-[#0d0c0a] transition-all shadow-lg"
             >
-              Apply Now
+              Join Waitlist
               <ArrowRight className="w-4 h-4" />
             </Link>
             <Link

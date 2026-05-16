@@ -148,8 +148,8 @@ export default function Header() {
 
           {/* Desktop CTA */}
           <div className="hidden lg:flex items-center gap-3">
-            <Link href="/book" className="bloom-btn">
-              Book Consultation
+            <Link href="/join" className="bloom-btn">
+              Join Waitlist
               <ArrowRight className="w-3.5 h-3.5" />
             </Link>
           </div>
@@ -219,7 +219,7 @@ export default function Header() {
                   onClick={() => setMobileOpen(false)}
                   className="bloom-btn w-full justify-center"
                 >
-                  Book Consultation
+                  Apply Now
                   <ArrowRight className="w-3.5 h-3.5" />
                 </Link>
               </div>

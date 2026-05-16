@@ -209,7 +209,7 @@ export default function GLP1PillarPage() {
             <Link href="/glp1-quiz" className="bloom-btn">
               Take the GLP-1 Quiz
             </Link>
-            <Link href="/book" className="bloom-btn-ghost">
+            <Link href="/join" className="bloom-btn-ghost">
               Book a Consultation
             </Link>
           </div>

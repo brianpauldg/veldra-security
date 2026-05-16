@@ -39,16 +39,33 @@ export default function PricingPage() {
 
       {/* Pricing table — full: tiers + add-ons + peptide roadmap */}
       <Section>
+        <p className="text-center text-[14px] text-[#8a8268] mb-10 max-w-2xl mx-auto font-light">
+          Pricing reflected here is final as of pre-launch and may be refined before enrollment opens.
+          Waitlist members will be the first to receive final pricing confirmation.
+        </p>
+
         <PricingTable showConsultation />
 
         <div className="text-center mt-12">
           <Link
-            href="/book"
-            className="inline-flex items-center gap-2 px-10 py-4 rounded-full bg-[#020202] text-white text-[15px] font-semibold hover:bg-[#0d0c0a] transition-all shadow-lg"
+            href="/join"
+            className="bloom-btn"
           >
-            {ctaLabel} <ArrowRight className="w-4 h-4" />
+            {ctaLabel} <ArrowRight className="w-3.5 h-3.5" />
           </Link>
           <p className="text-[12px] text-[#8a8268] mt-3">{primaryCtaSublabel()}</p>
+        </div>
+
+        {/* Founder-direct note */}
+        <div className="mt-16 max-w-2xl mx-auto border-t border-[#1a1814] pt-10">
+          <p className="text-[15px] text-[#8a8268] leading-relaxed font-light italic">
+            &ldquo;Pricing built around clinical value, not subscription games. Every tier includes
+            physician oversight and pharmacy fulfillment from a US-based 503A partner. Questions about
+            the tier model? Reply directly to my welcome email — I read every one.&rdquo;
+          </p>
+          <p className="text-[13px] text-[#d8cfbe] mt-4 font-medium">
+            — Brian DeGuzman, RN
+          </p>
         </div>
       </Section>
 
@@ -141,7 +158,7 @@ export default function PricingPage() {
             Talk to a licensed physician. Get clear on eligibility, membership, and your personalized protocol before you commit.
           </p>
           <Link
-            href="/book"
+            href="/join"
             className="inline-flex items-center gap-2 px-10 py-4 rounded-full bg-[#0d0c0a] text-[#d8cfbe] text-[15px] font-semibold hover:bg-[#0d0c0a] transition-all shadow-lg"
           >
             {ctaLabel} <ArrowRight className="w-4 h-4" />

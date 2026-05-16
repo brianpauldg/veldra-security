@@ -2,143 +2,341 @@
 // Bloom Metabolics — Central Pricing Source of Truth
 // ─────────────────────────────────────────────────────────────
 // Every price shown on the site reads from this file.
-// When real pricing is confirmed:
-//   1. Set PRICING_LIVE = true
-//   2. Fill in the amount fields below (CONSULTATION_AMOUNT, TRT_FROM, etc.)
-//   3. That's it — all pages update automatically.
+// Three-tier membership model + service-line add-ons + peptide roadmap.
 // ─────────────────────────────────────────────────────────────
 
 export const PRICING_LIVE = true
 
-const CONSULTATION_AMOUNT: number | null = 49
-const TRT_FROM: number | null = 299
-const GLP1_FROM: number | null = 249
-const PEPTIDE_FROM: number | null = 150
-export type Cadence = 'one-time' | 'monthly'
-export type ServiceStatus = 'active' | 'coming_soon'
+// ─── Consultation ───────────────────────────────────────────
+export const CONSULTATION_AMOUNT = 49
 
-export interface PriceTier {
-  id: 'consultation' | 'trt' | 'glp1' | 'peptides'
+export interface ConsultationTier {
+  id: 'consultation'
   name: string
   shortName: string
-  cadence: Cadence
-  amount: number | null
+  amount: number
   display: string
   tagline: string
+  creditNote: string
   includes: string[]
-  featured?: boolean
-  status?: ServiceStatus
-  addOnNote?: string
   ctaHref: string
   ctaCopy: string
 }
 
-function fmt(amount: number | null, cadence: Cadence): string {
-  if (amount == null) return cadence === 'monthly' ? 'From $—/mo' : 'Pricing TBD'
-  return cadence === 'monthly' ? `From $${amount}/mo` : `$${amount}`
-}
-
-export const CONSULTATION: PriceTier = {
+export const CONSULTATION: ConsultationTier = {
   id: 'consultation',
-  name: 'Initial Consultation',
+  name: 'Optimization Consultation',
   shortName: 'Consultation',
-  cadence: 'one-time',
   amount: CONSULTATION_AMOUNT,
-  display: fmt(CONSULTATION_AMOUNT, 'one-time'),
+  display: `$${CONSULTATION_AMOUNT}`,
   tagline: '15 minutes with a licensed physician.',
+  creditNote: `$${CONSULTATION_AMOUNT} credited toward your first month of membership.`,
   includes: [
     'Licensed physician evaluation',
     'Health history and eligibility review',
     'Treatment options discussion',
     'Lab orders if appropriate',
     'Refund if you don\'t qualify',
+    'Credited toward Month 1 if you continue',
   ],
-  ctaHref: '/book',
-  ctaCopy: 'Book Consultation',
+  ctaHref: '/join',
+  ctaCopy: 'Join Waitlist',
 }
 
-export const PROGRAMS: PriceTier[] = [
+// ─── Membership Tiers ───────────────────────────────────────
+export type BillingCadence = 'monthly' | 'annual'
+
+export interface MembershipTier {
+  id: 'essentials' | 'core' | 'signature'
+  name: string
+  eyebrow: string
+  monthly: number
+  annual: number
+  annualSavings: number
+  annualEquivalent: number
+  description: string
+  includes: string[]
+  featured?: boolean
+  ctaHref: string
+  ctaCopy: string
+}
+
+export const MEMBERSHIP_TIERS: MembershipTier[] = [
   {
-    id: 'trt',
-    name: 'Testosterone Therapy',
-    shortName: 'TRT',
-    cadence: 'monthly',
-    amount: TRT_FROM,
-    display: fmt(TRT_FROM, 'monthly'),
-    status: 'active',
-    tagline: 'Restore healthy testosterone levels. Starts with $49 consultation.',
+    id: 'essentials',
+    name: 'Bloom Essentials',
+    eyebrow: 'ENTRY',
+    monthly: 149,
+    annual: 1490,
+    annualSavings: 298,
+    annualEquivalent: 124,
+    description: 'For patients beginning their clinical program. Care team access, refill coordination, async messaging, basic lab review.',
     includes: [
-      'Testosterone + HCG + Anastrozole as needed',
-      'Comprehensive labs included every 90 days',
-      'Estrogen management included',
-      'Unlimited provider messaging',
-      'Free shipping from licensed compounding pharmacy', // FDA April 1 2026 essentially-a-copy rule
-      'Ongoing protocol adjustment',
+      'Async secure messaging with care team',
+      'Refill coordination on prescribed protocols',
+      'Quarterly basic lab review (patient-paid labs)',
+      'Care team navigation',
+      'Educational content library',
+      '24–48 hour message response',
     ],
-    ctaHref: '/book?service=trt',
-    ctaCopy: 'Start TRT',
+    ctaHref: '/join',
+    ctaCopy: 'Join Waitlist',
   },
   {
-    id: 'glp1',
-    name: 'GLP-1 Weight Management',
-    shortName: 'GLP-1',
-    cadence: 'monthly',
-    amount: GLP1_FROM,
-    display: fmt(GLP1_FROM, 'monthly'),
+    id: 'core',
+    name: 'Bloom Core',
+    eyebrow: 'FLAGSHIP',
+    monthly: 299,
+    annual: 2990,
+    annualSavings: 598,
+    annualEquivalent: 249,
+    description: 'For committed optimization patients. Everything in Essentials plus clinician visits, comprehensive labs, and priority response.',
+    includes: [
+      'Everything in Essentials',
+      'Two clinician visits per quarter',
+      'Comprehensive lab review with protocol adjustments',
+      'Symptom and progress tracking dashboard',
+      'Quarterly biomarker check-in',
+      '24-hour priority message response',
+    ],
     featured: true,
-    status: 'active',
-    // FDA April 1 2026 essentially-a-copy rule — compounded designation required
-    tagline: 'Compounded semaglutide or tirzepatide. Not FDA-approved. Physician-supervised. Starts with $49 consultation.',
-    includes: [
-      'Compounded medication from licensed compounding pharmacy',
-      'Dose titration by physician',
-      'Monthly provider check-ins',
-      'Free shipping',
-      'Nutrition guidance',
-    ],
-    ctaHref: '/book?service=glp1',
-    ctaCopy: 'Start GLP-1',
+    ctaHref: '/join',
+    ctaCopy: 'Join Waitlist',
   },
   {
-    id: 'peptides',
-    name: 'Peptide Therapy',
-    shortName: 'Peptides',
-    cadence: 'monthly',
-    amount: PEPTIDE_FROM,
-    display: fmt(PEPTIDE_FROM, 'monthly'),
-    status: 'coming_soon',
-    tagline: 'Peptide therapy options coming soon. Join the waitlist to be notified when available.',
-    addOnNote: 'Available as standalone or add-on to TRT/GLP-1',
+    id: 'signature',
+    name: 'Bloom Signature',
+    eyebrow: 'CONCIERGE',
+    monthly: 599,
+    annual: 5990,
+    annualSavings: 1198,
+    annualEquivalent: 499,
+    description: 'For executive-level patients. Direct provider access, comprehensive labs included, in-home phlebotomy, and dedicated care coordination.',
     includes: [
-      'Physician-selected peptide protocols',
-      'Compounded from licensed pharmacy',
-      'Monthly provider check-ins',
-      'Free shipping',
-      'Protocol adjustment as needed',
+      'Everything in Core',
+      'Direct provider messaging access',
+      'Quarterly comprehensive lab panel included (Bloom-paid)',
+      'In-home phlebotomy (California at launch; other states expanding)',
+      'Annual 50+ biomarker comprehensive review',
+      'Dedicated care coordinator',
+      '12-hour priority message response',
     ],
-    ctaHref: '/waitlist?service=peptides',
+    ctaHref: '/join',
     ctaCopy: 'Join Waitlist',
   },
 ]
 
+// ─── Service-Line Add-Ons ───────────────────────────────────
+export type AddOnStatus = 'active' | 'coming_soon'
+
+export interface AddOn {
+  id: 'trt' | 'glp1' | 'sexual-health' | 'longevity'
+  name: string
+  shortName: string
+  monthly: number
+  description: string
+  includes: string[]
+  status: AddOnStatus
+  ctaHref: string
+  ctaCopy: string
+}
+
+export const ADD_ONS: AddOn[] = [
+  {
+    id: 'trt',
+    name: 'TRT Optimization',
+    shortName: 'TRT',
+    monthly: 199,
+    description: 'Compounded testosterone cypionate, HCG, and anastrozole as a bundled protocol via licensed 503A pharmacy partner. Injection supplies, quarterly hormone panel interpretation, dose titration support based on lab response.',
+    includes: [
+      'Compounded testosterone cypionate, HCG, and anastrozole bundled',
+      'Licensed 503A pharmacy partner',
+      'Injection supplies included',
+      'Quarterly hormone panel interpretation',
+      'Dose titration support based on lab response',
+      'Medication included in price',
+    ],
+    status: 'active',
+    ctaHref: '/join',
+    ctaCopy: 'Join Waitlist',
+  },
+  {
+    id: 'glp1',
+    name: 'GLP-1 Metabolic Program',
+    shortName: 'GLP-1',
+    monthly: 299,
+    // FDA April 1 2026 essentially-a-copy rule — compounded designation required
+    description: 'Compounded semaglutide or tirzepatide (where legally permissible), injection supplies, monthly weight and metabolic check-in, side effect management.',
+    includes: [
+      'Compounded semaglutide or tirzepatide',
+      'Injection supplies included',
+      'Monthly weight and metabolic check-in',
+      'Side effect management',
+      'Medication included in price',
+    ],
+    status: 'active',
+    ctaHref: '/join',
+    ctaCopy: 'Join Waitlist',
+  },
+  {
+    id: 'sexual-health',
+    name: 'Sexual Health Optimization',
+    shortName: 'Sexual Health',
+    monthly: 129,
+    description: 'PT-141, tadalafil, or sildenafil (clinically appropriate). Discreet shipping, quarterly follow-up.',
+    includes: [
+      'Clinician-selected medication (PT-141, tadalafil, or sildenafil)',
+      'Discreet shipping',
+      'Quarterly follow-up',
+      'Medications included in price',
+    ],
+    status: 'active',
+    ctaHref: '/join',
+    ctaCopy: 'Join Waitlist',
+  },
+  {
+    id: 'longevity',
+    name: 'Longevity Stack',
+    shortName: 'Longevity',
+    monthly: 249,
+    description: 'Subcutaneous NAD+ and Glutathione protocols (standard grade). Injection supplies and dosing guidance included. Quarterly aging biomarker review. Advanced IV-grade protocols available on a custom basis.',
+    includes: [
+      'Subcutaneous NAD+ and Glutathione protocols (standard grade)',
+      'Injection supplies and dosing guidance included',
+      'Quarterly aging biomarker review',
+      'Advanced IV-grade protocols available on a custom basis',
+      'Medications included in price',
+    ],
+    status: 'active',
+    ctaHref: '/join',
+    ctaCopy: 'Join Waitlist',
+  },
+]
+
+// ─── Peptide Roadmap ────────────────────────────────────────
+export type PeptideTrancheStatus = 'PENDING FDA 503A PATHWAY' | 'INDEPENDENT REGULATORY PATH'
+
+export interface PeptideService {
+  name: string
+  targetMonthly: number
+  compounds: string
+  description: string
+}
+
+export interface PeptideTranche {
+  id: string
+  title: string
+  targetTimeline: string
+  status: PeptideTrancheStatus
+  services: PeptideService[]
+}
+
+export const PEPTIDE_ROADMAP_INTRO =
+  'Our peptide service line is sequenced to FDA 503A pathway events. The FDA\'s April 2026 actions initiated a multi-tranche regulatory pathway for compounded peptide therapies. Bloom is operationally prepared to launch each tranche as regulatory clarity emerges. The protocols below represent our planned service lines; specific availability is contingent on FDA Category 1 designation, enforcement discretion announcement, or formal rulemaking inclusion. Patients can join the Bloom Peptide Roadmap waitlist to be notified at launch.'
+
+export const PEPTIDE_DISCLAIMER =
+  'Availability pending FDA 503A pathway clarity. Join the Peptide Roadmap waitlist for launch notification.'
+
+export const PEPTIDE_TRANCHES: PeptideTranche[] = [
+  {
+    id: 'tranche-1',
+    title: 'Tranche 1',
+    targetTimeline: 'Q3–Q4 2026',
+    status: 'PENDING FDA 503A PATHWAY',
+    services: [
+      {
+        name: 'Recovery & Repair Stack',
+        targetMonthly: 299,
+        compounds: 'BPC-157 + TB-500',
+        description: 'Injury recovery and soft-tissue support.',
+      },
+      {
+        name: 'Cellular Energy Stack',
+        targetMonthly: 249,
+        compounds: 'MOTs-C',
+        description: 'Mitochondrial function and metabolic support.',
+      },
+      {
+        name: 'Gut & Anti-Inflammatory Stack',
+        targetMonthly: 199,
+        compounds: 'KPV',
+        description: 'GI inflammation and mucosal repair.',
+      },
+    ],
+  },
+  {
+    id: 'tranche-2',
+    title: 'Tranche 2',
+    targetTimeline: 'Q2–Q3 2027',
+    status: 'PENDING FDA 503A PATHWAY',
+    services: [
+      {
+        name: 'Skin & Tissue Regeneration',
+        targetMonthly: 199,
+        compounds: 'GHK-Cu',
+        description: 'Skin quality, wound healing, and tissue regeneration support.',
+      },
+      {
+        name: 'Cognitive Performance',
+        targetMonthly: 349,
+        compounds: 'Semax / Epitalon',
+        description: 'Cognitive function and neuroprotective support.',
+      },
+      {
+        name: 'Sleep Optimization',
+        targetMonthly: 249,
+        compounds: 'DSIP (Emideltide)',
+        description: 'Sleep architecture and circadian rhythm support.',
+      },
+    ],
+  },
+  {
+    id: 'tranche-3',
+    title: 'Tranche 3',
+    targetTimeline: 'TBD',
+    status: 'INDEPENDENT REGULATORY PATH',
+    services: [
+      {
+        name: 'Growth Hormone Optimization',
+        targetMonthly: 399,
+        compounds: 'Sermorelin, CJC-1295, Ipamorelin',
+        description: 'Growth hormone secretagogue protocols.',
+      },
+      {
+        name: 'Immune Support',
+        targetMonthly: 299,
+        compounds: 'Thymosin Alpha-1',
+        description: 'Immune modulation and resilience support.',
+      },
+    ],
+  },
+]
+
+// ─── Not Included / Disclaimers ─────────────────────────────
 export const NOT_INCLUDED: string[] = [
-  'State-required lab work may be billed separately',
+  'State-required lab work may be billed separately (except Signature tier)',
   'State-specific regulations may affect medication availability',
   'Shipping fees may apply for expedited delivery',
 ]
 
-// "Book Consultation — $49" style suffix. Empty string if price is TBD.
-export function ctaPriceSuffix(): string {
-  return CONSULTATION.amount == null ? '' : ` — $${CONSULTATION.amount}`
-}
+export const ANNUAL_PREPAY_NOTE =
+  'Annual prepay billed in advance. See Terms of Service for cancellation and refund policy.'
 
-// Button copy helpers (used everywhere a CTA button is rendered)
+// ─── CTA Helpers ────────────────────────────────────────────
+
 export function primaryCtaLabel(): string {
-  return `Book Consultation${ctaPriceSuffix()}`
+  return 'Join Waitlist'
 }
 
 export function primaryCtaSublabel(): string {
-  return CONSULTATION.amount == null
-    ? 'Refundable if you don\'t qualify'
-    : `$${CONSULTATION.amount} · Refundable if you don\'t qualify`
+  return 'Enrollment opens early-to-mid June 2026'
+}
+
+/** Format tier price for display */
+export function formatMonthly(amount: number): string {
+  return `$${amount}/mo`
+}
+
+export function formatAnnual(amount: number): string {
+  return `$${amount.toLocaleString()}/yr`
 }

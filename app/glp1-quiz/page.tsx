@@ -178,7 +178,7 @@ export default function GLP1QuizPage() {
       <section className="bg-[#020202] pt-32 pb-16">
         <div className="max-w-3xl mx-auto px-6 lg:px-8 text-center">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#0d0c0a]/5 border border-white/10 text-[12px] font-medium text-[#8a8268] tracking-wide mb-6">
-            <Scale className="w-3.5 h-3.5 text-[#c9b88c]" />
+            <Scale className="w-3.5 h-3.5 text-gold" />
             GLP-1 Eligibility Screener
           </div>
           <h1 className="text-display text-white mb-4">
@@ -210,7 +210,7 @@ export default function GLP1QuizPage() {
                       'How to connect with a licensed provider for medical evaluation',
                     ].map((item, i) => (
                       <div key={i} className="flex items-start gap-3">
-                        <Check className="w-5 h-5 text-[#c9b88c] flex-shrink-0 mt-0.5" />
+                        <Check className="w-5 h-5 text-gold flex-shrink-0 mt-0.5" />
                         <p className="text-[15px] text-[#8a8268]">{item}</p>
                       </div>
                     ))}

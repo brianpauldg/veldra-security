@@ -299,7 +299,7 @@ export default function LearnHubPage() {
           <p className="text-[15px] text-[#8a8268] leading-relaxed font-light mb-8">
             Book a consultation with a licensed provider to discuss your symptoms, review your labs, and explore treatment options.
           </p>
-          <Link href="/book" className="bloom-btn">
+          <Link href="/join" className="bloom-btn">
             Book Your Consultation
           </Link>
         </div>

@@ -16,7 +16,7 @@
 
 Hey {{firstName}},
 
-I'm Brian — registered nurse, former ER, and the person building Bloom Metabolics.
+I'm Brian — registered nurse and the person building Bloom Metabolics.
 
 I started this because I watched the same thing happen for years in clinical settings: men with real symptoms — fatigue that sleep doesn't fix, body composition changes they can't train out of, libido decline that has nothing to do with their relationship — and the system had nothing for them. Primary care runs a basic panel, says "you're in range," and sends them home. Telehealth mills write a script in five minutes and never check back.
 

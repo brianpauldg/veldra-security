@@ -13,7 +13,7 @@ import Section, { SectionLabel, SectionTitle, SectionDescription } from '@/compo
 import PricingTable from '@/components/PricingTable'
 import GLP1ComplianceDisclosure from '@/components/GLP1ComplianceDisclosure'
 import MedicalDirectorBio from '@/components/MedicalDirectorBio'
-import EmailCapture from '@/components/EmailCapture'
+import PreLaunchWaitlist from '@/components/PreLaunchWaitlist'
 import Meridian from '@/components/Meridian'
 import WaitlistModal from '@/components/WaitlistModal'
 import { CONSULTATION } from '@/lib/pricing'
@@ -312,7 +312,7 @@ export default function Home() {
             View Full Pricing & Add-Ons <ArrowRight className="w-3.5 h-3.5" />
           </Link>
           <div className="mt-4">
-            <Link href="/book" className="bloom-btn">
+            <Link href="/join" className="bloom-btn">
               Apply Now — $49
               <ArrowRight className="w-3.5 h-3.5" />
             </Link>
@@ -426,49 +426,12 @@ export default function Home() {
           <p className="text-[16px] text-[#8a8268] leading-relaxed mb-10 max-w-md mx-auto font-light">
             Licensed-physician consultation. Comprehensive labs. Compounded prescriptions. Delivered.
           </p>
-          <div className="flex flex-wrap justify-center gap-4 mb-12">
-            <Link href="/book" className="bloom-btn">
-              Begin Your Application
-              <ArrowRight className="w-3.5 h-3.5" />
-            </Link>
-          </div>
-
-          <hr className="bloom-divider max-w-xs mx-auto mb-10" />
-
           <div className="max-w-sm mx-auto">
-            <p className="text-[13px] text-[#8a8268] mb-4 font-light">
-              Not ready to apply? Receive the eligibility checklist.
-            </p>
-            <EmailCapture />
+            <PreLaunchWaitlist variant="compact" />
           </div>
 
           <p className="font-mono text-[10px] text-[#2a2620] tracking-[0.15em] uppercase mt-12 max-w-xl mx-auto">
             All treatments require evaluation and approval by a licensed medical provider. Individual results vary. Medication availability subject to state and federal regulations.
-          </p>
-        </div>
-      </Section>
-
-      {/* ═══════════════════════════════════════════════════════
-          8. WAITLIST CTA
-      ═══════════════════════════════════════════════════════ */}
-      <Section>
-        <hr className="bloom-divider mb-[80px] lg:mb-[140px]" />
-
-        <div className="max-w-2xl mx-auto text-center py-8">
-          <div className="eyebrow mb-6">Early Access</div>
-          <h2 className="text-display text-chrome mb-6" style={{ fontFamily: 'Fraunces, serif', fontWeight: 300 }}>
-            Structured clinical programs.{' '}
-            <em className="italic">Measured outcomes.</em>
-          </h2>
-          <p className="text-[16px] text-[#8a8268] leading-relaxed mb-10 max-w-md mx-auto font-light">
-            Physician-led hormone optimization, GLP-1 protocols, and longevity-focused care. Apply for early access.
-          </p>
-          <button onClick={() => setWaitlistOpen(true)} className="bloom-btn">
-            Join Waitlist
-            <ArrowRight className="w-3.5 h-3.5" />
-          </button>
-          <p className="font-mono text-[10px] text-[#2a2620] tracking-[0.15em] uppercase mt-10 max-w-xl mx-auto">
-            All treatments require evaluation and approval by a licensed medical provider. Individual results vary.
           </p>
         </div>
       </Section>

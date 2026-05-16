@@ -24,16 +24,53 @@ export const organizationSchema = {
   '@context': 'https://schema.org',
   '@type': 'MedicalBusiness',
   name: 'Bloom Metabolics',
-  description: 'Premium physician-managed telehealth for TRT and GLP-1 weight loss. Comprehensive labs. Proactive care.',
+  description: 'Membership-based physician-managed telehealth for hormone optimization, metabolic health, and longevity. TRT, GLP-1, sexual health, and longevity protocols.',
   url: 'https://bloommetabolics.com',
   logo: 'https://bloommetabolics.com/logo.png',
-  email: 'support@bloommetabolics.com',
+  email: 'brian@bloommetabolics.com',
+  founder: {
+    '@type': 'Person',
+    name: 'Brian DeGuzman',
+    jobTitle: 'Founder & RN',
+    description: 'Registered Nurse and founder of Bloom Metabolics. Pursuing Advanced Practice Nursing licensure.',
+  },
   medicalSpecialty: ['Endocrinology', 'Men\'s Health', 'Weight Management'],
   availableService: [
-    { '@type': 'MedicalTherapy', name: 'Testosterone Replacement Therapy (TRT)' },
-    { '@type': 'MedicalTherapy', name: 'GLP-1 Medical Weight Management' },
-    { '@type': 'MedicalTherapy', name: 'Peptide Therapy' },
+    { '@type': 'MedicalTherapy', name: 'TRT Optimization' },
+    { '@type': 'MedicalTherapy', name: 'GLP-1 Metabolic Program' },
+    { '@type': 'MedicalTherapy', name: 'Sexual Health Optimization' },
+    { '@type': 'MedicalTherapy', name: 'Longevity Stack' },
   ],
+  hasOfferCatalog: {
+    '@type': 'OfferCatalog',
+    name: 'Bloom Metabolics Membership',
+    itemListElement: [
+      {
+        '@type': 'Offer',
+        name: 'Bloom Essentials',
+        description: 'Entry-level care team access, messaging, and basic lab review.',
+        price: '149',
+        priceCurrency: 'USD',
+        eligibleDuration: { '@type': 'QuantitativeValue', value: 1, unitCode: 'MON' },
+      },
+      {
+        '@type': 'Offer',
+        name: 'Bloom Core',
+        description: 'Flagship tier with clinician visits, comprehensive labs, and priority response.',
+        price: '299',
+        priceCurrency: 'USD',
+        eligibleDuration: { '@type': 'QuantitativeValue', value: 1, unitCode: 'MON' },
+      },
+      {
+        '@type': 'Offer',
+        name: 'Bloom Signature',
+        description: 'Concierge tier with direct provider access, labs included, in-home phlebotomy.',
+        price: '599',
+        priceCurrency: 'USD',
+        eligibleDuration: { '@type': 'QuantitativeValue', value: 1, unitCode: 'MON' },
+      },
+    ],
+  },
 }
 
 export function faqSchema(items: { question: string; answer: string }[]) {

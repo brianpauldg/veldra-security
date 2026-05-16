@@ -19,7 +19,7 @@
 ## Value Propositions (4)
 
 **1. Founded by a clinician, not a marketer.**
-Brian DeGuzman, RN — emergency department experience, building Bloom because the current telehealth model writes scripts without reviewing labs.
+Brian DeGuzman, RN — building Bloom because the current telehealth model writes scripts without reviewing labs.
 
 **2. Every protocol is physician-prescribed.**
 U.S.-licensed physicians evaluate, prescribe, and monitor. No algorithms, no questionnaire-driven scripts. Treatment decisions follow comprehensive lab review.

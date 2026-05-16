@@ -16,7 +16,7 @@ export default function SuccessPage() {
             className="text-center max-w-2xl mx-auto"
           >
             <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-emerald-500/10 mb-8">
-              <CheckCircle className="w-10 h-10 text-[#c9b88c]" />
+              <CheckCircle className="w-10 h-10 text-gold" />
             </div>
             <h1 className="text-display-lg text-white mb-4">You&apos;re all set</h1>
             <p className="text-lg text-[#8a8268] leading-relaxed">

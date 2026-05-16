@@ -160,7 +160,7 @@ export default function HowItWorksPage() {
           {[
             { actor: 'Patient', action: 'Books consultation online', system: 'Confirmation sent, intake form delivered' },
             { actor: 'Patient', action: 'Completes digital intake', system: 'Clinical team reviews before appointment' },
-            { actor: 'Patient', action: 'Completes Stripe checkout', system: 'Account created, booking link sent' },
+            { actor: 'Patient', action: 'Completes secure checkout', system: 'Account created, booking link sent' },
             { actor: 'Physician', action: 'Conducts video consultation', system: 'Reviews history, determines eligibility' },
             { actor: 'Physician', action: 'Orders labs, reviews results', system: 'Lab reminders sent, results tracked' },
             { actor: 'Physician', action: 'Designs personalized protocol', system: 'Onboarding materials sent to patient' },
@@ -227,10 +227,10 @@ export default function HowItWorksPage() {
             Start with a consultation. A focused session with a licensed physician to discuss your health, your goals, and your options.
           </p>
           <Link
-            href="/book"
+            href="/join"
             className="bloom-btn"
           >
-            Book Your Consultation <ArrowRight className="w-3.5 h-3.5" />
+            Join Waitlist <ArrowRight className="w-3.5 h-3.5" />
           </Link>
           <p className="font-mono text-[10px] text-[#8a8268] tracking-[0.15em] uppercase mt-8">
             All treatments require evaluation and approval by a licensed medical provider. Individual results vary.

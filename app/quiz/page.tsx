@@ -143,7 +143,7 @@ const resultContent: Record<ResultTier, { title: string; description: string; co
   low: {
     title: 'Low Risk',
     description: 'Based on your responses, your symptoms don\u2019t strongly suggest low testosterone. However, if you\u2019re not feeling your best, lifestyle factors like sleep, stress, and nutrition are worth evaluating. A baseline blood panel is always smart preventive care.',
-    color: 'text-[#c9b88c]',
+    color: 'text-gold',
     icon: Check,
   },
   moderate: {
@@ -231,7 +231,7 @@ export default function QuizPage() {
       <section className="bg-[#020202] pt-32 pb-16">
         <div className="max-w-3xl mx-auto px-6 lg:px-8 text-center">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#0d0c0a]/5 border border-white/10 text-[12px] font-medium text-[#8a8268] tracking-wide mb-6">
-            <Activity className="w-3.5 h-3.5 text-[#c9b88c]" />
+            <Activity className="w-3.5 h-3.5 text-gold" />
             2-Minute Self-Assessment
           </div>
           <h1 className="text-display text-white mb-4">

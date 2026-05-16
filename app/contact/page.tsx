@@ -66,7 +66,7 @@ export default function ContactPage() {
               {submitted ? (
                 <div className="rounded-2xl border border-emerald-200 bg-emerald-50 p-8 text-center">
                   <div className="w-12 h-12 rounded-full bg-emerald-100 flex items-center justify-center mx-auto mb-4">
-                    <Check className="w-6 h-6 text-[#c9b88c]" />
+                    <Check className="w-6 h-6 text-gold" />
                   </div>
                   <h3 className="text-headline text-[#d8cfbe] mb-2">Message sent</h3>
                   <p className="text-[14px] text-[#8a8268]">
