@@ -207,7 +207,7 @@ export default function FAQPage() {
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <Link
-              href="/book"
+              href="/join"
               className="bloom-btn"
             >
               {primaryCtaLabel()} <ArrowRight className="w-3.5 h-3.5" />

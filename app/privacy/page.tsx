@@ -35,7 +35,7 @@ export default function PrivacyPage() {
               <ul className="list-disc pl-5 space-y-2 mt-3">
                 <li><strong className="text-white">Personal Information:</strong> Name, date of birth, address, email address, phone number, and state of residence</li>
                 <li><strong className="text-white">Protected Health Information (PHI):</strong> Medical history, symptoms, diagnoses, lab results, prescriptions, treatment records, and health goals</li>
-                <li><strong className="text-white">Payment Information:</strong> Payment details processed securely through Stripe. We do not store credit card numbers on our servers</li>
+                <li><strong className="text-white">Payment Information:</strong> Payment details processed securely through Corepay. We do not store credit card numbers on our servers</li>
                 <li><strong className="text-white">Technical Data:</strong> IP address, browser type, pages visited, and usage patterns collected to improve our platform</li>
               </ul>
             </div>
@@ -48,7 +48,7 @@ export default function PrivacyPage() {
                 <li><strong className="text-white">Payment:</strong> To process payments and manage billing for services rendered</li>
                 <li><strong className="text-white">Healthcare Operations:</strong> To conduct quality assessments, training, compliance activities, and improve our services</li>
                 <li><strong className="text-white">Legal Requirements:</strong> To comply with applicable federal and state laws, court orders, or lawful government requests</li>
-                <li><strong className="text-white">Business Associates:</strong> We share PHI with third-party service providers (including OptiMantra EHR, Stripe, and laboratory partners) who operate under Business Associate Agreements (BAAs) requiring them to protect your information in accordance with HIPAA</li>
+                <li><strong className="text-white">Business Associates:</strong> We share PHI with third-party service providers (including OptiMantra EHR, Corepay, and laboratory partners) who operate under Business Associate Agreements (BAAs) requiring them to protect your information in accordance with HIPAA</li>
               </ul>
               <p className="mt-3">All other uses or disclosures of your PHI not described above require your written authorization.</p>
             </div>
@@ -119,7 +119,7 @@ export default function PrivacyPage() {
               <p>You may opt out of SMS communications at any time by:</p>
               <ul className="list-disc pl-5 space-y-2 mt-3">
                 <li>Replying <strong className="text-white">STOP</strong> to any message from us</li>
-                <li>Contacting us at {/* TODO: Fill before production deploy */} [SUPPORT EMAIL] or [SUPPORT PHONE]</li>
+                <li>Contacting us at support@bloommetabolics.com or (949) 567-8463</li>
                 <li>Updating your communication preferences in your patient portal</li>
               </ul>
               <p className="mt-3">After opting out, you will receive one final confirmation message and no further SMS communications. Opting out of SMS does not affect other communications (email, patient portal messages) or your care relationship with Bloom Metabolics.</p>
@@ -127,9 +127,8 @@ export default function PrivacyPage() {
               <h3 className="text-[1.1rem] font-light text-white mb-3 mt-6" style={{ fontFamily: 'Fraunces, serif' }}>How to Get Help</h3>
               <p>Reply <strong className="text-white">HELP</strong> to any message from us, or contact:</p>
               <ul className="list-disc pl-5 space-y-2 mt-3">
-                {/* TODO: Fill before production deploy */}
-                <li>Email: [SUPPORT EMAIL]</li>
-                <li>Phone: [SUPPORT PHONE]</li>
+                <li>Email: support@bloommetabolics.com</li>
+                <li>Phone: (949) 567-8463</li>
                 <li>Web: <a href="https://bloommetabolics.com/contact" className="underline hover:text-white">https://bloommetabolics.com/contact</a></li>
               </ul>
 
@@ -219,16 +218,16 @@ export default function PrivacyPage() {
                     </tr>
                   </thead>
                   <tbody className="divide-y divide-[#1a1814]">
-                    <tr><td className="py-2">Supabase</td><td className="py-2 text-[#8a8268]">Database &amp; patient records</td><td className="py-2 text-amber-400">Unconfirmed</td></tr>
-                    <tr><td className="py-2">Stripe</td><td className="py-2 text-[#8a8268]">Payment processing</td><td className="py-2 text-[#8a8268]">Not BAA-eligible; PHI not transmitted*</td></tr>
-                    <tr><td className="py-2">Vercel</td><td className="py-2 text-[#8a8268]">Website hosting</td><td className="py-2 text-amber-400">Unconfirmed</td></tr>
-                    <tr><td className="py-2">OptiMantra</td><td className="py-2 text-[#8a8268]">Electronic Health Records</td><td className="py-2 text-amber-400">Unconfirmed</td></tr>
-                    <tr><td className="py-2">Calendly</td><td className="py-2 text-[#8a8268]">Appointment scheduling</td><td className="py-2 text-amber-400">Unconfirmed</td></tr>
-                    <tr><td className="py-2">Resend</td><td className="py-2 text-[#8a8268]">Transactional email</td><td className="py-2 text-amber-400">Unconfirmed</td></tr>
+                    <tr><td className="py-2">Supabase</td><td className="py-2 text-[#8a8268]">Database &amp; patient records</td><td className="py-2 text-amber-400">Pending — BAA execution in progress as of pre-launch May 2026</td></tr>
+                    <tr><td className="py-2">Corepay</td><td className="py-2 text-[#8a8268]">Payment processing</td><td className="py-2 text-[#8a8268]">Not BAA-eligible; PHI not transmitted*</td></tr>
+                    <tr><td className="py-2">Vercel</td><td className="py-2 text-[#8a8268]">Website hosting</td><td className="py-2 text-amber-400">Pending — BAA execution in progress as of pre-launch May 2026</td></tr>
+                    <tr><td className="py-2">OptiMantra</td><td className="py-2 text-[#8a8268]">Electronic Health Records</td><td className="py-2 text-amber-400">Pending — BAA execution in progress as of pre-launch May 2026</td></tr>
+                    <tr><td className="py-2">Calendly</td><td className="py-2 text-[#8a8268]">Appointment scheduling</td><td className="py-2 text-amber-400">Pending — BAA execution in progress as of pre-launch May 2026</td></tr>
+                    <tr><td className="py-2">Resend</td><td className="py-2 text-[#8a8268]">Transactional email</td><td className="py-2 text-amber-400">Pending — BAA execution in progress as of pre-launch May 2026</td></tr>
                   </tbody>
                 </table>
               </div>
-              <p className="mt-3 text-[12px] text-[#8a8268]">* Stripe processes payment data only. Payment metadata uses opaque patient identifiers; PHI is not transmitted to Stripe. BAA status for other vendors will be updated as agreements are executed.</p>
+              <p className="mt-3 text-[12px] text-[#8a8268]">* Corepay processes payment data only. Payment metadata uses opaque patient identifiers; PHI is not transmitted to Corepay. BAA status for other vendors will be updated as agreements are executed.</p>
             </div>
 
             <div>

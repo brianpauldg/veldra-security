@@ -46,7 +46,7 @@ export default function AccessibilityPage() {
 
             <div>
               <h2 className="text-[1.5rem] font-light text-white mb-4" style={{ fontFamily: 'Fraunces, serif' }}>Third-Party Content</h2>
-              <p>Our website may include content from third-party services (such as Calendly for scheduling and Stripe for payments). While we strive to ensure accessibility across all content, we cannot guarantee the accessibility of third-party applications. We encourage users to contact those services directly with accessibility concerns.</p>
+              <p>Our website may include content from third-party services (such as Calendly for scheduling and Corepay for payments). While we strive to ensure accessibility across all content, we cannot guarantee the accessibility of third-party applications. We encourage users to contact those services directly with accessibility concerns.</p>
             </div>
           </div>
         </div>

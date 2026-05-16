@@ -56,7 +56,7 @@ export default function TermsPage() {
 
             <div>
               <h2 className="text-[1.5rem] font-light text-white mb-4" style={{ fontFamily: 'Fraunces, serif' }}>5. Payments &amp; Refunds</h2>
-              <p>The $49 consultation fee is charged at the time of booking and is refundable in full if the treating physician determines you do not qualify for any available treatment. If you qualify, the $49 consultation fee is applied as a credit toward your first month of treatment, provided you begin treatment within 7 days of approved eligibility. After 7 days, a new consultation and $49 fee are required for re-evaluation. Treatment program fees are billed monthly as a recurring charge, confirmed verbally with the patient by our care team before the first payment is processed. Payments are processed securely through Stripe. We do not store payment card information on our servers.</p>
+              <p>The $49 consultation fee is charged at the time of booking and is refundable in full if the treating physician determines you do not qualify for any available treatment. If you qualify, the $49 consultation fee is applied as a credit toward your first month of treatment, provided you begin treatment within 7 days of approved eligibility. After 7 days, a new consultation and $49 fee are required for re-evaluation. Treatment program fees are billed monthly as a recurring charge, confirmed verbally with the patient by our care team before the first payment is processed. Payments are processed securely through Corepay. We do not store payment card information on our servers.</p>
             </div>
 
             <div>
@@ -84,7 +84,7 @@ export default function TermsPage() {
                 <li>Standard message and data rates from your wireless carrier may apply.</li>
                 <li>Consent to marketing messages is not required to receive care or purchase services.</li>
                 <li>You may opt out at any time by replying <strong className="text-white">STOP</strong> to any message. After opting out, you will receive one final confirmation message and no further SMS communications.</li>
-                <li>You may reply <strong className="text-white">HELP</strong> to any message for assistance, or contact us at {/* TODO: Fill before production deploy */} [SUPPORT EMAIL] or [SUPPORT PHONE].</li>
+                <li>You may reply <strong className="text-white">HELP</strong> to any message for assistance, or contact us at support@bloommetabolics.com or (949) 567-8463.</li>
                 <li>Bloom Metabolics and mobile carriers are not liable for delayed or undelivered messages.</li>
               </ul>
               <p className="mt-3">Our SMS communications do not contain Protected Health Information (PHI). For full details on how we handle your phone number and SMS data, see our <a href="/privacy" className="underline hover:text-white">Privacy Policy</a>, Section 7 (SMS/Text Messaging Communications).</p>

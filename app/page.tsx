@@ -33,6 +33,14 @@ export default function Home() {
 
   return (
     <>
+      {/* Pre-launch disclosure banner */}
+      <div className="bg-[#0a0906] border-b border-[#1a1814] py-3 px-6 text-center">
+        <p className="text-[12px] text-[#d8cfbe] font-light leading-relaxed max-w-3xl mx-auto">
+          <strong className="font-medium">Bloom Metabolics is in pre-launch. Enrollment opens early-to-mid June 2026.</strong>{' '}
+          No medical services are currently provided and no health information is collected. Join the waitlist for priority access.
+        </p>
+      </div>
+
       {/* ═══════════════════════════════════════════════════════
           1. HERO
       ═══════════════════════════════════════════════════════ */}
@@ -180,11 +188,11 @@ export default function Home() {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 lg:gap-6 mb-16">
           <div className="lg:col-span-1">
             <SectionLabel>Practice · <span className="num">02</span></SectionLabel>
-            <SectionTitle>Two pillars of <em className="italic">precision</em> care.</SectionTitle>
+            <SectionTitle>Five practice areas. <em className="italic">One precision standard.</em></SectionTitle>
           </div>
           <div className="lg:col-span-2 flex items-end">
             <SectionDescription className="lg:ml-auto lg:text-right max-w-md">
-              Each protocol is physician-prescribed, informed by comprehensive labs, and compounded from a licensed compounding pharmacy.
+              Each protocol is physician-prescribed, informed by comprehensive labs, and dispensed by a state-licensed 503A compounding pharmacy.
             </SectionDescription>
           </div>
         </div>
@@ -205,12 +213,38 @@ export default function Home() {
             {
               num: '02',
               icon: <TrendingUp className="w-4 h-4" />,
-              title: 'GLP-1 Weight Loss',
+              title: 'GLP-1 Weight Management',
               emphasis: 'Compound',
-              // FDA April 1 2026 essentially-a-copy rule — compounded designation
               desc: 'Compounded GLP-1 receptor agonist therapy, prescribed based on individual medical evaluation by a licensed physician.',
               href: '/glp1',
               tag: 'GLP-1',
+            },
+            {
+              num: '03',
+              icon: <Stethoscope className="w-4 h-4" />,
+              title: 'Sexual Health',
+              emphasis: 'Restore',
+              desc: 'Physician-evaluated protocols (PT-141, tadalafil, sildenafil). Discreet shipping, quarterly follow-up.',
+              href: '/services',
+              tag: 'Sexual Health',
+            },
+            {
+              num: '04',
+              icon: <Microscope className="w-4 h-4" />,
+              title: 'Longevity',
+              emphasis: 'Sustain',
+              desc: 'Subcutaneous NAD+ and Glutathione protocols. Aging biomarker review quarterly.',
+              href: '/services',
+              tag: 'Longevity',
+            },
+            {
+              num: '05',
+              icon: <Package className="w-4 h-4" />,
+              title: 'Peptide Therapy',
+              emphasis: 'Refine',
+              desc: 'Physician-prescribed peptide protocols (compounded). Service line launches with Bloom\u2019s initial offering.',
+              href: '/peptides',
+              tag: 'Peptides',
             },
           ].map((s) => (
             <Link key={s.tag} href={s.href} className="group block">

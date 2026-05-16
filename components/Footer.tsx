@@ -92,7 +92,7 @@ export default function Footer() {
             &copy; MMXXVI Bloom Metabolics. All rights reserved.
           </p>
           <p className="text-[11px] text-[#2a2620] max-w-2xl text-center md:text-right leading-relaxed font-light">
-            Bloom Metabolics provides telehealth services. All prescriptions require evaluation by a U.S.-licensed physician. Medication availability varies by state. Individual results vary.
+            Bloom Metabolics is a California-based telehealth membership practice launching early-to-mid June 2026. All prescriptions, upon launch, require evaluation by a U.S.-licensed physician. Medication availability varies by state. Individual results vary.
           </p>
         </div>
       </div>
