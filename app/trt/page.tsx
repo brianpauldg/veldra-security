@@ -17,7 +17,7 @@ export default function TRTPage() {
       description="Clinician-guided testosterone optimization designed around your labs, your symptoms, and your goals. Not a cookie-cutter protocol — a personalized program supervised by licensed providers."
       icon={<Zap className="w-6 h-6" />}
       benefits={[
-        { title: 'Energy & Vitality', description: 'TRT may support increased energy and reduced fatigue. Individual results vary based on baseline levels and protocol adherence.', icon: <Zap className="w-5 h-5" /> },
+        { title: 'Energy & Vitality', description: 'TRT may support increased energy and reduced fatigue — many patients report initial improvements within 2–4 weeks, with fuller benefits developing over 3–6 months of consistent treatment. Individual results vary based on baseline levels and protocol adherence.', icon: <Zap className="w-5 h-5" /> },
         { title: 'Body Composition', description: 'Optimized testosterone levels may support lean muscle maintenance, reduced body fat, and improved metabolic health. Individual results vary.', icon: <TrendingUp className="w-5 h-5" /> },
         { title: 'Mental Clarity', description: 'Some patients report improved focus and reduced brain fog with properly managed hormone levels. Individual results vary.', icon: <Brain className="w-5 h-5" /> },
         { title: 'Libido & Sexual Health', description: 'TRT may support improvements in libido and sexual function. Individual results vary.', icon: <HeartPulse className="w-5 h-5" /> },

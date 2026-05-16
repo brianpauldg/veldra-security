@@ -61,21 +61,21 @@ export default function Home() {
                 className="text-display-xl text-chrome mb-8"
                 style={{ fontFamily: 'Fraunces, serif', fontWeight: 300 }}
               >
-                Engineered for the{' '}
-                <em className="italic">second half</em>{' '}
-                of a life.
+                Physician-led testosterone and GLP-1 therapy —{' '}
+                <em className="italic">engineered</em>{' '}
+                around your labs.
               </motion.h1>
 
               <motion.p
                 variants={fadeUp}
                 className="text-[17px] text-[#a89878] leading-relaxed max-w-lg mb-12 font-light"
               >
-                Physician-led testosterone therapy and GLP-1 protocols — informed by comprehensive labs, titrated to your biology.
+                A membership program with board-certified physicians, comprehensive bloodwork, and medication shipped to your door — no clinic visits, no cookie-cutter dosing.
               </motion.p>
 
               <motion.div variants={fadeUp} className="flex flex-wrap gap-4 items-center">
                 <button onClick={() => setWaitlistOpen(true)} className="bloom-btn">
-                  Join the Bloom Metabolics Waitlist
+                  Join the Waitlist — Lock In Founding-Member Pricing
                   <ArrowRight className="w-3.5 h-3.5" />
                 </button>
                 <Link
@@ -214,7 +214,7 @@ export default function Home() {
               num: '02',
               icon: <TrendingUp className="w-4 h-4" />,
               title: 'GLP-1 Weight Management',
-              emphasis: 'Compound',
+              emphasis: 'Reshape',
               desc: 'Compounded GLP-1 receptor agonist therapy, prescribed based on individual medical evaluation by a licensed physician.',
               href: '/glp1',
               tag: 'GLP-1',
@@ -334,7 +334,7 @@ export default function Home() {
           </div>
           <div className="lg:col-span-2 flex items-end">
             <SectionDescription className="lg:ml-auto lg:text-right max-w-md">
-              Choose your membership level. Add treatment protocols as needed. Begin with a $49 initial evaluation — credited toward Month 1.
+              Choose your membership level, then add treatment protocols as needed. Membership starts at $149/mo; adding TRT is $199/mo with medication included — most members&apos; all-in cost lands between $348 and $498/mo. Begin with a $49 initial evaluation, credited toward Month 1.
             </SectionDescription>
           </div>
         </div>

@@ -16,7 +16,7 @@ import { Stethoscope } from 'lucide-react'
 export const MEDICAL_DIRECTOR_LIVE = false
 
 export const MEDICAL_DIRECTOR = {
-  name: '[TODO] Dr. [Full Name], MD',
+  name: 'Dr. Michael Napolitano, MD',
   title: 'Medical Director',
   credentials: ['Board Certified — [Specialty]', 'Licensed in [States]'],
   bio: 'TODO — short bio once MD is confirmed.',
