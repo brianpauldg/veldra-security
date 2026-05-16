@@ -88,6 +88,9 @@ export interface EnrichedLead {
   phone?: string
   serviceInterest?: string
   variant?: string
+  assessmentScore?: number
+  assessmentTier?: string
+  assessmentResult?: string
   source: string
   medium?: string
   campaign?: string
@@ -134,6 +137,9 @@ export function enrichServerLead(body: Record<string, unknown>, headers: Headers
     phone: body.phone as string | undefined,
     serviceInterest: body.serviceInterest as string | undefined,
     variant: body.variant as string | undefined,
+    assessmentScore: body.assessmentScore as number | undefined,
+    assessmentTier: body.assessmentTier as string | undefined,
+    assessmentResult: body.assessmentResult as string | undefined,
     source,
     medium: attr.medium,
     campaign: attr.campaign,

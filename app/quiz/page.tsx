@@ -214,6 +214,9 @@ export default function QuizPage() {
         source: 'trt_quiz',
         serviceInterest: 'trt',
         variant: 'quiz',
+        assessmentScore: totalScore,
+        assessmentTier: tier,
+        assessmentResult: resultContent[tier].description,
         consent: { email: quizConsent.email, version: quizConsent.version },
       }),
     }).catch(() => {})

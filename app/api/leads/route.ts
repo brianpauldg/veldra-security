@@ -44,6 +44,10 @@ const leadSchema = z.object({
   source: z.string().optional(),
   variant: z.enum(['quiz', 'guide']).optional(),
   serviceInterest: z.enum(['trt', 'glp1', 'general']).optional(),
+  // Free Assessment (TRT quiz) result — powers the {{assessment_result}} email merge field
+  assessmentScore: z.number().optional(),
+  assessmentTier: z.enum(['low', 'moderate', 'high']).optional(),
+  assessmentResult: z.string().max(2000).optional(),
   // Client-captured attribution (optional — server still enriches with geo/device/session)
   attribution: z
     .object({
@@ -157,7 +161,12 @@ export async function POST(req: NextRequest) {
     term: attribution?.term,
     referrer: attribution?.referrer,
     landing_page: attribution?.landing_page,
-    event_data: { variant: parsed.data.variant, serviceInterest: parsed.data.serviceInterest },
+    event_data: {
+      variant: parsed.data.variant,
+      serviceInterest: parsed.data.serviceInterest,
+      assessmentTier: parsed.data.assessmentTier,
+      assessmentScore: parsed.data.assessmentScore,
+    },
   })
 
   if (parsed.data.session_id) {
@@ -184,7 +193,7 @@ export async function POST(req: NextRequest) {
         <p>Thank you for your interest in ${serviceLabel} therapy. Our clinical team is ready to help you take the next step.</p>
         <p><strong>What happens next:</strong></p>
         <ol>
-          <li>Book a consultation ($49, credited toward your first month)</li>
+          <li>Book an Optimization Consultation ($49, credited toward Month 1 of membership)</li>
           <li>Complete a brief medical intake form</li>
           <li>Meet with a licensed provider via telehealth</li>
         </ol>
@@ -290,6 +299,7 @@ function buildTags(lead: EnrichedLead): string[] {
   if (lead.variant) tags.push(`popup-${lead.variant}`)
   if (lead.serviceInterest) tags.push(`interest-${lead.serviceInterest}`)
   else if (lead.variant === 'quiz') tags.push('interest-trt')
+  if (lead.assessmentTier) tags.push(`assessment-${lead.assessmentTier}`)
   if (lead.device) tags.push(`device-${lead.device}`)
   if (lead.gclid) tags.push('from-google-ads')
   if (lead.fbclid) tags.push('from-meta-ads')
@@ -307,6 +317,9 @@ function buildGhlCustomFields(lead: EnrichedLead): Record<string, string | undef
     geo_region: lead.geo?.region,
     geo_country: lead.geo?.country,
     geo_city: lead.geo?.city,
+    assessment_tier: lead.assessmentTier,
+    assessment_score: lead.assessmentScore != null ? String(lead.assessmentScore) : undefined,
+    assessment_result: lead.assessmentResult,
   }
 }
 
