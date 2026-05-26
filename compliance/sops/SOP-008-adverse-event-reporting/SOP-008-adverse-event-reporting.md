@@ -1,7 +1,7 @@
 ---
 sop_id: "SOP-008"
 title: "Adverse Event & Incident Reporting"
-version: "0.2"
+version: "0.3"
 status: "Draft"
 effective_date: "TBD (pending approval)"
 next_review_date: "12 months from effective date"
@@ -14,7 +14,7 @@ related_documents:
   - "SOP-005 (Synchronous Telehealth Visit)"
   - "SOP-006 (Lab Ordering & Review)"
   - "SOP-007 (Prescribing Protocols)"
-  - "Future Emergency & Mental Health Escalation SOP"
+  - "SOP-010 (Emergency & Mental Health Escalation)"
   - "Future Treatment Discontinuation & Tapering SOP"
   - "Future HIPAA & PHI Handling SOP"
 ---
@@ -22,7 +22,7 @@ related_documents:
 # Adverse Event & Incident Reporting
 
 **SOP ID:** SOP-008
-**Version:** 0.2
+**Version:** 0.3
 **Status:** Draft
 **Effective Date:** TBD (pending approval)
 **Next Scheduled Review:** 12 months from effective date
@@ -77,7 +77,7 @@ The framework established by this SOP follows a structured lifecycle: **intake �
 
 This SOP picks up where [SOP-007 §5.8](../SOP-007-prescribing-protocols/SOP-007-prescribing-protocols.md) (Patient-Reported Symptom Intake and Routing) leaves off: when the Covering Physician determines that a patient-reported symptom constitutes an adverse event rather than an expected treatment effect requiring routine clinical management, the chart entry in OptiMantra is cross-referenced to a new AE Register entry and this SOP governs all subsequent handling. The handoff point is the Covering Physician's clinical determination that an adverse event has occurred — not the patient's initial report, which remains within SOP-007's symptom intake workflow until the physician's assessment is complete.
 
-This SOP does NOT govern mental health crises during treatment (suicidal ideation, acute psychiatric decompensation, severe anxiety or depression exacerbation). Mental health crisis response requires a specialized escalation pathway with crisis intervention resources, emergency services coordination, and mental health professional referral — capabilities that are outside the scope of this adverse event framework. Mental health crises during treatment are routed to the future Emergency & Mental Health Escalation SOP. Until that SOP is drafted and approved, any mental health crisis is escalated immediately to the Covering Physician and, where the patient presents imminent danger to self or others, to emergency services (911).
+This SOP does NOT govern mental health crises during treatment (suicidal ideation, acute psychiatric decompensation, severe anxiety or depression exacerbation). Mental health crisis response requires a specialized escalation pathway with crisis intervention resources, emergency services coordination, and mental health professional referral — capabilities that are outside the scope of this adverse event framework. Mental health crises during treatment are governed by [SOP-010 (Emergency & Mental Health Escalation)](../SOP-010-emergency-mental-health-escalation/SOP-010-emergency-mental-health-escalation.md), which establishes the tiered severity frameworks (Medical Tier 1-4, MH Tier 1-4), the California-specific legal obligations (Tarasoff Cal. Civ. Code §43.92, 5150 interface Cal. Welf. & Inst. Code §5150, mandated reporting Cal. Penal Code §11164 et seq.), the pause-and-stabilize protocol, and the re-entry pathway. Crisis events that also meet this SOP's adverse-event thresholds cascade per SOP-010 §5.9 into this SOP's AE Register.
 
 ---
 
@@ -105,7 +105,7 @@ This SOP does NOT govern mental health crises during treatment (suicidal ideatio
 
 ### 2.2 Out of Scope
 
-- **Mental health crises during treatment** (suicidal ideation, acute psychiatric decompensation, severe anxiety or depression exacerbation) — governed by the future Emergency & Mental Health Escalation SOP. Until drafted, immediate escalation to the Covering Physician and emergency services (911) where imminent danger exists.
+- **Mental health crises during treatment** (suicidal ideation, acute psychiatric decompensation, severe anxiety or depression exacerbation) — governed by [SOP-010 (Emergency & Mental Health Escalation)](../SOP-010-emergency-mental-health-escalation/SOP-010-emergency-mental-health-escalation.md). Crisis events that also meet SOP-008 adverse-event thresholds cascade per SOP-010 §5.9 into this SOP's AE Register.
 - **Routine clinical reassessment of treatment effectiveness** — governed by [SOP-007 §5.7](../SOP-007-prescribing-protocols/SOP-007-prescribing-protocols.md) (dose adjustment) and [SOP-007 §5.8](../SOP-007-prescribing-protocols/SOP-007-prescribing-protocols.md) (patient-reported symptom intake and routing). Expected treatment effects managed within normal clinical parameters remain within SOP-007 until the Covering Physician determines an adverse event has occurred.
 - **Patient complaints about non-clinical matters** (scheduling, billing, communication preferences, service quality) — governed by the future Patient Communication Protocols SOP.
 - **Personnel disciplinary incidents** (staff misconduct, policy violations unrelated to patient safety) — governed by the future Training & Competency Program SOP.
@@ -813,11 +813,11 @@ The following boundary statement is absolute and applies to all personnel at all
 | [SOP-006 — Lab Ordering & Review](../SOP-006-lab-ordering-and-review/SOP-006-lab-ordering-and-review.md) | Lab result anomalies (critically elevated hematocrit, PSA, liver function) may trigger AE assessment. SOP-006 governs the lab workflow; SOP-008 governs incident handling when a lab anomaly is determined to constitute an adverse event. |
 | [SOP-007 — Prescribing Protocols](../SOP-007-prescribing-protocols/SOP-007-prescribing-protocols.md) | Primary upstream SOP. SOP-007 §5.8 (patient-reported symptom intake) is the main handoff point to SOP-008 when the Covering Physician determines a symptom constitutes an AE. SOP-007 §5.7 (dose adjustment) is the clinical response mechanism for dose-related AEs. SOP-007 §7.6 (patient-reported adverse effect escalation) routes to SOP-008 for formal AE documentation and handling. |
 
-### Future SOPs Referenced in This Document
+### Parallel and Future SOPs Referenced in This Document
 
 | Document | Relationship |
 | --- | --- |
-| Emergency & Mental Health Escalation SOP | Will govern mental health crisis response during treatment, which is out of scope for SOP-008. Until drafted, mental health crises are escalated to the Covering Physician and emergency services (911) where imminent danger exists. |
+| [SOP-010 — Emergency & Mental Health Escalation](../SOP-010-emergency-mental-health-escalation/SOP-010-emergency-mental-health-escalation.md) | Parallel SOP. Governs mental health crisis response during treatment, which is out of scope for SOP-008. Crisis events that meet this SOP's adverse-event thresholds cascade per SOP-010 §5.9 into this SOP's AE Register. Quality-improvement trending coordinated quarterly per [SOP-008 §5.12](../SOP-008-adverse-event-reporting/SOP-008-adverse-event-reporting.md). |
 | Treatment Discontinuation & Tapering SOP | Will govern formal treatment discontinuation procedures when an AE requires permanent medication discontinuation. Until drafted, the Covering Physician determines the discontinuation approach case-by-case. |
 | Records Retention & Destruction SOP | Will consolidate retention periods across all SOPs. AE Register retention is governed by §5.7 of this SOP until the Records Retention SOP is drafted. |
 | HIPAA & PHI Handling SOP | Will govern comprehensive HIPAA compliance including BAA management, PHI access controls, and privacy program administration. §5.6 of this SOP governs HIPAA breach handling specifically. |
@@ -846,6 +846,7 @@ The following boundary statement is absolute and applies to all personnel at all
 | Version | Date | Author | Description of Change | Approver |
 | --- | --- | --- | --- | --- |
 | 0.2 | 2026-05-08 | Brian DeGuzman, RN (MSO Owner) — operational scaffolding | Initial draft. All 12 sections structurally complete. Governance sections (1-4, 6-12) fully drafted with no clinical markers. Section 5 (Procedure) contains `[CLINICAL — PENDING COVERING PHYSICIAN]` markers in subsections 5.2 (severity/causality criteria), 5.4 (voluntary FDA reporting default presumption), 5.9 (voluntary reporting clinical decision tree), and 5.12 (trending thresholds). Section 5.7 contains an `[OPERATIONAL — PENDING MSO OWNER]` marker for OptiMantra incident reporting capability verification. Section 5.11 contains an `[OPERATIONAL — PENDING MSO OWNER]` marker for MSO E&O policy confirmation. Section 5.6 (Privacy Incident & HIPAA Breach Handling) and Section 9 (Compliance References) include "pending counsel validation" annotations for California-specific statutory citations (Cal. H&S §1280.15, Cal. Civil Code §1798.82, CMIA). Attachments A through G listed as pending future revisions. Initial version designated v0.2 (not v0.1) to align with the post-physician-naming version state of the broader SOP system; the document is built with Dr. Napolitano named from the start. This SOP is a clinical SOP per SOP-001 §2.3; clinical content authority and final approval are the Covering Physician's responsibility. | Dr. Michael Napolitano, MD (signature pending) |
+| 0.3 | 2026-05-24 | Brian DeGuzman, RN (MSO Owner) | Minor revision per SOP-001 §5.11.1 — cross-reference backfill. Forward-references to "future Emergency & Mental Health Escalation SOP" replaced with concrete SOP-010 references following SOP-010 v0.1 drafting on the same date. Specifically: (1) frontmatter `related_documents` entry updated; (2) §1 Purpose paragraph about mental health crisis routing updated to reference SOP-010 with the cascade pathway documented; (3) §2.2 Out of Scope list item for mental health crises updated to reference SOP-010; (4) §10 "Future SOPs Referenced" table heading renamed "Parallel and Future SOPs" with the Emergency & Mental Health Escalation row updated to reference SOP-010 as a now-parallel SOP. No procedural, scope, or clinical content changes. Cross-reference correction only. | Dr. Michael Napolitano, MD (signature pending) |
 
 ---
 
