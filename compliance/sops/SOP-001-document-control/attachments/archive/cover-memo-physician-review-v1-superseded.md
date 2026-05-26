@@ -6,6 +6,20 @@ issued_by: "Brian, MSO Owner / Registered Nurse"
 issued_to: "Covering Physician (Medical Director), [Physician Name TBD]"
 date: "[Date of transmission, ISO 8601]"
 classification: "Confidential — Recipient and Internal Use Only"
+status: "SUPERSEDED"
+superseded_by: "../cover-memo-physician-review-v2.md (v2.3, 2026-05-12)"
+superseded_date: "2026-05-24"
+superseded_reason: "Replaced by v2.3 with Dr. Napolitano named (not [TBD]), all SOP version references aligned to current state, and SOP-008 added to packet. v1 retained for archival reference per SOP-001 document control standards."
+---
+
+> **⚠️ SUPERSEDED — DO NOT TRANSMIT**
+>
+> This is cover memo v1 (draft). It contained placeholders (`[Physician Name TBD]`, `[Date of transmission, ISO 8601]`) and has been replaced by v2.3, which is the current operative cover memo for the Covering Physician SOP review packet.
+>
+> Current operative version: [`cover-memo-physician-review-v2.md`](../cover-memo-physician-review-v2.md) (v2.3, last updated 2026-05-12).
+>
+> This file is retained for archival reference only per SOP-001 document control standards (§5.X superseded artifact retention).
+
 ---
 
 # Cover Memo — Initial Clinical Governance SOP Review
