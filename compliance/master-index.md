@@ -1,7 +1,7 @@
 # Bloom Metabolics — SOP Master Index
 
 **Classification:** INTERNAL — CLINICAL & OPERATIONAL USE ONLY
-**Last Updated:** 2026-05-24
+**Last Updated:** 2026-05-26
 **Maintained By:** Brian, Owner / Registered Nurse
 
 ---
@@ -19,6 +19,7 @@
 | SOP-007 | Prescribing Protocols | 0.4 | Draft (Physician-Pending) | TBD | TBD | Dr. Michael Napolitano, MD | Dr. Michael Napolitano, MD | [SOP-007](sops/SOP-007-prescribing-protocols/SOP-007-prescribing-protocols.md) |
 | SOP-008 | Adverse Event & Incident Reporting | 0.2 | Draft (Physician-Pending) | TBD | TBD | Dr. Michael Napolitano, MD | Dr. Michael Napolitano, MD | [SOP-008](sops/SOP-008-adverse-event-reporting/SOP-008-adverse-event-reporting.md) |
 | SOP-009 | Vendor & Contractor Management (1099 Operations) | 0.2 | Draft (MSO-Only — Pending MSO Owner Approval) | TBD | TBD | Brian DeGuzman | Brian DeGuzman | [SOP-009](sops/SOP-009-vendor-contractor-management/SOP-009-vendor-contractor-management.md) |
+| SOP-010 | Emergency & Mental Health Escalation | 0.1 | Draft (Physician-Pending) | TBD | TBD | Dr. Michael Napolitano, MD | Dr. Michael Napolitano, MD | [SOP-010](sops/SOP-010-emergency-mental-health-escalation/SOP-010-emergency-mental-health-escalation.md) |
 
 ---
 
@@ -30,7 +31,6 @@ The following SOPs have been identified through the compliance audit and are que
 | --- | --- | --- | --- |
 | Identity Verification | High | Planned | Ryan Haight Act compliance; prerequisite for prescribing SOPs (note: operational ID verification is covered in SOP-002 §5.8; this SOP would cover automated verification at scale) |
 | Controlled Substance Handling | High | Planned | DEA compliance; CURES reporting; storage and destruction |
-| Emergency & Mental Health Escalation | High | Planned | Patient safety; crisis intervention pathways |
 | Provider Credentialing, Insurance & Coverage | High | Planned | Forward-referenced from SOP-009 §5.8 boundary. Governs covering physician credentialing, board certification verification, DEA/CURES enrollment, malpractice coverage scope, and backup provider engagement. Number assigned at draft time per SOP-001 §5.1. |
 | Treatment Discontinuation & Tapering | Medium | Planned | Safe discontinuation protocols |
 | Patient Communication Protocols | Medium | Planned | GHL/n8n automation governance |
