@@ -2,6 +2,11 @@ import { createMiddlewareClient } from '@supabase/auth-helpers-nextjs'
 import { NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
 
+// Canonical production host. Any other host (e.g. www.*, .vercel.app aliases on
+// the production target) gets 308-redirected here so search engines only index
+// one origin and link-equity consolidates on the apex.
+const CANONICAL_HOST = 'bloommetabolics.com'
+
 // Routes that require authentication
 const PROTECTED_ROUTES = [
   '/clinic',
@@ -34,6 +39,24 @@ export async function middleware(req: NextRequest) {
   const res = NextResponse.next()
   const pathname = req.nextUrl.pathname
   const ip = req.ip || req.headers.get('x-forwarded-for') || 'unknown'
+
+  // ── 0. CANONICAL HOST REDIRECT (production only) ────────────────────────
+  // Force every public request onto https://bloommetabolics.com. Leave
+  // *.vercel.app preview/branch URLs alone so developers and PR previews
+  // still work, and skip localhost during dev.
+  if (process.env.NODE_ENV === 'production') {
+    const rawHost = (req.headers.get('host') || '').toLowerCase()
+    const host = rawHost.split(':')[0] // strip port if present
+    const isVercelPreview = host.endsWith('.vercel.app')
+    const isLocal = host === 'localhost' || host === '127.0.0.1'
+    if (host && host !== CANONICAL_HOST && !isVercelPreview && !isLocal) {
+      const url = req.nextUrl.clone()
+      url.host = CANONICAL_HOST
+      url.port = ''
+      url.protocol = 'https:'
+      return NextResponse.redirect(url, 308)
+    }
+  }
 
   // ── 1. SECURITY HEADERS ─────────────────────────────────────────────────
   res.headers.set('X-Frame-Options', 'DENY')

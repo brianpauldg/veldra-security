@@ -22,8 +22,7 @@ const footerLinks = {
 // Social links — replace TODO placeholders with live URLs as they become available.
 // Links are hidden from the rendered footer when href === '#' (placeholder).
 const socialLinks: { name: string; href: string; label: string; icon: 'instagram' | 'youtube' | 'linkedin' | 'x' | 'facebook' }[] = [
-  // TODO: Replace with Bloom Metabolics Instagram URL
-  { name: 'Instagram', href: '#', label: 'Visit Bloom Metabolics on Instagram', icon: 'instagram' },
+  { name: 'Instagram', href: 'https://www.instagram.com/bloommetabolics', label: 'Visit Bloom Metabolics on Instagram', icon: 'instagram' },
   // TODO: Replace with Bloom Metabolics YouTube URL
   { name: 'YouTube', href: '#', label: 'Visit Bloom Metabolics on YouTube', icon: 'youtube' },
   // TODO: Replace with Bloom Metabolics LinkedIn URL
