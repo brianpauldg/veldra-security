@@ -114,7 +114,7 @@ export default function WaitlistModal({ isOpen, onClose, preselectedInterest }: 
   // State restriction message
   useEffect(() => {
     if (SERVED_STATES.length > 0 && watchState && !SERVED_STATES.includes(watchState)) {
-      setStateMessage("We're not yet operating in your state — submit anyway and we'll notify you when we expand.")
+      setStateMessage("We're not yet operating in your state, submit anyway and we'll notify you when we expand.")
     } else {
       setStateMessage('')
     }
@@ -270,7 +270,7 @@ export default function WaitlistModal({ isOpen, onClose, preselectedInterest }: 
                     You&apos;re on the list.
                   </h2>
                   <p className="text-[15px] text-[#a89878] leading-relaxed max-w-sm mx-auto mb-8 font-light">
-                    Thank you — you&apos;ve been added to the Bloom Metabolics waitlist. Check your inbox for confirmation. We&apos;ll contact you with next steps soon.
+                    Thank you, you&apos;ve been added to the Bloom Metabolics waitlist. Check your inbox for confirmation. We&apos;ll contact you with next steps soon.
                   </p>
                   <button onClick={onClose} className="bloom-btn">
                     Close

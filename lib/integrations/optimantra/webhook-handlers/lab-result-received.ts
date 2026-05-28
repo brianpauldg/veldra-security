@@ -8,7 +8,7 @@ import { getSupabaseAdmin } from '@/lib/supabase-admin'
 import { logAudit } from '@/lib/clinic/audit'
 
 const HEMATOCRIT_THRESHOLD = 54
-const ALT_THRESHOLD = 120 // U/L — roughly 3x upper normal
+const ALT_THRESHOLD = 120 // U/L, roughly 3x upper normal
 const AST_THRESHOLD = 120
 
 export async function handleLabResultReceived(data: Record<string, unknown>): Promise<void> {

@@ -137,7 +137,7 @@ export default function CommandCenter() {
                     <UserCheck className="w-3.5 h-3.5 text-nova-400" />
                   </div>
                   <div className="flex-1 min-w-0">
-                    <p className="text-xs font-medium text-white">{enc.type.replace(/_/g, ' ')} — {enc.providerName}</p>
+                    <p className="text-xs font-medium text-white">{enc.type.replace(/_/g, ' ')}, {enc.providerName}</p>
                     <p className="text-[11px] text-zinc-400 mt-0.5 line-clamp-2">{enc.assessment}</p>
                     <p className="text-[10px] text-zinc-600 mt-1">{enc.date}</p>
                   </div>
@@ -214,7 +214,7 @@ export default function CommandCenter() {
                   </div>
                 </Link>
               ))}
-              <p className="text-[10px] text-zinc-600 italic pt-1">AI outputs are review support only — not autonomous clinical decisions.</p>
+              <p className="text-[10px] text-zinc-600 italic pt-1">AI outputs are review support only, not autonomous clinical decisions.</p>
             </div>
           </DashboardCard>
 

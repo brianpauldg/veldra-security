@@ -12,7 +12,7 @@ export default function TermsPage() {
         <div className="max-w-7xl mx-auto px-6 lg:px-8 text-center">
           <h1 className="text-display text-white mb-3">Terms of Service</h1>
           <div className="rounded-xl border border-amber-500/30 bg-amber-500/5 px-6 py-4 mb-6 max-w-2xl mx-auto">
-            <p className="text-[12px] text-amber-300 font-medium uppercase tracking-wider mb-2">Draft for Attorney Review — Not Yet Legally Operative</p>
+            <p className="text-[12px] text-amber-300 font-medium uppercase tracking-wider mb-2">Draft for Attorney Review, Not Yet Legally Operative</p>
             <p className="text-[11px] text-[#8a8268] leading-relaxed font-light">
               Bloom Metabolics is in pre-launch state. These documents are being finalized by counsel and will be operative when enrollment opens. No medical services are currently being provided and no protected health information is being collected during pre-launch. Waitlist signups collect only email and optional preference data, not health information.
             </p>

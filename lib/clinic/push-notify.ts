@@ -92,7 +92,7 @@ export async function pushNotify(notif: PushNotification): Promise<PushResult> {
         result.email = true
       } else {
         const errBody = await res.text()
-        result.errors.push(`Email: ${res.status} — ${errBody}`)
+        result.errors.push(`Email: ${res.status}, ${errBody}`)
       }
     } catch (err) {
       result.errors.push(`Email: ${err instanceof Error ? err.message : 'unknown'}`)
@@ -120,7 +120,7 @@ export async function pushNotify(notif: PushNotification): Promise<PushResult> {
         result.sms = true
       } else {
         const errBody = await res.text()
-        result.errors.push(`SMS: ${res.status} — ${errBody}`)
+        result.errors.push(`SMS: ${res.status}, ${errBody}`)
       }
     } catch (err) {
       result.errors.push(`SMS: ${err instanceof Error ? err.message : 'unknown'}`)

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Bloom Metabolics — NAD+ Reel Renderer
+Bloom Metabolics, NAD+ Reel Renderer
 Renders 8 frames at 1080x1920 and assembles into MP4.
 """
 
@@ -245,7 +245,7 @@ def generate_neural_art(w, h, seed=42, style="brain"):
     glow = small.resize((w, h), Image.LANCZOS)
     img = Image.blend(img, glow, 0.35)
 
-    # Second pass — softer
+    # Second pass, softer
     small2 = img.resize((w // 16, h // 16), Image.LANCZOS)
     glow2 = small2.resize((w, h), Image.LANCZOS)
     img = Image.blend(img, glow2, 0.2)
@@ -298,11 +298,11 @@ BODY_IMG = os.path.join(OUT_DIR, "source_body.png")
 
 
 def frame_01_cover():
-    """COVER / HOOK — NAD+ hero image with overlay text."""
+    """COVER / HOOK, NAD+ hero image with overlay text."""
     # Load hero image
     img = load_and_fit(HOOK_IMG, W, H)
 
-    # Dark overlay for text readability — gradient from top and bottom
+    # Dark overlay for text readability, gradient from top and bottom
     overlay = Image.new("RGBA", (W, H), (0, 0, 0, 0))
     od = ImageDraw.Draw(overlay)
     # Top gradient (for logo)
@@ -347,7 +347,7 @@ def frame_01_cover():
 
 
 def frame_02_definition():
-    """DEFINITION — lifted black."""
+    """DEFINITION, lifted black."""
     img = Image.new("RGB", (W, H), BG_CONTENT)
     draw = ImageDraw.Draw(img)
 
@@ -383,7 +383,7 @@ def frame_02_definition():
 
 
 def frame_03_why_matters():
-    """WHY IT MATTERS — lifted black."""
+    """WHY IT MATTERS, lifted black."""
     img = Image.new("RGB", (W, H), BG_CONTENT)
     draw = ImageDraw.Draw(img)
 
@@ -419,7 +419,7 @@ def frame_03_why_matters():
 
 
 def frame_04_image():
-    """IMAGE FRAME 1 — glowing brain with vignette + caption."""
+    """IMAGE FRAME 1, glowing brain with vignette + caption."""
     img = load_and_fit(BRAIN_IMG, W, H)
     img = add_vignette(img)
     draw = ImageDraw.Draw(img)
@@ -441,7 +441,7 @@ def frame_04_image():
 
 
 def frame_05_function():
-    """THE FUNCTION — lifted black."""
+    """THE FUNCTION, lifted black."""
     img = Image.new("RGB", (W, H), BG_CONTENT)
     draw = ImageDraw.Draw(img)
 
@@ -479,7 +479,7 @@ def frame_05_function():
 
 
 def frame_06_image():
-    """IMAGE FRAME 2 — glowing body with vignette + caption."""
+    """IMAGE FRAME 2, glowing body with vignette + caption."""
     img = load_and_fit(BODY_IMG, W, H)
     img = add_vignette(img)
     draw = ImageDraw.Draw(img)
@@ -498,7 +498,7 @@ def frame_06_image():
 
 
 def frame_07_research():
-    """RESEARCH ANGLE — lifted black."""
+    """RESEARCH ANGLE, lifted black."""
     img = Image.new("RGB", (W, H), BG_CONTENT)
     draw = ImageDraw.Draw(img)
 
@@ -538,7 +538,7 @@ def frame_07_research():
 
 
 def frame_08_cta():
-    """CTA — pure black anchor."""
+    """CTA, pure black anchor."""
     img = Image.new("RGB", (W, H), BG_ANCHOR)
     draw = ImageDraw.Draw(img)
 

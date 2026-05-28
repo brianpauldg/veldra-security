@@ -146,7 +146,7 @@ export default function LeadPopup({
       }
     : {
         headline: 'Before you go',
-        body: 'Get the free Hormone Optimization Guide — the same resource our providers recommend to new patients.',
+        body: 'Get the free Hormone Optimization Guide, the same resource our providers recommend to new patients.',
         cta: 'Send the Guide',
         ctaHref: null,
         dismiss: 'Maybe later',

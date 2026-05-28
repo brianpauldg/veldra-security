@@ -6,7 +6,7 @@ import PreLaunchWaitlist from '@/components/PreLaunchWaitlist'
 import Meridian from '@/components/Meridian'
 
 export const metadata: Metadata = {
-  title: 'Join the Bloom Metabolics Waitlist — Physician-Led Hormone & Metabolic Care',
+  title: 'Join the Bloom Metabolics Waitlist, Physician-Led Hormone & Metabolic Care',
   description: 'Enrollment opens early-to-mid June 2026. Physician-prescribed TRT, GLP-1, sexual health, and longevity protocols. Founded by Brian DeGuzman, RN. Join the waitlist.',
   openGraph: {
     title: 'Join the Bloom Metabolics Waitlist',
@@ -19,7 +19,7 @@ const VALUE_PROPS = [
   {
     icon: <Users className="w-4 h-4" />,
     title: 'Founded by a clinician, not a marketer.',
-    desc: 'Brian DeGuzman, RN — building Bloom because the current telehealth model writes scripts without reviewing labs.',
+    desc: 'Brian DeGuzman, RN, building Bloom because the current telehealth model writes scripts without reviewing labs.',
   },
   {
     icon: <Stethoscope className="w-4 h-4" />,
@@ -42,7 +42,7 @@ const FAQ = [
   { q: 'When does enrollment open?', a: 'Early-to-mid June 2026. Waitlist members are notified first.' },
   { q: 'What does the waitlist do?', a: 'Priority notification when enrollment opens. A 3-email welcome sequence introducing the clinical approach. No spam. Unsubscribe anytime.' },
   { q: 'What does the $49 evaluation include?', a: 'A focused session with a U.S.-licensed physician. Health history review, symptom discussion, and treatment eligibility determination. Credited toward your first month if you continue.' },
-  { q: 'Who can I contact?', a: 'Brian DeGuzman, RN — brian@bloommetabolics.com. Reply directly to any email.' },
+  { q: 'Who can I contact?', a: 'Brian DeGuzman, RN, brian@bloommetabolics.com. Reply directly to any email.' },
 ]
 
 export default function JoinPage() {

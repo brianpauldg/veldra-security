@@ -96,7 +96,7 @@ export async function POST(req: NextRequest) {
       await supabase.from('clinical_tasks').insert({
         patient_name: patientName,
         type: 'followup_review',
-        title: `New ${treatmentType.toUpperCase()} intake — review and schedule consultation`,
+        title: `New ${treatmentType.toUpperCase()} intake, review and schedule consultation`,
         description: `${patientName} completed ${treatmentType.toUpperCase()} intake form. Review intake data, confirm eligibility, and ensure consultation is scheduled.`,
         status: 'pending',
         priority: 'high',

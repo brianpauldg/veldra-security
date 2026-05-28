@@ -135,7 +135,7 @@ export default function CURESAttestationForm({ defaultPatientId }: Props) {
 
       {hasAnyFinding && (
         <div>
-          <label className="block text-[12px] text-[#8a8268] mb-1.5">Clinical Judgment (required — min 50 chars)</label>
+          <label className="block text-[12px] text-[#8a8268] mb-1.5">Clinical Judgment (required, min 50 chars)</label>
           <textarea value={clinicalJudgment} onChange={e => setClinicalJudgment(e.target.value)} rows={3}
             placeholder="Document clinical reasoning for proceeding despite concerning findings..."
             className="w-full px-4 py-2.5 rounded-lg bg-zinc-900 border border-zinc-800 text-xs text-white placeholder:text-zinc-600 focus:outline-none resize-none" />

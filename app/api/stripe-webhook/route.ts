@@ -43,7 +43,7 @@ export async function POST(request: NextRequest) {
       const metadata = session.metadata || {}
 
       if (!email) {
-        console.warn('checkout.session.completed without email — skipping')
+        console.warn('checkout.session.completed without email, skipping')
         return NextResponse.json({ received: true })
       }
 
@@ -104,7 +104,7 @@ export async function POST(request: NextRequest) {
           await supabaseAdmin.from('clinical_tasks').insert({
             patient_name: patientName,
             task_type: 'followup_review',
-            title: `New ${treatmentType.toUpperCase()} patient — ${patientName}`,
+            title: `New ${treatmentType.toUpperCase()} patient, ${patientName}`,
             description: `${patientName} paid consultation fee. Review intake form when completed and schedule consultation.`,
             status: 'pending',
             priority: 'high',

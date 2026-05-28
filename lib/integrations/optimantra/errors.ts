@@ -22,7 +22,7 @@ export class OptiMantraNotFoundError extends OptiMantraError {
 
 export class OptiMantraAuthError extends OptiMantraError {
   constructor(requestId?: string) {
-    super('OptiMantra: authentication failed — check OPTIMANTRA_API_KEY', 401, requestId)
+    super('OptiMantra: authentication failed, check OPTIMANTRA_API_KEY', 401, requestId)
     this.name = 'OptiMantraAuthError'
   }
 }
@@ -32,7 +32,7 @@ export class OptiMantraRateLimitError extends OptiMantraError {
     public readonly retryAfterMs: number,
     requestId?: string,
   ) {
-    super(`OptiMantra: rate limited — retry after ${retryAfterMs}ms`, 429, requestId)
+    super(`OptiMantra: rate limited, retry after ${retryAfterMs}ms`, 429, requestId)
     this.name = 'OptiMantraRateLimitError'
   }
 }

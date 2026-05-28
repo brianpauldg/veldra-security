@@ -300,7 +300,7 @@ export async function POST(req: NextRequest) {
 // Health check
 export async function GET() {
   return NextResponse.json({
-    service: 'Bloom Metabolics — n8n Webhook Integration',
+    service: 'Bloom Metabolics, n8n Webhook Integration',
     status: 'active',
     supportedEvents: [
       'lead_qualified', 'clinical_intake_completed', 'content_generated',

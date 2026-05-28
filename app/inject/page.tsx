@@ -2,7 +2,7 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-  title: 'Injection Guides — Bloom Metabolics',
+  title: 'Injection Guides, Bloom Metabolics',
   description:
     'Patient injection education guides for Testosterone (TRT), GLP-1 weight loss (semaglutide, tirzepatide), and HCG therapy. Step-by-step self-injection instructions from Bloom Metabolics.',
   robots: { index: true, follow: true },
@@ -97,7 +97,7 @@ export default function InjectIndexPage() {
             />
           </div>
           <p className="text-xs text-brass/40 mt-4 text-center">
-            For educational use only — always follow instructions provided by your healthcare professional.
+            For educational use only, always follow instructions provided by your healthcare professional.
           </p>
         </div>
       </section>
@@ -145,7 +145,7 @@ export default function InjectIndexPage() {
                   <div className="flex items-start justify-between mb-3">
                     <div>
                       <span className="text-[10px] font-mono text-champagne uppercase tracking-wider bg-brass/20 px-2 py-0.5 rounded">
-                        {protocol.tag} — Coming Soon
+                        {protocol.tag}, Coming Soon
                       </span>
                       <h3 className="text-lg text-champagne font-display mt-2">
                         {protocol.name}

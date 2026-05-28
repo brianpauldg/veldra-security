@@ -51,7 +51,7 @@ export default function AISuggestionsPage() {
     <div className="space-y-4">
       <div>
         <h1 className="text-2xl font-bold text-white tracking-tight">AI Suggestions</h1>
-        <p className="text-sm text-zinc-500 mt-1">AB 3030 — AI-generated actions awaiting clinician confirmation</p>
+        <p className="text-sm text-zinc-500 mt-1">AB 3030, AI-generated actions awaiting clinician confirmation</p>
       </div>
 
       <div className="rounded-xl border border-zinc-800 overflow-hidden">

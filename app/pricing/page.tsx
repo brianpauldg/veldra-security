@@ -31,7 +31,7 @@ export default function PricingPage() {
             </h1>
             <p className="text-lg text-[#8a8268] leading-relaxed max-w-xl mx-auto">
               Choose your membership level. Add treatment protocols as needed.
-              Every path starts with a {CONSULTATION.display} Optimization Consultation — credited toward your first month.
+              Every path starts with a {CONSULTATION.display} Optimization Consultation, credited toward your first month.
             </p>
           </motion.div>
         </div>
@@ -61,10 +61,10 @@ export default function PricingPage() {
           <p className="text-[15px] text-[#8a8268] leading-relaxed font-light italic">
             &ldquo;Pricing built around clinical value, not subscription games. Every tier includes
             physician oversight and pharmacy fulfillment from a US-based 503A partner. Questions about
-            the tier model? Reply directly to my welcome email — I read every one.&rdquo;
+            the tier model? Reply directly to my welcome email, I read every one.&rdquo;
           </p>
           <p className="text-[13px] text-[#d8cfbe] mt-4 font-medium">
-            — Brian DeGuzman, RN
+           , Brian DeGuzman, RN
           </p>
         </div>
       </Section>
@@ -120,7 +120,7 @@ export default function PricingPage() {
               },
               {
                 q: 'Is bloodwork included?',
-                a: 'Bloom Signature includes quarterly comprehensive labs at no additional cost. Essentials and Core tiers include lab review — the lab draw itself may be billed separately depending on your state.',
+                a: 'Bloom Signature includes quarterly comprehensive labs at no additional cost. Essentials and Core tiers include lab review, the lab draw itself may be billed separately depending on your state.',
               },
               {
                 q: 'What are the total costs?',

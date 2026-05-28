@@ -39,7 +39,7 @@ export async function generateConsentPDF(params: ConsentPDFParams): Promise<Buff
 
     // Header
     doc.fontSize(8).fillColor('#8a8268')
-      .text('BLOOM METABOLICS — SIGNED INFORMED CONSENT', { align: 'center' })
+      .text('BLOOM METABOLICS, SIGNED INFORMED CONSENT', { align: 'center' })
     doc.moveDown(0.5)
     doc.moveTo(60, doc.y).lineTo(552, doc.y).strokeColor('#d8cfbe').lineWidth(0.5).stroke()
     doc.moveDown(1)

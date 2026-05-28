@@ -16,7 +16,7 @@ function NewJustificationContent() {
         <ArrowLeft className="w-4 h-4" /> Back to justifications
       </Link>
       <h1 className="text-2xl font-bold text-white tracking-tight">New Compounded Rx Justification</h1>
-      <p className="text-sm text-zinc-500">FDA April 2026 — patient-specific medical necessity documentation</p>
+      <p className="text-sm text-zinc-500">FDA April 2026, patient-specific medical necessity documentation</p>
       <CompoundedRxJustificationForm defaultPatientId={patientId} />
     </div>
   )

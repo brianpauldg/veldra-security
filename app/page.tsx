@@ -70,12 +70,12 @@ export default function Home() {
                 variants={fadeUp}
                 className="text-[17px] text-[#a89878] leading-relaxed max-w-lg mb-12 font-light"
               >
-                A membership program with board-certified physicians, comprehensive bloodwork, and medication shipped to your door — no clinic visits, no cookie-cutter dosing.
+                A membership program with board-certified physicians, comprehensive bloodwork, and medication shipped to your door, no clinic visits, no cookie-cutter dosing.
               </motion.p>
 
               <motion.div variants={fadeUp} className="flex flex-wrap gap-4 items-center">
                 <button onClick={() => setWaitlistOpen(true)} className="bloom-btn">
-                  Join the Waitlist — Lock In Founding-Member Pricing
+                  Join the Waitlist, Lock In Founding-Member Pricing
                   <ArrowRight className="w-3.5 h-3.5" />
                 </button>
                 <Link
@@ -116,7 +116,7 @@ export default function Home() {
               <div className="relative w-72 h-72 lg:w-80 lg:h-80 rounded-2xl overflow-hidden border border-[#1a1814]">
                 <Image
                   src="/images/founder-brian.png"
-                  alt="Brian DeGuzman, RN — Founder of Bloom Metabolics"
+                  alt="Brian DeGuzman, RN, Founder of Bloom Metabolics"
                   fill
                   className="object-cover object-top"
                   sizes="(max-width: 1024px) 288px, 320px"
@@ -142,7 +142,7 @@ export default function Home() {
                 <p className="text-[15px] text-[#a89878] leading-relaxed font-light">
                   Registered Nurse. Pursuing Advanced Practice Nursing licensure.
                   Built Bloom Metabolics because the men he saw in clinical practice
-                  deserved protocols informed by their labs — not a five-minute
+                  deserved protocols informed by their labs, not a five-minute
                   telehealth script.
                 </p>
                 <p className="text-[15px] text-[#a89878] leading-relaxed font-light">
@@ -252,7 +252,7 @@ export default function Home() {
                 <span className="font-mono text-[11px] text-[#d8cfbe] tracking-[0.2em]">{s.num}</span>
                 <div>
                   <h3 className="text-headline text-[#d8cfbe] mb-1 group-hover:text-[#f5ecd9] transition-colors" style={{ fontFamily: 'Fraunces, serif', fontWeight: 400 }}>
-                    {s.title} — <em className="italic font-light">{s.emphasis}</em>
+                    {s.title}, <em className="italic font-light">{s.emphasis}</em>
                   </h3>
                   <p className="text-[14px] text-[#8a8268] font-light">{s.desc}</p>
                 </div>
@@ -334,7 +334,7 @@ export default function Home() {
           </div>
           <div className="lg:col-span-2 flex items-end">
             <SectionDescription className="lg:ml-auto lg:text-right max-w-md">
-              Choose your membership level, then add treatment protocols as needed. Membership starts at $149/mo; adding TRT is $199/mo with medication included — most members&apos; all-in cost lands between $348 and $498/mo. Begin with a $49 initial evaluation, credited toward Month 1.
+              Choose your membership level, then add treatment protocols as needed. Membership starts at $149/mo; adding TRT is $199/mo with medication included, most members&apos; all-in cost lands between $348 and $498/mo. Begin with a $49 initial evaluation, credited toward Month 1.
             </SectionDescription>
           </div>
         </div>
@@ -347,7 +347,7 @@ export default function Home() {
           </Link>
           <div className="mt-4">
             <Link href="/join" className="bloom-btn">
-              Apply Now — $49
+              Apply Now, $49
               <ArrowRight className="w-3.5 h-3.5" />
             </Link>
           </div>
@@ -386,7 +386,7 @@ export default function Home() {
             {
               icon: <Microscope className="w-4 h-4" />,
               title: 'Labs-informed',
-              desc: 'Treatment decisions based on your bloodwork — not a five-question intake form.',
+              desc: 'Treatment decisions based on your bloodwork, not a five-question intake form.',
             },
             {
               icon: <MessageCircle className="w-4 h-4" />,
@@ -422,7 +422,7 @@ export default function Home() {
           <div className="divide-y divide-[#1a1814] border-y border-[#1a1814]">
             {[
               { q: 'What does a consultation cost?', a: `${CONSULTATION.display} for the Optimization Consultation. If you continue to a membership, it's credited toward your first month. If you don't qualify, it's refunded in full.` },
-              { q: 'How does membership work?', a: 'Choose from three membership tiers (Essentials, Core, or Signature) for ongoing care access. Add treatment protocols — TRT, GLP-1, Sexual Health, or Longevity — as needed. All medication is included in add-on pricing.' },
+              { q: 'How does membership work?', a: 'Choose from three membership tiers (Essentials, Core, or Signature) for ongoing care access. Add treatment protocols, TRT, GLP-1, Sexual Health, or Longevity, as needed. All medication is included in add-on pricing.' },
               { q: 'Do I need bloodwork?', a: 'Yes. Bloodwork is required before treatment for both Testosterone Therapy and GLP-1 programs. Lab results from the past six months may be accepted; otherwise your physician will order a local draw through LabCorp or Quest Diagnostics.' },
               { q: 'What if I do not qualify for treatment?', a: 'You receive a full refund of the consultation fee. You still receive a physician-reviewed eligibility report.' },
               { q: 'Is this covered by insurance?', a: 'Bloom Metabolics operates on a cash-pay model. We do not bill insurance. Many patients find cash-pay simpler and more affordable than navigating insurance restrictions.' },

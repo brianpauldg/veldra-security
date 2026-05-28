@@ -202,9 +202,9 @@ const trtSteps: StepConfig[] = [
         </Field>
         <Field label="Sleep Quality">
           <RadioGroup value={data.sleepQuality as string} onChange={(v) => update('sleepQuality', v)} options={[
-            { value: 'good', label: 'Good — I feel rested' },
-            { value: 'fair', label: 'Fair — occasional issues' },
-            { value: 'poor', label: 'Poor — frequently disrupted' },
+            { value: 'good', label: 'Good, I feel rested' },
+            { value: 'fair', label: 'Fair, occasional issues' },
+            { value: 'poor', label: 'Poor, frequently disrupted' },
           ]} />
         </Field>
         <Field label="Alcohol Consumption">
@@ -255,7 +255,7 @@ const trtSteps: StepConfig[] = [
           ]} />
         </Field>
         <Field label="Anything else your physician should know about your goals?">
-          <TextArea value={data.expectations as string} onChange={(v) => update('expectations', v)} placeholder="Optional — describe your goals or expectations..." rows={3} />
+          <TextArea value={data.expectations as string} onChange={(v) => update('expectations', v)} placeholder="Optional, describe your goals or expectations..." rows={3} />
         </Field>
         <Field label="What is your timeline expectation for results?">
           <RadioGroup value={data.timelineExpectation as string} onChange={(v) => update('timelineExpectation', v)} options={[
@@ -280,15 +280,15 @@ const trtSteps: StepConfig[] = [
           <h3 className="text-[14px] text-white font-semibold mb-4">Potential Risks of Testosterone Therapy</h3>
           <ul className="space-y-2 text-[13px] text-[#d8cfbe] leading-relaxed">
             {[
-              'Polycythemia (elevated red blood cells) — requires regular CBC monitoring',
-              'Sleep apnea — may worsen existing obstructive sleep apnea',
-              'Fertility impact — exogenous testosterone may suppress sperm production',
-              'Prostate considerations — PSA monitoring required; contraindicated with prostate cancer',
-              'Cardiovascular risk — ongoing research; your physician will assess individual risk',
-              'Mood and behavioral changes — may include mood swings or increased irritability',
-              'Skin reactions — acne, oily skin, or injection site reactions',
-              'Testicular atrophy — natural testosterone production may decrease',
-              'Fluid retention — edema possible, especially at higher doses',
+              'Polycythemia (elevated red blood cells), requires regular CBC monitoring',
+              'Sleep apnea, may worsen existing obstructive sleep apnea',
+              'Fertility impact, exogenous testosterone may suppress sperm production',
+              'Prostate considerations, PSA monitoring required; contraindicated with prostate cancer',
+              'Cardiovascular risk, ongoing research; your physician will assess individual risk',
+              'Mood and behavioral changes, may include mood swings or increased irritability',
+              'Skin reactions, acne, oily skin, or injection site reactions',
+              'Testicular atrophy, natural testosterone production may decrease',
+              'Fluid retention, edema possible, especially at higher doses',
             ].map((risk) => (
               <li key={risk} className="flex items-start gap-2">
                 <AlertTriangle className="w-3.5 h-3.5 text-[#8a8268] mt-0.5 flex-shrink-0" />

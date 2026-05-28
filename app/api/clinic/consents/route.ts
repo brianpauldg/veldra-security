@@ -96,7 +96,7 @@ export async function POST(req: NextRequest) {
         await supabase.from('signed_consents').update({ pdf_storage_url: pdfUrl } as any).eq('id', data.id)
       }
     } catch (pdfErr) {
-      console.error('[CONSENTS] PDF generation/upload error — consent record saved without PDF')
+      console.error('[CONSENTS] PDF generation/upload error, consent record saved without PDF')
     }
 
     return NextResponse.json({ ok: true, consent_id: data.id, content_hash: contentHash, pdf_url: pdfUrl })

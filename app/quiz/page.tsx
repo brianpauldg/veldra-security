@@ -13,8 +13,8 @@ const questions = [
     id: 'energy',
     question: 'How would you rate your energy levels over the past 3 months?',
     options: [
-      { label: 'High — I feel great', score: 0 },
-      { label: 'Normal — no major complaints', score: 1 },
+      { label: 'High, I feel great', score: 0 },
+      { label: 'Normal, no major complaints', score: 1 },
       { label: 'Noticeably lower than usual', score: 2 },
       { label: 'Consistently exhausted', score: 3 },
     ],

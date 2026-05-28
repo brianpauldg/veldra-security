@@ -36,7 +36,7 @@ export default function ContactPage() {
       if (!res.ok) throw new Error('Failed')
       setSubmitted(true)
     } catch {
-      setSubmitted(true) // Show success anyway — message is logged server-side
+      setSubmitted(true) // Show success anyway, message is logged server-side
     }
   }
 
@@ -153,7 +153,7 @@ export default function ContactPage() {
                   brian@bloommetabolics.com
                 </a>
                 <p className="text-[12px] text-[#8a8268] mt-2">
-                  Founder &amp; RN — Brian DeGuzman
+                  Founder &amp; RN, Brian DeGuzman
                 </p>
               </div>
 

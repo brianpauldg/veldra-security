@@ -17,7 +17,7 @@ const templates: ConsentTemplate[] = [
   {
     id: 'trt-informed-consent',
     version: '1.0',
-    title: 'Testosterone Replacement Therapy — Informed Consent',
+    title: 'Testosterone Replacement Therapy, Informed Consent',
     effective_date: '2026-04-28',
     esignature_required: true,
     required_fields: ['patient_name', 'date_of_birth', 'signature', 'date'],
@@ -66,7 +66,7 @@ If treatment is discontinued, testosterone levels will return to pre-treatment b
 Testosterone is a Schedule III controlled substance under federal law. It is prescribed for legitimate medical use only. Misuse or distribution is illegal.
 
 ## Telehealth Limitations
-This treatment is prescribed via telehealth. Telehealth has limitations compared to in-person care, including inability to perform physical examination. Emergency situations require in-person evaluation — call 911.
+This treatment is prescribed via telehealth. Telehealth has limitations compared to in-person care, including inability to perform physical examination. Emergency situations require in-person evaluation, call 911.
 
 <!-- REQUIRES CLINICAL REVIEW: Physician partner should review all risk language -->
 
@@ -76,7 +76,7 @@ By signing below, I confirm that I have read and understand the above informatio
   {
     id: 'glp1-informed-consent',
     version: '1.0',
-    title: 'GLP-1 / GIP Receptor Agonist Therapy — Informed Consent',
+    title: 'GLP-1 / GIP Receptor Agonist Therapy, Informed Consent',
     effective_date: '2026-04-28',
     esignature_required: true,
     required_fields: ['patient_name', 'date_of_birth', 'signature', 'date'],
@@ -127,7 +127,7 @@ Weight regain is common after discontinuing GLP-1 therapy. Your physician will d
 Weight loss outcomes depend on adherence to medication, lifestyle modifications (diet and exercise), and individual metabolic factors. Not all patients achieve clinically significant weight loss.
 
 ## Telehealth Limitations
-This treatment is prescribed via telehealth. Emergency situations require in-person evaluation — call 911.
+This treatment is prescribed via telehealth. Emergency situations require in-person evaluation, call 911.
 
 <!-- REQUIRES CLINICAL REVIEW: Physician partner should review all risk language, particularly boxed warning and compounded medication disclosure -->
 

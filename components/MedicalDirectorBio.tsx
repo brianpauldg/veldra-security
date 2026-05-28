@@ -18,8 +18,8 @@ export const MEDICAL_DIRECTOR_LIVE = false
 export const MEDICAL_DIRECTOR = {
   name: 'Dr. Michael Napolitano, MD',
   title: 'Medical Director',
-  credentials: ['Board Certified — [Specialty]', 'Licensed in [States]'],
-  bio: 'TODO — short bio once MD is confirmed.',
+  credentials: ['Board Certified, [Specialty]', 'Licensed in [States]'],
+  bio: 'TODO, short bio once MD is confirmed.',
   photoUrl: '',
 }
 

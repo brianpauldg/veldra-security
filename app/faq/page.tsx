@@ -25,7 +25,7 @@ const faqCategories = [
     items: [
       {
         q: 'How much does Bloom Metabolics cost?',
-        a: `Start with a ${CONSULTATION.display} Optimization Consultation. If you continue, choose from three membership tiers: Essentials ($149/mo), Core ($299/mo), or Signature ($599/mo). Add treatment protocols — TRT, GLP-1, Sexual Health, or Longevity — as needed. Your ${CONSULTATION.display} consultation fee is credited toward Month 1 of membership.`,
+        a: `Start with a ${CONSULTATION.display} Optimization Consultation. If you continue, choose from three membership tiers: Essentials ($149/mo), Core ($299/mo), or Signature ($599/mo). Add treatment protocols, TRT, GLP-1, Sexual Health, or Longevity, as needed. Your ${CONSULTATION.display} consultation fee is credited toward Month 1 of membership.`,
       },
       {
         q: 'What\'s included in the membership vs. add-ons?',
@@ -41,7 +41,7 @@ const faqCategories = [
       },
       {
         q: 'Are there hidden fees?',
-        a: 'No. Membership, add-on, and consultation pricing are the only charges. Shipping from our licensed compounding pharmacy is free. Some state-required lab work may be billed separately — your physician will tell you upfront. Signature tier includes quarterly comprehensive labs at no additional cost.',
+        a: 'No. Membership, add-on, and consultation pricing are the only charges. Shipping from our licensed compounding pharmacy is free. Some state-required lab work may be billed separately, your physician will tell you upfront. Signature tier includes quarterly comprehensive labs at no additional cost.',
       },
       {
         q: 'Do you accept insurance?',
@@ -83,7 +83,7 @@ const faqCategories = [
       },
       {
         q: 'How long does the consultation take?',
-        a: 'Typically 15 minutes. You\'ll have the physician\'s full attention and can ask anything — there is no "upsell" script.',
+        a: 'Typically 15 minutes. You\'ll have the physician\'s full attention and can ask anything, there is no "upsell" script.',
       },
       {
         q: 'Do I need bloodwork?',

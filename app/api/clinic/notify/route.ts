@@ -63,7 +63,7 @@ export async function POST(req: NextRequest) {
 
 export async function GET() {
   return NextResponse.json({
-    service: 'Bloom Metabolics — Push Notification API',
+    service: 'Bloom Metabolics, Push Notification API',
     status: 'active',
     channels: {
       dashboard: 'always',

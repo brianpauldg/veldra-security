@@ -46,7 +46,7 @@ export default function PricingTable({
       {!PRICING_LIVE && (
         <div className="mb-6 mx-auto max-w-2xl rounded-xl border border-amber-200 bg-amber-50 px-4 py-3 text-center">
           <p className="text-[12px] font-medium text-amber-800">
-            Final pricing is being confirmed. Book a consultation — we&apos;ll share exact pricing before you commit.
+            Final pricing is being confirmed. Book a consultation, we&apos;ll share exact pricing before you commit.
           </p>
         </div>
       )}
@@ -316,7 +316,7 @@ function PeptideTrancheSection({ tranche }: { tranche: PeptideTranche }) {
               <span className="text-[10px] text-[#8a8268]">(medication included)</span>
             </div>
             <p className="text-[11px] text-[#8a8268] leading-relaxed mb-1">
-              {service.compounds} — {service.description}
+              {service.compounds}, {service.description}
             </p>
             <div className="flex items-center gap-1.5 mt-2">
               <Clock className="w-3 h-3 text-gold" />

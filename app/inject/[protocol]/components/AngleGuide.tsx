@@ -11,7 +11,7 @@ function NeedleCrossSectionSVG({ degrees, route, pinch }: { degrees: 45 | 90; ro
 
   return (
     <svg viewBox="0 0 200 120" className="w-full h-auto" role="img" aria-labelledby="angle-title angle-desc">
-      <title id="angle-title">Injection Angle Guide — {degrees} degrees</title>
+      <title id="angle-title">Injection Angle Guide, {degrees} degrees</title>
       <desc id="angle-desc">Cross-section diagram showing the correct {degrees}-degree needle insertion angle for {route === 'IM' ? 'intramuscular' : 'subcutaneous'} injection</desc>
 
       {/* Skin surface */}

@@ -106,7 +106,7 @@ export const mcpTools = {
 
   generateChartReview: {
     name: 'generate_chart_review',
-    description: 'Generate an AI-assisted chart review summary for a patient. This is review support only — not autonomous decision-making.',
+    description: 'Generate an AI-assisted chart review summary for a patient. This is review support only, not autonomous decision-making.',
     inputSchema: z.object({
       patientId: z.string(),
       lookbackDays: z.number().optional().describe('Number of days to look back (default: 90)'),

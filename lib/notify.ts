@@ -100,7 +100,7 @@ export function formatTelegramLead(lead: EnrichedLead): string {
 
 export function formatLeadEmail(lead: EnrichedLead): { subject: string; text: string } {
   const tag = lead.serviceInterest ? lead.serviceInterest.toUpperCase() : 'general'
-  const subject = `New ${tag} lead — ${lead.email}`
+  const subject = `New ${tag} lead, ${lead.email}`
   const text = [
     `New lead captured at ${lead.timestamp}`,
     '',

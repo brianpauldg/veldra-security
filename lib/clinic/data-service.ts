@@ -90,7 +90,7 @@ export async function getAllPatients(filters?: {
   }
   // Supabase unavailable — fail securely, never serve seed data in production
   if (process.env.NODE_ENV === 'production') {
-    console.error('[SECURITY] Supabase unavailable — refusing to serve data')
+    console.error('[SECURITY] Supabase unavailable, refusing to serve data')
     return []
   }
   return []
@@ -278,7 +278,7 @@ export function createAlert(input: Omit<Alert, 'id' | 'status' | 'createdAt'>): 
     recipientId: 'usr_admin_001',
     type: 'alert',
     title: `Alert: ${alert.title}`,
-    message: `${alert.patientName} — ${alert.description}`,
+    message: `${alert.patientName}, ${alert.description}`,
     patientId: alert.patientId,
     severity: alert.severity,
     actionUrl: `/clinic/patients/${alert.patientId}`,
@@ -318,7 +318,7 @@ export function createTask(input: Omit<Task, 'id' | 'createdAt'>): Task {
     recipientId: 'usr_admin_001',
     type: 'task',
     title: `Task: ${task.title}`,
-    message: `${task.description} — assigned to ${task.assigneeName}`,
+    message: `${task.description}, assigned to ${task.assigneeName}`,
     patientId: task.patientId,
     severity: task.priority === 'urgent' ? 'critical' : task.priority === 'high' ? 'high' : 'medium',
     actionUrl: '/clinic/tasks',
@@ -386,10 +386,10 @@ export async function generateChartReviewContext(patientId: string, lookbackDays
 
   const flaggedConcerns: string[] = []
   if (activeAlerts.length > 0) {
-    flaggedConcerns.push(...activeAlerts.map(a => `${a.severity.toUpperCase()}: ${a.title} — ${a.rationale}`))
+    flaggedConcerns.push(...activeAlerts.map(a => `${a.severity.toUpperCase()}: ${a.title}, ${a.rationale}`))
   }
   if (patient.adherence === 'poor' || patient.adherence === 'fair') {
-    flaggedConcerns.push(`Adherence is ${patient.adherence} — may affect treatment efficacy`)
+    flaggedConcerns.push(`Adherence is ${patient.adherence}, may affect treatment efficacy`)
   }
   if (abnormalLabs.length > 0) {
     flaggedConcerns.push(...abnormalLabs.slice(0, 5).map(l => {

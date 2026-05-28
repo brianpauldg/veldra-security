@@ -23,7 +23,7 @@ export default function RxJustificationsPage() {
       <div className="flex items-center justify-between">
         <div>
           <h1 className="text-2xl font-bold text-white tracking-tight">Compounded Rx Justifications</h1>
-          <p className="text-sm text-zinc-500 mt-1">FDA April 2026 — patient-specific medical necessity documentation</p>
+          <p className="text-sm text-zinc-500 mt-1">FDA April 2026, patient-specific medical necessity documentation</p>
         </div>
         <Link href="/clinic/rx-justifications/new" className="flex items-center gap-2 px-4 py-2 rounded-lg bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-medium hover:bg-emerald-500/20 transition-colors">
           <Plus className="w-3.5 h-3.5" /> New Justification

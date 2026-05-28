@@ -9,7 +9,7 @@ function encryptFormData(data: Record<string, unknown>): { encrypted: boolean; v
   const key = process.env.ENCRYPTION_KEY
   if (!key || key.length !== 64) {
     // No encryption key — store as JSON string with warning
-    console.warn('[SECURITY] ENCRYPTION_KEY not set — intake form data stored unencrypted')
+    console.warn('[SECURITY] ENCRYPTION_KEY not set, intake form data stored unencrypted')
     return { encrypted: false, value: JSON.stringify(data) }
   }
 
@@ -151,7 +151,7 @@ export async function POST(req: NextRequest) {
         .from('intake_submissions')
         .update({
           current_step,
-          form_data: form_data, // Keep as JSONB for now — encryption stored separately when ENCRYPTION_KEY is set
+          form_data: form_data, // Keep as JSONB for now, encryption stored separately when ENCRYPTION_KEY is set
           updated_at: new Date().toISOString(),
         })
         .eq('stripe_session_id', session_id)

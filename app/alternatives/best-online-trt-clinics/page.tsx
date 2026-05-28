@@ -18,8 +18,8 @@ const fadeUp = {
 const clinics = [
   {
     name: 'Bloom Metabolics',
-    tagline: 'Specialized TRT + GLP-1 Telehealth', // FTC — no "Best for" language
-    highlight: false, // FTC — no visual elevation over competitors
+    tagline: 'Specialized TRT + GLP-1 Telehealth', // FTC, no "Best for" language
+    highlight: false, // FTC, no visual elevation over competitors
     overview: 'A specialized telehealth clinic focused on TRT and compounded GLP-1 therapy. Protocols built around individual lab panels with ongoing monitoring. Compounded medications are not FDA-approved.',
     strengths: [
       'Comprehensive lab panels with quarterly monitoring',
@@ -37,7 +37,7 @@ const clinics = [
   },
   {
     name: 'Hims',
-    tagline: 'Large-Scale Men\u2019s Telehealth Platform', // FTC — neutral descriptor
+    tagline: 'Large-Scale Men\u2019s Telehealth Platform', // FTC, neutral descriptor
     highlight: false,
     overview: 'The largest men\u2019s telehealth platform. They offer TRT alongside ED medications, hair loss treatments, and skincare. Optimized for volume \u2014 fast onboarding and competitive pricing.',
     strengths: [
@@ -56,7 +56,7 @@ const clinics = [
   },
   {
     name: 'Ro (Roman)',
-    tagline: 'Broad Men\u2019s Health Platform with In-House Pharmacy', // FTC — neutral
+    tagline: 'Broad Men\u2019s Health Platform with In-House Pharmacy', // FTC, neutral
     highlight: false,
     overview: 'Started as Roman (ED treatment) and expanded into TRT, weight loss, and primary care. Their in-house pharmacy is a standout \u2014 fast, discreet home delivery.',
     strengths: [
@@ -75,7 +75,7 @@ const clinics = [
   },
   {
     name: 'Marek Health',
-    tagline: 'Optimization-Focused Hormone Clinic', // FTC — neutral
+    tagline: 'Optimization-Focused Hormone Clinic', // FTC, neutral
     highlight: false,
     overview: 'Founded by Derek (More Plates More Dates), targeting the optimization-focused demographic. Extensive lab panels and a community of patients who take protocols seriously.',
     strengths: [
@@ -94,7 +94,7 @@ const clinics = [
   },
   {
     name: 'Peter MD',
-    tagline: 'Straightforward Hormone Management', // FTC — neutral
+    tagline: 'Straightforward Hormone Management', // FTC, neutral
     highlight: false,
     overview: 'Offers TRT and hormone management through a straightforward telehealth model. Less marketing-heavy, more clinically focused.',
     strengths: [
@@ -169,7 +169,7 @@ export default function BestTRTClinicsPage() {
               Choosing an Online TRT Clinic: A Patient&apos;s Guide (2026)
             </motion.h1>
             <motion.p {...fadeUp} className="text-xl text-[#8a8268] leading-relaxed max-w-2xl">
-              An overview of five online TRT clinics — Bloom Metabolics, Hims, Roman, Marek Health, and Peter MD — covering their approaches to lab work, personalization, and patient care.
+              An overview of five online TRT clinics, Bloom Metabolics, Hims, Roman, Marek Health, and Peter MD, covering their approaches to lab work, personalization, and patient care.
             </motion.p>
           </motion.div>
         </div>

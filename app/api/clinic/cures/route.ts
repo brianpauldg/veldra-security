@@ -77,7 +77,7 @@ export async function POST(req: NextRequest) {
           prescriber_id: body.prescriber_id,
           triggered_by_id: data.id,
           triggered_by_type: 'pmp_queries',
-          summary: `PMP query requires medical director review — risk: ${body.risk_stratification}`,
+          summary: `PMP query requires medical director review, risk: ${body.risk_stratification}`,
         })
       } catch { /* non-blocking */ }
     }

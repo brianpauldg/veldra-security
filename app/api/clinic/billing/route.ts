@@ -170,7 +170,7 @@ export async function POST(req: NextRequest) {
           customer: customerId,
           invoice: invoice.id,
           price: priceId,
-          description: `${type.toUpperCase()} Program — First Month (monthly recurring)`,
+          description: `${type.toUpperCase()} Program, First Month (monthly recurring)`,
         })
 
         if (shouldApplyCredit) {
@@ -205,7 +205,7 @@ export async function POST(req: NextRequest) {
         await supabase.from('clinical_tasks').insert({
           patient_name: `${patient.first_name} ${patient.last_name}`,
           task_type: 'patient_outreach',
-          title: `Protocol call — ${patient.first_name} ${patient.last_name} (${type.toUpperCase()})`,
+          title: `Protocol call, ${patient.first_name} ${patient.last_name} (${type.toUpperCase()})`,
           description: `Call patient to review ${type.toUpperCase()} treatment protocol, confirm correct treatment, discuss add-on options, and verbally confirm monthly recurring fee of ${price}/mo. Do NOT process payment until patient gives verbal confirmation.`,
           status: 'pending',
           priority: 'urgent',
@@ -324,7 +324,7 @@ export async function POST(req: NextRequest) {
           invoice: invoice.id,
           amount: price * 100,
           currency: 'usd',
-          description: `${type.toUpperCase()} Program — Monthly (recurring)`,
+          description: `${type.toUpperCase()} Program, Monthly (recurring)`,
         })
 
         if (shouldCredit) {

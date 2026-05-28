@@ -29,7 +29,7 @@ export function ProtocolHero({ protocol }: ProtocolHeroProps) {
         <p className="eyebrow mb-4">{protocol.route} Protocol</p>
 
         <h1 className="text-display-sm md:text-display text-champagne mb-4">
-          {protocol.medication} — {routeLabel}
+          {protocol.medication}, {routeLabel}
         </h1>
 
         <p className="text-brass italic font-display text-lg mb-8">

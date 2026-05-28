@@ -72,7 +72,7 @@ export const glp1Subq: ProtocolContent = {
     },
     {
       question: 'I am experiencing nausea after my injection',
-      answer: 'Nausea is a common side effect, especially during dose titration. Eat smaller, more frequent meals. Avoid fatty or greasy foods. Stay hydrated. If nausea is severe or persistent, contact your care team — your dose may need adjustment.',
+      answer: 'Nausea is a common side effect, especially during dose titration. Eat smaller, more frequent meals. Avoid fatty or greasy foods. Stay hydrated. If nausea is severe or persistent, contact your care team, your dose may need adjustment.',
     },
   ],
   frequencyNote: 'Administer per your prescribed protocol. Your prescriber will specify your injection frequency and titration schedule.',

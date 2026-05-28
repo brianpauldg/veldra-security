@@ -103,7 +103,7 @@ export default function Services() {
               Our Treatment Programs
             </h1>
             <p className="text-xl text-[#8a8268] leading-relaxed max-w-2xl">
-              Physician-guided treatment protocols — available as add-ons to any Bloom membership tier.
+              Physician-guided treatment protocols, available as add-ons to any Bloom membership tier.
               Each individually tailored and designed for measurable outcomes.
             </p>
           </motion.div>

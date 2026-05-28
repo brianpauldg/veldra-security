@@ -117,7 +117,7 @@ export default function ConsentRenderer({ templateId, version, patientId, onComp
       <div className="rounded-xl border border-[#1a1814] bg-[#050404] p-8 text-center">
         <Check className="w-8 h-8 text-emerald-400 mx-auto mb-3" />
         <h3 className="text-white text-[15px] font-semibold mb-1">Consent Signed</h3>
-        <p className="text-[#8a8268] text-[13px]">{template.title} — signed and recorded.</p>
+        <p className="text-[#8a8268] text-[13px]">{template.title}, signed and recorded.</p>
       </div>
     )
   }

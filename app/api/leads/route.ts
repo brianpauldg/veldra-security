@@ -19,7 +19,7 @@ type NotifyResult = { ok: boolean; skipped?: boolean; error?: string; status?: n
 function encryptPhone(phone: string | undefined): string | undefined {
   if (!phone) return undefined
   const key = process.env.ENCRYPTION_KEY
-  if (!key || key.length !== 64) return phone // Dev fallback — plaintext
+  if (!key || key.length !== 64) return phone // Dev fallback, plaintext
   try {
     const crypto = require('crypto')
     const iv = crypto.randomBytes(16)
@@ -242,7 +242,7 @@ export async function POST(req: NextRequest) {
 
 export async function GET() {
   return NextResponse.json({
-    service: 'Bloom Metabolics — Lead Capture API',
+    service: 'Bloom Metabolics, Lead Capture API',
     status: 'active',
     integrations: {
       ghl: Boolean(GHL_API_KEY && GHL_LOCATION_ID),

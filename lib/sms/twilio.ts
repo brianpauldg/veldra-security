@@ -19,7 +19,7 @@ export interface SMSParams {
 
 export async function sendSMS(params: SMSParams): Promise<{ sent: boolean; reason?: string; sid?: string }> {
   if (!SMS_ENABLED) {
-    return { sent: false, reason: 'SMS_ENABLED=false — awaiting A2P 10DLC approval' }
+    return { sent: false, reason: 'SMS_ENABLED=false, awaiting A2P 10DLC approval' }
   }
 
   if (!TWILIO_ACCOUNT_SID || !TWILIO_AUTH_TOKEN || !TWILIO_FROM_NUMBER) {

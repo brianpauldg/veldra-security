@@ -20,14 +20,14 @@ export const trtIm: ProtocolContent = {
       name: 'Ventrogluteal',
       anatomicalLocation: 'Upper lateral hip, between the iliac crest and greater trochanter',
       recommended: true,
-      notes: 'Preferred site. Thick muscle mass with minimal nerves and blood vessels. Place palm on greater trochanter, index finger on anterior iliac spine, spread middle finger posteriorly — inject in the V formed.',
+      notes: 'Preferred site. Thick muscle mass with minimal nerves and blood vessels. Place palm on greater trochanter, index finger on anterior iliac spine, spread middle finger posteriorly, inject in the V formed.',
       diagramId: 'ventrogluteal',
     },
     {
       name: 'Vastus Lateralis',
       anatomicalLocation: 'Outer middle third of the thigh, between knee and hip',
       recommended: true,
-      notes: 'Preferred alternative. Easy self-injection site. Divide the thigh into thirds — inject into the outer middle third.',
+      notes: 'Preferred alternative. Easy self-injection site. Divide the thigh into thirds, inject into the outer middle third.',
       diagramId: 'vastus-lateralis',
     },
     {
@@ -75,7 +75,7 @@ export const trtIm: ProtocolContent = {
     },
     {
       question: 'I am not sure I injected the full dose',
-      answer: 'If the syringe barrel appears empty, you likely received the full dose. A small amount of medication may remain in the needle hub — this is normal and accounted for in dosing. Do not attempt a second injection. Note this at your next check-in.',
+      answer: 'If the syringe barrel appears empty, you likely received the full dose. A small amount of medication may remain in the needle hub, this is normal and accounted for in dosing. Do not attempt a second injection. Note this at your next check-in.',
     },
     {
       question: 'The oil was difficult to push through the needle',

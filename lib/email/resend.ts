@@ -28,7 +28,7 @@ export interface EmailParams {
 export async function sendEmail(params: EmailParams): Promise<boolean> {
   const resend = getResend()
   if (!resend) {
-    console.warn('[EMAIL] Resend not configured — email not sent')
+    console.warn('[EMAIL] Resend not configured, email not sent')
     return false
   }
 
@@ -93,15 +93,15 @@ export async function sendBookingConfirmation(data: {
 
   return sendEmail({
     to: data.patientEmail,
-    subject: 'Your Bloom Metabolics Consultation — Next Steps',
+    subject: 'Your Bloom Metabolics Consultation, Next Steps',
     html: `
       <div style="font-family: system-ui, sans-serif; max-width: 600px;">
         <h2 style="color: #020202;">Thank you, ${data.patientName}</h2>
         <p>Your consultation for ${service} has been booked. Here's what happens next:</p>
         <ol style="line-height: 2;">
-          <li><strong>Complete your intake form</strong> — you should have been redirected after payment</li>
-          <li><strong>Schedule your consultation</strong> — pick a time that works for you</li>
-          <li><strong>Meet your physician</strong> — via secure video call</li>
+          <li><strong>Complete your intake form</strong>, you should have been redirected after payment</li>
+          <li><strong>Schedule your consultation</strong>, pick a time that works for you</li>
+          <li><strong>Meet your physician</strong>, via secure video call</li>
         </ol>
         <p>If you have any questions before your consultation, reply to this email or contact us at <a href="mailto:brian@bloommetabolics.com">brian@bloommetabolics.com</a>.</p>
         <hr style="border: none; border-top: 1px solid #d8cfbe; margin: 24px 0;" />

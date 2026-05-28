@@ -168,7 +168,7 @@ export default function PatientProfile() {
                 {activeMeds.map(med => (
                   <div key={med.id} className="p-2.5 rounded-lg bg-zinc-800/30 border border-zinc-800/50">
                     <p className="text-xs font-medium text-white">{med.name}</p>
-                    <p className="text-[11px] text-zinc-400">{med.dosage} — {med.frequency}</p>
+                    <p className="text-[11px] text-zinc-400">{med.dosage}, {med.frequency}</p>
                     <p className="text-[10px] text-zinc-600">{med.route} · Since {med.startDate}</p>
                   </div>
                 ))}
@@ -273,7 +273,7 @@ export default function PatientProfile() {
                     <p className="text-[9px] text-zinc-600 mt-1.5">{i.generatedAt}</p>
                   </div>
                 ))}
-                <p className="text-[10px] text-zinc-600 italic">AI outputs are review support — not clinical decisions.</p>
+                <p className="text-[10px] text-zinc-600 italic">AI outputs are review support, not clinical decisions.</p>
               </div>
             ) : (
               <div className="text-center py-4">
@@ -569,9 +569,9 @@ function IntakeDataPanel({ intake }: { intake: any }) {
       ...(data.priorSurgeries ? [{ label: 'Surgeries', value: data.priorSurgeries }] : []),
       ...(data.diabetesStatus ? [{ label: 'Diabetes', value: data.diabetesStatus }] : []),
       ...(data.thyroidConditions ? [{ label: 'Thyroid', value: data.thyroidConditions }] : []),
-      ...(data.pancreatitisHistory === 'yes' ? [{ label: 'Pancreatitis', value: 'YES — history' }] : []),
-      ...(data.familyThyroidCancer === 'yes' ? [{ label: 'Family Thyroid Cancer', value: 'YES — FLAGGED' }] : []),
-      ...(data.familyMEN2 === 'yes' ? [{ label: 'Family MEN2', value: 'YES — CONTRAINDICATION' }] : []),
+      ...(data.pancreatitisHistory === 'yes' ? [{ label: 'Pancreatitis', value: 'YES, history' }] : []),
+      ...(data.familyThyroidCancer === 'yes' ? [{ label: 'Family Thyroid Cancer', value: 'YES, FLAGGED' }] : []),
+      ...(data.familyMEN2 === 'yes' ? [{ label: 'Family MEN2', value: 'YES, CONTRAINDICATION' }] : []),
     ],
   })
 
@@ -605,7 +605,7 @@ function IntakeDataPanel({ intake }: { intake: any }) {
     title: 'Lifestyle',
     fields: [
       { label: 'Exercise', value: data.exerciseFrequency ? `${data.exerciseFrequency} days/week` : '—' },
-      { label: 'Sleep', value: data.sleepHours ? `${data.sleepHours} hrs — ${data.sleepQuality || ''}` : '—' },
+      { label: 'Sleep', value: data.sleepHours ? `${data.sleepHours} hrs, ${data.sleepQuality || ''}` : '—' },
       { label: 'Alcohol', value: data.alcoholUse || '—' },
       { label: 'Tobacco', value: data.tobaccoUse || '—' },
       { label: 'Diet', value: data.dietDescription || '—' },
@@ -638,7 +638,7 @@ function IntakeDataPanel({ intake }: { intake: any }) {
       <div className="flex items-center justify-between mb-4">
         <div className="flex items-center gap-2">
           <FileText className="w-4 h-4 text-zinc-500" />
-          <h3 className="text-sm font-semibold text-white">Intake Form — {type}</h3>
+          <h3 className="text-sm font-semibold text-white">Intake Form, {type}</h3>
         </div>
         <span className={cn('text-[10px] px-2 py-0.5 rounded-full',
           intake.status === 'completed' ? 'bg-emerald-500/10 text-emerald-400' : 'bg-yellow-500/10 text-yellow-400'
@@ -782,14 +782,14 @@ function BillingPanel({ patientId, patientStatus, treatmentType }: { patientId: 
             <ol className="text-[10px] text-zinc-400 space-y-1 list-decimal list-inside">
               <li>Physician approves treatment eligibility</li>
               <li>Schedule protocol call (assign to Brian or Mahshad below)</li>
-              <li>Call patient — review protocol, discuss add-ons, verbally confirm recurring fee</li>
+              <li>Call patient, review protocol, discuss add-ons, verbally confirm recurring fee</li>
               <li>After verbal confirmation, approve payment and send invoice</li>
             </ol>
           </div>
 
           {/* Step 1: Schedule protocol call */}
           <div className="p-3 rounded-lg border border-zinc-800/50 bg-zinc-800/20">
-            <p className="text-[10px] text-zinc-500 uppercase tracking-wider mb-2">Step 1 — Protocol Call</p>
+            <p className="text-[10px] text-zinc-500 uppercase tracking-wider mb-2">Step 1, Protocol Call</p>
             <div className="flex flex-wrap gap-2">
               <button
                 onClick={() => handleAction('schedule_protocol_call', { assignee: 'Brian DeGuzman, RN' })}
@@ -810,7 +810,7 @@ function BillingPanel({ patientId, patientStatus, treatmentType }: { patientId: 
 
           {/* Step 2: After verbal confirmation + payment collected on phone */}
           <div className="p-3 rounded-lg border border-zinc-800/50 bg-zinc-800/20">
-            <p className="text-[10px] text-zinc-500 uppercase tracking-wider mb-2">Step 2 — Payment Collected on Phone</p>
+            <p className="text-[10px] text-zinc-500 uppercase tracking-wider mb-2">Step 2, Payment Collected on Phone</p>
             <p className="text-[10px] text-zinc-400 mb-2">After you have collected payment over the phone, click below to mark as paid and send a receipt + recurring confirmation to the patient&apos;s email.</p>
             <button
               onClick={() => {

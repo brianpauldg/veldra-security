@@ -206,7 +206,7 @@ export default function PeptidePillarPage() {
         <ArticleCluster label="Foundations" title="Peptide Science & Regulation" articles={foundationsArticles} />
       </div>
 
-      {/* Recovery & Repair — Tranche 1 */}
+      {/* Recovery & Repair, Tranche 1 */}
       <ArticleCluster label="Tranche 1" title="Recovery & Repair Research" articles={recoveryArticles} />
 
       {/* Longevity & Energy */}
@@ -214,7 +214,7 @@ export default function PeptidePillarPage() {
         <ArticleCluster label="Longevity" title="Longevity & Cellular Energy" articles={longevityArticles} />
       </div>
 
-      {/* Advanced Protocols — Tranche 2-3 */}
+      {/* Advanced Protocols, Tranche 2-3 */}
       <ArticleCluster label="Tranche 2-3" title="Advanced Protocols" articles={advancedArticles} />
 
       {/* Regulatory Outlook */}
@@ -244,7 +244,7 @@ export default function PeptidePillarPage() {
                   Recovery & Repair Peptides
                 </h3>
                 <p className="text-[13px] text-[#8a8268] leading-relaxed">
-                  BPC-157, TB-500 — pending FDA 503A pathway clearance. Waitlist open for patient interest.
+                  BPC-157, TB-500, pending FDA 503A pathway clearance. Waitlist open for patient interest.
                 </p>
               </div>
             </div>
@@ -257,7 +257,7 @@ export default function PeptidePillarPage() {
                   Growth Hormone Secretagogues
                 </h3>
                 <p className="text-[13px] text-[#8a8268] leading-relaxed">
-                  CJC-1295, Ipamorelin — dependent on regulatory pathway and clinical evidence review.
+                  CJC-1295, Ipamorelin, dependent on regulatory pathway and clinical evidence review.
                 </p>
               </div>
             </div>

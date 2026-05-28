@@ -111,7 +111,7 @@ function BookContent() {
           <div className="max-w-3xl mx-auto px-6 lg:px-8">
             <div className="flex items-center gap-2 mb-4 text-[12px] font-medium text-[#8a8268]">
               <Calendar className="w-3.5 h-3.5" />
-              Step 2 of 2 — Schedule your consultation
+              Step 2 of 2, Schedule your consultation
             </div>
 
             {calendlyUrl ? (
@@ -211,7 +211,7 @@ function BookContent() {
                   {...register('serviceInterest')}
                   className="w-full px-4 py-3 rounded-xl border border-[#1a1814] bg-[#0d0c0a] text-[14px] text-[#d8cfbe] focus:outline-none focus:ring-2 focus:ring-[#8a8268]/20 focus:border-[#8a8268]"
                 >
-                  <option value="general">Not sure yet — help me decide</option>
+                  <option value="general">Not sure yet, help me decide</option>
                   <option value="trt">Testosterone Therapy (TRT)</option>
                   <option value="glp1">GLP-1 Weight Loss</option>
                 </select>

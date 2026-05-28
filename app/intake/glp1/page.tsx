@@ -189,7 +189,7 @@ const glp1Steps: StepConfig[] = [
         <Field label="History of Gallbladder Problems">
           <RadioGroup value={data.gallbladderIssues as string} onChange={(v) => update('gallbladderIssues', v)} options={[
             { value: 'no', label: 'No' },
-            { value: 'gallstones', label: 'Yes — gallstones' },
+            { value: 'gallstones', label: 'Yes, gallstones' },
             { value: 'removed', label: 'Gallbladder removed' },
           ]} />
         </Field>
@@ -261,7 +261,7 @@ const glp1Steps: StepConfig[] = [
           <TextArea value={data.currentMedications as string} onChange={(v) => update('currentMedications', v)} placeholder="e.g., Metformin 500mg, Lisinopril 10mg, Vitamin D..." />
         </Field>
         <Field label="Diabetes Medications or Insulin (if applicable)">
-          <TextArea value={data.diabetesMedications as string} onChange={(v) => update('diabetesMedications', v)} placeholder="List any diabetes medications, insulin types, and doses — or type None" rows={2} />
+          <TextArea value={data.diabetesMedications as string} onChange={(v) => update('diabetesMedications', v)} placeholder="List any diabetes medications, insulin types, and doses, or type None" rows={2} />
         </Field>
         <Field label="Have you previously used a GLP-1 or GIP medication?">
           <RadioGroup value={data.priorGLP1Use as string} onChange={(v) => update('priorGLP1Use', v)} options={[
@@ -326,14 +326,14 @@ const glp1Steps: StepConfig[] = [
         </Field>
         <Field label="Sleep Quality">
           <RadioGroup value={data.sleepQuality as string} onChange={(v) => update('sleepQuality', v)} options={[
-            { value: 'good', label: 'Good — I feel rested' },
-            { value: 'fair', label: 'Fair — occasional issues' },
-            { value: 'poor', label: 'Poor — frequently disrupted' },
+            { value: 'good', label: 'Good, I feel rested' },
+            { value: 'fair', label: 'Fair, occasional issues' },
+            { value: 'poor', label: 'Poor, frequently disrupted' },
           ]} />
         </Field>
         <Field label="Describe Your Typical Diet">
           <RadioGroup value={data.dietDescription as string} onChange={(v) => update('dietDescription', v)} options={[
-            { value: 'standard', label: 'Standard diet — no specific plan' },
+            { value: 'standard', label: 'Standard diet, no specific plan' },
             { value: 'clean', label: 'Clean eating / whole foods focused' },
             { value: 'calorie_counting', label: 'Calorie counting / macro tracking' },
             { value: 'keto', label: 'Keto / low-carb' },
@@ -381,7 +381,7 @@ const glp1Steps: StepConfig[] = [
           ]} />
         </Field>
         <Field label="Anything else your physician should know about your goals?">
-          <TextArea value={data.expectations as string} onChange={(v) => update('expectations', v)} placeholder="Optional — describe your weight loss goals or expectations..." rows={3} />
+          <TextArea value={data.expectations as string} onChange={(v) => update('expectations', v)} placeholder="Optional, describe your weight loss goals or expectations..." rows={3} />
         </Field>
         <Field label="What is your timeline expectation for results?">
           <RadioGroup value={data.timelineExpectation as string} onChange={(v) => update('timelineExpectation', v)} options={[
@@ -406,15 +406,15 @@ const glp1Steps: StepConfig[] = [
           <h3 className="text-[14px] text-white font-semibold mb-4">Potential Risks of GLP-1 / GIP Therapy</h3>
           <ul className="space-y-2 text-[13px] text-[#d8cfbe] leading-relaxed">
             {[
-              'Gastrointestinal effects — nausea, vomiting, diarrhea, and constipation are common, especially during dose titration',
-              'Pancreatitis risk — rare but serious; seek immediate care for severe abdominal pain',
-              'Gallbladder complications — increased risk of gallstones, especially with rapid weight loss',
-              'Thyroid C-cell tumors (boxed warning) — observed in animal studies; contraindicated with personal or family history of medullary thyroid carcinoma or MEN2',
-              'Injection site reactions — redness, swelling, or itching at the injection site',
-              'Hypoglycemia risk — especially if combined with insulin or sulfonylureas',
-              'Potential for lean muscle loss — protein intake and exercise are important during treatment',
-              'Gastroparesis — delayed gastric emptying may occur',
-              'Renal impairment — dehydration from GI side effects may affect kidney function',
+              'Gastrointestinal effects, nausea, vomiting, diarrhea, and constipation are common, especially during dose titration',
+              'Pancreatitis risk, rare but serious; seek immediate care for severe abdominal pain',
+              'Gallbladder complications, increased risk of gallstones, especially with rapid weight loss',
+              'Thyroid C-cell tumors (boxed warning), observed in animal studies; contraindicated with personal or family history of medullary thyroid carcinoma or MEN2',
+              'Injection site reactions, redness, swelling, or itching at the injection site',
+              'Hypoglycemia risk, especially if combined with insulin or sulfonylureas',
+              'Potential for lean muscle loss, protein intake and exercise are important during treatment',
+              'Gastroparesis, delayed gastric emptying may occur',
+              'Renal impairment, dehydration from GI side effects may affect kidney function',
             ].map((risk) => (
               <li key={risk} className="flex items-start gap-2">
                 <AlertTriangle className="w-3.5 h-3.5 text-[#8a8268] mt-0.5 flex-shrink-0" />
@@ -428,7 +428,7 @@ const glp1Steps: StepConfig[] = [
           <h3 className="text-[14px] text-white font-semibold mb-4">Potential Benefits</h3>
           <ul className="space-y-2 text-[13px] text-[#d8cfbe] leading-relaxed">
             {[
-              'Weight reduction — clinical trials of brand-name GLP-1 medications showed 15–22% average body weight loss over 68 weeks. Individual results with compounded formulations vary.',
+              'Weight reduction, clinical trials of brand-name GLP-1 medications showed 15–22% average body weight loss over 68 weeks. Individual results with compounded formulations vary.',
               'Improved glycemic control and A1C reduction',
               'Reduced cardiovascular risk factors',
               'Lower blood pressure and improved cholesterol levels',

@@ -11,7 +11,7 @@ export default function PrivacyPage() {
       <section className="bg-[#020202] py-20">
         <div className="max-w-7xl mx-auto px-6 lg:px-8 text-center">
           <div className="rounded-xl border border-amber-500/30 bg-amber-500/5 px-6 py-4 mb-6 max-w-2xl mx-auto">
-            <p className="text-[12px] text-amber-300 font-medium uppercase tracking-wider mb-2">Draft for Attorney Review — Not Yet Legally Operative</p>
+            <p className="text-[12px] text-amber-300 font-medium uppercase tracking-wider mb-2">Draft for Attorney Review, Not Yet Legally Operative</p>
             <p className="text-[11px] text-[#8a8268] leading-relaxed font-light">
               Bloom Metabolics is in pre-launch state. These documents are being finalized by counsel and will be operative when enrollment opens. No medical services are currently being provided and no protected health information is being collected during pre-launch. Waitlist signups collect only email and optional preference data, not health information.
             </p>
@@ -201,7 +201,7 @@ export default function PrivacyPage() {
                 <li>Your medical information will not be disclosed without your written authorization except as permitted by law (e.g., treatment, payment, certain public health purposes).</li>
                 <li>You have the right to receive a copy of your medical records.</li>
                 <li>Unauthorized disclosure of medical information may result in civil penalties and damages.</li>
-                <li>CMIA protections apply in addition to HIPAA — where both laws apply, the stricter standard governs.</li>
+                <li>CMIA protections apply in addition to HIPAA, where both laws apply, the stricter standard governs.</li>
               </ul>
             </div>
 
@@ -218,12 +218,12 @@ export default function PrivacyPage() {
                     </tr>
                   </thead>
                   <tbody className="divide-y divide-[#1a1814]">
-                    <tr><td className="py-2">Supabase</td><td className="py-2 text-[#8a8268]">Database &amp; patient records</td><td className="py-2 text-amber-400">Pending — BAA execution in progress as of pre-launch May 2026</td></tr>
+                    <tr><td className="py-2">Supabase</td><td className="py-2 text-[#8a8268]">Database &amp; patient records</td><td className="py-2 text-amber-400">Pending, BAA execution in progress as of pre-launch May 2026</td></tr>
                     <tr><td className="py-2">Corepay</td><td className="py-2 text-[#8a8268]">Payment processing</td><td className="py-2 text-[#8a8268]">Not BAA-eligible; PHI not transmitted*</td></tr>
-                    <tr><td className="py-2">Vercel</td><td className="py-2 text-[#8a8268]">Website hosting</td><td className="py-2 text-amber-400">Pending — BAA execution in progress as of pre-launch May 2026</td></tr>
-                    <tr><td className="py-2">OptiMantra</td><td className="py-2 text-[#8a8268]">Electronic Health Records</td><td className="py-2 text-amber-400">Pending — BAA execution in progress as of pre-launch May 2026</td></tr>
-                    <tr><td className="py-2">Calendly</td><td className="py-2 text-[#8a8268]">Appointment scheduling</td><td className="py-2 text-amber-400">Pending — BAA execution in progress as of pre-launch May 2026</td></tr>
-                    <tr><td className="py-2">Resend</td><td className="py-2 text-[#8a8268]">Transactional email</td><td className="py-2 text-amber-400">Pending — BAA execution in progress as of pre-launch May 2026</td></tr>
+                    <tr><td className="py-2">Vercel</td><td className="py-2 text-[#8a8268]">Website hosting</td><td className="py-2 text-amber-400">Pending, BAA execution in progress as of pre-launch May 2026</td></tr>
+                    <tr><td className="py-2">OptiMantra</td><td className="py-2 text-[#8a8268]">Electronic Health Records</td><td className="py-2 text-amber-400">Pending, BAA execution in progress as of pre-launch May 2026</td></tr>
+                    <tr><td className="py-2">Calendly</td><td className="py-2 text-[#8a8268]">Appointment scheduling</td><td className="py-2 text-amber-400">Pending, BAA execution in progress as of pre-launch May 2026</td></tr>
+                    <tr><td className="py-2">Resend</td><td className="py-2 text-[#8a8268]">Transactional email</td><td className="py-2 text-amber-400">Pending, BAA execution in progress as of pre-launch May 2026</td></tr>
                   </tbody>
                 </table>
               </div>

@@ -29,7 +29,7 @@ async function checkRateLimit(ip: string): Promise<boolean> {
 // ─── Turnstile verification ─────────────────────────────────
 async function verifyTurnstile(token: string, ip: string): Promise<boolean> {
   if (!TURNSTILE_SECRET_KEY) {
-    console.warn('[WAITLIST] Turnstile not configured — skipping verification')
+    console.warn('[WAITLIST] Turnstile not configured, skipping verification')
     return true
   }
   try {
@@ -78,7 +78,7 @@ function buildNotificationHtml(d: Record<string, string | undefined>, timestamp:
     <hr style="border:none;border-top:1px solid #d8cfbe;margin:16px 0;" />
     ${rows.map(([k, v]) => `<p style="margin:6px 0;"><strong>${k}:</strong> ${v}</p>`).join('')}
     <hr style="border:none;border-top:1px solid #d8cfbe;margin:16px 0;" />
-    <p style="color:#8a8268;font-size:12px;">Bloom Metabolics — Waitlist Pipeline</p>
+    <p style="color:#8a8268;font-size:12px;">Bloom Metabolics, Waitlist Pipeline</p>
   </div>`
 }
 
@@ -226,7 +226,7 @@ export async function POST(req: NextRequest) {
     if (BUSINESS_LEAD_EMAIL) {
       notifyOk = await sendEmail({
         to: BUSINESS_LEAD_EMAIL,
-        subject: `New Bloom Metabolics Waitlist Lead — ${data.firstName} ${data.lastName} (${interestLabel(data.primaryInterest)})`,
+        subject: `New Bloom Metabolics Waitlist Lead, ${data.firstName} ${data.lastName} (${interestLabel(data.primaryInterest)})`,
         html: buildNotificationHtml(d, timestamp),
         replyTo: data.email,
       })

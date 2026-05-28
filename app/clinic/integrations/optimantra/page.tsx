@@ -13,7 +13,7 @@ export default function OptiMantraIntegrationPage() {
       <div className="p-6">
         <h1 className="text-2xl font-semibold text-white">OptiMantra Integration</h1>
         <div className="mt-6 bg-[#222] rounded-lg p-6 text-center">
-          <p className="text-[#a0a0a0]">Integration pending — awaiting BAA confirmation and onboarding completion.</p>
+          <p className="text-[#a0a0a0]">Integration pending, awaiting BAA confirmation and onboarding completion.</p>
           <p className="text-xs text-[#666] mt-2">Set OPTIMANTRA_ENABLED=true after BAA is confirmed.</p>
         </div>
       </div>
