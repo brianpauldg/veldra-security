@@ -1,5 +1,5 @@
 /**
- * Bloom Metabolics — Blog Post Management
+ * Bloom Metabolics. Blog Post Management.
  * Reads MDX frontmatter for blog index and routing.
  */
 
@@ -21,7 +21,7 @@ const POSTS: Post[] = [
   {
     slug: 'what-is-trt',
     title: 'What Is TRT? A Complete Guide to Testosterone Replacement Therapy',
-    description: 'Testosterone replacement therapy explained — what it is, how it works, who it\'s for, and what to expect from physician-supervised TRT protocols.',
+    description: 'Testosterone replacement therapy explained: what it is, how it works, who it\'s for, and what to expect from physician-supervised TRT protocols.',
     author: 'Brian DeGuzman, RN',
     published_at: '2026-05-13',
     updated_at: '2026-05-13',
@@ -33,7 +33,7 @@ const POSTS: Post[] = [
   {
     slug: 'low-testosterone-symptoms',
     title: '12 Signs of Low Testosterone Most Men Miss',
-    description: 'The clinical signs of low testosterone go beyond low libido. Learn the 12 symptoms most men overlook — and when to get tested.',
+    description: 'The clinical signs of low testosterone go beyond low libido. Learn the 12 symptoms most men overlook, and when to get tested.',
     author: 'Brian DeGuzman, RN',
     published_at: '2026-05-13',
     updated_at: '2026-05-13',
@@ -45,7 +45,7 @@ const POSTS: Post[] = [
   {
     slug: 'compounded-glp1-explained',
     title: 'Compounded GLP-1 Medications: What Patients Should Know',
-    description: 'Understanding compounded semaglutide and tirzepatide — how they differ from brand-name medications, FDA regulatory status, and what to look for in a provider.',
+    description: 'Understanding compounded semaglutide and tirzepatide: how they differ from brand-name medications, FDA regulatory status, and what to look for in a provider.',
     author: 'Brian DeGuzman, RN',
     published_at: '2026-05-13',
     updated_at: '2026-05-13',
@@ -103,7 +103,7 @@ const POSTS: Post[] = [
   {
     slug: 'testosterone-injections-guide',
     title: 'Testosterone Injections: A Patient Guide to Self-Administration',
-    description: 'Step-by-step guide to self-administering testosterone injections — subcutaneous and intramuscular techniques, supplies, and best practices.',
+    description: 'Step-by-step guide to self-administering testosterone injections: subcutaneous and intramuscular techniques, supplies, and best practices.',
     author: 'Brian DeGuzman, RN',
     published_at: '2026-06-01',
     category: 'TRT',
@@ -125,7 +125,7 @@ const POSTS: Post[] = [
   {
     slug: 'trt-body-composition',
     title: 'TRT and Body Composition: What the Research Supports',
-    description: 'How testosterone replacement therapy may influence muscle mass, fat distribution, and metabolic rate — and what it cannot do alone.',
+    description: 'How testosterone replacement therapy may influence muscle mass, fat distribution, and metabolic rate: and what it cannot do alone.',
     author: 'Brian DeGuzman, RN',
     published_at: '2026-06-01',
     category: 'TRT',
@@ -147,7 +147,7 @@ const POSTS: Post[] = [
   {
     slug: 'online-trt-clinic',
     title: 'How to Choose an Online TRT Clinic',
-    description: 'What to look for — and what to avoid — when selecting an online testosterone replacement therapy provider.',
+    description: 'What to look for: and what to avoid, when selecting an online testosterone replacement therapy provider.',
     author: 'Brian DeGuzman, RN',
     published_at: '2026-06-01',
     category: 'TRT',
@@ -171,7 +171,7 @@ const POSTS: Post[] = [
   {
     slug: 'semaglutide-vs-tirzepatide',
     title: 'Semaglutide vs Tirzepatide: Comparing GLP-1 Medications',
-    description: 'A clinical comparison of semaglutide and tirzepatide — mechanisms, efficacy data, side effect profiles, and how physicians choose between them.',
+    description: 'A clinical comparison of semaglutide and tirzepatide: mechanisms, efficacy data, side effect profiles, and how physicians choose between them.',
     author: 'Brian DeGuzman, RN',
     published_at: '2026-06-01',
     category: 'GLP-1',
@@ -215,7 +215,7 @@ const POSTS: Post[] = [
   {
     slug: 'glp1-injection-guide',
     title: 'GLP-1 Injection Guide: Self-Administration for Patients',
-    description: 'A step-by-step guide to self-administering subcutaneous GLP-1 injections — technique, supplies, timing, and storage.',
+    description: 'A step-by-step guide to self-administering subcutaneous GLP-1 injections: technique, supplies, timing, and storage.',
     author: 'Brian DeGuzman, RN',
     published_at: '2026-06-01',
     category: 'GLP-1',
@@ -237,7 +237,7 @@ const POSTS: Post[] = [
   {
     slug: 'medical-weight-loss-cost',
     title: 'Medical Weight Loss Cost: What Patients Should Expect to Pay',
-    description: 'A transparent breakdown of medical weight loss costs — GLP-1 medications, consultations, monitoring, and what affects pricing.',
+    description: 'A transparent breakdown of medical weight loss costs: GLP-1 medications, consultations, monitoring, and what affects pricing.',
     author: 'Brian DeGuzman, RN',
     published_at: '2026-06-01',
     category: 'GLP-1',
@@ -248,7 +248,7 @@ const POSTS: Post[] = [
   {
     slug: 'online-glp1-telehealth',
     title: 'Online GLP-1 Prescribing: What to Look for in a Telehealth Provider',
-    description: 'How to evaluate online GLP-1 clinics — physician oversight, pharmacy quality, monitoring standards, and red flags to avoid.',
+    description: 'How to evaluate online GLP-1 clinics: physician oversight, pharmacy quality, monitoring standards, and red flags to avoid.',
     author: 'Brian DeGuzman, RN',
     published_at: '2026-06-01',
     category: 'GLP-1',
@@ -259,7 +259,7 @@ const POSTS: Post[] = [
   {
     slug: 'glp1-maintenance-strategy',
     title: 'GLP-1 Maintenance Strategy: What Happens After You Reach Your Goal',
-    description: 'Transitioning from active weight loss to maintenance on GLP-1 therapy — dose adjustments, lifestyle factors, and long-term planning.',
+    description: 'Transitioning from active weight loss to maintenance on GLP-1 therapy: dose adjustments, lifestyle factors, and long-term planning.',
     author: 'Brian DeGuzman, RN',
     published_at: '2026-06-01',
     category: 'GLP-1',
@@ -272,7 +272,7 @@ const POSTS: Post[] = [
   {
     slug: 'what-is-peptide-therapy',
     title: 'What Is Peptide Therapy? A Clinical Overview',
-    description: 'An introduction to therapeutic peptides — what they are, how they work, current clinical applications, and what the evidence supports.',
+    description: 'An introduction to therapeutic peptides: what they are, how they work, current clinical applications, and what the evidence supports.',
     author: 'Brian DeGuzman, RN',
     published_at: '2026-07-01',
     category: 'Peptides',
@@ -283,7 +283,7 @@ const POSTS: Post[] = [
   {
     slug: 'bpc157-research',
     title: 'BPC-157: Current Research and Clinical Considerations',
-    description: 'A review of BPC-157 research — mechanism of action, preclinical data, clinical potential, and what patients should understand.',
+    description: 'A review of BPC-157 research: mechanism of action, preclinical data, clinical potential, and what patients should understand.',
     author: 'Brian DeGuzman, RN',
     published_at: '2026-07-01',
     category: 'Peptides',
@@ -294,7 +294,7 @@ const POSTS: Post[] = [
   {
     slug: 'tb500-research',
     title: 'TB-500 (Thymosin Beta-4): Research Overview and Clinical Context',
-    description: 'What the current research says about TB-500 — tissue repair mechanisms, preclinical evidence, and the gap between research and clinical use.',
+    description: 'What the current research says about TB-500: tissue repair mechanisms, preclinical evidence, and the gap between research and clinical use.',
     author: 'Brian DeGuzman, RN',
     published_at: '2026-07-01',
     category: 'Peptides',
@@ -305,7 +305,7 @@ const POSTS: Post[] = [
   {
     slug: 'nad-plus-longevity',
     title: 'NAD+ and Longevity: What the Science Supports',
-    description: 'An evidence-based review of NAD+ supplementation — cellular mechanisms, aging research, and the current state of clinical evidence.',
+    description: 'An evidence-based review of NAD+ supplementation: cellular mechanisms, aging research, and the current state of clinical evidence.',
     author: 'Brian DeGuzman, RN',
     published_at: '2026-07-01',
     category: 'Peptides',
@@ -316,7 +316,7 @@ const POSTS: Post[] = [
   {
     slug: 'peptide-compounding-fda',
     title: 'Peptide Compounding and FDA Regulation: What Patients Need to Know',
-    description: 'Understanding the regulatory landscape for compounded peptides — FDA category classifications, pharmacy standards, and patient safety.',
+    description: 'Understanding the regulatory landscape for compounded peptides: FDA category classifications, pharmacy standards, and patient safety.',
     author: 'Brian DeGuzman, RN',
     published_at: '2026-07-01',
     category: 'Peptides',
@@ -327,7 +327,7 @@ const POSTS: Post[] = [
   {
     slug: 'growth-hormone-peptides',
     title: 'Growth Hormone Peptides: Mechanisms, Research, and Clinical Use',
-    description: 'An overview of growth hormone-releasing peptides and secretagogues — how they work, what the research shows, and clinical considerations.',
+    description: 'An overview of growth hormone-releasing peptides and secretagogues: how they work, what the research shows, and clinical considerations.',
     author: 'Brian DeGuzman, RN',
     published_at: '2026-07-01',
     category: 'Peptides',
@@ -338,7 +338,7 @@ const POSTS: Post[] = [
   {
     slug: 'peptide-safety-quality',
     title: 'Peptide Safety and Quality: How to Evaluate Sources and Products',
-    description: 'Quality indicators for compounded peptides — COA requirements, pharmacy standards, purity testing, and red flags to avoid.',
+    description: 'Quality indicators for compounded peptides: COA requirements, pharmacy standards, purity testing, and red flags to avoid.',
     author: 'Brian DeGuzman, RN',
     published_at: '2026-07-01',
     category: 'Peptides',
@@ -349,7 +349,7 @@ const POSTS: Post[] = [
   {
     slug: 'peptide-therapy-future',
     title: 'The Future of Peptide Therapy: Emerging Research and Clinical Directions',
-    description: 'Where peptide therapy is headed — novel compounds in clinical trials, regulatory developments, and the evolving evidence base.',
+    description: 'Where peptide therapy is headed: novel compounds in clinical trials, regulatory developments, and the evolving evidence base.',
     author: 'Brian DeGuzman, RN',
     published_at: '2026-07-01',
     category: 'Peptides',

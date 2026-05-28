@@ -3,8 +3,10 @@ import Link from 'next/link'
 import { Clock, ArrowRight, ChevronRight, BookOpen } from 'lucide-react'
 
 export const metadata: Metadata = {
-  title: 'TRT Education — Testosterone Therapy Guides | Bloom Metabolics',
-  description: 'Comprehensive, physician-reviewed guides on testosterone replacement therapy. From symptoms and diagnosis to protocols, labs, and long-term outcomes.',
+  title: 'TRT Education: Testosterone Therapy Guides',
+  description:
+    'Physician-reviewed guides on testosterone replacement therapy: symptoms, diagnosis, protocols, labs, and long-term outcomes.',
+  alternates: { canonical: '/learn/trt' },
 }
 
 interface Article {
@@ -21,14 +23,14 @@ const basicsArticles: Article[] = [
     category: 'TRT Basics',
     title: 'What Is Testosterone Replacement Therapy?',
     readingTime: '8 min',
-    description: 'A comprehensive overview of TRT — how it works, who qualifies, and what to expect from physician-supervised hormone optimization.',
+    description: 'A comprehensive overview of TRT: how it works, who qualifies, and what to expect from physician-supervised hormone optimization.',
   },
   {
     slug: 'low-testosterone-symptoms',
     category: 'TRT Basics',
     title: 'Low Testosterone Symptoms: What to Watch For',
     readingTime: '6 min',
-    description: 'Fatigue, brain fog, low libido — the clinical signs of low testosterone and when testing is warranted.',
+    description: 'Fatigue, brain fog, low libido. The clinical signs of low testosterone and when testing is warranted.',
   },
 ]
 
@@ -69,7 +71,7 @@ const monitoringArticles: Article[] = [
     category: 'Labs & Monitoring',
     title: 'TRT Blood Work: What Your Labs Mean',
     readingTime: '10 min',
-    description: 'A guide to the biomarkers tracked during TRT — total testosterone, free testosterone, hematocrit, estradiol, and more.',
+    description: 'A guide to the biomarkers tracked during TRT, including total testosterone, free testosterone, hematocrit, and estradiol.',
   },
 ]
 
@@ -96,14 +98,14 @@ const costArticles: Article[] = [
     category: 'Cost & Access',
     title: 'TRT Cost Guide: What to Expect in 2026',
     readingTime: '5 min',
-    description: 'Transparent pricing breakdown for telehealth TRT — consultations, labs, medications, and ongoing monitoring.',
+    description: 'Transparent pricing breakdown for telehealth TRT, including consultations, labs, medications, and ongoing monitoring.',
   },
   {
     slug: 'online-trt-clinic',
     category: 'Cost & Access',
     title: 'Online TRT Clinics: How to Choose the Right One',
     readingTime: '7 min',
-    description: 'What to look for in a telehealth TRT provider — credentials, lab protocols, medication sourcing, and red flags.',
+    description: 'What to look for in a telehealth TRT provider: credentials, lab protocols, medication sourcing, and red flags.',
   },
 ]
 
@@ -202,7 +204,7 @@ export default function TRTPillarPage() {
             Testosterone Replacement Therapy:<br className="hidden md:block" /> Physician-Reviewed Guides
           </h1>
           <p className="text-[16px] text-[#8a8268] max-w-2xl mb-10 leading-relaxed font-light">
-            Everything you need to understand about TRT — from recognizing symptoms and reading lab work to choosing protocols and managing long-term health. Written by clinicians, reviewed by physicians.
+            Everything you need to understand about TRT: recognizing symptoms, reading lab work, choosing protocols, and managing long-term health. Written by clinicians, reviewed by physicians.
           </p>
           <div className="flex flex-wrap gap-4">
             <Link href="/quiz" className="bloom-btn">

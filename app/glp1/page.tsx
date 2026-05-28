@@ -3,10 +3,12 @@ import { TrendingUp, HeartPulse, Activity, Brain, Zap, Shield } from 'lucide-rea
 import TreatmentPage from '@/components/TreatmentPage'
 
 export const metadata: Metadata = {
-  title: 'GLP-1 — Medical Weight Loss',
-  // FDA April 1 2026 essentially-a-copy rule — compounded designation in metadata
-  description: 'Physician-supervised compounded GLP-1 therapy via telehealth. Compounded semaglutide and tirzepatide protocols. Not FDA-approved. Individual medical evaluation required.',
+  title: 'GLP-1: Medical Weight Loss',
+  // FDA April 1 2026 essentially-a-copy rule: compounded designation called out in metadata.
+  description:
+    'Physician-supervised compounded GLP-1 therapy via telehealth. Semaglutide and tirzepatide protocols. Medical evaluation required.',
   keywords: 'GLP-1 weight loss, semaglutide, tirzepatide, medical weight loss, telehealth weight loss, online weight loss clinic',
+  alternates: { canonical: '/glp1' },
 }
 
 export default function GLP1Page() {

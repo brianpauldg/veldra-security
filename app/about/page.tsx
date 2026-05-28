@@ -33,7 +33,7 @@ export default function About() {
             <p className="text-xl text-[#8a8268] leading-relaxed max-w-2xl">
               Bloom Metabolics exists because the gap between what primary care offers
               and what informed patients need is wider than it should be. Efficient,
-              evidence-based, and built around outcomes — not office visits.
+              evidence-based, and built around outcomes, not office visits.
             </p>
           </motion.div>
         </div>
@@ -54,13 +54,13 @@ export default function About() {
             <div className="mt-8 space-y-6">
               <p className="text-[14px] text-[#a89878] leading-relaxed">
                 Every treatment protocol at Bloom Metabolics is designed by board-certified
-                medical providers and informed by your bloodwork and biomarkers — not
+                medical providers and informed by your bloodwork and biomarkers, not
                 generic guidelines or one-size-fits-all dosing.
               </p>
               <p className="text-[14px] text-[#a89878] leading-relaxed">
                 Our platform combines the convenience of telehealth with the rigor of
                 specialized medicine. Digital intake, video consultations, lab coordination,
-                treatment delivery, and ongoing monitoring — all managed through a single,
+                treatment delivery, and ongoing monitoring, all managed through a single,
                 secure platform.
               </p>
             </div>
@@ -74,7 +74,7 @@ export default function About() {
               {[
                 { title: 'Medical Rigor First', desc: 'Every protocol is evidence-based and provider-supervised. No shortcuts, no exceptions.' },
                 { title: 'Radical Transparency', desc: 'Clear pricing, honest timelines, and straightforward communication. Every cost disclosed upfront.' },
-                { title: 'Personalized Protocols', desc: 'Your treatment is designed around your labs, your goals, and your medical history — not a template.' },
+                { title: 'Personalized Protocols', desc: 'Your treatment is designed around your labs, your goals, and your medical history, not a template.' },
                 { title: 'Ongoing Optimization', desc: 'We don\'t prescribe and disappear. Regular monitoring, check-ins, and adjustments are built into every program.' },
               ].map((item) => (
                 <div key={item.title}>
@@ -93,7 +93,7 @@ export default function About() {
           <SectionLabel dark>Why Bloom Metabolics</SectionLabel>
           <SectionTitle dark>A different standard of care</SectionTitle>
           <SectionDescription dark className="mx-auto">
-            We built Bloom Metabolics around the things that actually matter to patients —
+            We built Bloom Metabolics around the things that actually matter to patients:
             provider quality, treatment personalization, convenience, and accountability.
           </SectionDescription>
         </div>
@@ -113,7 +113,7 @@ export default function About() {
             {
               icon: <Users className="w-5 h-5" />,
               title: 'RN-Managed Operations',
-              desc: 'Scheduling, intake coordination, patient education, and follow-ups — handled by our registered nurse-led operations team.',
+              desc: 'Scheduling, intake coordination, patient education, and follow-ups, handled by our registered nurse-led operations team.',
             },
             {
               icon: <HeartPulse className="w-5 h-5" />,
@@ -167,7 +167,7 @@ export default function About() {
               points: [
                 'No guaranteed outcome promises',
                 'Clear eligibility criteria',
-                'Transparent pricing — every cost disclosed upfront',
+                'Transparent pricing. Every cost disclosed upfront',
                 'We say no when treatment isn\'t right',
               ],
             },

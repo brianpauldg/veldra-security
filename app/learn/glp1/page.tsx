@@ -4,8 +4,10 @@ import { Clock, ChevronRight, BookOpen } from 'lucide-react'
 import GLP1ComplianceDisclosure from '@/components/GLP1ComplianceDisclosure'
 
 export const metadata: Metadata = {
-  title: 'GLP-1 Education — Medical Weight Loss Guides | Bloom Metabolics',
-  description: 'Physician-reviewed guides on GLP-1 receptor agonists for medical weight management. Semaglutide, tirzepatide, compounded medications, dosing, and outcomes.',
+  title: 'GLP-1 Education: Medical Weight Loss Guides',
+  description:
+    'Physician-reviewed guides on GLP-1 receptor agonists for medical weight management, including semaglutide and tirzepatide.',
+  alternates: { canonical: '/learn/glp1' },
 }
 
 interface Article {
@@ -94,7 +96,7 @@ const costArticles: Article[] = [
     category: 'Cost & Access',
     title: 'Medical Weight Loss Cost: What to Expect',
     readingTime: '5 min',
-    description: 'A transparent breakdown of GLP-1 therapy costs — consultations, medications, lab work, and ongoing monitoring.',
+    description: 'A transparent breakdown of GLP-1 therapy costs, including consultations, medications, lab work, and ongoing monitoring.',
   },
   {
     slug: 'online-glp1-telehealth',

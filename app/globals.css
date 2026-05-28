@@ -435,12 +435,70 @@ body::before {
 
 /* ─── Responsive typography ────────────────────────────── */
 @media (max-width: 768px) {
-  .text-display-xl { font-size: 2.75rem; }
-  .text-display-lg { font-size: 2.25rem; }
-  .text-display { font-size: 1.75rem; }
-  .text-display-sm { font-size: 1.5rem; }
+  .text-display-xl { font-size: 2.5rem; line-height: 1.08; }
+  .text-display-lg { font-size: 2rem; line-height: 1.12; }
+  .text-display { font-size: 1.625rem; }
+  .text-display-sm { font-size: 1.375rem; }
 
-  .blog-content h1 { font-size: 1.75rem; }
-  .blog-content h2 { font-size: 1.35rem; }
-  .blog-content h3 { font-size: 1.15rem; }
+  .blog-content h1 { font-size: 1.625rem; }
+  .blog-content h2 { font-size: 1.25rem; }
+  .blog-content h3 { font-size: 1.1rem; }
+}
+
+/* ─── Mobile friendliness baseline ─────────────────────── */
+/* Prevent horizontal overflow on mobile */
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+/* iOS Safari: prevent input zoom by enforcing 16px minimum on form fields */
+@media (max-width: 768px) {
+  input,
+  select,
+  textarea,
+  .waitlist-input {
+    font-size: 16px !important;
+  }
+}
+
+/* Enforce 44x44px minimum tap target on links and buttons inside nav, footer, and CTAs */
+@media (pointer: coarse) {
+  a[role="button"],
+  button,
+  .bloom-btn,
+  nav a,
+  footer a,
+  [aria-label] {
+    min-height: 44px;
+  }
+  .bloom-btn {
+    padding-top: 14px;
+    padding-bottom: 14px;
+  }
+}
+
+/* Constrain images so they never blow out narrow viewports */
+img, video, svg, iframe {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Long-word break protection for compounded medication names and emails */
+.bloom-break {
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+/* sr-only utility (accessible visually-hidden text) */
+.sr-only {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
 }

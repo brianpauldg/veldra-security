@@ -3,8 +3,10 @@ import Link from 'next/link'
 import { Clock, ChevronRight, BookOpen, FlaskConical } from 'lucide-react'
 
 export const metadata: Metadata = {
-  title: 'Peptide Education — Research & Regulatory Guides | Bloom Metabolics',
-  description: 'Educational guides on therapeutic peptides, preclinical research, and the evolving FDA 503A regulatory pathway. For informational purposes only.',
+  title: 'Peptide Education: Research & Regulatory Guides',
+  description:
+    'Educational guides on therapeutic peptides, preclinical research, and the FDA 503A regulatory pathway. For informational purposes.',
+  alternates: { canonical: '/learn/peptides' },
 }
 
 interface Article {
@@ -22,7 +24,7 @@ const foundationsArticles: Article[] = [
     category: 'Peptide Foundations',
     title: 'What Is Peptide Therapy?',
     readingTime: '8 min',
-    description: 'An introduction to therapeutic peptides — the science behind them, current research directions, and the regulatory landscape.',
+    description: 'An introduction to therapeutic peptides: the science behind them, current research directions, and the regulatory landscape.',
   },
   {
     slug: 'peptide-compounding-fda',
@@ -84,7 +86,7 @@ const regulatoryArticles: Article[] = [
     category: 'Regulatory Outlook',
     title: 'The Future of Peptide Therapy: Regulatory & Clinical Landscape',
     readingTime: '7 min',
-    description: 'Where peptide therapy is headed — FDA pathway updates, clinical trial activity, and what patients should watch for.',
+    description: 'Where peptide therapy is headed: FDA pathway updates, clinical trial activity, and what patients should watch for.',
   },
 ]
 

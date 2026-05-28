@@ -3,8 +3,10 @@ import Link from 'next/link'
 import { getAllPosts } from '@/lib/blog/posts'
 
 export const metadata: Metadata = {
-  title: 'Blog — Evidence-Based Health Education',
-  description: 'Physician-reviewed guides on TRT, GLP-1 therapy, peptide research, and metabolic health from the Bloom Metabolics clinical team.',
+  title: 'Blog: Evidence-Based Health Education',
+  description:
+    'Physician-reviewed guides on TRT, GLP-1 therapy, peptide research, and metabolic health from the Bloom Metabolics team.',
+  alternates: { canonical: '/blog' },
 }
 
 export default function BlogIndexPage() {

@@ -1,6 +1,6 @@
 import './globals.css'
 import type { ReactNode } from 'react'
-import type { Metadata } from 'next'
+import type { Metadata, Viewport } from 'next'
 import Script from 'next/script'
 import { LayoutShell } from '@/components/LayoutShell'
 
@@ -8,33 +8,66 @@ const META_PIXEL_ID = process.env.NEXT_PUBLIC_META_PIXEL_ID || ''
 const GA4_ID = process.env.NEXT_PUBLIC_GA4_ID || ''
 const GOOGLE_ADS_ID = process.env.NEXT_PUBLIC_GOOGLE_ADS_ID || ''
 
+const SITE_URL = process.env.NEXT_PUBLIC_APP_URL || 'https://bloommetabolics.com'
+
 export const metadata: Metadata = {
+  metadataBase: new URL(SITE_URL),
   title: {
-    default: 'Bloom Metabolics — Membership-Based Hormone & Metabolic Optimization',
+    default: 'Bloom Metabolics | TRT, GLP-1 & Longevity Care',
     template: '%s | Bloom Metabolics',
   },
-  description: 'Membership-based physician-managed telehealth for TRT, GLP-1, sexual health, and longevity. Three tiers of precision care. Comprehensive labs. Licensed physicians.',
-  keywords: 'TRT telehealth, testosterone replacement, online TRT clinic, GLP-1 weight loss, semaglutide, tirzepatide, telehealth, hormone optimization, metabolic health membership, longevity',
+  description:
+    'Personalized TRT, GLP-1, peptide, and longevity care designed to optimize hormones, metabolism, and performance.',
+  keywords:
+    'TRT telehealth, testosterone replacement, online TRT clinic, GLP-1 weight loss, semaglutide, tirzepatide, telehealth, hormone optimization, metabolic health membership, longevity',
+  alternates: {
+    canonical: '/',
+  },
   openGraph: {
-    title: 'Bloom Metabolics — Membership-Based Metabolic Optimization',
-    description: 'Three tiers of precision care. TRT, GLP-1, sexual health, and longevity protocols. Licensed physicians. Comprehensive labs.',
+    title: 'Bloom Metabolics | TRT, GLP-1 & Longevity Care',
+    description:
+      'Personalized TRT, GLP-1, peptide, and longevity care designed to optimize hormones, metabolism, and performance.',
     type: 'website',
     siteName: 'Bloom Metabolics',
-    images: [{ url: '/og-image.png', width: 1200, height: 630 }],
+    url: SITE_URL,
+    locale: 'en_US',
+    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Bloom Metabolics' }],
   },
   icons: {
-    icon: '/favicon.png',
+    icon: [
+      { url: '/favicon.svg', type: 'image/svg+xml' },
+      { url: '/favicon.png', type: 'image/png', sizes: '32x32' },
+    ],
+    shortcut: '/favicon.png',
     apple: '/apple-icon.png',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Bloom Metabolics — Membership-Based Metabolic Optimization',
-    description: 'Three tiers of precision care. TRT, GLP-1, sexual health, and longevity protocols. Enrollment opens early-to-mid June 2026.',
+    title: 'Bloom Metabolics | TRT, GLP-1 & Longevity Care',
+    description:
+      'Personalized TRT, GLP-1, peptide, and longevity care designed to optimize hormones, metabolism, and performance.',
+    images: ['/og-image.png'],
   },
   robots: {
     index: true,
     follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-snippet': -1,
+      'max-image-preview': 'large',
+      'max-video-preview': -1,
+    },
   },
+}
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  minimumScale: 1,
+  maximumScale: 5,
+  viewportFit: 'cover',
+  themeColor: '#020202',
 }
 
 export default function RootLayout({ children }: { children: ReactNode }) {

@@ -3,8 +3,10 @@ import Link from 'next/link'
 import { BookOpen, Shield, Clock, ArrowRight, CheckCircle } from 'lucide-react'
 
 export const metadata: Metadata = {
-  title: 'Learn — Evidence-Based Men\'s Health Education | Bloom Metabolics',
-  description: 'Physician-reviewed guides on testosterone therapy, GLP-1 weight management, and peptide research. Evidence-based education for the informed patient.',
+  title: 'Learn: Evidence-Based Men\'s Health Education',
+  description:
+    'Physician-reviewed guides on testosterone therapy, GLP-1 weight management, and peptide research for informed patients.',
+  alternates: { canonical: '/learn' },
 }
 
 const trtArticles = [
@@ -13,14 +15,14 @@ const trtArticles = [
     category: 'TRT Basics',
     title: 'What Is Testosterone Replacement Therapy?',
     readingTime: '8 min',
-    description: 'A comprehensive overview of TRT — how it works, who qualifies, and what to expect from physician-supervised hormone optimization.',
+    description: 'A comprehensive overview of TRT: how it works, who qualifies, and what to expect from physician-supervised hormone optimization.',
   },
   {
     slug: 'low-testosterone-symptoms',
     category: 'TRT Basics',
     title: 'Low Testosterone Symptoms: What to Watch For',
     readingTime: '6 min',
-    description: 'Fatigue, brain fog, low libido — learn the clinical signs of low testosterone and when to get tested.',
+    description: 'Fatigue, brain fog, low libido. Learn the clinical signs of low testosterone and when to get tested.',
   },
   {
     slug: 'trt-benefits-timeline',
@@ -44,7 +46,7 @@ const glp1Articles = [
     category: 'GLP-1 Basics',
     title: 'Semaglutide vs. Tirzepatide: Key Differences',
     readingTime: '9 min',
-    description: 'A side-by-side comparison of the two leading GLP-1 medications — mechanisms, outcomes, and clinical considerations.',
+    description: 'A side-by-side comparison of the two leading GLP-1 medications: mechanisms, outcomes, and clinical considerations.',
   },
   {
     slug: 'compounded-glp1-explained',
@@ -61,7 +63,7 @@ const peptideArticles = [
     category: 'Peptide Foundations',
     title: 'What Is Peptide Therapy?',
     readingTime: '8 min',
-    description: 'An introduction to therapeutic peptides — the science behind them, current research, and the regulatory landscape.',
+    description: 'An introduction to therapeutic peptides: the science behind them, current research, and the regulatory landscape.',
   },
   {
     slug: 'bpc157-research',
@@ -271,7 +273,7 @@ export default function LearnHubPage() {
                 <span className="text-[13px] text-[#d8cfbe] font-medium">Written By</span>
               </div>
               <p className="text-[13px] text-[#8a8268] leading-relaxed">
-                Brian DeGuzman, RN — Clinical content lead with direct patient care experience in hormone therapy and metabolic health.
+                Brian DeGuzman, RN. Clinical content lead with direct patient care experience in hormone therapy and metabolic health.
               </p>
             </div>
             <div className="rounded-2xl bg-[#080808] border border-[#1a1814] p-6">
@@ -280,7 +282,7 @@ export default function LearnHubPage() {
                 <span className="text-[13px] text-[#d8cfbe] font-medium">Medical Review</span>
               </div>
               <p className="text-[13px] text-[#8a8268] leading-relaxed">
-                Dr. Michael Napolitano, MD — U.S.-licensed physician responsible for clinical accuracy review of all published guides.
+                Dr. Michael Napolitano, MD. U.S.-licensed physician responsible for clinical accuracy review of all published guides.
               </p>
             </div>
           </div>

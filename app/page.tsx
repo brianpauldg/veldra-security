@@ -61,9 +61,9 @@ export default function Home() {
                 className="text-display-xl text-chrome mb-8"
                 style={{ fontFamily: 'Fraunces, serif', fontWeight: 300 }}
               >
-                Physician-led testosterone and GLP-1 therapy —{' '}
-                <em className="italic">engineered</em>{' '}
-                around your labs.
+                Precision hormone &{' '}
+                <em className="italic">metabolic</em>{' '}
+                optimization.
               </motion.h1>
 
               <motion.p

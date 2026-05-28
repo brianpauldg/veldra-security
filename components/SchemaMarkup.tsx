@@ -20,13 +20,24 @@ export default function SchemaMarkup({ schema }: SchemaMarkupProps) {
 
 // Pre-built schemas for Bloom Metabolics
 
+const SITE_URL = 'https://bloommetabolics.com'
+const BRAND_LOGO_URL = `${SITE_URL}/logo.png` // 512x512 brand mark; matches favicon + Meridian glyph
+const BRAND_LOGO_WIDTH = 512
+const BRAND_LOGO_HEIGHT = 512
+
 export const organizationSchema = {
   '@context': 'https://schema.org',
   '@type': 'MedicalBusiness',
   name: 'Bloom Metabolics',
   description: 'Membership-based physician-managed telehealth for hormone optimization, metabolic health, and longevity. TRT, GLP-1, sexual health, and longevity protocols.',
-  url: 'https://bloommetabolics.com',
-  logo: 'https://bloommetabolics.com/logo.png',
+  url: SITE_URL,
+  logo: {
+    '@type': 'ImageObject',
+    url: BRAND_LOGO_URL,
+    width: BRAND_LOGO_WIDTH,
+    height: BRAND_LOGO_HEIGHT,
+  },
+  image: BRAND_LOGO_URL,
   email: 'brian@bloommetabolics.com',
   founder: {
     '@type': 'Person',
@@ -117,7 +128,12 @@ export function articleSchema(props: {
     publisher: {
       '@type': 'Organization',
       name: 'Bloom Metabolics',
-      logo: { '@type': 'ImageObject', url: 'https://bloommetabolics.com/logo.png' },
+      logo: {
+        '@type': 'ImageObject',
+        url: BRAND_LOGO_URL,
+        width: BRAND_LOGO_WIDTH,
+        height: BRAND_LOGO_HEIGHT,
+      },
     },
     datePublished: props.datePublished,
     dateModified: props.dateModified || props.datePublished,

@@ -3,9 +3,11 @@ import { Zap, TrendingUp, Brain, HeartPulse, Activity, Shield } from 'lucide-rea
 import TreatmentPage from '@/components/TreatmentPage'
 
 export const metadata: Metadata = {
-  title: 'TRT — Testosterone Replacement Therapy',
-  description: 'Clinician-guided testosterone replacement therapy via telehealth. Personalized, lab-informed TRT protocols. Physician-prescribed, individually dosed, and monitored.',
+  title: 'TRT: Testosterone Replacement Therapy',
+  description:
+    'Physician-prescribed, lab-informed testosterone replacement therapy via telehealth. Individually dosed and monitored.',
   keywords: 'TRT, testosterone replacement therapy, telehealth TRT, online TRT, hormone optimization, low testosterone treatment',
+  alternates: { canonical: '/trt' },
 }
 
 export default function TRTPage() {
@@ -14,10 +16,10 @@ export default function TRTPage() {
       tag="Testosterone Replacement Therapy"
       title="TRT"
       headline="Restore your energy. Reclaim your edge."
-      description="Clinician-guided testosterone optimization designed around your labs, your symptoms, and your goals. Not a cookie-cutter protocol — a personalized program supervised by licensed providers."
+      description="Clinician-guided testosterone optimization designed around your labs, your symptoms, and your goals. Not a cookie-cutter protocol, but a personalized program supervised by licensed providers."
       icon={<Zap className="w-6 h-6" />}
       benefits={[
-        { title: 'Energy & Vitality', description: 'TRT may support increased energy and reduced fatigue — many patients report initial improvements within 2–4 weeks, with fuller benefits developing over 3–6 months of consistent treatment. Individual results vary based on baseline levels and protocol adherence.', icon: <Zap className="w-5 h-5" /> },
+        { title: 'Energy & Vitality', description: 'TRT may support increased energy and reduced fatigue. Many patients report initial improvements within 2 to 4 weeks, with fuller benefits developing over 3 to 6 months of consistent treatment. Individual results vary based on baseline levels and protocol adherence.', icon: <Zap className="w-5 h-5" /> },
         { title: 'Body Composition', description: 'Optimized testosterone levels may support lean muscle maintenance, reduced body fat, and improved metabolic health. Individual results vary.', icon: <TrendingUp className="w-5 h-5" /> },
         { title: 'Mental Clarity', description: 'Some patients report improved focus and reduced brain fog with properly managed hormone levels. Individual results vary.', icon: <Brain className="w-5 h-5" /> },
         { title: 'Libido & Sexual Health', description: 'TRT may support improvements in libido and sexual function. Individual results vary.', icon: <HeartPulse className="w-5 h-5" /> },
