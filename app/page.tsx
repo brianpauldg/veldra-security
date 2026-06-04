@@ -36,8 +36,11 @@ export default function Home() {
       {/* Pre-launch disclosure banner */}
       <div className="bg-[#0a0906] border-b border-[#1a1814] py-3 px-6 text-center">
         <p className="text-[12px] text-[#d8cfbe] font-light leading-relaxed max-w-3xl mx-auto">
-          <strong className="font-medium">Bloom Metabolics is in pre-launch. Enrollment opens July 15, 2026.</strong>{' '}
-          No medical services are currently provided and no health information is collected. Join the waitlist for priority access.
+          <strong className="font-medium">Bloom Metabolics launches July 15, 2026.</strong>{' '}
+          Be among the first to access our personalized metabolic care platform. Join the waitlist today for priority access and exclusive launch updates.
+        </p>
+        <p className="text-[11px] text-[#8a8268] font-light leading-relaxed max-w-3xl mx-auto mt-1">
+          No medical services are currently provided, and no health information is collected.
         </p>
       </div>
 
