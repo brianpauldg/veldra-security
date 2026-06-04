@@ -19,6 +19,28 @@ export interface Post {
 const POSTS: Post[] = [
   // ─── PUBLISHED ────────────────────────────────────────────────────────
   {
+    slug: 'real-benefits-of-trt',
+    title: 'The Real Benefits of Testosterone Replacement Therapy (TRT)',
+    description: 'Learn the real benefits of Testosterone Replacement Therapy (TRT), including improved energy, muscle growth, libido, mental clarity, and body composition. Explore TRT risks, side effects, and safety.',
+    author: 'Bloom Metabolics Clinical Team',
+    published_at: '2026-06-04',
+    category: 'TRT',
+    tags: ['trt', 'testosterone', 'hormone-optimization', 'mens-health', 'libido', 'muscle-growth'],
+    reading_time: 9,
+    draft: false,
+  },
+  {
+    slug: 'what-is-retatrutide',
+    title: 'What Is Retatrutide (Reta)?',
+    description: 'Learn what retatrutide (Reta) is, how it works, and how it compares to semaglutide and tirzepatide for weight loss. Explore the latest clinical trial results, potential benefits, common side effects, risks, and FDA approval status of this next-generation obesity medication.',
+    author: 'Bloom Metabolics Clinical Team',
+    published_at: '2026-06-04',
+    category: 'GLP-1',
+    tags: ['retatrutide', 'glp-1', 'weight-loss', 'tirzepatide', 'semaglutide', 'obesity'],
+    reading_time: 10,
+    draft: false,
+  },
+  {
     slug: 'what-is-trt',
     title: 'What Is TRT? A Complete Guide to Testosterone Replacement Therapy',
     description: 'Testosterone replacement therapy explained: what it is, how it works, who it\'s for, and what to expect from physician-supervised TRT protocols.',
