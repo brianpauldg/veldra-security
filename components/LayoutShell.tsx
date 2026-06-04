@@ -1,7 +1,6 @@
 'use client'
 
 import { usePathname } from 'next/navigation'
-import PreLaunchBanner from '@/components/PreLaunchBanner'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import LeadPopup from '@/components/LeadPopup'
@@ -20,7 +19,6 @@ export function LayoutShell({ children }: { children: React.ReactNode }) {
   return (
     <>
       <AttributionTracker />
-      <PreLaunchBanner />
       <Header />
       <main className="pt-16 lg:pt-20">{children}</main>
       <Footer />
