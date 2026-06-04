@@ -74,7 +74,7 @@ export async function POST(req: NextRequest) {
           <div style="font-family:system-ui,sans-serif;max-width:560px;margin:0 auto;color:#a89878;background:#020202;padding:32px;border-radius:8px;">
             <p style="font-size:15px;line-height:1.7;margin-bottom:20px;color:#d8cfbe;">Hey ${name},</p>
             <p style="font-size:15px;line-height:1.7;margin-bottom:20px;">You're on the Bloom Metabolics waitlist. Thank you for your interest.</p>
-            <p style="font-size:15px;line-height:1.7;margin-bottom:20px;">Bloom opens for enrollment in early-to-mid June 2026. Over the next week, I'll send you a few emails introducing the clinical approach, what we offer, and how to prepare.</p>
+            <p style="font-size:15px;line-height:1.7;margin-bottom:20px;">Bloom opens for enrollment on July 15, 2026. Over the next week, I'll send you a few emails introducing the clinical approach, what we offer, and how to prepare.</p>
             <p style="font-size:15px;line-height:1.7;margin-bottom:20px;">If you have questions in the meantime, reply directly to this email. I read every one.</p>
             <p style="font-size:15px;line-height:1.7;margin-bottom:4px;color:#d8cfbe;">Brian</p>
             <p style="font-size:13px;color:#8a8268;">Brian DeGuzman, RN | Bloom Metabolics</p>

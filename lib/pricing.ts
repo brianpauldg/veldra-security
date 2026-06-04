@@ -329,7 +329,7 @@ export function primaryCtaLabel(): string {
 }
 
 export function primaryCtaSublabel(): string {
-  return 'Enrollment opens early-to-mid June 2026'
+  return 'Enrollment opens July 15, 2026'
 }
 
 /** Format tier price for display */

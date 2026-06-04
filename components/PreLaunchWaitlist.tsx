@@ -79,7 +79,7 @@ export default function PreLaunchWaitlist({ variant = 'compact', className }: Pr
           <span className="text-[15px] text-[#d8cfbe] font-medium">You&apos;re on the list.</span>
         </div>
         <p className="text-[14px] text-[#8a8268] leading-relaxed font-light">
-          Check your inbox for a welcome email from Brian. Enrollment opens early-to-mid June 2026.
+          Check your inbox for a welcome email from Brian. Enrollment opens July 15, 2026.
         </p>
       </motion.div>
     )

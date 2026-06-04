@@ -11,7 +11,7 @@ interface PreLaunchBannerProps {
 }
 
 export default function PreLaunchBanner({
-  copy = 'Bloom Metabolics opens for enrollment in early-to-mid June 2026. Join the waitlist below.',
+  copy = 'Bloom Metabolics opens for enrollment on July 15, 2026. Join the waitlist below.',
 }: PreLaunchBannerProps) {
   const [visible, setVisible] = useState(false)
 

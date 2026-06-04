@@ -36,7 +36,7 @@ export default function Home() {
       {/* Pre-launch disclosure banner */}
       <div className="bg-[#0a0906] border-b border-[#1a1814] py-3 px-6 text-center">
         <p className="text-[12px] text-[#d8cfbe] font-light leading-relaxed max-w-3xl mx-auto">
-          <strong className="font-medium">Bloom Metabolics is in pre-launch. Enrollment opens early-to-mid June 2026.</strong>{' '}
+          <strong className="font-medium">Bloom Metabolics is in pre-launch. Enrollment opens July 15, 2026.</strong>{' '}
           No medical services are currently provided and no health information is collected. Join the waitlist for priority access.
         </p>
       </div>

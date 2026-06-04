@@ -121,7 +121,7 @@ export default async function BlogPostPage({ params }: Props) {
           >
             Join Waitlist
           </Link>
-          <p className="text-[11px] text-[#8a8268] mt-2">Enrollment opens early-to-mid June 2026</p>
+          <p className="text-[11px] text-[#8a8268] mt-2">Enrollment opens July 15, 2026</p>
         </div>
 
         {/* Related Articles */}

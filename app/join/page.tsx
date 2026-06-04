@@ -7,10 +7,10 @@ import Meridian from '@/components/Meridian'
 
 export const metadata: Metadata = {
   title: 'Join the Bloom Metabolics Waitlist, Physician-Led Hormone & Metabolic Care',
-  description: 'Enrollment opens early-to-mid June 2026. Physician-prescribed TRT, GLP-1, sexual health, and longevity protocols. Founded by Brian DeGuzman, RN. Join the waitlist.',
+  description: 'Enrollment opens July 15, 2026. Physician-prescribed TRT, GLP-1, sexual health, and longevity protocols. Founded by Brian DeGuzman, RN. Join the waitlist.',
   openGraph: {
     title: 'Join the Bloom Metabolics Waitlist',
-    description: 'Physician-directed hormone and metabolic care. Enrollment opens early-to-mid June 2026.',
+    description: 'Physician-directed hormone and metabolic care. Enrollment opens July 15, 2026.',
     type: 'website',
   },
 }
@@ -39,7 +39,7 @@ const VALUE_PROPS = [
 ]
 
 const FAQ = [
-  { q: 'When does enrollment open?', a: 'Early-to-mid June 2026. Waitlist members are notified first.' },
+  { q: 'When does enrollment open?', a: 'July 15, 2026. Waitlist members are notified first.' },
   { q: 'What does the waitlist do?', a: 'Priority notification when enrollment opens. A 3-email welcome sequence introducing the clinical approach. No spam. Unsubscribe anytime.' },
   { q: 'What does the $49 evaluation include?', a: 'A focused session with a U.S.-licensed physician. Health history review, symptom discussion, and treatment eligibility determination. Credited toward your first month if you continue.' },
   { q: 'Who can I contact?', a: 'Brian DeGuzman, RN, brian@bloommetabolics.com. Reply directly to any email.' },
@@ -70,7 +70,7 @@ export default function JoinPage() {
               </h1>
 
               <p className="text-[16px] text-[#8a8268] leading-relaxed mb-10 font-light max-w-lg">
-                Bloom Metabolics opens for enrollment in early-to-mid June 2026. Join the waitlist for priority access.
+                Bloom Metabolics opens for enrollment on July 15, 2026. Join the waitlist for priority access.
               </p>
 
               {/* Value props */}

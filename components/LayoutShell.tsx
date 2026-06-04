@@ -20,7 +20,7 @@ export function LayoutShell({ children }: { children: React.ReactNode }) {
   return (
     <>
       <AttributionTracker />
-      <PreLaunchBanner copy="Bloom Metabolics opens for enrollment in early-to-mid June 2026. Join the waitlist below." />
+      <PreLaunchBanner copy="Bloom Metabolics opens for enrollment on July 15, 2026. Join the waitlist below." />
       <Header />
       <main className="pt-16 lg:pt-20">{children}</main>
       <Footer />

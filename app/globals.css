@@ -388,6 +388,34 @@ body::before {
 .blog-content a:hover {
   color: var(--color-champagne);
 }
+.blog-content a[href="/join"],
+.blog-content a[href^="/join?"],
+.blog-content a[href^="/join#"] {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 2rem;
+  margin: 0.5rem 0;
+  border-radius: 9999px;
+  background: rgba(201, 184, 140, 0.10);
+  border: 1px solid rgba(201, 184, 140, 0.30);
+  color: var(--color-gold);
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background-color 0.15s, color 0.15s;
+}
+.blog-content a[href="/join"]:hover,
+.blog-content a[href^="/join?"]:hover,
+.blog-content a[href^="/join#"]:hover {
+  background: rgba(201, 184, 140, 0.20);
+  color: var(--color-gold);
+}
+.blog-content p:has(> a[href="/join"]),
+.blog-content p:has(> a[href^="/join?"]),
+.blog-content p:has(> a[href^="/join#"]) {
+  text-align: center;
+}
 .blog-content strong {
   color: var(--color-champagne);
   font-weight: 600;

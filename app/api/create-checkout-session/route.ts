@@ -7,7 +7,7 @@ export const dynamic = 'force-dynamic'
 
 export async function POST() {
   return NextResponse.json(
-    { error: 'Bloom Metabolics is in pre-launch. Enrollment opens early-to-mid June 2026.', redirect: '/join' },
+    { error: 'Bloom Metabolics is in pre-launch. Enrollment opens July 15, 2026.', redirect: '/join' },
     { status: 503 }
   )
 }
