@@ -24,7 +24,6 @@ export default function PreLaunchBanner() {
     <div className="bg-[#0d0c0a] border-b border-[#1a1814] py-3 px-10 relative z-[60]">
       <div className="max-w-3xl mx-auto text-center">
         <p className="text-[13px] text-[#d8cfbe] font-light leading-relaxed">
-          <span className="text-gold font-medium uppercase tracking-[0.18em] text-[11px] mr-2">Pre-launch</span>
           <strong className="font-medium">Bloom Metabolics launches July 15, 2026.</strong>{' '}
           Be among the first to access our personalized metabolic care platform. Join the waitlist today for priority access and exclusive launch updates.
         </p>
