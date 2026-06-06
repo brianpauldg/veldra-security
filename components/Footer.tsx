@@ -181,10 +181,9 @@ export default function Footer() {
                     className={
                       'inline-flex items-center justify-center w-11 h-11 rounded-full border border-[#1a1814] text-[#8a8268] transition-colors ' +
                       (isPlaceholder
-                        ? 'opacity-40 cursor-not-allowed'
+                        ? 'opacity-40 cursor-not-allowed pointer-events-none'
                         : 'hover:text-[#d8cfbe] hover:border-[#2a2620]')
                     }
-                    onClick={isPlaceholder ? (e) => e.preventDefault() : undefined}
                   >
                     <SocialIcon icon={s.icon} />
                     <span className="sr-only">{s.name}</span>

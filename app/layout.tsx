@@ -2,7 +2,9 @@ import './globals.css'
 import type { ReactNode } from 'react'
 import type { Metadata, Viewport } from 'next'
 import Script from 'next/script'
-import { LayoutShell } from '@/components/LayoutShell'
+import Header from '@/components/Header'
+import Footer from '@/components/Footer'
+import { PublicChromeFrame, PublicChromeIslands } from '@/components/LayoutShell'
 
 const META_PIXEL_ID = process.env.NEXT_PUBLIC_META_PIXEL_ID || ''
 const GA4_ID = process.env.NEXT_PUBLIC_GA4_ID || ''
@@ -74,6 +76,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en" className="scroll-smooth">
       <head>
+        {/* Preconnect to font CDNs and preload key fonts to cut LCP. */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link
@@ -82,7 +85,14 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         />
       </head>
       <body className="antialiased">
-        <LayoutShell>{children}</LayoutShell>
+        {/* Header + Footer are server components — zero client JS for chrome.
+            The PublicChromeFrame client wrapper just decides whether to render
+            them (hidden on /clinic) without dragging Header/Footer into the bundle. */}
+        <PublicChromeFrame header={<Header />} footer={<Footer />}>
+          {children}
+        </PublicChromeFrame>
+        {/* Below-the-fold + deferred islands (popups, cookie banner, attribution). */}
+        <PublicChromeIslands />
 
         {/* ── Meta Pixel (env-gated) ───────────────────────── */}
         {META_PIXEL_ID ? (
