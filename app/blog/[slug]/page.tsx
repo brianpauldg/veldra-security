@@ -58,7 +58,7 @@ export default async function BlogPostPage({ params }: Props) {
             </span>
             <h1
               className="text-3xl md:text-4xl text-[#d8cfbe] mb-4 leading-tight"
-              style={{ fontFamily: 'Fraunces, serif', fontWeight: 300 }}
+              style={{ fontFamily: 'var(--font-display)', fontWeight: 300 }}
             >
               {post.title}
             </h1>
@@ -129,7 +129,7 @@ export default async function BlogPostPage({ params }: Props) {
           <section className="mt-16 border-t border-[#1a1814] pt-10">
             <h3
               className="text-[18px] text-[#d8cfbe] mb-6"
-              style={{ fontFamily: 'Fraunces, serif', fontWeight: 400 }}
+              style={{ fontFamily: 'var(--font-display)', fontWeight: 400 }}
             >
               Related Articles
             </h3>

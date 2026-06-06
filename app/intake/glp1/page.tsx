@@ -39,7 +39,7 @@ function BMIDisplay({ heightFeet, heightInches, weight }: { heightFeet: string; 
     <div className="rounded-xl border border-[#1a1814] bg-[#0d0c0a] p-4 mt-4">
       <span className="text-[12px] text-[#8a8268] uppercase tracking-wider">Calculated BMI</span>
       <div className="flex items-baseline gap-2 mt-1">
-        <span className={`text-[24px] font-light ${color}`} style={{ fontFamily: 'Fraunces, serif' }}>{bmi}</span>
+        <span className={`text-[24px] font-light ${color}`} style={{ fontFamily: 'var(--font-display)' }}>{bmi}</span>
         <span className="text-[13px] text-[#8a8268]">({category})</span>
       </div>
       {num >= 27 && (
@@ -502,7 +502,7 @@ function GLP1IntakeContent() {
           <span className="font-mono text-[10px] text-[#8a8268] tracking-[0.2em] uppercase mb-3 block">
             GLP-1 / GIP Intake Form
           </span>
-          <h1 className="text-display text-white mb-3" style={{ fontFamily: 'Fraunces, serif', fontWeight: 300 }}>
+          <h1 className="text-display text-white mb-3" style={{ fontFamily: 'var(--font-display)', fontWeight: 300 }}>
             GLP-1 Weight Management Intake
           </h1>
           <p className="text-[15px] text-[#8a8268] font-light">

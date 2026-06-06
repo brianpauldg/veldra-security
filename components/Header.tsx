@@ -40,7 +40,7 @@ export default function Header() {
             <div>
               <div
                 className="text-[14px] font-normal tracking-tight text-[#d8cfbe]"
-                style={{ fontFamily: 'Fraunces, serif' }}
+                style={{ fontFamily: 'var(--font-display)' }}
               >
                 Bloom Metabolics
               </div>

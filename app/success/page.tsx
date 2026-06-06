@@ -74,7 +74,7 @@ export default function SuccessPage() {
             transition={{ duration: 0.6, delay: 0.4 }}
             className="mt-14 p-6 lg:p-8 rounded-xl bg-[#050404] border border-[#1a1814] text-center"
           >
-            <p className="text-headline text-[#d8cfbe] mb-2" style={{ fontFamily: 'Fraunces, serif', fontWeight: 300 }}>
+            <p className="text-headline text-[#d8cfbe] mb-2" style={{ fontFamily: 'var(--font-display)', fontWeight: 300 }}>
               Get 10% off your next month
             </p>
             <p className="text-[14px] text-[#8a8268] leading-relaxed mb-5 max-w-md mx-auto font-light">

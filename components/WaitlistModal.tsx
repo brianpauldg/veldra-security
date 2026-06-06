@@ -266,7 +266,7 @@ export default function WaitlistModal({ isOpen, onClose, preselectedInterest }: 
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                     </svg>
                   </div>
-                  <h2 className="text-display-sm text-[#d8cfbe] mb-3" style={{ fontFamily: 'Fraunces, serif', fontWeight: 300 }}>
+                  <h2 className="text-display-sm text-[#d8cfbe] mb-3" style={{ fontFamily: 'var(--font-display)', fontWeight: 300 }}>
                     You&apos;re on the list.
                   </h2>
                   <p className="text-[15px] text-[#a89878] leading-relaxed max-w-sm mx-auto mb-8 font-light">
@@ -281,7 +281,7 @@ export default function WaitlistModal({ isOpen, onClose, preselectedInterest }: 
               {/* ── Rate-limited state ───────────────────────── */}
               {submitState === 'rate-limited' && (
                 <div className="text-center py-8">
-                  <h2 className="text-display-sm text-[#d8cfbe] mb-3" style={{ fontFamily: 'Fraunces, serif', fontWeight: 300 }}>
+                  <h2 className="text-display-sm text-[#d8cfbe] mb-3" style={{ fontFamily: 'var(--font-display)', fontWeight: 300 }}>
                     Already submitted.
                   </h2>
                   <p className="text-[15px] text-[#a89878] leading-relaxed max-w-sm mx-auto mb-8 font-light">
@@ -296,7 +296,7 @@ export default function WaitlistModal({ isOpen, onClose, preselectedInterest }: 
               {/* ── Error state ──────────────────────────────── */}
               {submitState === 'error' && (
                 <div className="text-center py-8">
-                  <h2 className="text-display-sm text-[#d8cfbe] mb-3" style={{ fontFamily: 'Fraunces, serif', fontWeight: 300 }}>
+                  <h2 className="text-display-sm text-[#d8cfbe] mb-3" style={{ fontFamily: 'var(--font-display)', fontWeight: 300 }}>
                     Something went wrong.
                   </h2>
                   <p className="text-[15px] text-[#a89878] leading-relaxed max-w-sm mx-auto mb-6 font-light">
@@ -319,7 +319,7 @@ export default function WaitlistModal({ isOpen, onClose, preselectedInterest }: 
                 <>
                   <div className="mb-6">
                     <div className="eyebrow mb-3">Waitlist</div>
-                    <h2 className="text-display-sm text-[#d8cfbe] mb-2" style={{ fontFamily: 'Fraunces, serif', fontWeight: 300 }}>
+                    <h2 className="text-display-sm text-[#d8cfbe] mb-2" style={{ fontFamily: 'var(--font-display)', fontWeight: 300 }}>
                       Join the Bloom Metabolics Waitlist
                     </h2>
                     <p className="text-[14px] text-[#a89878] leading-relaxed font-light">

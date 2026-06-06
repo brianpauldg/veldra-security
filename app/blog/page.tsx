@@ -24,7 +24,7 @@ export default function BlogIndexPage() {
 
         <h1
           className="text-3xl md:text-4xl text-[#d8cfbe] mb-3"
-          style={{ fontFamily: 'Fraunces, serif', fontWeight: 300 }}
+          style={{ fontFamily: 'var(--font-display)', fontWeight: 300 }}
         >
           Evidence-based education for the informed patient.
         </h1>
@@ -51,7 +51,7 @@ export default function BlogIndexPage() {
                   </div>
                   <h2
                     className="text-xl text-[#d8cfbe] group-hover:text-gold transition-colors mb-2"
-                    style={{ fontFamily: 'Fraunces, serif', fontWeight: 400 }}
+                    style={{ fontFamily: 'var(--font-display)', fontWeight: 400 }}
                   >
                     {post.title}
                   </h2>
@@ -73,7 +73,7 @@ export default function BlogIndexPage() {
         <div className="mt-16 pt-10 border-t border-[#1a1814]">
           <h3
             className="text-[16px] text-[#d8cfbe] mb-6"
-            style={{ fontFamily: 'Fraunces, serif', fontWeight: 400 }}
+            style={{ fontFamily: 'var(--font-display)', fontWeight: 400 }}
           >
             Browse by topic
           </h3>

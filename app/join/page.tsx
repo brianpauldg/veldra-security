@@ -63,7 +63,7 @@ export default function JoinPage() {
 
               <h1
                 className="text-display-lg text-chrome mb-6"
-                style={{ fontFamily: 'Fraunces, serif', fontWeight: 300 }}
+                style={{ fontFamily: 'var(--font-display)', fontWeight: 300 }}
               >
                 Physician-directed hormone and metabolic care.{' '}
                 <em className="italic">Built by a clinician.</em>
@@ -94,7 +94,7 @@ export default function JoinPage() {
               <div className="bg-[#0d0c0a] border border-[#1a1814] rounded-2xl p-8">
                 <h2
                   className="text-[20px] text-[#d8cfbe] mb-2"
-                  style={{ fontFamily: 'Fraunces, serif', fontWeight: 400 }}
+                  style={{ fontFamily: 'var(--font-display)', fontWeight: 400 }}
                 >
                   Join the waitlist
                 </h2>
@@ -147,7 +147,7 @@ export default function JoinPage() {
         <div className="max-w-3xl mx-auto px-6 lg:px-8">
           <h2
             className="text-[20px] text-[#d8cfbe] mb-8"
-            style={{ fontFamily: 'Fraunces, serif', fontWeight: 400 }}
+            style={{ fontFamily: 'var(--font-display)', fontWeight: 400 }}
           >
             Common questions
           </h2>

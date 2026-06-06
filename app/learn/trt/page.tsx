@@ -141,7 +141,7 @@ function ArticleCard({ slug, category, title, readingTime, description }: Articl
         </span>
         <h3
           className="text-[16px] text-[#d8cfbe] mt-2 mb-2 group-hover:text-gold transition-colors leading-snug"
-          style={{ fontFamily: 'Fraunces, serif', fontWeight: 400 }}
+          style={{ fontFamily: 'var(--font-display)', fontWeight: 400 }}
         >
           {title}
         </h3>
@@ -166,7 +166,7 @@ function ArticleCluster({ label, title, articles }: { label: string; title: stri
         </span>
         <h2
           className="text-2xl md:text-3xl text-[#d8cfbe] mt-2 mb-8"
-          style={{ fontFamily: 'Fraunces, serif', fontWeight: 300 }}
+          style={{ fontFamily: 'var(--font-display)', fontWeight: 300 }}
         >
           {title}
         </h2>
@@ -199,7 +199,7 @@ export default function TRTPillarPage() {
           </div>
           <h1
             className="text-3xl md:text-4xl lg:text-5xl text-[#d8cfbe] mb-6 leading-[1.1]"
-            style={{ fontFamily: 'Fraunces, serif', fontWeight: 300 }}
+            style={{ fontFamily: 'var(--font-display)', fontWeight: 300 }}
           >
             Testosterone Replacement Therapy:<br className="hidden md:block" /> Physician-Reviewed Guides
           </h1>
@@ -243,7 +243,7 @@ export default function TRTPillarPage() {
         <div className="max-w-3xl mx-auto">
           <h2
             className="text-2xl md:text-3xl text-[#d8cfbe] mb-10 text-center"
-            style={{ fontFamily: 'Fraunces, serif', fontWeight: 300 }}
+            style={{ fontFamily: 'var(--font-display)', fontWeight: 300 }}
           >
             Frequently Asked Questions
           </h2>
@@ -252,7 +252,7 @@ export default function TRTPillarPage() {
               <div key={i} className="rounded-2xl bg-[#080808] border border-[#1a1814] p-6">
                 <h3
                   className="text-[15px] text-[#d8cfbe] mb-3"
-                  style={{ fontFamily: 'Fraunces, serif', fontWeight: 400 }}
+                  style={{ fontFamily: 'var(--font-display)', fontWeight: 400 }}
                 >
                   {faq.question}
                 </h3>
@@ -270,7 +270,7 @@ export default function TRTPillarPage() {
         <div className="max-w-3xl mx-auto text-center">
           <h2
             className="text-3xl md:text-4xl text-[#d8cfbe] mb-5"
-            style={{ fontFamily: 'Fraunces, serif', fontWeight: 300 }}
+            style={{ fontFamily: 'var(--font-display)', fontWeight: 300 }}
           >
             Not sure if TRT is right for you?
           </h2>

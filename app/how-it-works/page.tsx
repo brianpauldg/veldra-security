@@ -77,7 +77,7 @@ export default function HowItWorksPage() {
                 <span className="font-mono text-[11px] text-[#d8cfbe] tracking-[0.2em]">Step {s.step}</span>
                 <span className="text-[#8a8268]">{s.icon}</span>
               </div>
-              <h3 className="text-[18px] text-white mb-3" style={{ fontFamily: 'Fraunces, serif', fontWeight: 400 }}>
+              <h3 className="text-[18px] text-white mb-3" style={{ fontFamily: 'var(--font-display)', fontWeight: 400 }}>
                 {s.title}
               </h3>
               <p className="text-[14px] text-[#d8cfbe] leading-relaxed font-light">{s.desc}</p>
@@ -208,7 +208,7 @@ export default function HowItWorksPage() {
           ].map((item) => (
             <div key={item.title} className="bg-[#050404] p-8">
               <span className="text-[#8a8268] mb-4 block">{item.icon}</span>
-              <h3 className="text-[15px] text-white mb-2" style={{ fontFamily: 'Fraunces, serif', fontWeight: 400 }}>{item.title}</h3>
+              <h3 className="text-[15px] text-white mb-2" style={{ fontFamily: 'var(--font-display)', fontWeight: 400 }}>{item.title}</h3>
               <p className="text-[13px] text-[#d8cfbe] leading-relaxed font-light">{item.desc}</p>
             </div>
           ))}
@@ -220,7 +220,7 @@ export default function HowItWorksPage() {
         <hr className="bloom-divider mb-[80px] lg:mb-[140px]" />
 
         <div className="max-w-3xl mx-auto text-center">
-          <h2 className="text-display text-white mb-5" style={{ fontFamily: 'Fraunces, serif', fontWeight: 300 }}>
+          <h2 className="text-display text-white mb-5" style={{ fontFamily: 'var(--font-display)', fontWeight: 300 }}>
             Experience healthcare built around <em className="italic">you.</em>
           </h2>
           <p className="text-lg text-[#d8cfbe] leading-relaxed mb-8">

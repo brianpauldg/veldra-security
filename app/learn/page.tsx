@@ -96,7 +96,7 @@ function ArticleCard({ slug, category, title, readingTime, description }: {
         </span>
         <h3
           className="text-[17px] text-[#d8cfbe] mt-2 mb-2 group-hover:text-gold transition-colors leading-snug"
-          style={{ fontFamily: 'Fraunces, serif', fontWeight: 400 }}
+          style={{ fontFamily: 'var(--font-display)', fontWeight: 400 }}
         >
           {title}
         </h3>
@@ -124,7 +124,7 @@ export default function LearnHubPage() {
           </div>
           <h1
             className="text-4xl md:text-5xl lg:text-6xl text-[#d8cfbe] mb-6 leading-[1.1]"
-            style={{ fontFamily: 'Fraunces, serif', fontWeight: 300 }}
+            style={{ fontFamily: 'var(--font-display)', fontWeight: 300 }}
           >
             Evidence-based education<br className="hidden md:block" /> for the informed patient.
           </h1>
@@ -159,7 +159,7 @@ export default function LearnHubPage() {
             </span>
             <h2
               className="text-3xl md:text-4xl text-[#d8cfbe] mt-2 mb-4"
-              style={{ fontFamily: 'Fraunces, serif', fontWeight: 300 }}
+              style={{ fontFamily: 'var(--font-display)', fontWeight: 300 }}
             >
               Testosterone Therapy
             </h2>
@@ -191,7 +191,7 @@ export default function LearnHubPage() {
             </span>
             <h2
               className="text-3xl md:text-4xl text-[#d8cfbe] mt-2 mb-4"
-              style={{ fontFamily: 'Fraunces, serif', fontWeight: 300 }}
+              style={{ fontFamily: 'var(--font-display)', fontWeight: 300 }}
             >
               GLP-1 Weight Management
             </h2>
@@ -223,7 +223,7 @@ export default function LearnHubPage() {
             </span>
             <h2
               className="text-3xl md:text-4xl text-[#d8cfbe] mt-2 mb-4"
-              style={{ fontFamily: 'Fraunces, serif', fontWeight: 300 }}
+              style={{ fontFamily: 'var(--font-display)', fontWeight: 300 }}
             >
               Peptide Research
             </h2>
@@ -258,7 +258,7 @@ export default function LearnHubPage() {
           <Shield className="w-8 h-8 text-gold/40 mx-auto mb-5" />
           <h2
             className="text-2xl md:text-3xl text-[#d8cfbe] mb-5"
-            style={{ fontFamily: 'Fraunces, serif', fontWeight: 300 }}
+            style={{ fontFamily: 'var(--font-display)', fontWeight: 300 }}
           >
             Our Editorial Standards
           </h2>
@@ -294,7 +294,7 @@ export default function LearnHubPage() {
         <div className="max-w-3xl mx-auto text-center">
           <h2
             className="text-3xl md:text-4xl text-[#d8cfbe] mb-5"
-            style={{ fontFamily: 'Fraunces, serif', fontWeight: 300 }}
+            style={{ fontFamily: 'var(--font-display)', fontWeight: 300 }}
           >
             Ready to start?
           </h2>

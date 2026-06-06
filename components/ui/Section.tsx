@@ -42,7 +42,7 @@ export function SectionLabel({ children }: { children: ReactNode; dark?: boolean
 
 export function SectionTitle({ children }: { children: ReactNode; dark?: boolean }) {
   return (
-    <h2 className="text-display text-chrome mb-5" style={{ fontFamily: 'Fraunces, serif', fontWeight: 300 }}>
+    <h2 className="text-display text-chrome mb-5" style={{ fontFamily: 'var(--font-display)', fontWeight: 300 }}>
       {children}
     </h2>
   )

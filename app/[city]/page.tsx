@@ -88,7 +88,7 @@ export default function CityHubPage({ params }: PageProps) {
             </div>
             <h1
               className="text-[32px] leading-[1.05] sm:text-[44px] lg:text-[64px] text-white mb-4 sm:mb-5 font-light"
-              style={{ fontFamily: 'Fraunces, serif' }}
+              style={{ fontFamily: 'var(--font-display)' }}
             >
               Telehealth clinic for {city.name} residents.
             </h1>
@@ -122,7 +122,7 @@ export default function CityHubPage({ params }: PageProps) {
             <div className="eyebrow mb-3 sm:mb-4">{city.name} Services</div>
             <h2
               className="text-[28px] sm:text-[36px] lg:text-[44px] text-chrome leading-tight font-light"
-              style={{ fontFamily: 'Fraunces, serif' }}
+              style={{ fontFamily: 'var(--font-display)' }}
             >
               Available for {city.name} residents
             </h2>
@@ -159,7 +159,7 @@ export default function CityHubPage({ params }: PageProps) {
             <div className="eyebrow mb-3">{city.name} Service Area</div>
             <h2
               className="text-[22px] sm:text-[28px] text-chrome leading-tight font-light"
-              style={{ fontFamily: 'Fraunces, serif' }}
+              style={{ fontFamily: 'var(--font-display)' }}
             >
               Neighborhoods we serve in {city.name}
             </h2>
@@ -184,7 +184,7 @@ export default function CityHubPage({ params }: PageProps) {
         <div className="max-w-3xl mx-auto px-5 sm:px-6 lg:px-8 text-center">
           <h2
             className="text-[28px] sm:text-[36px] lg:text-[44px] text-white mb-4 sm:mb-5 leading-tight font-light"
-            style={{ fontFamily: 'Fraunces, serif' }}
+            style={{ fontFamily: 'var(--font-display)' }}
           >
             Start your care from {city.name}.
           </h2>

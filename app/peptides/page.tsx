@@ -29,7 +29,7 @@ export default function PeptidesPage() {
                 Pending FDA 503A Pathway
               </span>
             </motion.div>
-            <motion.h1 {...fadeUp} className="text-display-lg text-[#d8cfbe] mb-5" style={{ fontFamily: 'Fraunces, serif', fontWeight: 300 }}>
+            <motion.h1 {...fadeUp} className="text-display-lg text-[#d8cfbe] mb-5" style={{ fontFamily: 'var(--font-display)', fontWeight: 300 }}>
               Peptide Therapy Roadmap
             </motion.h1>
             <motion.p {...fadeUp} className="text-lg text-[#8a8268] leading-relaxed max-w-2xl mb-8 font-light">
@@ -117,7 +117,7 @@ export default function PeptidesPage() {
             ].map((s) => (
               <div key={s.step} className="bg-[#080808] border border-[#1a1814] rounded-xl p-6">
                 <span className="font-mono text-[11px] text-gold tracking-[0.2em]">Step · {s.step}</span>
-                <h3 className="text-[16px] text-[#d8cfbe] mt-2 mb-2" style={{ fontFamily: 'Fraunces, serif', fontWeight: 400 }}>
+                <h3 className="text-[16px] text-[#d8cfbe] mt-2 mb-2" style={{ fontFamily: 'var(--font-display)', fontWeight: 400 }}>
                   {s.title}
                 </h3>
                 <p className="text-[13px] text-[#8a8268] leading-relaxed font-light">{s.desc}</p>
@@ -132,7 +132,7 @@ export default function PeptidesPage() {
         <hr className="bloom-divider mb-[80px] lg:mb-[140px]" />
         <div className="max-w-2xl mx-auto text-center">
           <FlaskConical className="w-8 h-8 text-gold mx-auto mb-6" />
-          <h2 className="text-display text-[#d8cfbe] mb-5" style={{ fontFamily: 'Fraunces, serif', fontWeight: 300 }}>
+          <h2 className="text-display text-[#d8cfbe] mb-5" style={{ fontFamily: 'var(--font-display)', fontWeight: 300 }}>
             Be first when peptides launch.
           </h2>
           <p className="text-[15px] text-[#8a8268] leading-relaxed mb-8 max-w-md mx-auto font-light">

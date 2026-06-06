@@ -136,7 +136,7 @@ export default function ConsentRenderer({ templateId, version, patientId, onComp
         <div className="prose prose-sm prose-invert max-w-none text-[13px] text-[#d8cfbe] leading-relaxed space-y-4">
           {template.body.split('\n\n').map((paragraph, i) => {
             if (paragraph.startsWith('# ')) {
-              return <h2 key={i} className="text-white text-[16px] font-light" style={{ fontFamily: 'Fraunces, serif' }}>{paragraph.replace('# ', '')}</h2>
+              return <h2 key={i} className="text-white text-[16px] font-light" style={{ fontFamily: 'var(--font-display)' }}>{paragraph.replace('# ', '')}</h2>
             }
             if (paragraph.startsWith('## ')) {
               return <h3 key={i} className="text-white text-[14px] font-semibold mt-4">{paragraph.replace('## ', '')}</h3>

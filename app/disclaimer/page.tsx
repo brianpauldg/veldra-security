@@ -31,37 +31,37 @@ export default function DisclaimerPage() {
             </div>
 
             <div>
-              <h2 className="text-[1.5rem] font-light text-white mb-4" style={{ fontFamily: 'Fraunces, serif' }}>Telehealth Platform</h2>
+              <h2 className="text-[1.5rem] font-light text-white mb-4" style={{ fontFamily: 'var(--font-display)' }}>Telehealth Platform</h2>
               <p>Bloom Metabolics facilitates access to licensed physicians through a telehealth platform. We are not a medical practice, hospital, or healthcare facility. The physician-patient relationship is established between you and the licensed physician who conducts your consultation.</p>
             </div>
 
             <div>
-              <h2 className="text-[1.5rem] font-light text-white mb-4" style={{ fontFamily: 'Fraunces, serif' }}>Individual Results</h2>
+              <h2 className="text-[1.5rem] font-light text-white mb-4" style={{ fontFamily: 'var(--font-display)' }}>Individual Results</h2>
               <p>Results of hormone therapy or weight management treatments vary significantly between individuals. No outcomes are guaranteed. Statements on this website describing potential benefits are not guarantees of individual results.</p>
             </div>
 
             <div>
-              <h2 className="text-[1.5rem] font-light text-white mb-4" style={{ fontFamily: 'Fraunces, serif' }}>Regulatory Compliance</h2>
+              <h2 className="text-[1.5rem] font-light text-white mb-4" style={{ fontFamily: 'var(--font-display)' }}>Regulatory Compliance</h2>
               <p>All medications prescribed through Bloom Metabolics are dispensed by licensed compounding pharmacies in accordance with applicable state and federal regulations. Medication availability may vary based on your state of residence and applicable regulations at the time of prescribing.</p>
             </div>
 
             <div>
-              <h2 className="text-[1.5rem] font-light text-white mb-4" style={{ fontFamily: 'Fraunces, serif' }}>FDA Disclaimer</h2>
+              <h2 className="text-[1.5rem] font-light text-white mb-4" style={{ fontFamily: 'var(--font-display)' }}>FDA Disclaimer</h2>
               <p>These statements have not been evaluated by the Food and Drug Administration. Compounded medications are not FDA-approved drugs. Compounding pharmacies operate under the oversight of state boards of pharmacy and, where applicable, the FDA.</p>
             </div>
 
             <div>
-              <h2 className="text-[1.5rem] font-light text-white mb-4" style={{ fontFamily: 'Fraunces, serif' }}>Licensed Provider Oversight</h2>
+              <h2 className="text-[1.5rem] font-light text-white mb-4" style={{ fontFamily: 'var(--font-display)' }}>Licensed Provider Oversight</h2>
               <p>All treatments offered through Bloom Metabolics require evaluation, prescription, and supervision by a licensed medical provider. Eligibility for any treatment is determined solely by your provider based on your medical history, symptoms, lab results, and clinical judgment. Not all patients qualify for all treatments.</p>
             </div>
 
             <div>
-              <h2 className="text-[1.5rem] font-light text-white mb-4" style={{ fontFamily: 'Fraunces, serif' }}>Emergency Services</h2>
+              <h2 className="text-[1.5rem] font-light text-white mb-4" style={{ fontFamily: 'var(--font-display)' }}>Emergency Services</h2>
               <p>Bloom Metabolics is not an emergency medical service. If you are experiencing a medical emergency, call 911 or go to your nearest emergency room immediately.</p>
             </div>
 
             <div>
-              <h2 className="text-[1.5rem] font-light text-white mb-4" style={{ fontFamily: 'Fraunces, serif' }}>Contact</h2>
+              <h2 className="text-[1.5rem] font-light text-white mb-4" style={{ fontFamily: 'var(--font-display)' }}>Contact</h2>
               <p>For questions about our medical disclaimer, contact <strong className="text-white">legal@bloommetabolics.com</strong>.</p>
             </div>
           </div>

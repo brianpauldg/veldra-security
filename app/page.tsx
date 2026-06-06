@@ -64,7 +64,7 @@ export default function Home() {
               <motion.h1
                 variants={fadeUp}
                 className="text-display-xl text-chrome mb-8"
-                style={{ fontFamily: 'Fraunces, serif', fontWeight: 300 }}
+                style={{ fontFamily: 'var(--font-display)', fontWeight: 300 }}
               >
                 Precision hormone &{' '}
                 <em className="italic">metabolic</em>{' '}
@@ -139,7 +139,7 @@ export default function Home() {
               <div className="eyebrow mb-4">Founder</div>
               <h2
                 className="text-display-sm text-chrome mb-6"
-                style={{ fontFamily: 'Fraunces, serif', fontWeight: 300 }}
+                style={{ fontFamily: 'var(--font-display)', fontWeight: 300 }}
               >
                 Brian DeGuzman, <em className="italic">RN</em>
               </h2>
@@ -256,7 +256,7 @@ export default function Home() {
               <div className="grid grid-cols-[40px_1fr_auto] gap-4 items-center py-8">
                 <span className="font-mono text-[11px] text-[#d8cfbe] tracking-[0.2em]">{s.num}</span>
                 <div>
-                  <h3 className="text-headline text-[#d8cfbe] mb-1 group-hover:text-[#f5ecd9] transition-colors" style={{ fontFamily: 'Fraunces, serif', fontWeight: 400 }}>
+                  <h3 className="text-headline text-[#d8cfbe] mb-1 group-hover:text-[#f5ecd9] transition-colors" style={{ fontFamily: 'var(--font-display)', fontWeight: 400 }}>
                     {s.title}, <em className="italic font-light">{s.emphasis}</em>
                   </h3>
                   <p className="text-[14px] text-[#8a8268] font-light">{s.desc}</p>
@@ -317,7 +317,7 @@ export default function Home() {
                 <span className="font-mono text-[11px] text-[#d8cfbe] tracking-[0.2em]">Step · {s.step}</span>
                 <span className="text-[#2a2620]">{s.icon}</span>
               </div>
-              <h3 className="text-[18px] text-[#d8cfbe] mb-3" style={{ fontFamily: 'Fraunces, serif', fontWeight: 400 }}>
+              <h3 className="text-[18px] text-[#d8cfbe] mb-3" style={{ fontFamily: 'var(--font-display)', fontWeight: 400 }}>
                 {s.title}
               </h3>
               <p className="text-[14px] text-[#8a8268] leading-relaxed font-light">{s.desc}</p>
@@ -401,7 +401,7 @@ export default function Home() {
           ].map((item) => (
             <div key={item.title} className="bg-[#050404] p-8">
               <span className="text-[#2a2620] mb-4 block">{item.icon}</span>
-              <h3 className="text-[15px] text-[#d8cfbe] mb-2" style={{ fontFamily: 'Fraunces, serif', fontWeight: 400 }}>{item.title}</h3>
+              <h3 className="text-[15px] text-[#d8cfbe] mb-2" style={{ fontFamily: 'var(--font-display)', fontWeight: 400 }}>{item.title}</h3>
               <p className="text-[13px] text-[#8a8268] leading-relaxed font-light">{item.desc}</p>
             </div>
           ))}
@@ -433,7 +433,7 @@ export default function Home() {
               { q: 'Is this covered by insurance?', a: 'Bloom Metabolics operates on a cash-pay model. We do not bill insurance. Many patients find cash-pay simpler and more affordable than navigating insurance restrictions.' },
             ].map((faq) => (
               <div key={faq.q} className="py-6">
-                <h3 className="text-[15px] text-[#d8cfbe] mb-2" style={{ fontFamily: 'Fraunces, serif', fontWeight: 400 }}>
+                <h3 className="text-[15px] text-[#d8cfbe] mb-2" style={{ fontFamily: 'var(--font-display)', fontWeight: 400 }}>
                   {faq.q}
                 </h3>
                 <p className="text-[14px] text-[#8a8268] leading-relaxed font-light">{faq.a}</p>
@@ -458,7 +458,7 @@ export default function Home() {
         <div className="max-w-2xl mx-auto text-center">
           <Meridian size="md" className="mx-auto mb-12" />
 
-          <h2 className="text-display-lg text-chrome mb-6" style={{ fontFamily: 'Fraunces, serif', fontWeight: 300 }}>
+          <h2 className="text-display-lg text-chrome mb-6" style={{ fontFamily: 'var(--font-display)', fontWeight: 300 }}>
             Stop guessing.{' '}
             <em className="italic">Start measuring.</em>
           </h2>

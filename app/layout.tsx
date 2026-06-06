@@ -2,9 +2,42 @@ import './globals.css'
 import type { ReactNode } from 'react'
 import type { Metadata, Viewport } from 'next'
 import Script from 'next/script'
+import { Fraunces, Inter_Tight, JetBrains_Mono } from 'next/font/google'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import { PublicChromeFrame, PublicChromeIslands } from '@/components/LayoutShell'
+
+// ── Self-hosted fonts (next/font) ─────────────────────────────────────────────
+// Eliminates the render-blocking <link rel="stylesheet"> to Google Fonts
+// (PSI flagged this as 2,000ms of render-blocking time on mobile). next/font
+// inlines the @font-face declarations, self-hosts the woff2 files, and emits
+// CSS variables we re-export via globals.css. Lora was loaded but never used —
+// removed entirely (~25% of the original font payload).
+
+const fraunces = Fraunces({
+  subsets: ['latin'],
+  weight: ['300', '400'],
+  style: ['normal', 'italic'],
+  variable: '--font-fraunces',
+  display: 'swap',
+  preload: true,
+})
+
+const interTight = Inter_Tight({
+  subsets: ['latin'],
+  weight: ['300', '400', '500', '600'],
+  variable: '--font-inter-tight',
+  display: 'swap',
+  preload: true,
+})
+
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ['latin'],
+  weight: ['400'],
+  variable: '--font-jetbrains-mono',
+  display: 'swap',
+  preload: false,
+})
 
 const META_PIXEL_ID = process.env.NEXT_PUBLIC_META_PIXEL_ID || ''
 const GA4_ID = process.env.NEXT_PUBLIC_GA4_ID || ''
@@ -74,16 +107,10 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="en" className="scroll-smooth">
-      <head>
-        {/* Preconnect to font CDNs and preload key fonts to cut LCP. */}
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;1,300;1,400&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter+Tight:wght@300;400;500;600&family=JetBrains+Mono:wght@400&display=swap"
-          rel="stylesheet"
-        />
-      </head>
+    <html
+      lang="en"
+      className={`scroll-smooth ${fraunces.variable} ${interTight.variable} ${jetbrainsMono.variable}`}
+    >
       <body className="antialiased">
         {/* Header + Footer are server components — zero client JS for chrome.
             The PublicChromeFrame client wrapper just decides whether to render

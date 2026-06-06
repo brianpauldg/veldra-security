@@ -27,7 +27,7 @@ function UnsubscribeContent() {
       <div className="max-w-md mx-auto px-6 text-center">
         {confirmed ? (
           <>
-            <h1 className="text-[1.5rem] text-white font-light mb-3" style={{ fontFamily: 'Fraunces, serif' }}>
+            <h1 className="text-[1.5rem] text-white font-light mb-3" style={{ fontFamily: 'var(--font-display)' }}>
               You&apos;ve been unsubscribed
             </h1>
             <p className="text-[14px] text-[#8a8268] font-light">
@@ -37,7 +37,7 @@ function UnsubscribeContent() {
           </>
         ) : (
           <>
-            <h1 className="text-[1.5rem] text-white font-light mb-3" style={{ fontFamily: 'Fraunces, serif' }}>
+            <h1 className="text-[1.5rem] text-white font-light mb-3" style={{ fontFamily: 'var(--font-display)' }}>
               Unsubscribe from Bloom Metabolics
             </h1>
             <p className="text-[14px] text-[#8a8268] font-light mb-6">

@@ -110,7 +110,7 @@ function ArticleCard({ slug, category, title, readingTime, description, bookingC
         </span>
         <h3
           className="text-[16px] text-[#d8cfbe] mt-2 mb-2 group-hover:text-gold transition-colors leading-snug"
-          style={{ fontFamily: 'Fraunces, serif', fontWeight: 400 }}
+          style={{ fontFamily: 'var(--font-display)', fontWeight: 400 }}
         >
           {title}
         </h3>
@@ -152,7 +152,7 @@ function ArticleCluster({ label, title, articles, showBadge = true }: { label: s
         </div>
         <h2
           className="text-2xl md:text-3xl text-[#d8cfbe] mt-2 mb-8"
-          style={{ fontFamily: 'Fraunces, serif', fontWeight: 300 }}
+          style={{ fontFamily: 'var(--font-display)', fontWeight: 300 }}
         >
           {title}
         </h2>
@@ -185,7 +185,7 @@ export default function PeptidePillarPage() {
           </div>
           <h1
             className="text-3xl md:text-4xl lg:text-5xl text-[#d8cfbe] mb-5 leading-[1.1]"
-            style={{ fontFamily: 'Fraunces, serif', fontWeight: 300 }}
+            style={{ fontFamily: 'var(--font-display)', fontWeight: 300 }}
           >
             Peptide Therapy:<br className="hidden md:block" /> Research & Education
           </h1>
@@ -228,7 +228,7 @@ export default function PeptidePillarPage() {
           <div className="flex items-center gap-3 mb-8">
             <h2
               className="text-2xl md:text-3xl text-[#d8cfbe]"
-              style={{ fontFamily: 'Fraunces, serif', fontWeight: 300 }}
+              style={{ fontFamily: 'var(--font-display)', fontWeight: 300 }}
             >
               Peptide Roadmap
             </h2>
@@ -240,7 +240,7 @@ export default function PeptidePillarPage() {
               <div className="absolute left-0 top-0 w-3 h-3 rounded-full bg-gold/40 border-2 border-gold/60 -translate-x-[7px]" />
               <div className="rounded-2xl bg-[#080808] border border-[#1a1814] p-5">
                 <span className="text-[10px] uppercase tracking-[0.15em] text-gold font-medium">Tranche 1</span>
-                <h3 className="text-[15px] text-[#d8cfbe] mt-1 mb-2" style={{ fontFamily: 'Fraunces, serif', fontWeight: 400 }}>
+                <h3 className="text-[15px] text-[#d8cfbe] mt-1 mb-2" style={{ fontFamily: 'var(--font-display)', fontWeight: 400 }}>
                   Recovery & Repair Peptides
                 </h3>
                 <p className="text-[13px] text-[#8a8268] leading-relaxed">
@@ -253,7 +253,7 @@ export default function PeptidePillarPage() {
               <div className="absolute left-0 top-0 w-3 h-3 rounded-full bg-[#8a8268]/30 border-2 border-[#8a8268]/40 -translate-x-[7px]" />
               <div className="rounded-2xl bg-[#080808] border border-[#1a1814] p-5">
                 <span className="text-[10px] uppercase tracking-[0.15em] text-[#8a8268] font-medium">Tranche 2</span>
-                <h3 className="text-[15px] text-[#d8cfbe] mt-1 mb-2" style={{ fontFamily: 'Fraunces, serif', fontWeight: 400 }}>
+                <h3 className="text-[15px] text-[#d8cfbe] mt-1 mb-2" style={{ fontFamily: 'var(--font-display)', fontWeight: 400 }}>
                   Growth Hormone Secretagogues
                 </h3>
                 <p className="text-[13px] text-[#8a8268] leading-relaxed">
@@ -266,7 +266,7 @@ export default function PeptidePillarPage() {
               <div className="absolute left-0 top-0 w-3 h-3 rounded-full bg-[#8a8268]/20 border-2 border-[#8a8268]/30 -translate-x-[7px]" />
               <div className="rounded-2xl bg-[#080808] border border-[#1a1814] p-5">
                 <span className="text-[10px] uppercase tracking-[0.15em] text-[#8a8268]/60 font-medium">Tranche 3</span>
-                <h3 className="text-[15px] text-[#d8cfbe] mt-1 mb-2" style={{ fontFamily: 'Fraunces, serif', fontWeight: 400 }}>
+                <h3 className="text-[15px] text-[#d8cfbe] mt-1 mb-2" style={{ fontFamily: 'var(--font-display)', fontWeight: 400 }}>
                   Advanced Research Peptides
                 </h3>
                 <p className="text-[13px] text-[#8a8268] leading-relaxed">
@@ -287,7 +287,7 @@ export default function PeptidePillarPage() {
           <PendingBadge />
           <h2
             className="text-3xl md:text-4xl text-[#d8cfbe] mt-6 mb-5"
-            style={{ fontFamily: 'Fraunces, serif', fontWeight: 300 }}
+            style={{ fontFamily: 'var(--font-display)', fontWeight: 300 }}
           >
             Join the Peptide Roadmap Waitlist
           </h2>

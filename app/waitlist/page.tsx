@@ -32,7 +32,7 @@ function WaitlistContent() {
           <Meridian size="md" className="mx-auto mb-10" />
           <h1
             className="text-display text-chrome mb-4"
-            style={{ fontFamily: 'Fraunces, serif', fontWeight: 300 }}
+            style={{ fontFamily: 'var(--font-display)', fontWeight: 300 }}
           >
             {isPeptide ? (
               <>Join the Peptide <em className="italic">Roadmap</em> Waitlist</>

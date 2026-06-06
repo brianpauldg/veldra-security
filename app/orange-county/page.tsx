@@ -45,7 +45,7 @@ export default function OrangeCountyHubPage() {
             </div>
             <h1
               className="text-[32px] leading-[1.05] sm:text-[44px] lg:text-[64px] text-white mb-4 sm:mb-5 font-light"
-              style={{ fontFamily: 'Fraunces, serif' }}
+              style={{ fontFamily: 'var(--font-display)' }}
             >
               Telehealth clinic for Orange County residents.
             </h1>
@@ -78,7 +78,7 @@ export default function OrangeCountyHubPage() {
             <div className="eyebrow mb-3 sm:mb-4">Services for Orange County</div>
             <h2
               className="text-[28px] sm:text-[36px] lg:text-[44px] text-chrome leading-tight font-light"
-              style={{ fontFamily: 'Fraunces, serif' }}
+              style={{ fontFamily: 'var(--font-display)' }}
             >
               What we treat
             </h2>
@@ -115,7 +115,7 @@ export default function OrangeCountyHubPage() {
             <div className="eyebrow mb-3 sm:mb-4">Service Area</div>
             <h2
               className="text-[28px] sm:text-[36px] text-chrome leading-tight font-light"
-              style={{ fontFamily: 'Fraunces, serif' }}
+              style={{ fontFamily: 'var(--font-display)' }}
             >
               Cities we serve across Orange County
             </h2>
@@ -144,7 +144,7 @@ export default function OrangeCountyHubPage() {
         <div className="max-w-3xl mx-auto px-5 sm:px-6 lg:px-8 text-center">
           <h2
             className="text-[28px] sm:text-[36px] lg:text-[44px] text-white mb-4 sm:mb-5 leading-tight font-light"
-            style={{ fontFamily: 'Fraunces, serif' }}
+            style={{ fontFamily: 'var(--font-display)' }}
           >
             Built for Orange County.
           </h2>

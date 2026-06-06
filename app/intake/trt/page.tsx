@@ -375,7 +375,7 @@ function TRTIntakeContent() {
           <span className="font-mono text-[10px] text-[#8a8268] tracking-[0.2em] uppercase mb-3 block">
             TRT Intake Form
           </span>
-          <h1 className="text-display text-white mb-3" style={{ fontFamily: 'Fraunces, serif', fontWeight: 300 }}>
+          <h1 className="text-display text-white mb-3" style={{ fontFamily: 'var(--font-display)', fontWeight: 300 }}>
             Testosterone Therapy Intake
           </h1>
           <p className="text-[15px] text-[#8a8268] font-light">

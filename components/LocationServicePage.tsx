@@ -60,7 +60,7 @@ export default function LocationServicePage({
 
             <h1
               className="text-[32px] leading-[1.05] sm:text-[44px] lg:text-[64px] text-white mb-4 sm:mb-5 font-light"
-              style={{ fontFamily: 'Fraunces, serif' }}
+              style={{ fontFamily: 'var(--font-display)' }}
             >
               {service.patientSearchIntent} for {city.name} residents.
             </h1>
@@ -144,7 +144,7 @@ export default function LocationServicePage({
             <div className="eyebrow mb-3 sm:mb-4">{city.name} · {service.shortName}</div>
             <h2
               className="text-[28px] sm:text-[36px] lg:text-[44px] text-chrome mb-4 sm:mb-5 leading-tight font-light"
-              style={{ fontFamily: 'Fraunces, serif' }}
+              style={{ fontFamily: 'var(--font-display)' }}
             >
               Why {city.name} patients choose Bloom for {service.shortName.toLowerCase()}
             </h2>
@@ -202,7 +202,7 @@ export default function LocationServicePage({
             <div className="eyebrow mb-3 sm:mb-4">The Process</div>
             <h2
               className="text-[28px] sm:text-[36px] lg:text-[44px] text-chrome leading-tight font-light max-w-3xl mx-auto"
-              style={{ fontFamily: 'Fraunces, serif' }}
+              style={{ fontFamily: 'var(--font-display)' }}
             >
               How {service.shortName} works for {city.name} residents
             </h2>
@@ -233,7 +233,7 @@ export default function LocationServicePage({
               <div className="eyebrow mb-3 sm:mb-4">Service Area</div>
               <h2
                 className="text-[24px] sm:text-[30px] lg:text-[36px] text-chrome mb-4 sm:mb-5 leading-tight font-light"
-                style={{ fontFamily: 'Fraunces, serif' }}
+                style={{ fontFamily: 'var(--font-display)' }}
               >
                 {service.shortName} for patients across {city.name} {city.isHub ? '' : `and ${city.county}`}
               </h2>
@@ -267,7 +267,7 @@ export default function LocationServicePage({
             <div className="eyebrow mb-3 sm:mb-4">{city.name} FAQ</div>
             <h2
               className="text-[26px] sm:text-[32px] lg:text-[40px] text-chrome leading-tight font-light"
-              style={{ fontFamily: 'Fraunces, serif' }}
+              style={{ fontFamily: 'var(--font-display)' }}
             >
               {service.shortName} questions from {city.name} patients
             </h2>
@@ -306,7 +306,7 @@ export default function LocationServicePage({
         <div className="max-w-3xl mx-auto px-5 sm:px-6 lg:px-8 text-center">
           <h2
             className="text-[28px] sm:text-[36px] lg:text-[44px] text-white mb-4 sm:mb-5 leading-tight font-light"
-            style={{ fontFamily: 'Fraunces, serif' }}
+            style={{ fontFamily: 'var(--font-display)' }}
           >
             Start your {service.shortName.toLowerCase()} program from {city.name}
           </h2>

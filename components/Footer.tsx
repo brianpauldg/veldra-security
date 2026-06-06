@@ -87,7 +87,7 @@ export default function Footer() {
             <div className="flex items-center gap-3 mb-6">
               <Meridian size="sm" />
               <div>
-                <div className="text-[14px] font-normal text-[#d8cfbe]" style={{ fontFamily: 'Fraunces, serif' }}>
+                <div className="text-[14px] font-normal text-[#d8cfbe]" style={{ fontFamily: 'var(--font-display)' }}>
                   Bloom Metabolics
                 </div>
                 <div className="font-mono text-[9px] text-[#8a8268] tracking-[0.25em] uppercase">

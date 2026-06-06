@@ -180,7 +180,7 @@ export default function IntakeWizard({ intakeType, steps, sessionId, email, onCo
 
       {/* Step title */}
       <div className="mb-8">
-        <h2 className="text-[1.5rem] text-white font-light" style={{ fontFamily: 'Fraunces, serif' }}>
+        <h2 className="text-[1.5rem] text-white font-light" style={{ fontFamily: 'var(--font-display)' }}>
           {step.title}
         </h2>
         {step.subtitle && (

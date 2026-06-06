@@ -131,7 +131,7 @@ export default function PricingTable({
             <div className="text-[11px] font-semibold uppercase tracking-widest text-[#8a8268] mb-2">
               Add-On Services
             </div>
-            <h3 className="text-[22px] text-[#d8cfbe] mb-2" style={{ fontFamily: 'Fraunces, serif', fontWeight: 400 }}>
+            <h3 className="text-[22px] text-[#d8cfbe] mb-2" style={{ fontFamily: 'var(--font-display)', fontWeight: 400 }}>
               Attach to any membership tier
             </h3>
             <p className="text-[14px] text-[#8a8268] max-w-lg mx-auto">
@@ -154,7 +154,7 @@ export default function PricingTable({
             <div className="text-[11px] font-semibold uppercase tracking-widest text-gold mb-2">
               Coming Soon
             </div>
-            <h3 className="text-[22px] text-[#d8cfbe] mb-4" style={{ fontFamily: 'Fraunces, serif', fontWeight: 400 }}>
+            <h3 className="text-[22px] text-[#d8cfbe] mb-4" style={{ fontFamily: 'var(--font-display)', fontWeight: 400 }}>
               Peptide Therapy Roadmap
             </h3>
             <p className="text-[13px] text-[#8a8268] max-w-2xl mx-auto leading-relaxed">
@@ -215,7 +215,7 @@ function MembershipCard({ tier, cadence }: { tier: MembershipTier; cadence: Bill
         <div className="text-[10px] font-semibold uppercase tracking-[0.15em] text-gold mb-2">
           {tier.eyebrow}
         </div>
-        <h3 className="text-[20px] tracking-tight text-[#d8cfbe] mb-1" style={{ fontFamily: 'Fraunces, serif', fontWeight: 400 }}>
+        <h3 className="text-[20px] tracking-tight text-[#d8cfbe] mb-1" style={{ fontFamily: 'var(--font-display)', fontWeight: 400 }}>
           {tier.name}
         </h3>
         <p className="text-[13px] leading-snug text-[#8a8268]">

@@ -201,7 +201,7 @@ export default function FAQPage() {
       <Section>
         <hr className="bloom-divider mb-[80px] lg:mb-[140px]" />
         <div className="max-w-2xl mx-auto text-center">
-          <h2 className="text-display-sm text-white mb-4" style={{ fontFamily: 'Fraunces, serif', fontWeight: 300 }}>Still have questions?</h2>
+          <h2 className="text-display-sm text-white mb-4" style={{ fontFamily: 'var(--font-display)', fontWeight: 300 }}>Still have questions?</h2>
           <p className="text-[15px] text-[#8a8268] mb-8 font-light">
             The fastest answer is the consultation itself. {primaryCtaSublabel()}.
           </p>

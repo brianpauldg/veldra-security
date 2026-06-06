@@ -54,7 +54,7 @@ export default function StateGate({ children, source = 'intake' }: StateGateProp
     return (
       <div className="max-w-lg mx-auto text-center py-16 px-6">
         <MapPin className="w-8 h-8 text-[#8a8268] mx-auto mb-4" />
-        <h2 className="text-[1.5rem] text-white font-light mb-3" style={{ fontFamily: 'Fraunces, serif' }}>
+        <h2 className="text-[1.5rem] text-white font-light mb-3" style={{ fontFamily: 'var(--font-display)' }}>
           We&apos;re not in {getStateName(selectedState)} yet
         </h2>
         <p className="text-[14px] text-[#d8cfbe] mb-2 font-light">
@@ -100,7 +100,7 @@ export default function StateGate({ children, source = 'intake' }: StateGateProp
   return (
     <div className="max-w-lg mx-auto text-center py-16 px-6">
       <MapPin className="w-8 h-8 text-[#8a8268] mx-auto mb-4" />
-      <h2 className="text-[1.5rem] text-white font-light mb-3" style={{ fontFamily: 'Fraunces, serif' }}>
+      <h2 className="text-[1.5rem] text-white font-light mb-3" style={{ fontFamily: 'var(--font-display)' }}>
         Where are you located?
       </h2>
       <p className="text-[14px] text-[#8a8268] mb-8 font-light">
