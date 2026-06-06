@@ -5,6 +5,15 @@ const footerLinks = {
   practice: [
     { name: 'Testosterone Therapy', href: '/trt' },
     { name: 'GLP-1 Weight Loss', href: '/glp1' },
+    { name: 'Peptide Therapy', href: '/peptides' },
+  ],
+  serviceAreas: [
+    { name: 'Orange County', href: '/orange-county' },
+    { name: 'Irvine', href: '/irvine/trt' },
+    { name: 'Newport Beach', href: '/newport-beach/trt' },
+    { name: 'Costa Mesa', href: '/costa-mesa/trt' },
+    { name: 'Anaheim', href: '/anaheim/trt' },
+    { name: 'Huntington Beach', href: '/huntington-beach/glp1' },
   ],
   company: [
     { name: 'Process', href: '/how-it-works' },
@@ -73,7 +82,7 @@ export default function Footer() {
   return (
     <footer className="bg-[#020202] border-t border-[#1a1814]">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <div className="py-20 lg:py-24 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+        <div className="py-16 sm:py-20 lg:py-24 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-10 sm:gap-12">
           <div className="lg:col-span-1">
             <div className="flex items-center gap-3 mb-6">
               <Meridian size="sm" />
@@ -101,6 +110,19 @@ export default function Footer() {
             <h4 className="eyebrow mb-5">Practice</h4>
             <ul className="space-y-3">
               {footerLinks.practice.map((link) => (
+                <li key={link.name}>
+                  <Link href={link.href} className="text-[13px] font-light text-[#8a8268] hover:text-[#d8cfbe] transition-colors">
+                    {link.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <h4 className="eyebrow mb-5">Service Areas</h4>
+            <ul className="space-y-3">
+              {footerLinks.serviceAreas.map((link) => (
                 <li key={link.name}>
                   <Link href={link.href} className="text-[13px] font-light text-[#8a8268] hover:text-[#d8cfbe] transition-colors">
                     {link.name}
