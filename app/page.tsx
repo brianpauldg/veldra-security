@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { motion } from 'framer-motion'
@@ -16,13 +16,24 @@ import MedicalDirectorBio from '@/components/MedicalDirectorBio'
 import PreLaunchWaitlist from '@/components/PreLaunchWaitlist'
 import dynamic from 'next/dynamic'
 import Meridian from '@/components/Meridian'
-import BloomHelix from '@/components/BloomHelix'
 
 // Lazy: the waitlist modal is ~600 lines + framer-motion and only opens on
 // CTA click. Pulling it out of the initial bundle cuts ~15 KB and shaves
 // ~200ms off mobile FCP/LCP. SSR off because the modal has no SEO-bearing
 // content — it's a stateful overlay.
 const WaitlistModal = dynamic(() => import('@/components/WaitlistModal'), {
+  ssr: false,
+})
+
+// Lazy: the helix is a decorative ~1.5 MB source image (next/image rasterizes
+// down to ~80-150 KB avif/webp at request time). Two performance reasons to
+// defer it entirely:
+//  1. It must NOT win LCP. With ssr:false + a viewport gate, the helix paints
+//     after the H1 wins LCP, locking the H1 as the LCP element on every form
+//     factor.
+//  2. Below lg, the helix is invisible anyway. Loading nothing on mobile is
+//     better than loading a hidden-but-mounted React subtree.
+const BloomHelix = dynamic(() => import('@/components/BloomHelix'), {
   ssr: false,
 })
 import { CONSULTATION } from '@/lib/pricing'
@@ -39,6 +50,20 @@ const stagger = {
 
 export default function Home() {
   const [waitlistOpen, setWaitlistOpen] = useState(false)
+
+  // Viewport gate for the decorative helix. SSR renders no helix → the H1
+  // wins LCP on every form factor (helix is too big otherwise). Post-hydration,
+  // we check viewport via matchMedia and mount the helix only on lg+. Below lg,
+  // it never mounts → mobile fetches no bytes, no React subtree overhead.
+  const [showHelix, setShowHelix] = useState(false)
+  useEffect(() => {
+    if (typeof window === 'undefined') return
+    const mq = window.matchMedia('(min-width: 1024px)')
+    const apply = () => setShowHelix(mq.matches)
+    apply()
+    mq.addEventListener('change', apply)
+    return () => mq.removeEventListener('change', apply)
+  }, [])
 
   return (
     <>
@@ -59,60 +84,63 @@ export default function Home() {
           1. HERO
       ═══════════════════════════════════════════════════════ */}
       <section className="relative bg-[#020202] overflow-hidden min-h-screen flex items-center">
-        <div className="relative max-w-7xl mx-auto px-6 lg:px-8 py-32 lg:py-0 w-full">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            {/*
-              Above-the-fold hero copy renders as plain JSX (no framer-motion).
-              Rationale: a framer-motion fadeUp on the H1 starts at opacity:0
-              and only becomes visible after the JS bundle loads, hydrates, and
-              the 0.8s animation runs — which pushes LCP from ~1.1s (FCP) out
-              to ~3.9s. Static markup paints synchronously with the document,
-              so LCP fires at FCP. Decorative below-the-fold sections keep
-              their framer-motion entrances.
-            */}
-            <div>
-              <div className="eyebrow mb-8">
-                Precision Endocrinology · Telehealth · <span className="num">MMXXVI</span>
-              </div>
+        {/*
+          Diagonal decorative helix — lg+ only, absolutely positioned across
+          the right portion of the hero. Tilted ~22° via .bloom-helix-diagonal
+          so it slashes across the page rather than standing straight in a
+          column. The text column sits on top with z-index, so even though
+          the helix bleeds into the center it never obscures copy.
+          aria-hidden inside BloomHelix keeps it out of the accessibility
+          tree. `hidden lg:flex` means mobile fetches no bytes for it.
+        */}
+        {showHelix ? (
+          <div
+            className="absolute inset-y-0 right-0 hidden lg:flex items-center justify-center w-[60%] xl:w-[55%] pointer-events-none"
+            aria-hidden="true"
+          >
+            <BloomHelix className="bloom-helix-diagonal" />
+          </div>
+        ) : null}
 
-              <h1
-                className="text-display-xl text-chrome mb-8"
-                style={{ fontFamily: 'var(--font-display)', fontWeight: 300 }}
-              >
-                Precision hormone &{' '}
-                <em className="italic">metabolic</em>{' '}
-                optimization.
-              </h1>
-
-              <p className="text-[17px] text-[#a89878] leading-relaxed max-w-lg mb-12 font-light">
-                A membership program with board-certified physicians, comprehensive bloodwork, and medication shipped to your door, no clinic visits, no cookie-cutter dosing.
-              </p>
-
-              <div className="flex flex-wrap gap-4 items-center">
-                <button onClick={() => setWaitlistOpen(true)} className="bloom-btn">
-                  Join the Waitlist, Lock In Founding-Member Pricing
-                  <ArrowRight className="w-3.5 h-3.5" />
-                </button>
-                <Link
-                  href="/how-it-works"
-                  className="bloom-btn-ghost bloom-btn"
-                >
-                  Our Process
-                </Link>
-              </div>
+        <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 py-32 lg:py-0 w-full">
+          {/*
+            Above-the-fold hero copy renders as plain JSX (no framer-motion).
+            Rationale: a framer-motion fadeUp on the H1 starts at opacity:0
+            and only becomes visible after the JS bundle loads, hydrates, and
+            the 0.8s animation runs — which pushes LCP from ~1.1s (FCP) out
+            to ~3.9s. Static markup paints synchronously with the document,
+            so LCP fires at FCP. Decorative below-the-fold sections keep
+            their framer-motion entrances.
+          */}
+          <div className="lg:max-w-[52%]">
+            <div className="eyebrow mb-8">
+              Precision Endocrinology · Telehealth · <span className="num">MMXXVI</span>
             </div>
 
-            {/*
-              Hero decorative visual — Bloom Helix.
-              - hidden lg:flex: not rendered below 1024px viewports (mobile gets
-                a clean, copy-only hero — no JS, no SVG paint cost).
-              - aria-hidden inside BloomHelix marks it decorative for screen
-                readers and crawlers — no SEO copy is hidden here.
-              - Rendered as plain JSX (no framer-motion fade) so it paints with
-                the document and doesn't delay first paint of the hero.
-            */}
-            <div className="hidden lg:flex items-center justify-center">
-              <BloomHelix className="max-w-[360px] xl:max-w-[420px]" />
+            <h1
+              className="text-display-xl text-chrome mb-8"
+              style={{ fontFamily: 'var(--font-display)', fontWeight: 300 }}
+            >
+              Precision hormone &{' '}
+              <em className="italic">metabolic</em>{' '}
+              optimization.
+            </h1>
+
+            <p className="text-[17px] text-[#a89878] leading-relaxed max-w-lg mb-12 font-light">
+              A membership program with board-certified physicians, comprehensive bloodwork, and medication shipped to your door, no clinic visits, no cookie-cutter dosing.
+            </p>
+
+            <div className="flex flex-wrap gap-4 items-center">
+              <button onClick={() => setWaitlistOpen(true)} className="bloom-btn">
+                Join the Waitlist, Lock In Founding-Member Pricing
+                <ArrowRight className="w-3.5 h-3.5" />
+              </button>
+              <Link
+                href="/how-it-works"
+                className="bloom-btn-ghost bloom-btn"
+              >
+                Our Process
+              </Link>
             </div>
           </div>
         </div>
