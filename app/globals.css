@@ -274,6 +274,38 @@ body::before {
 .meridian-md { width: 120px; }
 .meridian-md .glyph { font-size: 32px; }
 
+/* ─── Bloom Helix (hero decorative visual) ──────────────
+   Pure inline SVG, server-rendered. The wrapper reserves
+   space via aspect-ratio so the helix never causes CLS.
+   Animation runs on the SVG via SMIL (compositor-only —
+   zero main-thread cost). Hidden from a11y tree by aria-hidden
+   on the React component itself. */
+.bloom-helix-wrap {
+  position: relative;
+  width: 100%;
+  max-width: 460px;
+  aspect-ratio: 200 / 600;       /* must match SVG viewBox to prevent CLS */
+  margin-inline: auto;
+  pointer-events: none;          /* decorative — never steals clicks */
+  contain: layout paint;         /* isolate paint/layout for performance */
+}
+
+.bloom-helix-svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  /* very soft outer glow — single GPU-accelerated filter */
+  filter: drop-shadow(0 0 24px rgba(168, 152, 120, 0.18));
+}
+
+/* Safety belt: even if a future change replaces SMIL with a CSS animation,
+   reduced-motion users get a still image. */
+@media (prefers-reduced-motion: reduce) {
+  .bloom-helix-scroll {
+    animation: none !important;
+  }
+}
+
 /* ─── Marquee ──────────────────────────────────────────── */
 @keyframes marquee {
   0% { transform: translateX(0); }

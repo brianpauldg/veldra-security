@@ -15,6 +15,7 @@ import GLP1ComplianceDisclosure from '@/components/GLP1ComplianceDisclosure'
 import MedicalDirectorBio from '@/components/MedicalDirectorBio'
 import PreLaunchWaitlist from '@/components/PreLaunchWaitlist'
 import Meridian from '@/components/Meridian'
+import BloomHelix from '@/components/BloomHelix'
 import WaitlistModal from '@/components/WaitlistModal'
 import { CONSULTATION } from '@/lib/pricing'
 
@@ -92,14 +93,23 @@ export default function Home() {
               </motion.div>
             </motion.div>
 
-            {/* Meridian Logo */}
+            {/*
+              Hero decorative visual — Bloom Helix.
+              - hidden lg:flex: not rendered below 1024px viewports (mobile gets
+                a clean, copy-only hero — no JS, no SVG paint cost).
+              - The H1 + paragraph + CTA in the left column win LCP; this column
+                is decorative chrome and never competes for LCP.
+              - aria-hidden inside BloomHelix marks it decorative for screen
+                readers and crawlers — no SEO copy is hidden here.
+              - Fade-in is 0.3s delayed so the hero text paints first.
+            */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ duration: 1.5, delay: 0.3 }}
+              transition={{ duration: 1.2, delay: 0.3 }}
               className="hidden lg:flex items-center justify-center"
             >
-              <Meridian size="lg" />
+              <BloomHelix className="max-w-[360px] xl:max-w-[420px]" />
             </motion.div>
           </div>
         </div>
