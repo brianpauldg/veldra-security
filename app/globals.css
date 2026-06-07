@@ -296,9 +296,19 @@ body::before {
 /* ── Backdrop placement (caller opts in via this class) ──
    The helix fills the hero behind the foreground content.
    Lower opacity so the text gradient remains the focal point;
-   the helix is ambient, not the headline. */
+   the helix is ambient, not the headline.
+
+   On narrow viewports the hero copy spans the full width and
+   sits directly on top of the helix, so we dial opacity down
+   even further to keep the H1 + body copy easy to read. */
 .bloom-helix-backdrop {
-  opacity: 0.68;
+  opacity: 0.42;
+}
+
+@media (min-width: 1024px) {
+  .bloom-helix-backdrop {
+    opacity: 0.68;
+  }
 }
 
 /* ─── Marquee ──────────────────────────────────────────── */

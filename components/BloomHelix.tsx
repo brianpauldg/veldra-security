@@ -75,7 +75,11 @@ export default function BloomHelix({ className }: BloomHelixProps) {
       powerPreference: 'low-power',
     })
     renderer.setSize(initialWidth, initialHeight)
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
+    // DPR cap: narrow viewports cap at 1.5 so a 3× retina phone doesn't render
+    // 9× the pixels of a 1× target — saves GPU/battery without visible loss
+    // since the helix is decorative + semi-transparent. Desktop caps at 2.
+    const dprCap = window.innerWidth < 1024 ? 1.5 : 2
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, dprCap))
     renderer.setClearColor(0x000000, 0)
     container.appendChild(renderer.domElement)
 

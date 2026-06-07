@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { motion } from 'framer-motion'
@@ -51,20 +51,6 @@ const stagger = {
 export default function Home() {
   const [waitlistOpen, setWaitlistOpen] = useState(false)
 
-  // Viewport gate for the decorative helix. SSR renders no helix → the H1
-  // wins LCP on every form factor (helix is too big otherwise). Post-hydration,
-  // we check viewport via matchMedia and mount the helix only on lg+. Below lg,
-  // it never mounts → mobile fetches no bytes, no React subtree overhead.
-  const [showHelix, setShowHelix] = useState(false)
-  useEffect(() => {
-    if (typeof window === 'undefined') return
-    const mq = window.matchMedia('(min-width: 1024px)')
-    const apply = () => setShowHelix(mq.matches)
-    apply()
-    mq.addEventListener('change', apply)
-    return () => mq.removeEventListener('change', apply)
-  }, [])
-
   return (
     <>
       {/* Pre-launch disclosure banner */}
@@ -85,23 +71,31 @@ export default function Home() {
       ═══════════════════════════════════════════════════════ */}
       <section className="relative bg-[#020202] overflow-hidden min-h-screen flex items-center">
         {/*
-          WebGL 3D helix — lg+ only, fills the hero as an ambient backdrop
-          BEHIND all foreground copy. Real geometry on the GPU (Three.js):
-          two glass-tinted strands + bronze rungs, rotating around their
-          own Y axis continuously. The H1 / CTA / body copy sit on top
-          with `relative z-10` so the helix never obscures conversion text.
-          `aria-hidden` keeps it out of the a11y tree; `hidden lg:flex`
-          + a viewport gate (showHelix) mean mobile loads 0 bytes of
-          Three.js. Reduced-motion users get a single-frame render.
+          WebGL 3D helix — fills the hero as an ambient backdrop BEHIND
+          all foreground copy on every viewport (mobile included). Real
+          geometry on the GPU (Three.js): two glass-tinted strands +
+          bronze rungs, rotating around their own Y axis continuously.
+          The H1 / CTA / body copy sit on top with `relative z-10` so
+          the helix never obscures conversion text.
+
+          Perf protections that keep it mobile-safe:
+          - next/dynamic({ ssr: false }) on the BloomHelix import → not
+            in the initial bundle; only fetched post-hydration.
+          - WebGL feature check inside BloomHelix → skipped on devices
+            without WebGL (almost none in 2026, but defensive).
+          - IntersectionObserver pauses rAF when scrolled off-screen.
+          - document.hidden pauses rAF when tab isn't visible.
+          - prefers-reduced-motion renders one frame then stops.
+          - Mobile opacity is lower (CSS media query in globals) so the
+            helix sits behind copy without competing with text.
+          aria-hidden keeps it out of the a11y tree.
         */}
-        {showHelix ? (
-          <div
-            className="absolute inset-0 hidden lg:flex items-center justify-center pointer-events-none z-0"
-            aria-hidden="true"
-          >
-            <BloomHelix className="bloom-helix-backdrop" />
-          </div>
-        ) : null}
+        <div
+          className="absolute inset-0 flex items-center justify-center pointer-events-none z-0"
+          aria-hidden="true"
+        >
+          <BloomHelix className="bloom-helix-backdrop" />
+        </div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 py-32 lg:py-0 w-full">
           {/*
