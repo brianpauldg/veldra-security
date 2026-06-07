@@ -19,6 +19,7 @@
     "@supabase/auth-helpers-nextjs": "^0.8.0",
     "@supabase/supabase-js": "^2.38.0",
     "@tailwindcss/postcss": "^4.2.2",
+    "@types/three": "^0.184.1",
     "@upstash/redis": "^1.37.0",
     "anthropic": "^0.0.0",
     "autoprefixer": "^10.4.27",
@@ -39,6 +40,7 @@
     "stripe": "^14.0.0",
     "tailwind-merge": "^3.5.0",
     "tailwindcss": "^4.2.2",
+    "three": "^0.184.0",
     "zod": "^3.22.0"
   },
   "devDependencies": {

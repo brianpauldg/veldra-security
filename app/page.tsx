@@ -85,20 +85,21 @@ export default function Home() {
       ═══════════════════════════════════════════════════════ */}
       <section className="relative bg-[#020202] overflow-hidden min-h-screen flex items-center">
         {/*
-          Diagonal decorative helix — lg+ only, absolutely positioned across
-          the right portion of the hero. Tilted ~22° via .bloom-helix-diagonal
-          so it slashes across the page rather than standing straight in a
-          column. The text column sits on top with z-index, so even though
-          the helix bleeds into the center it never obscures copy.
-          aria-hidden inside BloomHelix keeps it out of the accessibility
-          tree. `hidden lg:flex` means mobile fetches no bytes for it.
+          WebGL 3D helix — lg+ only, fills the hero as an ambient backdrop
+          BEHIND all foreground copy. Real geometry on the GPU (Three.js):
+          two glass-tinted strands + bronze rungs, rotating around their
+          own Y axis continuously. The H1 / CTA / body copy sit on top
+          with `relative z-10` so the helix never obscures conversion text.
+          `aria-hidden` keeps it out of the a11y tree; `hidden lg:flex`
+          + a viewport gate (showHelix) mean mobile loads 0 bytes of
+          Three.js. Reduced-motion users get a single-frame render.
         */}
         {showHelix ? (
           <div
-            className="absolute inset-y-0 right-0 hidden lg:flex items-center justify-center w-[60%] xl:w-[55%] pointer-events-none"
+            className="absolute inset-0 hidden lg:flex items-center justify-center pointer-events-none z-0"
             aria-hidden="true"
           >
-            <BloomHelix className="bloom-helix-diagonal" />
+            <BloomHelix className="bloom-helix-backdrop" />
           </div>
         ) : null}
 
@@ -112,7 +113,7 @@ export default function Home() {
             so LCP fires at FCP. Decorative below-the-fold sections keep
             their framer-motion entrances.
           */}
-          <div className="lg:max-w-[52%]">
+          <div className="lg:max-w-[58%]">
             <div className="eyebrow mb-8">
               Precision Endocrinology · Telehealth · <span className="num">MMXXVI</span>
             </div>
