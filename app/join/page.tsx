@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { Stethoscope, Microscope, Shield, Users } from 'lucide-react'
 import PreLaunchWaitlist from '@/components/PreLaunchWaitlist'
 import Meridian from '@/components/Meridian'
+import QualifyGate from '@/components/QualifyGate'
 
 export const metadata: Metadata = {
   title: 'Join the Bloom Metabolics Waitlist, Physician-Led Hormone & Metabolic Care',
@@ -89,9 +90,9 @@ export default function JoinPage() {
               </div>
             </div>
 
-            {/* Right — Form */}
+            {/* Right — Qualify gate + Form */}
             <div className="lg:sticky lg:top-28">
-              <div className="bg-[#0d0c0a] border border-[#1a1814] rounded-2xl p-8">
+              <QualifyGate>
                 <h2
                   className="text-[20px] text-[#d8cfbe] mb-2"
                   style={{ fontFamily: 'var(--font-display)', fontWeight: 400 }}
@@ -102,7 +103,7 @@ export default function JoinPage() {
                   Email and optional preferences only. No health information collected.
                 </p>
                 <PreLaunchWaitlist variant="full" />
-              </div>
+              </QualifyGate>
             </div>
           </div>
         </div>

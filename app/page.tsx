@@ -137,6 +137,21 @@ export default function Home() {
                 Our Process
               </Link>
             </div>
+
+            {/*
+              Price-transparency anchor moved into the hero.
+              Cold visitors decide in ~5 seconds whether this is a $1,500/mo
+              concierge thing or attainable. Burying the all-in pricing line
+              far down the page wasted our #1 differentiator. The full range
+              ($348–$498/mo, member add-on math) still lives on /pricing.
+            */}
+            <p className="mt-6 text-[13px] text-[#a89878] font-light leading-relaxed max-w-lg">
+              Transparent all-in pricing from{' '}
+              <Link href="/pricing" className="text-[#d8cfbe] font-medium underline decoration-[#3a3630] underline-offset-4 hover:decoration-[#d8cfbe] transition-colors">
+                $348/mo
+              </Link>
+              , medication included. No hidden fees.
+            </p>
           </div>
         </div>
       </section>
