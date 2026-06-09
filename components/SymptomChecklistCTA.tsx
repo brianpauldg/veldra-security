@@ -34,19 +34,26 @@ const COPY: Record<
 > = {
   trt: {
     headline: 'Not ready to commit? Take the symptom checklist instead.',
-    sub: 'A 2-minute, physician-designed assessment. Find out whether low testosterone is likely driving your symptoms — before you book anything.',
+    // TRT is medically appropriate for men with clinically low testosterone,
+    // so the TRT-quiz copy stays clinically focused. Women's hormone
+    // optimization (perimenopause, thyroid, cortisol patterns) routes
+    // through the 'hormone' vertical below, NOT this one.
+    sub: 'A 2-minute, physician-designed assessment to see whether low testosterone may be driving symptoms like fatigue, libido changes, body-composition shifts, or brain fog. See where you stand before booking anything.',
     cta: 'Take the Free TRT Assessment',
     href: '/quiz',
   },
   glp1: {
     headline: 'Not ready to commit? Take the symptom checklist instead.',
-    sub: "A 2-minute assessment to see whether GLP-1 therapy is a fit for your weight history, metabolic profile, and goals — before you book anything.",
+    sub: 'A 2-minute assessment to see whether GLP-1 therapy is a fit for your weight history, metabolic profile, and goals — before you book anything. Open to men and women.',
     cta: 'Take the Free GLP-1 Assessment',
     href: '/glp1-quiz',
   },
   hormone: {
     headline: 'Not ready to commit? Take the symptom checklist instead.',
-    sub: 'A 2-minute, physician-designed assessment of hormone-related symptoms — fatigue, focus, libido, body composition, recovery. See where you stand before booking anything.',
+    // Hormone optimization is offered to both men and women — phrasing is
+    // deliberately inclusive (fatigue, mood, weight, sleep, libido all apply
+    // to perimenopause + andropause + thyroid + cortisol patterns).
+    sub: 'A 2-minute, physician-designed assessment of hormone-related symptoms — fatigue, focus, mood, sleep, libido, body composition, recovery. Open to men and women. See where you stand before booking anything.',
     cta: 'Take the Free Hormone Assessment',
     href: '/quiz',
   },

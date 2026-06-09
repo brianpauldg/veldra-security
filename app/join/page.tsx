@@ -8,7 +8,7 @@ import QualifyGate from '@/components/QualifyGate'
 
 export const metadata: Metadata = {
   title: 'Join the Bloom Metabolics Waitlist, Physician-Led Hormone & Metabolic Care',
-  description: 'Enrollment opens July 15, 2026. Physician-prescribed TRT, GLP-1, sexual health, and longevity protocols. Founded by Brian DeGuzman, RN. Join the waitlist.',
+  description: 'Enrollment opens July 15, 2026. Physician-prescribed GLP-1, hormone optimization, longevity, sexual health, peptide, and TRT protocols — for men and women. Founded by Brian DeGuzman, RN. Join the waitlist.',
   openGraph: {
     title: 'Join the Bloom Metabolics Waitlist',
     description: 'Physician-directed hormone and metabolic care. Enrollment opens July 15, 2026.',
@@ -130,9 +130,10 @@ export default function JoinPage() {
 
           <div className="space-y-4 text-[14px] text-[#8a8268] leading-relaxed font-light">
             <p>
-              Bloom is a membership-based telehealth practice specializing in testosterone optimization,
-              GLP-1 metabolic therapy, sexual health, longevity protocols, and peptide therapy
-              (launching under FDA 503A pathway as regulatory clarity emerges).
+              Bloom is a membership-based telehealth practice serving men and women.
+              Programs include GLP-1 metabolic therapy, hormone optimization, longevity protocols, sexual health,
+              peptide therapy, and testosterone optimization (TRT, for men who medically qualify)
+              — launching under FDA 503A pathway as regulatory clarity emerges.
             </p>
             <p>
               All medication is compounded by a US-based, state-licensed 503A pharmacy under individual

@@ -139,14 +139,14 @@ export default function LeadPopup({
   const copy = variant === 'quiz'
     ? {
         headline: 'Curious if you\'re a candidate?',
-        body: 'Take our 2-minute clinical assessment. Science-backed questions designed to help you understand your options.',
+        body: 'Take our 2-minute clinical assessment. Science-backed questions, designed for men and women, to help you understand your options.',
         cta: 'Start the Free Assessment',
         ctaHref: '/quiz',
         dismiss: 'No thanks, I\'ll keep reading',
       }
     : {
         headline: 'Before you go',
-        body: 'Get the free Hormone Optimization Guide, the same resource our providers recommend to new patients.',
+        body: 'Get the free Hormone Optimization Guide, the same resource our providers share with new patients (for men and women).',
         cta: 'Send the Guide',
         ctaHref: null,
         dismiss: 'Maybe later',

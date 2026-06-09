@@ -323,7 +323,7 @@ export default function WaitlistModal({ isOpen, onClose, preselectedInterest }: 
                       Join the Bloom Metabolics Waitlist
                     </h2>
                     <p className="text-[14px] text-[#a89878] leading-relaxed font-light">
-                      Be first to access personalized metabolic health, hormone optimization, and longevity-focused care when enrollment opens.
+                      Be first to access personalized metabolic health, hormone optimization, and longevity-focused care — for men and women — when enrollment opens.
                     </p>
                   </div>
 

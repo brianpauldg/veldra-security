@@ -98,8 +98,9 @@ export default function QualifyGate({ children, title, className = '' }: Qualify
         >
           {title ?? 'Do I qualify?'}
         </h2>
-        <p className="text-[12px] text-[#8a8268] font-light mb-6">
-          Three quick yes/nos before the form. Nothing is stored or transmitted — this is just a UI check.
+        <p className="text-[12px] text-[#8a8268] font-light mb-6 leading-relaxed">
+          Three quick yes/nos before the form. Programs are open to{' '}
+          <strong className="font-medium text-[#a89878]">men and women</strong>. Nothing is stored or transmitted — this is just a UI check.
         </p>
 
         <ul className="space-y-3">

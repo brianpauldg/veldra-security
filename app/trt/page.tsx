@@ -15,7 +15,7 @@ export default function TRTPage() {
     <TreatmentPage
       tag="Testosterone Replacement Therapy"
       title="TRT"
-      headline="Restore your energy. Reclaim your edge."
+      headline="Restore your energy. Feel like yourself again."
       description="Clinician-guided testosterone optimization designed around your labs, your symptoms, and your goals. Not a cookie-cutter protocol, but a personalized program supervised by licensed providers."
       icon={<Zap className="w-6 h-6" />}
       benefits={[
