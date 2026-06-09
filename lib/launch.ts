@@ -1,29 +1,76 @@
 // ─────────────────────────────────────────────────────────────
 // Bloom Metabolics — Launch / Founding Cohort Config
 // ─────────────────────────────────────────────────────────────
-// Single source of truth for the founding-member scarcity counter.
-// Every place on the site that shows "{N} spots remain" reads from here.
-// ─────────────────────────────────────────────────────────────
+// Single source of truth for the launch banner, the founding-member
+// scarcity counter, the hero pricing anchor, and any other launch-time
+// promotion copy. Every place on the site that shows the launch date,
+// the "from $348/mo" line, the founding-member promo, or the cohort
+// counter reads from this file.
 //
-// HOW TO UPDATE THE COUNTER (weekly cadence):
+// ─── HOW TO UPDATE ──────────────────────────────────────────
 //
-//   1. Decrement `FOUNDING_COHORT.spotsRemaining` to the new honest count.
-//   2. Update `lastUpdatedISO` to today's date (YYYY-MM-DD).
-//   3. Commit + push to main. Vercel deploys in ~60s.
+// Launch date moves:    edit LAUNCH_DATE_ISO + LAUNCH_DATE_DISPLAY.
+// Price changes:        edit MEMBERSHIP_FROM_DISPLAY + MEMBERSHIP_FROM_NOTE.
+// Promo on/off:         toggle FIRST_MONTH_PROMO.active (true|false).
+// Promo amount/copy:    edit FIRST_MONTH_PROMO.{percentOff,applies,disclaimer}.
+// Cohort counter:       decrement FOUNDING_COHORT.spotsRemaining +
+//                       bump FOUNDING_COHORT.lastUpdatedISO. Weekly cadence.
 //
-// Honest scarcity only. NEVER fake the number — the cohort cap is real
-// because:
+// Commit + push to main. Vercel deploys in ~60s.
+//
+// HONEST SCARCITY ONLY. Never fake the cohort number or back-date the
+// promo. The cohort cap is real because:
 //   - It protects the response-time promise (founders' tier comes with
 //     "first in line for physician availability").
 //   - It bounds onboarding load for the small clinical team at launch.
 //   - It justifies the locked founding-member price for the early cohort.
 //
-// If `spotsRemaining` hits 0, the counter will display "Cohort closed —
-// join the waitlist for the next opening." Behavior baked into the
-// component, no code change needed.
+// If `spotsRemaining` hits 0, the counter component displays "Cohort
+// closed — join the waitlist for the next opening." No code change
+// needed for that transition.
 //
 // ─────────────────────────────────────────────────────────────
 
+// ─── Launch date ────────────────────────────────────────────
+/** ISO date the consumer-facing waitlist converts to enrollment. */
+export const LAUNCH_DATE_ISO = '2026-07-15'
+/** Human-formatted version used in copy (e.g. banner, hero). */
+export const LAUNCH_DATE_DISPLAY = 'July 15, 2026'
+
+// ─── Membership entry-price anchor ──────────────────────────
+/** Lowest practical all-in monthly figure across published tiers + add-ons.
+ *  Source: lib/pricing.ts (Essentials $149 + TRT add-on $199 = $348). If
+ *  pricing changes, sync this constant — the hero pricing line, launch
+ *  banner, and any other on-site price anchor all read from it. */
+export const MEMBERSHIP_FROM_DISPLAY = '$348/mo'
+/** Short clarifier appended after the price. */
+export const MEMBERSHIP_FROM_NOTE = 'all-in, medication included'
+
+// ─── First-month promotional discount ───────────────────────
+export interface LaunchPromo {
+  /** Toggle to hide the promo without removing the code. */
+  active: boolean
+  /** Whole-number percent off (e.g. 20 → "20% off"). */
+  percentOff: number
+  /** What the discount applies to. Used inline in banner copy. */
+  applies: string
+  /** Asterisk footnote rendered under the promo line. Should cover ALL
+   *  conditions — medical eligibility, qualifying tiers, etc. */
+  disclaimer: string
+}
+
+/** Active at launch: 20% off first month for founding members. The
+ *  promo is applicable when the visitor either (a) medically qualifies
+ *  for treatment OR (b) joins at a qualifying membership tier. */
+export const FIRST_MONTH_PROMO: LaunchPromo = {
+  active: true,
+  percentOff: 20,
+  applies: 'your first month',
+  disclaimer:
+    'Applicable if eligible for treatment, or qualifying membership tiers (qualifying membership tiers start at flagship).',
+}
+
+// ─── Founding cohort scarcity counter ───────────────────────
 export interface FoundingCohort {
   /** Total seats in the founding-member cohort. Fixed at launch design time. */
   cohortSize: number

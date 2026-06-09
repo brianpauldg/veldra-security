@@ -16,6 +16,8 @@ import MedicalDirectorBio from '@/components/MedicalDirectorBio'
 import PreLaunchWaitlist from '@/components/PreLaunchWaitlist'
 import dynamic from 'next/dynamic'
 import Meridian from '@/components/Meridian'
+import LaunchBanner from '@/components/LaunchBanner'
+import { MEMBERSHIP_FROM_DISPLAY, MEMBERSHIP_FROM_NOTE } from '@/lib/launch'
 
 // Lazy: the waitlist modal is ~600 lines + framer-motion and only opens on
 // CTA click. Pulling it out of the initial bundle cuts ~15 KB and shaves
@@ -53,18 +55,10 @@ export default function Home() {
 
   return (
     <>
-      {/* Pre-launch disclosure banner */}
-      <div className="bg-[#0a0906] border-b border-[#1a1814] py-4 px-6 text-center">
-        <p className="text-[13px] text-[#d8cfbe] font-medium leading-relaxed max-w-3xl mx-auto">
-          Bloom Metabolics launches July 15, 2026.
-        </p>
-        <p className="text-[12px] text-[#d8cfbe] font-light leading-relaxed max-w-3xl mx-auto mt-1">
-          Be among the first to access our personalized metabolic care platform. Join the waitlist today for priority access and exclusive launch updates.
-        </p>
-        <p className="text-[11px] text-[#8a8268] font-light leading-relaxed max-w-3xl mx-auto mt-2">
-          No medical services are currently provided, and no health information is collected.
-        </p>
-      </div>
+      {/* Pre-launch banner — copy + price + promo all read from lib/launch.ts.
+          To change anything (date, price, promo amount, disclaimer, or to
+          pull the promo entirely), edit lib/launch.ts, not this file. */}
+      <LaunchBanner />
 
       {/* ═══════════════════════════════════════════════════════
           1. HERO
@@ -139,18 +133,19 @@ export default function Home() {
             </div>
 
             {/*
-              Price-transparency anchor moved into the hero.
-              Cold visitors decide in ~5 seconds whether this is a $1,500/mo
-              concierge thing or attainable. Burying the all-in pricing line
-              far down the page wasted our #1 differentiator. The full range
-              ($348–$498/mo, member add-on math) still lives on /pricing.
+              Price-transparency anchor in the hero. Reads from lib/launch.ts
+              so price changes flow through to both this line and the top
+              banner without a content edit here. Cold visitors decide in ~5s
+              whether Bloom is a $1,500/mo concierge thing or attainable;
+              burying the all-in price wastes our #1 differentiator. Full
+              tier range ($348–$498/mo with add-ons) still lives on /pricing.
             */}
             <p className="mt-6 text-[13px] text-[#a89878] font-light leading-relaxed max-w-lg">
               Transparent all-in pricing from{' '}
               <Link href="/pricing" className="text-[#d8cfbe] font-medium underline decoration-[#3a3630] underline-offset-4 hover:decoration-[#d8cfbe] transition-colors">
-                $348/mo
+                {MEMBERSHIP_FROM_DISPLAY}
               </Link>
-              , medication included. No hidden fees.
+              , {MEMBERSHIP_FROM_NOTE.replace('all-in, ', '')}. No hidden fees.
             </p>
           </div>
         </div>
