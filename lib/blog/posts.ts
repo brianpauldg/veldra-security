@@ -19,6 +19,17 @@ export interface Post {
 const POSTS: Post[] = [
   // ─── PUBLISHED ────────────────────────────────────────────────────────
   {
+    slug: 'ghk-cu-vs-botox',
+    title: 'GHK-Cu vs. Botox: Can the Beauty Peptide Improve Skin Quality Naturally?',
+    description: 'Can GHK-Cu replace Botox? Learn how the copper peptide supports collagen, skin elasticity, wound healing, and hair growth — and how it differs from Botox at a cellular level.',
+    author: 'Bloom Metabolics Clinical Team',
+    published_at: '2026-06-09',
+    category: 'Peptides',
+    tags: ['ghk-cu', 'copper peptides', 'peptide therapy', 'anti-aging', 'skincare', 'botox alternative', 'hair growth', 'collagen'],
+    reading_time: 8,
+    draft: false,
+  },
+  {
     slug: 'real-benefits-of-trt',
     title: 'The Real Benefits of Testosterone Replacement Therapy (TRT)',
     description: 'Learn the real benefits of Testosterone Replacement Therapy (TRT), including improved energy, muscle growth, libido, mental clarity, and body composition. Explore TRT risks, side effects, and safety.',
