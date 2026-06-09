@@ -130,9 +130,10 @@ As hormone optimization and longevity medicine continue to grow in popularity, m
 
 ## Sources
 
-- Mayo Clinic – Testosterone Therapy Overview
-- Cleveland Clinic – Low Testosterone & TRT
-- National Institutes of Health (NIH) – Testosterone Therapy Research
-- Harvard Health – Testosterone and Men's Health
-- American Urological Association – Testosterone Deficiency Guidelines
-- FDA – Testosterone Therapy Safety Information
+- [Mayo Clinic – Testosterone Therapy Overview](https://www.mayoclinic.org/healthy-lifestyle/sexual-health/in-depth/testosterone-therapy/art-20045728)
+- [Cleveland Clinic – Low Testosterone (Male Hypogonadism)](https://my.clevelandclinic.org/health/diseases/15603-low-testosterone-male-hypogonadism)
+- [National Institutes of Health (NIH) – Testosterone Replacement Therapy Research (PubMed)](https://pubmed.ncbi.nlm.nih.gov/?term=testosterone+replacement+therapy)
+- [Harvard Health – Testosterone: What It Does and Doesn't Do](https://www.health.harvard.edu/medications/testosterone--what-it-does-and-doesnt-do)
+- [American Urological Association – Testosterone Deficiency Guideline](https://www.auanet.org/guidelines-and-quality/guidelines/testosterone-deficiency-guideline)
+- [FDA – Testosterone and Other Anabolic Androgenic Steroids Safety Information](https://www.fda.gov/drugs/postmarket-drug-safety-information-patients-and-providers/testosterone-and-other-anabolic-androgenic-steroids-aas)
+- [TRAVERSE Trial (2023) – Cardiovascular Safety of Testosterone Therapy (NEJM)](https://www.nejm.org/doi/full/10.1056/NEJMoa2215025)

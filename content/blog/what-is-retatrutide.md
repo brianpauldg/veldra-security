@@ -136,8 +136,9 @@ Stay in the loop with the newest developments in weight loss medication by subsc
 
 ## Sources
 
-- New England Journal of Medicine – Retatrutide Phase 2 Trial
-- Eli Lilly Investor Relations – Retatrutide Phase 3 Data
-- ClinicalTrials.gov – Retatrutide Studies
-- PubMed Central – Retatrutide Safety Review
-- Reuters – 2026 Retatrutide Trial Coverage
+- [New England Journal of Medicine – Retatrutide Phase 2 Trial (Jastreboff et al., 2023)](https://www.nejm.org/doi/full/10.1056/NEJMoa2301972)
+- [Eli Lilly Investor Relations – Retatrutide Press Releases](https://investor.lilly.com/news-releases)
+- [ClinicalTrials.gov – Retatrutide Studies](https://clinicaltrials.gov/search?term=retatrutide)
+- [PubMed – Retatrutide Safety Literature](https://pubmed.ncbi.nlm.nih.gov/?term=retatrutide+safety)
+- [Reuters – Eli Lilly Retatrutide Coverage](https://www.reuters.com/business/healthcare-pharmaceuticals/)
+- [TRIUMPH Clinical Program – Retatrutide Phase 3 Trials](https://clinicaltrials.gov/search?term=TRIUMPH+retatrutide)

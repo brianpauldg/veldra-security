@@ -120,8 +120,18 @@ export function markdownToHtml(markdown: string): string {
 /** Process inline markdown: bold, italic, links, inline code */
 function inline(text: string): string {
   return text
-    // Links: [text](url)
-    .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2">$1</a>')
+    // Links: [text](url) — external links open in a new tab with security
+    // attributes; internal links stay same-tab. We intentionally do NOT add
+    // rel="nofollow" to outbound citation links — citing authoritative sources
+    // (NIH, FDA, NEJM, JAMA, Mayo, Cleveland, etc.) is an E-E-A-T signal and
+    // we want Google to see the references as trust-flow citations.
+    .replace(/\[([^\]]+)\]\(([^)]+)\)/g, (_match, label, url) => {
+      const isExternal = /^https?:\/\//i.test(url)
+      if (isExternal) {
+        return `<a href="${url}" target="_blank" rel="noopener noreferrer">${label}</a>`
+      }
+      return `<a href="${url}">${label}</a>`
+    })
     // Bold + italic: ***text***
     .replace(/\*{3}([^*]+)\*{3}/g, '<strong><em>$1</em></strong>')
     // Bold: **text**
