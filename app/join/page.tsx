@@ -5,6 +5,7 @@ import { Stethoscope, Microscope, Shield, Users } from 'lucide-react'
 import PreLaunchWaitlist from '@/components/PreLaunchWaitlist'
 import Meridian from '@/components/Meridian'
 import QualifyGate from '@/components/QualifyGate'
+import FoundingMemberCounter from '@/components/FoundingMemberCounter'
 
 export const metadata: Metadata = {
   title: 'Join the Bloom Metabolics Waitlist, Physician-Led Hormone & Metabolic Care',
@@ -69,6 +70,14 @@ export default function JoinPage() {
                 Physician-directed hormone and metabolic care.{' '}
                 <em className="italic">Built by a clinician.</em>
               </h1>
+
+              {/*
+                Founding-member scarcity counter — honest count read from
+                lib/launch.ts. Update FOUNDING_COHORT.spotsRemaining there
+                weekly. The number here is real — the cohort cap protects
+                the response-time promise + bounds onboarding load at launch.
+              */}
+              <FoundingMemberCounter className="mb-6 max-w-md" />
 
               <p className="text-[16px] text-[#8a8268] leading-relaxed mb-10 font-light max-w-lg">
                 Bloom Metabolics opens for enrollment on July 15, 2026. Join the waitlist for priority access.
