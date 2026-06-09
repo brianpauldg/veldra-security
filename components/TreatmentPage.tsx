@@ -6,6 +6,7 @@ import { ArrowRight, Check } from 'lucide-react'
 import Section, { SectionLabel, SectionTitle, SectionDescription } from '@/components/ui/Section'
 import Card from '@/components/ui/Card'
 import GLP1ComplianceDisclosure from '@/components/GLP1ComplianceDisclosure'
+import SymptomChecklistCTA, { type SymptomChecklistVertical } from '@/components/SymptomChecklistCTA'
 import type { ReactNode } from 'react'
 
 interface TreatmentPageProps {
@@ -20,6 +21,14 @@ interface TreatmentPageProps {
   idealFor: string[]
   addOnPricing?: string
   disclaimer: string
+  /**
+   * Which symptom-checklist quiz to point the secondary CTA at.
+   * - 'trt'     → /quiz       (TRT / hormone assessment)
+   * - 'glp1'    → /glp1-quiz  (GLP-1 / weight-loss assessment)
+   * - 'hormone' → /quiz       (broad hormone assessment)
+   * If omitted, the secondary CTA is hidden (back-compat for legacy callers).
+   */
+  checklistVertical?: SymptomChecklistVertical
 }
 
 const fadeUp = {
@@ -31,6 +40,7 @@ const fadeUp = {
 export default function TreatmentPage({
   tag, title, headline, description,
   benefits, process, faqs, idealFor, addOnPricing, disclaimer,
+  checklistVertical,
 }: TreatmentPageProps) {
   return (
     <>
@@ -185,6 +195,9 @@ export default function TreatmentPage({
           <p className="text-[12px] text-[#8a8268] mt-5">{disclaimer}</p>
         </div>
       </Section>
+
+      {/* Secondary conversion — captures the visitors not ready to commit. */}
+      {checklistVertical ? <SymptomChecklistCTA vertical={checklistVertical} /> : null}
     </>
   )
 }

@@ -52,6 +52,7 @@ export default function TRTPage() {
       ]}
       addOnPricing="+$199/mo add-on to any Bloom membership tier. Medication included."
       disclaimer="All TRT treatments require evaluation and prescription by a licensed medical provider. Individual results vary. Not everyone qualifies for testosterone replacement therapy."
+      checklistVertical="trt"
     />
   )
 }

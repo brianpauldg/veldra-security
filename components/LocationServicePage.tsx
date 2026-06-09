@@ -5,6 +5,26 @@
 import Link from 'next/link'
 import { ArrowRight, Check, MapPin, Clock, Stethoscope, ShieldCheck } from 'lucide-react'
 import type { CityData, ServiceData } from '@/lib/seo/locations'
+import SymptomChecklistCTA, { type SymptomChecklistVertical } from '@/components/SymptomChecklistCTA'
+
+/**
+ * Map the SEO service taxonomy to the symptom-checklist quiz it should
+ * point at. Weight-loss / GLP-1 → /glp1-quiz; everything else hormone-related
+ * (TRT, hormone optimization, peptides) → /quiz.
+ */
+function checklistVerticalForService(category: ServiceData['category']): SymptomChecklistVertical {
+  switch (category) {
+    case 'GLP-1':
+    case 'Weight Loss':
+      return 'glp1'
+    case 'TRT':
+      return 'trt'
+    case 'Hormone':
+    case 'Peptide':
+    default:
+      return 'hormone'
+  }
+}
 
 interface LocationServicePageProps {
   city: CityData
@@ -321,6 +341,9 @@ export default function LocationServicePage({
           </Link>
         </div>
       </section>
+
+      {/* Secondary conversion — captures visitors not ready to commit. */}
+      <SymptomChecklistCTA vertical={checklistVerticalForService(service.category)} />
     </>
   )
 }

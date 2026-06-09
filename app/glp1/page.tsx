@@ -56,6 +56,7 @@ export default function GLP1Page() {
       addOnPricing="+$299/mo add-on to any Bloom membership tier. Medication included."
       // FDA April 1 2026 — compounded disclosure in disclaimer
       disclaimer="GLP-1 medications provided by Bloom Metabolics are compounded by a licensed compounding pharmacy and are not FDA-approved. Prescribed based on individual medical evaluation and patient-specific medical necessity. Not all patients qualify. Results vary significantly. Treatment includes regular medical monitoring."
+      checklistVertical="glp1"
     />
   )
 }

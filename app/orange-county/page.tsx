@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { ArrowRight, MapPin } from 'lucide-react'
 import { CITIES, SERVICES, LANDING_PAGES, getCity, getService } from '@/lib/seo/locations'
 import SchemaMarkup, { breadcrumbSchema } from '@/components/SchemaMarkup'
+import SymptomChecklistCTA from '@/components/SymptomChecklistCTA'
 
 const city = getCity('orange-county')
 const BASE = process.env.NEXT_PUBLIC_APP_URL || 'https://bloommetabolics.com'
@@ -159,6 +160,10 @@ export default function OrangeCountyHubPage() {
           </Link>
         </div>
       </section>
+
+      {/* Secondary conversion — OC hub spans all verticals, default to
+          the broad hormone assessment as the lowest-friction entry. */}
+      <SymptomChecklistCTA vertical="hormone" />
     </>
   )
 }
