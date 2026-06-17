@@ -19,6 +19,17 @@ export interface Post {
 const POSTS: Post[] = [
   // ─── PUBLISHED ────────────────────────────────────────────────────────
   {
+    slug: 'tesamorelin-benefits',
+    title: 'Tesamorelin Benefits: Fat Loss, Growth Hormone Support & Healthy Aging',
+    description: 'Learn how Tesamorelin works, its potential benefits for visceral fat reduction, body composition, recovery, and longevity, plus the science behind this growth hormone peptide.',
+    author: 'Bloom Metabolics Clinical Team',
+    published_at: '2026-06-17',
+    category: 'Peptides',
+    tags: ['tesamorelin', 'peptide therapy', 'growth hormone', 'ghrh', 'visceral fat', 'body composition', 'healthy aging', 'longevity'],
+    reading_time: 8,
+    draft: false,
+  },
+  {
     slug: 'glutathione-benefits',
     title: 'Glutathione Benefits: Energy, Detoxification, Skin Health & Healthy Aging',
     description: 'Learn how glutathione supports detoxification, immune health, skin wellness, recovery, and healthy aging. Discover the science behind the body’s master antioxidant.',
