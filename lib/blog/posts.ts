@@ -19,6 +19,17 @@ export interface Post {
 const POSTS: Post[] = [
   // ─── PUBLISHED ────────────────────────────────────────────────────────
   {
+    slug: 'glutathione-benefits',
+    title: 'Glutathione Benefits: Energy, Detoxification, Skin Health & Healthy Aging',
+    description: 'Learn how glutathione supports detoxification, immune health, skin wellness, recovery, and healthy aging. Discover the science behind the body’s master antioxidant.',
+    author: 'Bloom Metabolics Clinical Team',
+    published_at: '2026-06-17',
+    category: 'Longevity',
+    tags: ['glutathione', 'antioxidant', 'detoxification', 'longevity', 'healthy aging', 'skin health', 'immune support', 'oxidative stress'],
+    reading_time: 8,
+    draft: false,
+  },
+  {
     slug: 'ghk-cu-vs-botox',
     title: 'GHK-Cu vs. Botox: Can the Beauty Peptide Improve Skin Quality Naturally?',
     description: 'Can GHK-Cu replace Botox? Learn how the copper peptide supports collagen, skin elasticity, wound healing, and hair growth — and how it differs from Botox at a cellular level.',
