@@ -19,6 +19,17 @@ export interface Post {
 const POSTS: Post[] = [
   // ─── PUBLISHED ────────────────────────────────────────────────────────
   {
+    slug: 'mens-sexual-health',
+    title: "Men's Sexual Health: Causes of Low Testosterone, ED & Low Libido",
+    description: 'Learn the causes of erectile dysfunction, low testosterone, and low libido in men. Discover symptoms, treatments, and when to seek medical care.',
+    author: 'Bloom Metabolics Clinical Team',
+    published_at: '2026-06-17',
+    category: 'TRT',
+    tags: ['mens-health', 'sexual-health', 'erectile-dysfunction', 'low-testosterone', 'libido', 'ed', 'hormone-optimization', 'trt'],
+    reading_time: 9,
+    draft: false,
+  },
+  {
     slug: 'tesamorelin-benefits',
     title: 'Tesamorelin Benefits: Fat Loss, Growth Hormone Support & Healthy Aging',
     description: 'Learn how Tesamorelin works, its potential benefits for visceral fat reduction, body composition, recovery, and longevity, plus the science behind this growth hormone peptide.',
