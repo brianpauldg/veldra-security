@@ -19,6 +19,17 @@ export interface Post {
 const POSTS: Post[] = [
   // ─── PUBLISHED ────────────────────────────────────────────────────────
   {
+    slug: 'womens-sexual-health',
+    title: "Women's Sexual Health: Causes of Low Libido, Hormone Imbalances & Painful Sex",
+    description: 'Discover common causes of low libido, vaginal dryness, painful sex, and hormone imbalances in women. Learn about symptoms, treatments, and when to seek care.',
+    author: 'Bloom Metabolics Clinical Team',
+    published_at: '2026-06-17',
+    category: 'Hormone Health',
+    tags: ['womens-health', 'sexual-health', 'low-libido', 'perimenopause', 'menopause', 'hormone-imbalance', 'dyspareunia', 'hormone-optimization'],
+    reading_time: 9,
+    draft: false,
+  },
+  {
     slug: 'mens-sexual-health',
     title: "Men's Sexual Health: Causes of Low Testosterone, ED & Low Libido",
     description: 'Learn the causes of erectile dysfunction, low testosterone, and low libido in men. Discover symptoms, treatments, and when to seek medical care.',
